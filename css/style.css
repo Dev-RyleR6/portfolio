@@ -86,6 +86,7 @@ body {
   color: #444;
   font-size: 1rem;
   margin-bottom: 10px;
+  text-align: justify;
 }
 
 .experience__item {
