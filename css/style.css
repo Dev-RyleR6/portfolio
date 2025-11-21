@@ -1,10 +1,34 @@
 /* General styles */
+html{
+  scroll-behavior: smooth;
+
+}
+
 body {
   background: #f7f7f7;
   font-family: 'Inter', Arial, sans-serif;
   color: #222;
   margin: 0;
+  padding: 0;
 }
+
+/* arrow-icon */
+.arrow-icon {
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+#contact {
+  color: #444;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  text-align: start;
+  font-weight: bold;
+}
+
+/* ------- */
 
 .page {
   max-width: 900px;
@@ -143,4 +167,80 @@ body {
 
 .nav__button:hover {
   background: #f0f0f0;
+}
+
+
+.image-collage {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  flex-wrap: wrap;
+
+}
+
+.image-collage img {
+  width: 50%;
+  max-width: 300px;
+  border-radius: 2px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.experience__title {
+  color: #000000;
+  font-size: 0.95rem;
+}
+
+.image-collage-2 img {
+  width: 100%;
+  max-width: 447px;
+  border-radius: 2px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+
+/* ---Portfolio Section---- */
+
+.portfolio__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+.portfolio__item {
+  background: #fafafa;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+}
+.portfolio__item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  transition: all 0.3s ease
+}
+.portfolio__item-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.portfolio__item-description {
+  color: #444;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+.portfolio__item:hover {
+  background-color: #000000c0;
+  transform: scale(1.01);
+}
+
+.about-me__image {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  width: 100%;
 }
