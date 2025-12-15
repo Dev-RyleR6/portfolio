@@ -25,18 +25,20 @@
     <!-- HERO SECTION - Introduction at the top -->
     <!-- ============================================ -->
     <section class="hero" id="hero">
-      <!-- Profile picture -->
-      <img 
-        src="assets/images/profile.jpg" 
-        alt="Ryle Anthony Gabotero - Software Developer" 
-        class="hero-image" 
-      />
+      <!-- Profile picture with frame -->
+      <div class="hero-image-wrapper">
+        <img 
+          src="assets/images/profile.jpg" 
+          alt="Ryle Anthony Gabotero - Software Developer" 
+          class="hero-image" 
+        />
+      </div>
 
-      <!-- Hero content (title and description) -->
+      <!-- Hero content -->
       <div class="hero-content">
         <h1 class="hero-title">
-          Hello, I am Ryle Anthony Gabotero.<br />
-          A Software Developer.
+          <span class="hero-name">Ryle Anthony Gabotero</span>
+          <span class="hero-role">Software Developer</span>
         </h1>
 
         <p class="hero-subtitle">
@@ -46,7 +48,10 @@
         <!-- Contact button -->
         <a href="#contact" class="button hero-contact-button">
           Contact me 
-          <img class="arrow-icon" src="assets/icons/nav.svg" alt="arrow icon">
+          <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
         </a>
       </div>
     </section>
@@ -63,20 +68,22 @@
       <div class="about">
         <h2 class="section-title">About Me</h2>
 
-        <p class="section-text">
-          I'm Ryle, an indie developer building full-stack software. 
-          I enjoy creating applications from the backend to the frontend, focusing on making them work smoothly and efficiently.
-        </p>
+        <div class="about-content">
+          <p class="section-text">
+            I'm Ryle, an indie developer building full-stack software. 
+            I enjoy creating applications from the backend to the frontend, focusing on making them work smoothly and efficiently.
+          </p>
 
-        <p class="section-text">
-          I'm particularly interested in backend and server-side development—building APIs, managing databases, and handling the logic that keeps applications running smoothly. 
-          I enjoy solving problems behind the scenes and making sure everything works reliably.
-        </p>
+          <p class="section-text">
+            I'm particularly interested in backend and server-side development—building APIs, managing databases, and handling the logic that keeps applications running smoothly. 
+            I enjoy solving problems behind the scenes and making sure everything works reliably.
+          </p>
+        </div>
       </div>
 
       <!-- Experience Column -->
       <div class="experience">
-        <h2 class="section-title">  Experience</h2>
+        <h2 class="section-title">Experience</h2>
 
         <!-- Experience item 1 -->
         <div class="experience-item">

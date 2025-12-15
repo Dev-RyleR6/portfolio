@@ -5,7 +5,25 @@
 
 /* About section container */
 .about {
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: 0;
+}
+
+/* About content wrapper */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* About section text with improved spacing */
+.about .section-text {
+  margin-bottom: 0;
+  line-height: 1.8;
+  color: var(--color-text-light);
+}
+
+.about .section-text:first-of-type {
+  margin-top: var(--spacing-sm);
 }
 
 /* About me section with image */
@@ -17,28 +35,67 @@
 .about-image {
   display: flex;
   justify-content: center;
-  margin-top: var(--spacing-md);
+  margin-top: var(--spacing-lg);
   width: 100%;
 }
 
 .about-image img {
   max-width: 100%;
-  border-radius: var(--border-radius-sm);
+  border-radius: var(--border-radius-md);
   box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-image img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 /* Grid layout for about + experience side by side */
 .section-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  gap: var(--spacing-xl);
+  align-items: flex-start;
 }
 
-/* Responsive design for smaller screens */
+/* Section title improvements */
+.section-grid .section-title {
+  margin-bottom: var(--spacing-md);
+  position: relative;
+  padding-bottom: var(--spacing-sm);
+}
+
+.section-grid .section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--color-border);
+  border-radius: 2px;
+}
+
+/* Responsive design for tablets */
+@media (max-width: 968px) {
+  .section-grid {
+    gap: var(--spacing-xl);
+  }
+}
+
+/* Responsive design for mobile screens */
 @media (max-width: 768px) {
   .section-grid {
     grid-template-columns: 1fr;
     gap: var(--spacing-xl);
   }
-}
 
+  .about-content {
+    gap: var(--spacing-sm);
+  }
+
+  .about .section-text {
+    text-align: left;
+  }
+}

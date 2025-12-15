@@ -1,70 +1,192 @@
 /**
  * Hero Section Styles
- * Styles for the main hero/introduction section at the top of the page
+ * Improved layout with modern profile image styling
  */
 
 .hero {
   display: flex;
-  align-items: center;
-  gap: var(--spacing-xxl);
-  margin-bottom: var(--spacing-xl);
+  align-items: flex-start;
+  gap: var(--spacing-xl);
+  margin-bottom: 0;
+  padding: 0;
 }
 
-/* Hero profile image */
+/* Hero image wrapper for decorative frame */
+.hero-image-wrapper {
+  position: relative;
+  flex-shrink: 0;
+  padding: 6px;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-image-wrapper:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Hero profile image - rounded square shape */
 .hero-image {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+  border-radius: 14px;
   object-fit: cover;
   background: #eee;
-  flex-shrink: 0;
+  display: block;
 }
 
 /* Hero content container */
 .hero-content {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding-top: 0;
 }
 
-/* Hero main title */
+/* Hero main title - improved typography */
 .hero-title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin: 0 0 var(--spacing-sm) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin: 0;
   line-height: 1.2;
+}
+
+/* Hero name */
+.hero-name {
+  color: var(--color-text);
+  font-weight: 700;
+  font-size: 2.4rem;
+  letter-spacing: -0.5px;
+  display: block;
+  line-height: 1.2;
+}
+
+/* Hero role/title */
+.hero-role {
+  color: var(--color-text-light);
+  font-weight: 500;
+  font-size: 1.4rem;
+  display: block;
+  margin-top: 4px;
+  line-height: 1.3;
 }
 
 /* Hero subtitle/description */
 .hero-subtitle {
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: var(--color-text-muted);
-  margin-bottom: 18px;
-  line-height: 1.6;
+  margin: 0;
+  line-height: 1.7;
+  max-width: 600px;
 }
 
 /* Contact button in hero */
 .hero-contact-button {
-  color: var(--color-text-light);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--color-text);
   font-size: 1rem;
-  margin-bottom: 10px;
-  text-align: start;
-  font-weight: bold;
+  font-weight: 500;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  margin-top: var(--spacing-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  transition: all 0.2s ease;
+  width: fit-content;
 }
 
-/* Responsive design for smaller screens */
+.hero-contact-button:hover {
+  background: var(--color-hover);
+  border-color: #ddd;
+  transform: translateX(4px);
+}
+
+/* Arrow icon in hero button */
+.hero-contact-button .arrow-icon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.hero-contact-button:hover .arrow-icon {
+  transform: translate(3px, -3px);
+}
+
+/* Responsive design for tablets */
+@media (max-width: 968px) {
+  .hero {
+    gap: var(--spacing-lg);
+  }
+
+  .hero-image-wrapper {
+    padding: 5px;
+  }
+
+  .hero-image {
+    width: 140px;
+    height: 140px;
+  }
+
+  .hero-name {
+    font-size: 2rem;
+  }
+
+  .hero-role {
+    font-size: 1.25rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* Responsive design for mobile screens */
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
     text-align: center;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-xl);
+    padding: var(--spacing-md) 0;
+  }
+
+  .hero-image-wrapper {
+    padding: 6px;
   }
 
   .hero-image {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
+  }
+
+  .hero-content {
+    align-items: center;
+    text-align: center;
   }
 
   .hero-title {
-    font-size: 1.8rem;
+    align-items: center;
+  }
+
+  .hero-name {
+    font-size: 1.9rem;
+  }
+
+  .hero-role {
+    font-size: 1.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .hero-contact-button {
+    margin-top: var(--spacing-xs);
   }
 }
-
