@@ -3,88 +3,102 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Ryle Anthony Gabotero - Software Developer specializing in full-stack development" />
   <title>Ryle | Software Developer</title>
 
-  <!-- Stylesheets -->
   <link rel="stylesheet" href="css/reset.css" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/section/hero.css" />
+  <link rel="stylesheet" href="css/section/about.css" />
+  <link rel="stylesheet" href="css/section/experience.css" />
+  <link rel="stylesheet" href="css/section/portfolio.css" />
+  <link rel="stylesheet" href="css/section/tech-stack.css" />
+  <link rel="stylesheet" href="css/section/navigation.css" />
 </head>
 <body>
 
+  <!-- Main page container -->
   <main class="page">
 
-    <!-- Hero Section -->
+    <!-- ============================================ -->
+    <!-- HERO SECTION - Introduction at the top -->
+    <!-- ============================================ -->
     <section class="hero" id="hero">
+      <!-- Profile picture -->
       <img 
         src="assets/images/profile.jpg" 
-        alt="Profile" 
-        class="hero__image" 
+        alt="Ryle Anthony Gabotero - Software Developer" 
+        class="hero-image" 
       />
 
-      <div class="hero__content">
-        <h1 class="hero__title">
+      <!-- Hero content (title and description) -->
+      <div class="hero-content">
+        <h1 class="hero-title">
           Hello, I am Ryle Anthony Gabotero.<br />
           A Software Developer.
         </h1>
 
-        <p class="hero__subtitle">
-            I’m an indie developer building full-stack software, with a strong interest in backend and server-side systems like APIs and databases.
+        <p class="hero-subtitle">
+          I'm an indie developer building full-stack software, with a strong interest in backend and server-side systems like APIs and databases.
         </p>
 
-
-        <a href="#contact" id="contact" class="button button--link">Contact me <img class="arrow-icon" src="assets/icons/nav.svg" alt=""></a>
+        <!-- Contact button -->
+        <a href="#contact" class="button hero-contact-button">
+          Contact me 
+          <img class="arrow-icon" src="assets/icons/nav.svg" alt="arrow icon">
+        </a>
       </div>
     </section>
 
+    <!-- Section divider -->
     <hr class="divider" />
 
-    <!-- About + Experience Section -->
-    <section class="section section--grid">
+    <!-- ============================================ -->
+    <!-- ABOUT + EXPERIENCE SECTION - Side by side -->
+    <!-- ============================================ -->
+    <section class="section section-grid">
 
-      <!-- About -->
+      <!-- About Me Column -->
       <div class="about">
-        <h2 class="section__title">About Me</h2>
+        <h2 class="section-title">About Me</h2>
 
-        <p class="section__text">
-            I’m Ryle, an indie developer building full-stack software. 
-            I enjoy creating applications from the backend to the frontend, focusing on making them work smoothly and efficiently.
+        <p class="section-text">
+          I'm Ryle, an indie developer building full-stack software. 
+          I enjoy creating applications from the backend to the frontend, focusing on making them work smoothly and efficiently.
         </p>
 
-
-
-
-        <p class="section__text">
-            I’m particularly interested in backend and server-side development—building APIs, managing databases, and handling the logic that keeps applications running smoothly. 
-                I enjoy solving problems behind the scenes and making sure everything works reliably.
+        <p class="section-text">
+          I'm particularly interested in backend and server-side development—building APIs, managing databases, and handling the logic that keeps applications running smoothly. 
+          I enjoy solving problems behind the scenes and making sure everything works reliably.
         </p>
-
-
-        <a href="#about-me" class="button button--link">More about me →</a>
       </div>
 
-      <!-- Experience -->
+      <!-- Experience Column -->
       <div class="experience">
-        <h2 class="section__title">Past experience</h2>
+        <h2 class="section-title">Past Experience</h2>
 
-        <div class="experience__item">
-          <h3 class="experience__role">Hackathon Dev</h3>
-          <p class="experience__details">
-            𝗖𝗮𝗻 𝗬𝗼𝘂 𝗛𝗮𝗰𝗸𝗜𝗧: 𝗧𝗵𝗲 𝗜𝗕𝗣𝗔𝗣 𝗖𝗵𝗮𝗹𝗹𝗲𝗻𝗴𝗲 (𝗖𝗬𝗛)<br />
+        <!-- Experience item 1 -->
+        <div class="experience-item">
+          <h3 class="experience-role">Hackathon Dev</h3>
+          <p class="experience-details">
+            Can You HackIT: The IBPAP Challenge (CYH)<br />
             July 15, 2025 - Cebu Institute of Technology – University.
           </p>
         </div>
 
-        <div class="experience__item">
-          <h3 class="experience__role">AI Software Innovator</h3>
-          <p class="experience__details">
-            𝗗𝗜𝗖𝗧 𝗔𝗜.𝗱𝗲𝗮𝘀 𝗳𝗼𝗿 𝗜𝗺𝗽𝗮𝗰𝘁: 𝗔𝗜 𝗳𝗼𝗿 𝗜𝗻𝗻𝗼𝘃𝗮𝘁𝗶𝗼𝗻<br />
+        <!-- Experience item 2 -->
+        <div class="experience-item">
+          <h3 class="experience-role">AI Software Innovator</h3>
+          <p class="experience-details">
+            DICT AI.deas for Impact: AI for Innovation<br />
             June 25-26, 2024 - Southview Hotel, Dumaguete City.
           </p>
         </div>
 
-        <div class="experience__item">
-          <h3 class="experience__role">Indie Software Developer</h3>
-          <p class="experience__details">
+        <!-- Experience item 3 -->
+        <div class="experience-item">
+          <h3 class="experience-role">Indie Software Developer</h3>
+          <p class="experience-details">
             Personal Projects | Team SHIFT<br />
             2024 — Present
           </p>
@@ -93,110 +107,156 @@
 
     </section>
 
+    <!-- Section divider -->
     <hr class="divider" />
 
-    <!-- Portfolio Section -->
+    <!-- ============================================ -->
+    <!-- PORTFOLIO SECTION - Showcase of projects -->
+    <!-- ============================================ -->
     <section class="section portfolio" id="portfolio">
-      <h2 class="section__title">Portfolio</h2>
-      <p class="section__text">Lorem ipsum dolor sit amet...</p>
+      <h2 class="section-title">Portfolio</h2>
+      <p class="section-text">
+        Here are some of my recent projects. Each one represents a learning experience and a step forward in my development journey.
+      </p>
 
-      <div class="portfolio__grid">
-        </div>
-          <h3 class="portfolio__title">myAnime | Anime Streaming Platform</h3>
-          <p class="portfolio__item-description">An ad-free anime streaming platform.</p>
-        </div>
-
-        <div class="portfolio__item">
-          <a target="_blank" href="https://myanime-frontend.vercel.app/">
+      <!-- Portfolio grid container -->
+      <div class="portfolio-grid">
+        
+        <!-- Portfolio item 1 - myAnime -->
+        <div class="portfolio-item">
+          <a href="https://myanime-frontend.vercel.app/" target="_blank" class="portfolio-link" rel="noopener noreferrer">
             <img 
-              src="assets/images/image.png" 
-              alt="Project 1" 
-              class="portfolio__image" 
+              src="assets/images/myanimelogo.svg" 
+              alt="myAnime - Anime Streaming Platform" 
+              class="portfolio-image" 
             />
+          
+          <h3 class="portfolio-title">myAnime | Anime Streaming Platform</h3>
+          <p class="portfolio-description">
+            An ad-free anime streaming platform built with modern web technologies. 
+            Features include user authentication, search functionality, and a clean, intuitive interface.
+          </p>
           </a>
         </div>
-          </a>
         
 
-        <div class="portfolio__item">
-          <img 
-            src="assets/images/portfolio2.jpg" 
-            alt="Project 2" 
-            class="portfolio__image" 
-          />
-          <h3 class="portfolio__title">Project Title 2</h3>
+        <!-- Portfolio item 2 - Placeholder for future projects -->
+        <div class="portfolio-item">
+          <a href="https://pickleworld-frontend.vercel.app/" target="_blank" class="portfolio-link" rel="noopener noreferrer">
+            <img 
+              src="assets/images/pickleworld.svg" 
+              alt="Project 2" 
+              class="portfolio-image" 
+            />
+          <h3 class="portfolio-title">Pickle World Court Reservation</h3>
+          <p class="portfolio-description">
+            A web application for reserving courts in a pickleball facility. Built with a focus on user experience and efficient booking management.
+          </p>
+          </a>
         </div>
-
-        <div class="portfolio__item">
-          <img 
-            src="assets/images/portfolio3.jpg" 
-            alt="Project 3" 
-            class="portfolio__image" 
-          />
-          <h3 class="portfolio__title">Project Title 3</h3>
-        </div>
-
-
+      
       </div>
     </section>
 
-    <!-- About Me Section -->
-    <section class="section about-me" id="about-me">
-      <h2 class="section__title">About Me</h2>
-      <p class="section__text">lorem ipsum dolor sit amet... Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      <div class="about-me__image">
-        <img src="assets/images/me.jpg" alt="">
-      </div>
-    </section>
-    
-      <hr class="divider" />
+    <!-- Section divider -->
+    <hr class="divider" />
 
-      <!-- Tech Stack Section-->
+    <!-- ============================================ -->
+    <!-- TECH STACK SECTION - Technologies I use -->
+    <!-- ============================================ -->
     <section class="section tech-stack" id="tech-stack">
-      <h2 class="section__title">Tech Stack</h2>
-      <p class="section__text">lorem ipsum dolor sit amet... Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <h2 class="section-title">Tech Stack</h2>
+      <p class="section-text">
+        Here are some of the technologies and tools I work with. I'm always learning and adding new skills to my toolkit.
+      </p>
+      
+      <!-- Tech stack grid - Add your technologies here -->
+      <div class="tech-grid">
+        <!-- Example tech items - Update with your actual tech stack -->
+        <!--
+        <div class="tech-item">
+          <h3 class="tech-name">JavaScript</h3>
+        </div>
+        <div class="tech-item">
+          <h3 class="tech-name">React</h3>
+        </div>
+        <div class="tech-item">
+          <h3 class="tech-name">Node.js</h3>
+        </div>
+        -->
+      </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- Section divider -->
+    <hr class="divider" />
+
+    <!-- ============================================ -->
+    <!-- EXPERIENCE SECTION - Detailed experience -->
+    <!-- ============================================ -->
     <section class="section experience" id="experience">
-      <h2 class="section__title">Experience</h2>
-      <p class="section__text">lorem ipsum dolor sit amet... Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      <p class="experience__title">
-            𝗖𝗮𝗻 𝗬𝗼𝘂 𝗛𝗮𝗰𝗸𝗜𝗧: 𝗧𝗵𝗲 𝗜𝗕𝗣𝗔𝗣 𝗖𝗵𝗮𝗹𝗹𝗲𝗻𝗴𝗲 (𝗖𝗬𝗛)<br />
-            July 15, 2025 - Cebu Institute of Technology – University.
+      <h2 class="section-title">Experience</h2>
+      <p class="section-text">
+        Here's a closer look at some of my notable experiences and achievements in software development.
+      </p>
+
+      <!-- Experience 1: Hackathon -->
+      <p class="experience-title">
+        Can You HackIT: The IBPAP Challenge (CYH)<br />
+        July 15, 2025 - Cebu Institute of Technology – University.
       </p>
       <div class="image-collage">
-        <img src="assets/images/Hackathon.jpg" alt="">
-        <img id="Hackathon2" src="assets/images/Hackathon2.jpg" alt="">
-        <img src="assets/images/4th.jpg" alt="">
+        <img src="assets/images/Hackathon.jpg" alt="Hackathon event photo 1">
+        <img src="assets/images/Hackathon2.jpg" alt="Hackathon event photo 2">
+        <img src="assets/images/4th.jpg" alt="Hackathon event photo 3">
       </div>
-      <p class="experience__title">
-            𝗗𝗜𝗖𝗧 𝗔𝗜.𝗱𝗲𝗮𝘀 𝗳𝗼𝗿 𝗜𝗺𝗽𝗮𝗰𝘁: 𝗔𝗜 𝗳𝗼𝗿 𝗜𝗻𝗻𝗼𝘃𝗮𝘁𝗶𝗼𝗻<br />
-            June 25-26, 2024 - Southview Hotel, Dumaguete City.
+
+      <!-- Experience 2: AI Innovation -->
+      <p class="experience-title">
+        DICT AI.deas for Impact: AI for Innovation<br />
+        June 25-26, 2024 - Southview Hotel, Dumaguete City.
       </p>
       <div class="image-collage-2">
-        <img src="assets/images/Aideas.jpg" alt="">
-        <img id="Hackathon2" src="assets/images/aideas3.jpg" alt="">
-      </div>
-      
-
+        <img src="assets/images/Aideas.jpg" alt="AI Innovation event photo 1">
+        <img src="assets/images/aideas3.jpg" alt="AI Innovation event photo 2">
       </div>
     </section>
-    
+
+    <!-- ============================================ -->
+    <!-- CONTACT SECTION - Contact information -->
+    <!-- ============================================ -->
+    <section class="section" id="contact">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-text">
+        Interested in working together or have a question? Feel free to reach out!
+      </p>
+      <!-- Add your contact information here -->
+      <!-- Example: Email, LinkedIn, GitHub links -->
+    </section>
 
   </main>
 
-  <!-- Bottom Navigation -->
+  <!-- ============================================ -->
+  <!-- BOTTOM NAVIGATION - Fixed navigation bar -->
+  <!-- ============================================ -->
   <nav class="nav">
-    <a class="nav__button" href="#hero"><img src="assets/icons/home.svg" alt=""></a>
-    <a class="nav__button" href="#portfolio"><img src="assets/icons/projects.svg" alt=""></a>
-    <a class="nav__button" href="#about-me"><img src="assets/icons/user.svg" alt=""></a>
-    <a class="nav__button" href="#tech-stack"><img src="assets/icons/tech.svg" alt=""></a>
-    <a class="nav__button" href="#experience"><img src="assets/icons/experience.svg" alt=""></a>
-    <a class="nav__button" href="#contact"><img src="assets/icons/contact.svg" alt=""></a>
+    <a class="nav-button" href="#hero" aria-label="Go to home section">
+      <img src="assets/icons/user.svg" alt="Home">
+    </a>
+    <a class="nav-button" href="#portfolio" aria-label="Go to portfolio section">
+      <img src="assets/icons/projects.svg" alt="Portfolio">
+    </a>
+    <a class="nav-button" href="#tech-stack" aria-label="Go to tech stack section">
+      <img src="assets/icons/tech.svg" alt="Tech Stack">
+    </a>
+    <a class="nav-button" href="#experience" aria-label="Go to experience section">
+      <img src="assets/icons/experience.svg" alt="Experience">
+    </a>
+    <a class="nav-button" href="#contact" aria-label="Go to contact section">
+      <img src="assets/icons/contact.svg" alt="Contact">
+    </a>
   </nav>
 
-  <!-- Scripts -->  
+  <!-- JavaScript file for interactive features -->
   <script src="js/script.js"></script>
 
 </body>

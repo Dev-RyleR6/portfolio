@@ -1,0 +1,70 @@
+/**
+ * Hero Section Styles
+ * Styles for the main hero/introduction section at the top of the page
+ */
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xxl);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Hero profile image */
+.hero-image {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #eee;
+  flex-shrink: 0;
+}
+
+/* Hero content container */
+.hero-content {
+  flex: 1;
+}
+
+/* Hero main title */
+.hero-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0 0 var(--spacing-sm) 0;
+  line-height: 1.2;
+}
+
+/* Hero subtitle/description */
+.hero-subtitle {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+
+/* Contact button in hero */
+.hero-contact-button {
+  color: var(--color-text-light);
+  font-size: 1rem;
+  margin-bottom: 10px;
+  text-align: start;
+  font-weight: bold;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-lg);
+  }
+
+  .hero-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+}
+

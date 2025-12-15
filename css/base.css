@@ -1,0 +1,100 @@
+/**
+ * Base Styles
+ * General styles that apply to the entire page
+ */
+
+/* Root variables for consistent theming */
+:root {
+  --color-bg: #f7f7f7;
+  --color-white: #fff;
+  --color-text: #222;
+  --color-text-light: #444;
+  --color-text-muted: #666;
+  --color-border: #eee;
+  --color-hover: #f0f0f0;
+  --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 8px 32px rgba(60, 60, 60, 0.08);
+  --border-radius: 20px;
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 40px;
+}
+
+/* Body styles */
+body {
+  background: var(--color-bg);
+  font-family: 'Inter', Arial, sans-serif;
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+}
+
+/* Main page container */
+.page {
+  max-width: 900px;
+  margin: var(--spacing-xxl) auto;
+  background: var(--color-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-xxl) var(--spacing-xl);
+}
+
+/* Section divider */
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: var(--spacing-xl) 0;
+}
+
+/* Section base styles */
+.section {
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Section title */
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Section text */
+.section-text {
+  color: var(--color-text-light);
+  font-size: 1rem;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+/* Button styles */
+.button {
+  display: inline-block;
+  padding: var(--spacing-xs) 18px;
+  border-radius: var(--border-radius-sm);
+  background: none;
+  color: var(--color-text);
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background 0.2s, border 0.2s;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--color-hover);
+  border: 1px solid #ddd;
+}
+
+/* Arrow icon in buttons */
+.arrow-icon {
+  width: 16px;
+  height: 16px;
+  margin-left: var(--spacing-xs);
+  vertical-align: middle;
+}
+

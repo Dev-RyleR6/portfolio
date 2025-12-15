@@ -1,0 +1,87 @@
+/**
+ * Portfolio Section Styles
+ * Styles for the portfolio/projects section
+ */
+
+.portfolio {
+  margin-top: var(--spacing-lg);
+}
+
+/* Portfolio grid container */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+/* Individual portfolio item */
+.portfolio-item {
+  background: #fafafa;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+  padding: var(--spacing-lg);
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.portfolio-item:hover {
+  background-color: #d8d7d700;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border-color: var(--color-border);
+}
+
+/* Portfolio item image */
+.portfolio-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-sm);
+  margin-bottom: var(--spacing-sm);
+  transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-image {
+  transform: scale(1.02);
+}
+
+/* Portfolio item title */
+.portfolio-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: var(--spacing-sm) 0;
+  color: var(--color-text);
+}
+
+/* Portfolio item description */
+.portfolio-description {
+  color: var(--color-text-light);
+  font-size: 1rem;
+  margin-bottom: var(--spacing-sm);
+  text-align: justify;
+  line-height: 1.6;
+}
+
+/* Portfolio item link wrapper */
+.portfolio-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Responsive design for larger screens */
+@media (min-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+

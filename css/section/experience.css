@@ -1,0 +1,92 @@
+/**
+ * Experience Section Styles
+ * Styles for the experience and past work section
+ */
+
+/* Experience item container */
+.experience-item {
+  margin-bottom: 18px;
+  padding: var(--spacing-md);
+  background: #fafafa;
+  border-radius: var(--border-radius-sm);
+  transition: background 0.2s;
+}
+
+.experience-item:hover {
+  background: #f5f5f5;
+}
+
+/* Experience role/title */
+.experience-role {
+  font-weight: 600;
+  margin-bottom: 2px;
+  color: var(--color-text);
+}
+
+/* Experience details/description */
+.experience-details {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Experience section title */
+.experience-title {
+  color: var(--color-text);
+  font-size: 0.95rem;
+  margin-bottom: var(--spacing-md);
+  line-height: 1.6;
+}
+
+/* Image collage for experience photos */
+.image-collage {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.image-collage img {
+  width: 50%;
+  max-width: 300px;
+  border-radius: 2px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s;
+}
+
+.image-collage img:hover {
+  transform: scale(1.02);
+}
+
+/* Second image collage variant */
+.image-collage-2 {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.image-collage-2 img {
+  width: 100%;
+  max-width: 447px;
+  border-radius: 2px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s;
+}
+
+.image-collage-2 img:hover {
+  transform: scale(1.02);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .image-collage img {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+

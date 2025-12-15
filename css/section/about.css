@@ -1,0 +1,44 @@
+/**
+ * About Section Styles
+ * Styles for the about me section
+ */
+
+/* About section container */
+.about {
+  margin-bottom: var(--spacing-xl);
+}
+
+/* About me section with image */
+.about-me {
+  margin-top: var(--spacing-lg);
+}
+
+/* About me image container */
+.about-image {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--spacing-md);
+  width: 100%;
+}
+
+.about-image img {
+  max-width: 100%;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Grid layout for about + experience side by side */
+.section-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .section-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+}
+
