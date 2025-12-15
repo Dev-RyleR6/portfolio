@@ -127,3 +127,35 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('%cFeel free to explore the code and reach out if you have any questions.', 
         'color: #666; font-size: 12px;');
 });
+
+// ============================================
+// CERTIFICATE TOGGLE FUNCTION
+// ============================================
+
+/**
+ * Toggle the visibility of the certificate iframe
+ * Shows/hides the certificate container and updates button text
+ */
+function toggleCertificate() {
+    const container = document.getElementById('certificateContainer');
+    const button = document.querySelector('.certificate-button');
+    const buttonText = button.querySelector('.certificate-button-text');
+    
+    if (container.style.display === 'none') {
+        // Show certificate
+        container.style.display = 'block';
+        buttonText.textContent = 'Hide Certificate';
+        
+        // Smooth scroll to certificate after a short delay
+        setTimeout(() => {
+            container.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'nearest' 
+            });
+        }, 100);
+    } else {
+        // Hide certificate
+        container.style.display = 'none';
+        buttonText.textContent = 'View Certificate';
+    }
+}
