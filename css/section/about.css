@@ -22,6 +22,10 @@
   color: var(--color-text-light);
 }
 
+.socials-title {
+  margin-top: var(--spacing-lg);
+}
+
 /* Social links list */
 .socials-list {
   list-style: none;
