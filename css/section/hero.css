@@ -8,7 +8,7 @@
   align-items: flex-start;
   gap: var(--spacing-xl);
   margin-bottom: 0;
-  padding: 0;
+  padding: 0;;
 }
 
 /* Hero image wrapper for decorative frame */
@@ -152,6 +152,7 @@
     text-align: center;
     gap: var(--spacing-xl);
     padding: var(--spacing-md) 0;
+    align-items: center; /* center the profile */
   }
 
   .hero-image-wrapper {

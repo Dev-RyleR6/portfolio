@@ -1,48 +1,49 @@
-/**
- * Tech Stack Section Styles
- * Styles for the technology stack section
- */
+
 
 .tech-stack {
   margin-top: var(--spacing-lg);
 }
 
-/* Tech stack grid container */
-.tech-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: var(--spacing-lg);
+.tech-card {
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.tech-group + .tech-group {
   margin-top: var(--spacing-lg);
 }
 
-/* Individual tech item */
-.tech-item {
-  background: #fafafa;
-  border-radius: var(--border-radius-sm);
-  padding: var(--spacing-lg);
-  text-align: center;
-  transition: all 0.2s;
-  border: 1px solid transparent;
-}
-
-.tech-item:hover {
-  background: #f5f5f5;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
-  border-color: var(--color-border);
-}
-
-/* Tech item name */
-.tech-name {
+.tech-group-title {
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--color-text);
-  margin-top: var(--spacing-sm);
+  margin: 0 0 var(--spacing-xs) 0;
 }
 
-/* Responsive design */
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.tech-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  font-size: 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: #fafafa;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
 @media (max-width: 768px) {
-  .tech-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .tech-card {
+    padding: var(--spacing-md);
   }
 }
-

@@ -1,7 +1,4 @@
-/**
- * Base Styles
- * General styles that apply to the entire page
- */
+
 
 /* Root variables for consistent theming */
 :root {
@@ -37,7 +34,7 @@ body {
 /* Main page container */
 .page {
   max-width: 900px;
-  margin: var(--spacing-xxl) auto;
+  margin: var(--spacing-xxl) auto var(--spacing-lg);
   background: var(--color-white);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-md);
@@ -61,6 +58,19 @@ body {
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: var(--spacing-sm);
+}
+
+/* Site footer */
+.site-footer {
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-sm);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+/* Desktop footer hidden on mobile */
+.site-footer.mobile-footer {
+  display: none;
 }
 
 /* Section text */
@@ -98,3 +108,11 @@ body {
   vertical-align: middle;
 }
 
+@media (max-width: 768px) {
+  .site-footer.desktop-footer {
+    display: none;
+  }
+  .site-footer.mobile-footer {
+    display: block;
+  }
+}

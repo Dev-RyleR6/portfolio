@@ -22,6 +22,46 @@
   color: var(--color-text-light);
 }
 
+/* Social links list */
+.socials-list {
+  list-style: none;
+  padding: 0;
+  margin-top: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.socials-list li {
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  background: var(--color-white);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  overflow: hidden;
+}
+
+.socials-list li a {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: 0.55rem 0.9rem;
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.socials-list li a img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: inline-block;
+}
+
+.socials-list li a:hover {
+  color: var(--color-text-light);
+}
+
 .about .section-text:first-of-type {
   margin-top: var(--spacing-sm);
 }
@@ -51,12 +91,18 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* Grid layout for about + experience side by side */
+/* Layout for about + experience side by side */
 .section-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   gap: var(--spacing-xl);
   align-items: flex-start;
+  justify-content: space-between;
+}
+
+.section-grid > .about,
+.section-grid > .experience {
+  flex: 1;
+  min-width: 0;
 }
 
 /* Section title improvements */
@@ -81,21 +127,58 @@
 @media (max-width: 968px) {
   .section-grid {
     gap: var(--spacing-xl);
+    flex-wrap: wrap;
   }
 }
 
 /* Responsive design for mobile screens */
 @media (max-width: 768px) {
+
   .section-grid {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: stretch;
     gap: var(--spacing-xl);
   }
 
+  .section-title {
+    text-align: center;
+  }
+
+  .section-title::after {
+    display: none;
+  }
+
+
   .about-content {
     gap: var(--spacing-sm);
+    align-items: center;
+    text-align: center;
   }
 
   .about .section-text {
-    text-align: left;
+    text-align: center;
+    max-width: 34rem;
+  }
+
+  .socials-title {
+    margin-top: var(--spacing-lg);
+    align-self: center;
+    text-align: center;
+  }
+
+  .socials-list.about {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-xs);
+    width: 100%;
+    max-width: 100%;
+    
+  }
+
+  .socials-list {
+    justify-content: center;
+    gap: var(--spacing-xs);
+    width: 100%;
+    max-width: 100%;
   }
 }

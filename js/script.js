@@ -1,7 +1,4 @@
-/**
- * Portfolio Website JavaScript
- * Handles interactive features and smooth scrolling
- */
+
 
 // Wait for the page to fully load before running JavaScript
 document.addEventListener('DOMContentLoaded', () => {
@@ -18,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', (event) => {
             // Get the href attribute (e.g., "#hero", "#portfolio")
             const targetId = button.getAttribute('href');
-            
+                    
             // If it's a hash link (starts with #)
             if (targetId.startsWith('#')) {
                 event.preventDefault(); // Prevent default jump behavior
@@ -118,14 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ============================================
-    // CONSOLE MESSAGE (Optional - for fun!)
-    // ============================================
-    
-    console.log('%c👋 Hello! Thanks for checking out my portfolio!', 
-        'color: #222; font-size: 16px; font-weight: bold;');
-    console.log('%cFeel free to explore the code and reach out if you have any questions.', 
-        'color: #666; font-size: 12px;');
 });
 
 // ============================================

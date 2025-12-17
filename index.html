@@ -13,8 +13,10 @@
   <link rel="stylesheet" href="css/section/about.css" />
   <link rel="stylesheet" href="css/section/experience.css" />
   <link rel="stylesheet" href="css/section/portfolio.css" />
+  <link rel="stylesheet" href="css/section/blog.css" />
   <link rel="stylesheet" href="css/section/tech-stack.css" />
   <link rel="stylesheet" href="css/section/navigation.css" />
+  <link rel="stylesheet" href="css/section/contact.css" />
 </head>
 <body>
 
@@ -78,7 +80,26 @@
             I'm particularly interested in backend and server-side development—building APIs, managing databases, and handling the logic that keeps applications running smoothly. 
             I enjoy solving problems behind the scenes and making sure everything works reliably.
           </p>
+          
         </div>
+        <h2 class="section-title socials-title">Socials</h2>
+          <ul class="socials-list about">
+            <li>
+              <a href="https://www.linkedin.com/in/rylegabotero/" target="_blank" rel="noopener noreferrer">
+                <img src="assets/icons/InBug-Black.png" alt="LinkedIn logo">LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/Dev-RyleR6" target="_blank" rel="noopener noreferrer">
+                <img src="assets/icons/github-mark.svg" alt="GitHub logo">GitHub
+              </a>
+            </li>
+            <li>
+              <a href="https://gitlab.com/ryleanthony.gabotero" target="_blank" rel="noopener noreferrer">
+                <img src="assets/icons/gitlab.svg" alt="GitLab logo">GitLab
+              </a>
+            </li>
+          </ul>
       </div>
 
       <!-- Experience Column -->
@@ -174,7 +195,7 @@
       
          <!-- Portfolio item 3 - Placeholder for future projects -->
         <div class="portfolio-item">
-          <a href="-" target="_blank" class="portfolio-link" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/share/v/1BcHgnFtZG/" target="_blank" class="portfolio-link" rel="noopener noreferrer">
             <img 
               src="assets/images/archronicle.svg" 
               alt="Project 3" 
@@ -194,28 +215,97 @@
     <hr class="divider" />
 
     <!-- ============================================ -->
+    <!-- BLOG SECTION - Articles and writing -->
+    <!-- ============================================ -->
+    <section class="section blog" id="blog">
+      <h2 class="section-title">Blog</h2>
+      <p class="section-text">
+        Notes on what I'm building and learning along the way. New entries are added as I ship features or explore ideas.
+      </p>
+
+      <div class="blog-grid">
+        <article class="blog-card">
+          <div class="blog-meta">Aug 2025 · 4 min read</div>
+          <h3 class="blog-title">Designing myAnime for reliable streaming</h3>
+          <p class="blog-excerpt">
+            How I approached building an ad-free streaming experience with clean UI, resilient APIs, and caching strategies.
+          </p>
+          <a class="blog-link" href="#" target="_blank" rel="noopener noreferrer">Read post →</a>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-meta">Jul 2025 · 3 min read</div>
+          <h3 class="blog-title">Ship fast with small, focused releases</h3>
+          <p class="blog-excerpt">
+            Lessons from launching features quickly while keeping quality high through tighter scopes and iterative feedback.
+          </p>
+          <a class="blog-link" href="#" target="_blank" rel="noopener noreferrer">Read post →</a>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-meta">Jun 2025 · 5 min read</div>
+          <h3 class="blog-title">Backend-first thinking for indie projects</h3>
+          <p class="blog-excerpt">
+            Why starting with data models, APIs, and reliability unlocks faster frontend work and happier users.
+          </p>
+          <a class="blog-link" href="#" target="_blank" rel="noopener noreferrer">Read post →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Section divider -->
+    <hr class="divider" />
+
+    <!-- ============================================ -->
     <!-- TECH STACK SECTION - Technologies I use -->
     <!-- ============================================ -->
     <section class="section tech-stack" id="tech-stack">
       <h2 class="section-title">Tech Stack</h2>
       <p class="section-text">
-        Here are some of the technologies and tools I work with. I'm always learning and adding new skills to my toolkit.
+        Here are some of the technologies and tools I work with most often. I’m always learning and refining this stack as I build new projects.
       </p>
-      
-      <!-- Tech stack grid - Add your technologies here -->
-      <div class="tech-grid">
-        <!-- Example tech items - Update with your actual tech stack -->
-        <!--
-        <div class="tech-item">
-          <h3 class="tech-name">JavaScript</h3>
+
+      <div class="tech-card">
+        <div class="tech-group">
+          <h3 class="tech-group-title">Frontend</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">jQuery</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">React Native</span>
+            <span class="tech-tag">Bootstrap</span>
+            <span class="tech-tag">Tailwind CSS</span>
+          </div>
         </div>
-        <div class="tech-item">
-          <h3 class="tech-name">React</h3>
+
+        <div class="tech-group">
+          <h3 class="tech-group-title">Backend</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">Express</span>
+            <span class="tech-tag">PHP</span>
+            <span class="tech-tag">CodeIgniter</span>
+            <span class="tech-tag">WebSocket</span>
+            <span class="tech-tag">REST APIs</span>
+            <span class="tech-tag">MySQL</span>
+          </div>
         </div>
-        <div class="tech-item">
-          <h3 class="tech-name">Node.js</h3>
+
+        <div class="tech-group">
+          <h3 class="tech-group-title">DevOps &amp; Tools</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">Git</span>
+            <span class="tech-tag">GitHub</span>
+            <span class="tech-tag">GitLab</span>
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">Vercel</span>
+            <span class="tech-tag">Railway</span>
+            <span class="tech-tag">Postman</span>
+          </div>
         </div>
-        -->
       </div>
     </section>
 
@@ -286,14 +376,78 @@
     <!-- ============================================ -->
     <!-- CONTACT SECTION - Contact information -->
     <!-- ============================================ -->
-    <section class="section" id="contact">
+    <section class="section contact-section" id="contact">
       <h2 class="section-title">Contact</h2>
       <p class="section-text">
-        Interested in working together or have a question? Feel free to reach out!
+        Interested in working together or have a question? Send me a message and I’ll get back to you as soon as I can.
       </p>
-      <!-- Add your contact information here -->
-      <!-- Example: Email, LinkedIn, GitHub links -->
+
+      <div class="contact-card">
+        <div class="contact-info">
+          <p class="contact-text">
+            Prefer email or socials? You can reach me directly at
+            <a href="mailto:ryleanthony.gabotero@gmail.com">ryleanthony.gabotero@gmail.com</a>
+            or via the links below.
+          </p>
+
+          <h3 class="contact-socials-title">Social Links</h3>
+          <ul class="socials-list contact-socials-list">
+            <li>
+              <a href="https://github.com/Dev-RyleR6" target="_blank" rel="noopener noreferrer">
+                <img src="assets/icons/github-mark.svg" alt="GitHub logo">GitHub
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/rylegabotero/" target="_blank" rel="noopener noreferrer">
+                <img src="assets/icons/InBug-Black.png" alt="LinkedIn logo">LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href="https://gitlab.com/ryleanthony.gabotero" target="_blank" rel="noopener noreferrer">
+                <img src="assets/icons/gitlab.svg" alt="GitLab logo">GitLab
+              </a>
+            </li>
+            <li>
+              <a href="mailto:ryleanthony.gabotero@gmail.com" target="_blank" rel="noopener noreferrer">
+                <img src="assets/icons/gmail.svg" alt="Gmail logo">Gmail
+              </a>
+            </li>
+          </ul>
+
+          <footer class="site-footer desktop-footer">
+            <p>© 2025 Ryle Anthony Gabotero. All rights reserved.</p>
+          </footer> 
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label for="contact-name">Name</label>
+            <input id="contact-name" name="name" type="text" />
+          </div>
+
+          <div class="form-group">
+            <label for="contact-email">Email</label>
+            <input id="contact-email" name="email" type="email" />
+          </div>
+
+          <div class="form-group">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" rows="4"></textarea>
+          </div>
+
+          <button type="submit" class="contact-submit">Send Message</button>
+        </form>
+        
+      </div>
+
+      <footer class="site-footer mobile-footer">
+            <p>© 2025 Ryle Anthony Gabotero. All rights reserved.</p>
+      </footer> 
+
+      
     </section>
+
+    
 
   </main>
 
@@ -307,6 +461,9 @@
     <a class="nav-button" href="#portfolio" aria-label="Go to portfolio section">
       <img src="assets/icons/projects.svg" alt="Portfolio">
     </a>
+    <a class="nav-button" href="#blog" aria-label="Go to blog section">
+      <img src="assets/icons/blog.svg" alt="Blog">
+    </a>
     <a class="nav-button" href="#tech-stack" aria-label="Go to tech stack section">
       <img src="assets/icons/tech.svg" alt="Tech Stack">
     </a>
@@ -317,9 +474,11 @@
       <img src="assets/icons/contact.svg" alt="Contact">
     </a>
   </nav>
+  
 
   <!-- JavaScript file for interactive features -->
   <script src="js/script.js"></script>
+  <script src="js/components/form.js"></script>
 
 </body>
 </html>
