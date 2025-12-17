@@ -18,11 +18,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.offsetHeight;
             const sectionId = section.getAttribute('id');
+            console.log(`scrollPosition: ${scrollPosition} sectioTop: ${sectionTop} sectionHeight: ${sectionHeight} sectionID: ${sectionId}`)
             
+            if(scrollPosition === 3776 && sectionTop === 3895){
+                navButtons.forEach(btn => btn.classList.remove('active'));
+                const activeButton = document.querySelector(`.nav-button[href="#contact"]`);
+                if (activeButton) {
+                    activeButton.classList.add('active');
+                }
+            }
             // Check if we're in this section's viewport
             if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                 // Remove active class from all nav buttons
                 navButtons.forEach(btn => btn.classList.remove('active'));
+
+                
                 
                 // Add active class to the corresponding nav button
                 const activeButton = document.querySelector(`.nav-button[href="#${sectionId}"]`);
