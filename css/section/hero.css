@@ -1,8 +1,3 @@
-/**
- * Hero Section Styles
- * Improved layout with modern profile image styling
- */
-
 .hero {
   display: flex;
   align-items: flex-start;
@@ -145,7 +140,6 @@
   }
 }
 
-/* Responsive design for mobile screens */
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;

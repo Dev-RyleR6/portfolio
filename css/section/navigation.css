@@ -1,8 +1,3 @@
-/**
- * Navigation Styles
- * Styles for the bottom fixed navigation bar
- */
-
 /* Fixed navigation bar at bottom */
 .nav {
   position: fixed;
@@ -51,7 +46,7 @@
   margin: 0 auto;
 }
 
-/* Active navigation state (can be added via JavaScript) */
+/* Active navigation state */
 .nav-button.active {
   background: var(--color-hover);
 }

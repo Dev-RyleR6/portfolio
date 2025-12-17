@@ -1,5 +1,3 @@
-
-
 /* Experience item container */
 .experience-item {
   margin-bottom: 18px;
@@ -52,6 +50,10 @@
 /* Experience title inside experience-entry */
 .experience-entry .experience-title {
   margin-top: var(--spacing-lg);
+}
+
+#certificateContainer {
+  display: none;
 }
 
 /* Certificate button - Matches theme button style */

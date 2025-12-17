@@ -1,19 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
-    
-    // Get all navigation buttons
+    //navigation buttons
     const navButtons = document.querySelectorAll('.nav-button');
     
     
-    // Function to update which navigation button is active based on scroll position
+    // function to update which navigation button is active based on scroll position
     function updateActiveNav() {
-        // Get all sections with IDs
+        // get all sections with IDs
         const sections = document.querySelectorAll('section[id]');
         
-        // Get current scroll position
+        // get current scroll position
         const scrollPosition = window.scrollY + 200; 
         
-        // Loop through each section
+        // loop through each section
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.offsetHeight;
@@ -29,12 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             // Check if we're in this section's viewport
             if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                // Remove active class from all nav buttons
+                // remove active class
                 navButtons.forEach(btn => btn.classList.remove('active'));
-
-                
-                
-                // Add active class to the corresponding nav button
+  
+                // attach aactive class
                 const activeButton = document.querySelector(`.nav-button[href="#${sectionId}"]`);
                 if (activeButton) {
                     activeButton.classList.add('active');
@@ -42,21 +38,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-    // Update active nav on scroll
+    // update active nav on scroll
     window.addEventListener('scroll', updateActiveNav);
     
-    // Also update on page load
+    // also update on page load
     updateActiveNav();
 
    
-
 });
 
 
 
-/**
- show/hide certificate section and update button text
- */
+// show/hide certificate section and update button text
+
 function toggleCertificate() {
     const container = document.getElementById('certificateContainer');
     const button = document.querySelector('.certificate-button');
@@ -67,7 +61,7 @@ function toggleCertificate() {
         container.style.display = 'block';
         buttonText.textContent = 'Hide Certificate';
         
-        // Smooth scroll to certificate after a short delay
+        // smooth transition
         setTimeout(() => {
             container.scrollIntoView({ 
                 behavior: 'smooth', 
