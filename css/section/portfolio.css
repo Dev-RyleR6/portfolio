@@ -30,6 +30,10 @@
   border-color: var(--color-accent);
 }
 
+.portfolio-item.project-hidden {
+  display: none;
+}
+
 /* Portfolio item image */
 .portfolio-image {
   width: 100%;
