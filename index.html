@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="css/section/about.css" />
   <link rel="stylesheet" href="css/section/experience.css" />
   <link rel="stylesheet" href="css/section/portfolio.css" />
-  <link rel="stylesheet" href="css/section/blog.css" />
+  <link rel="stylesheet" href="css/section/services.css" />
   <link rel="stylesheet" href="css/section/tech-stack.css" />
   <link rel="stylesheet" href="css/section/navigation.css" />
   <link rel="stylesheet" href="css/section/contact.css" />
@@ -162,6 +162,7 @@
             <h3 class="portfolio-title">myAnime | Anime Streaming Platform</h3>
             <div class="project-info">
               <span class="status status-live">Live</span>
+              <span class="status status-ongoing">(In Progress)</span>
               <div class="project-tech">
                 <span>React</span>
                 <span>Tailwind</span>
@@ -185,7 +186,7 @@
             <img src="assets/images/pickleworld.svg" alt="Project 2" class="portfolio-image" />
             <h3 class="portfolio-title">Pickle World Court Reservation</h3>
             <div class="project-info">
-              <span class="status status-live">Live</span>
+              <span class="status status-offline">Not Deployed</span>
               <div class="project-tech">
                 <span>React.js</span>
                 <span>Tailwind</span>
@@ -238,46 +239,59 @@
     <!-- Section divider -->
     <hr class="divider" />
 
-    <!-- blog section -->
-    <section class="section blog" id="blog">
-      <h2 class="section-title">Blog</h2>
+    <!-- services section -->
+    <section class="section services" id="services">
+      <h2 class="section-title">Services</h2>
       <p class="section-text">
-        Reflections and insights from my journey through IT325 Web Systems and Technologies.
+        I provide comprehensive software solutions, from architectural design to front-end implementation.
       </p>
 
-      <div class="blog-grid">
-        <article class="blog-card">
-          <div class="blog-meta">August 2025 · 5 min read</div>
-          <h3 class="blog-title">Introduction to Web Systems and Technologies</h3>
-          <p class="blog-excerpt">
-            I learned the fundamentals of web systems how the internet works, the client-server architecture,
-            and how browsers communicate with servers. This foundation has helped me understand the bigger picture of
-            web development
-            and how all the pieces fit together.
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <article class="service-card reveal">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </div>
+          <h3 class="service-title">Full-Stack Development</h3>
+          <p class="service-description">
+            Building end-to-end web applications with React on the frontend and Node.js on the backend.
           </p>
         </article>
 
-        <article class="blog-card">
-          <div class="blog-meta">September 2025 · 4 min read</div>
-          <h3 class="blog-title">HTML and CSS: Building the Foundation</h3>
-          <p class="blog-excerpt">
-            Through IT325, I've mastered HTML basics and advanced elements, along with CSS fundamentals, layouts, and
-            styling.
-            Learning semantic HTML structure and CSS techniques like selectors, positioning, and layouts has been
-            crucial.
-            Building this portfolio has been a practical application of these concepts.
+        <!-- Service 2 -->
+        <article class="service-card reveal">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+              <line x1="6" y1="6" x2="6.01" y2="6"></line>
+              <line x1="6" y1="18" x2="6.01" y2="18"></line>
+            </svg>
+          </div>
+          <h3 class="service-title">API & Backend Systems</h3>
+          <p class="service-description">
+            Designing robust RESTful APIs and optimizing database schemas for performance and scalability.
           </p>
         </article>
 
-        <article class="blog-card">
-          <div class="blog-meta">November 2025 · 6 min read</div>
-          <h3 class="blog-title">JavaScript and Responsive Design</h3>
-          <p class="blog-excerpt">
-            In the midterm period, I learned CSS responsive design with Flexbox and JavaScript fundamentals.
-            Understanding Flexbox
-            for layouts and JavaScript for interactivity has transformed how I build websites. Working on responsive
-            layouts and
-            JavaScript features like form validation for this portfolio has been a great hands-on experience.
+        <!-- Service 3 -->
+        <article class="service-card reveal">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <h3 class="service-title">UI/UX Implementation</h3>
+          <p class="service-description">
+            Turning complex designs into responsive, interactive, and high-performance user interfaces.
           </p>
         </article>
       </div>
@@ -371,9 +385,7 @@
         </button>
 
         <div class="certificate-container" id="certificateContainer">
-          <iframe src="assets/docs/HDC2511200D53A1DE.pdf" class="certificate-iframe"
-            title="Huawei Developer Competition Certificate">
-          </iframe>
+          <!-- Dynamic iframe will be inserted here on desktop -->
         </div>
       </div>
 
@@ -483,8 +495,8 @@
     <a class="nav-button" href="#portfolio" aria-label="Go to portfolio section">
       <img src="assets/icons/projects.svg" alt="Portfolio">
     </a>
-    <a class="nav-button" href="#blog" aria-label="Go to blog section">
-      <img src="assets/icons/blog.svg" alt="Blog">
+    <a class="nav-button" href="#services" aria-label="Go to services section">
+      <img src="assets/icons/blog.svg" alt="Services">
     </a>
     <a class="nav-button" href="#tech-stack" aria-label="Go to tech stack section">
       <img src="assets/icons/tech.svg" alt="Tech Stack">
