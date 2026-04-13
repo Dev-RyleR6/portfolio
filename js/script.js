@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const sections = document.querySelectorAll('section[id]');
         const navButtons = document.querySelectorAll('.nav-button');
         
+        if (sections.length === 0) return;
+
         let currentSection = "";
         const scrollPosition = window.scrollY + 200;
 
@@ -73,11 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
             projects.forEach(project => {
                 const category = project.getAttribute('data-category');
                 if (filter === 'all' || category === filter) {
-                    project.style.display = 'block';
-                    setTimeout(() => project.style.opacity = '1', 10);
+                    project.classList.remove('project-hidden');
                 } else {
-                    project.style.opacity = '0';
-                    setTimeout(() => project.style.display = 'none', 400);
+                    project.classList.add('project-hidden');
                 }
             });
         });
