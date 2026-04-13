@@ -42,7 +42,7 @@ body {
   background: var(--color-white);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-md);
-  padding: var(--spacing-xxl) var(--spacing-xl);
+  padding: var(--spacing-xxl) var(--spacing-xl) 120px;
 }
 
 /* Section divider */
