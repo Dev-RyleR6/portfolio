@@ -56,6 +56,32 @@ document.addEventListener('DOMContentLoaded', () => {
         el.classList.add('reveal');
         revealObserver.observe(el);
     });
+
+    // Filter Logic for Archive Page
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projects = document.querySelectorAll('.portfolio-item');
+
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const filter = btn.getAttribute('data-filter');
+            
+            // Update active button
+            filterButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Filter projects
+            projects.forEach(project => {
+                const category = project.getAttribute('data-category');
+                if (filter === 'all' || category === filter) {
+                    project.style.display = 'block';
+                    setTimeout(() => project.style.opacity = '1', 10);
+                } else {
+                    project.style.opacity = '0';
+                    setTimeout(() => project.style.display = 'none', 400);
+                }
+            });
+        });
+    });
 });
 
 
