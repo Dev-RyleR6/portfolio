@@ -48,14 +48,30 @@
   margin: 0 auto;
 }
 
-/* Active navigation state */
+/* Active navigation state - minimal dot below icon */
 .nav-button.active {
-  background: var(--color-primary);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  opacity: 1;
 }
 
-.nav-button.active img {
-  filter: invert(1) brightness(2);
+.nav-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background: var(--color-accent);
+  border-radius: 50%;
+}
+
+.nav-button {
+  opacity: 0.5;
+}
+
+.nav-button:hover,
+.nav-button.active {
+  opacity: 1;
 }
 
 /* Responsive design for smaller screens */

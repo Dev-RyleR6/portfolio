@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Observe all sections and other elements to reveal
-    document.querySelectorAll('.section, .hero, .blog-card, .portfolio-item').forEach(el => {
+    document.querySelectorAll('.section, .hero, .service-card, .portfolio-item').forEach(el => {
         el.classList.add('reveal');
         revealObserver.observe(el);
     });
@@ -92,21 +92,31 @@ function toggleCertificate() {
     const container = document.getElementById('certificateContainer');
     const button = document.querySelector('.certificate-button');
     const buttonText = button.querySelector('.certificate-button-text');
-    
-    if (container.style.display === 'none') {
-        // Show certificate
+    const pdfUrl = 'assets/docs/HDC2511200D53A1DE.pdf';
+
+    // Check if user is on mobile
+    const isMobile = window.innerWidth <= 768 || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (isMobile) {
+        // On mobile, just open the PDF in a new tab to avoid auto-download/iframe issues
+        window.open(pdfUrl, '_blank');
+        return;
+    }
+
+    // On desktop, toggle the inline iframe
+    if (container.style.display === 'none' || !container.style.display) {
+        // Dynamically add iframe if it doesn't exist
+        if (!container.querySelector('iframe')) {
+            container.innerHTML = `<iframe src="${pdfUrl}" class="certificate-iframe" title="Huawei Certificate"></iframe>`;
+        }
+        
         container.style.display = 'block';
         buttonText.textContent = 'Hide Certificate';
         
-        // smooth transition
         setTimeout(() => {
-            container.scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'nearest' 
-            });
+            container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }, 100);
     } else {
-        // Hide certificate
         container.style.display = 'none';
         buttonText.textContent = 'View Certificate';
     }
