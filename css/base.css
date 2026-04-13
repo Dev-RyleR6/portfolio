@@ -1,24 +1,29 @@
 
 /* variables */
 :root {
-  --color-bg: #f7f7f7;
-  --color-white: #fff;
-  --color-text: #222;
-  --color-text-light: #444;
-  --color-text-muted: #666;
-  --color-border: #eee;
-  --color-hover: #f0f0f0;
-  --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 8px 32px rgba(60, 60, 60, 0.08);
-  --border-radius: 20px;
+  --color-bg: #fcfcfc;
+  --color-white: #ffffff;
+  --color-text: #1a1a1a;
+  --color-text-light: #4a4a4a;
+  --color-text-muted: #717171;
+  --color-border: #e1e1e1;
+  --color-primary: #2d3436;
+  --color-accent: #636e72;
+  --color-hover: #f5f5f5;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 12px 40px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.1);
+  --border-radius: 24px;
   --border-radius-sm: 8px;
-  --border-radius-md: 12px;
+  --border-radius-md: 16px;
   --spacing-xs: 8px;
   --spacing-sm: 12px;
   --spacing-md: 16px;
   --spacing-lg: 24px;
   --spacing-xl: 32px;
-  --spacing-xxl: 40px;
+  --spacing-xxl: 48px;
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.4);
 }
 
 /* Body styles */
@@ -114,4 +119,17 @@ body {
   .site-footer.mobile-footer {
     display: block;
   }
+}
+/* Scroll Reveal Animation Styles */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), 
+              transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }
