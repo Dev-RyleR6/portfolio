@@ -1,18 +1,21 @@
-/* Toast-style snackbar: theme-aligned, motion-safe, responsive */
+/* Toast snackbar — matches page + nav glass; top placement clears bottom nav */
 
 .snackbar {
-  --snackbar-bg: rgba(26, 26, 26, 0.94);
-  --snackbar-border: rgba(255, 255, 255, 0.1);
+  --snackbar-surface: var(--glass-bg);
+  --snackbar-border: var(--glass-border);
+  --snackbar-text: var(--color-text);
+  --snackbar-muted: var(--color-text-muted);
   --snackbar-accent: var(--color-accent);
-  --snackbar-text: #fafafa;
-  --snackbar-shadow: 0 16px 48px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+  --snackbar-shadow: var(--shadow-lg);
+  --snackbar-ring: rgba(45, 52, 54, 0.08);
 
   position: fixed;
   left: 50%;
-  z-index: 10000;
-  max-width: min(28rem, calc(100vw - 2 * var(--spacing-md)));
+  top: max(var(--spacing-md), calc(env(safe-area-inset-top, 0px) + 8px));
+  z-index: 10050;
+  max-width: min(22rem, calc(100vw - 2 * var(--spacing-md)));
   width: max-content;
-  min-width: min(100%, 12rem);
+  min-width: min(100%, 11rem);
 
   padding: 0;
   margin: 0;
@@ -22,15 +25,11 @@
 
   opacity: 0;
   visibility: hidden;
-  transform: translate3d(-50%, 1.25rem, 0) scale(0.97);
-  filter: blur(0);
+  transform: translate3d(-50%, -0.75rem, 0) scale(0.98);
   transition:
-    opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-    visibility 0s linear 0.35s,
-    filter 0.3s ease;
-
-  bottom: max(5.75rem, calc(env(safe-area-inset-bottom, 0px) + 5.25rem));
+    opacity 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0.36s;
 }
 
 .snackbar[hidden] {
@@ -42,11 +41,11 @@
   align-items: flex-start;
   gap: var(--spacing-sm);
   padding: var(--spacing-md) var(--spacing-lg);
-  background: var(--snackbar-bg);
+  background: var(--snackbar-surface);
   color: var(--snackbar-text);
   border-radius: var(--border-radius-md);
   border: 1px solid var(--snackbar-border);
-  box-shadow: var(--snackbar-shadow);
+  box-shadow: var(--snackbar-shadow), 0 0 0 1px var(--snackbar-ring);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   text-align: left;
@@ -63,14 +62,14 @@
   width: 3px;
   background: var(--snackbar-accent);
   border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
-  opacity: 0.95;
+  opacity: 0.9;
 }
 
 .snackbar__glyph {
   flex-shrink: 0;
   display: grid;
   place-items: center;
-  margin-top: 1px;
+  margin-top: 2px;
   color: var(--snackbar-accent);
 }
 
@@ -80,7 +79,8 @@
 }
 
 .snackbar[data-variant="success"] {
-  --snackbar-accent: #2ecc71;
+  --snackbar-accent: #1e8449;
+  --snackbar-ring: rgba(30, 132, 73, 0.12);
 }
 
 .snackbar[data-variant="success"] .snackbar__icon--success {
@@ -88,7 +88,8 @@
 }
 
 .snackbar[data-variant="error"] {
-  --snackbar-accent: #e74c3c;
+  --snackbar-accent: #c0392b;
+  --snackbar-ring: rgba(192, 57, 43, 0.1);
 }
 
 .snackbar[data-variant="error"] .snackbar__icon--error {
@@ -96,7 +97,8 @@
 }
 
 .snackbar[data-variant="info"] {
-  --snackbar-accent: #74b9ff;
+  --snackbar-accent: #5d6d7e;
+  --snackbar-ring: rgba(99, 110, 114, 0.12);
 }
 
 .snackbar[data-variant="info"] .snackbar__icon--info {
@@ -105,10 +107,11 @@
 
 .snackbar__message {
   margin: 0;
-  font-size: 0.9375rem;
-  line-height: 1.45;
+  font-size: 0.9rem;
+  line-height: 1.5;
   font-weight: 500;
   letter-spacing: 0.01em;
+  color: var(--snackbar-text);
   word-break: break-word;
 }
 
@@ -117,18 +120,30 @@
   visibility: visible;
   transform: translate3d(-50%, 0, 0) scale(1);
   transition:
-    opacity 0.36s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-    visibility 0s linear 0s,
-    filter 0.3s ease;
+    opacity 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0s;
+}
+
+@media (min-width: 900px) {
+  .snackbar {
+    left: auto;
+    right: max(var(--spacing-lg), env(safe-area-inset-right, 0px));
+    transform: translate3d(0, -0.75rem, 0) scale(0.98);
+    max-width: min(20rem, calc(100vw - var(--spacing-xl)));
+  }
+
+  .snackbar.is-visible {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
 }
 
 @media (max-width: 768px) {
   .snackbar {
     max-width: calc(100vw - 2 * var(--spacing-sm));
-    width: min(100%, 28rem);
+    width: min(100%, 22rem);
     min-width: 0;
-    bottom: max(5.25rem, calc(env(safe-area-inset-bottom, 0px) + 4.75rem));
+    top: max(var(--spacing-sm), calc(env(safe-area-inset-top, 0px) + 6px));
   }
 
   .snackbar__inner {
@@ -147,7 +162,7 @@
     right: var(--spacing-sm);
     width: auto;
     max-width: none;
-    transform: translate3d(0, 1.25rem, 0) scale(0.97);
+    transform: translate3d(0, -0.75rem, 0) scale(0.98);
   }
 
   .snackbar.is-visible {
@@ -158,16 +173,21 @@
 @media (prefers-reduced-motion: reduce) {
   .snackbar,
   .snackbar.is-visible {
-    transform: translate3d(-50%, 0, 0);
-    filter: none;
+    transform: translate3d(-50%, 0, 0) scale(1);
     transition-duration: 0.18s;
-    transition-timing-function: ease;
+  }
+
+  @media (min-width: 900px) {
+    .snackbar,
+    .snackbar.is-visible {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
   }
 
   @media (max-width: 380px) {
     .snackbar,
     .snackbar.is-visible {
-      transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0) scale(1);
     }
   }
 }
