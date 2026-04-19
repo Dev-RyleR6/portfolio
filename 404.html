@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Page not found | Ryle Anthony Gabotero</title>
+  <link rel="shortcut icon" href="assets/icons/tech.svg" type="image/x-icon">
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <style>
+    .error-page {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: var(--spacing-xl) var(--spacing-md);
+      background: var(--color-bg);
+    }
+
+    .error-card {
+      max-width: 28rem;
+      width: 100%;
+      padding: var(--spacing-xxl) var(--spacing-xl);
+      background: var(--color-white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--color-border);
+      text-align: center;
+    }
+
+    .error-card h1 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin: 0 0 var(--spacing-sm);
+      color: var(--color-text);
+    }
+
+    .error-card p {
+      color: var(--color-text-light);
+      font-size: 0.95rem;
+      margin: 0 0 var(--spacing-lg);
+      line-height: 1.5;
+    }
+
+    .error-card .button {
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="error-page">
+    <div class="error-card">
+      <h1>Page not found</h1>
+      <p>This URL doesn’t exist or may have moved. Head back to the portfolio home.</p>
+      <a href="/" class="button">Back to home</a>
+    </div>
+  </div>
+</body>
+
+</html>

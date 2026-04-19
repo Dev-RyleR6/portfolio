@@ -66,8 +66,8 @@ body.page-archive .page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--spacing-sm);
-  margin-bottom: var(--spacing-md);
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-sm);
 }
 
 .status {
@@ -108,30 +108,39 @@ body.page-archive .page {
   background: var(--color-hover);
 }
 
+.status-offline {
+  color: var(--color-text-muted);
+  background: rgba(0, 0, 0, 0.04);
+}
+
 .project-tech {
   display: flex;
   justify-content: center;
-  gap: var(--spacing-sm);
+  gap: 6px;
   flex-wrap: wrap;
+  max-width: 100%;
 }
 
 .project-tech span {
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   font-weight: 500;
+  letter-spacing: 0.02em;
   color: var(--color-text-muted);
-  background: var(--color-bg);
-  padding: 2px 8px;
-  border-radius: 4px;
+  background: transparent;
+  padding: 2px 7px;
+  border-radius: 999px;
   border: 1px solid var(--color-border);
 }
 
 /* Portfolio item description */
 .portfolio-description {
-  color: var(--color-text-light);
-  font-size: 0.95rem;
-  margin: var(--spacing-xs) 0 0 0;
-  text-align: center;
-  line-height: 1.6;
+  color: var(--color-text-muted);
+  font-size: 0.8125rem;
+  margin: 0;
+  text-align: justify;
+  line-height: 1.4;
+  max-width: 28ch;
+  margin-inline: auto;
 }
 
 /* Portfolio item link wrapper */

@@ -4,8 +4,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Projects Archive of Ryle Anthony Gabotero" />
-  <title>Projects Archive | Ryle</title>
+  <meta name="description"
+    content="Project archive — full-stack web apps, mobile AR, and experiments by Ryle Anthony Gabotero." />
+  <meta name="theme-color" content="#fcfcfc" />
+  <meta name="robots" content="index, follow" />
+  <title>Projects | Ryle Anthony Gabotero</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Projects | Ryle Anthony Gabotero" />
+  <meta property="og:description" content="Full-stack apps, mobile AR, and technical experiments." />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Projects | Ryle Anthony Gabotero" />
+  <meta property="og:url" content="https://YOUR_DOMAIN/projects" />
   <link rel="shortcut icon" href="assets/icons/tech.svg" type="image/x-icon">
 
   <link rel="stylesheet" href="css/reset.css" />
@@ -13,9 +22,15 @@
   <link rel="stylesheet" href="css/page-transition.css" />
   <link rel="stylesheet" href="css/section/portfolio.css" />
   <link rel="stylesheet" href="css/section/navigation.css" />
+  <style>
+    body.page-archive .portfolio-description {
+      text-align: justify;
+    }
+  </style>
 </head>
 
 <body class="page-archive">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <div
     id="page-transition-incoming"
@@ -44,7 +59,7 @@
     </div>
   </div>
 
-  <main class="page">
+  <main class="page" id="main-content">
     <section class="section portfolio">
       <header class="archive-header">
         <a href="/" class="back-link">
@@ -72,19 +87,23 @@
         <div class="portfolio-item reveal in-view" data-category="web">
           <a href="https://myanime-frontend.vercel.app/" target="_blank" class="portfolio-link"
             rel="noopener noreferrer">
-            <img src="assets/images/myanimelogo.svg" alt="myAnime" class="portfolio-image" />
-            <h3 class="portfolio-title">myAnime | Anime Streaming</h3>
+            <img src="assets/images/myanimelogo.svg" width="800" height="200" loading="lazy" decoding="async" alt="myAnime"
+              class="portfolio-image" />
+            <h3 class="portfolio-title">myAnime | Anime Streaming Platform</h3>
             <div class="project-info">
               <span class="status status-live">Live</span>
+              <span class="status status-ongoing">(In Progress)</span>
               <div class="project-tech">
-                <span>React.js</span>
+                <span>React</span>
                 <span>Tailwind</span>
-                <span>MySQL</span>
-                <span>Node.js</span>
-                <span>Express.js</span>
+                <span>Node</span>
+                <span>TypeScript</span>
+                <span>PostgreSQL</span>
               </div>
             </div>
-            <p class="portfolio-description">An ad-free anime streaming platform built with modern web technologies.</p>
+            <p class="portfolio-description">
+              Ad-free streaming — auth, search, proxy-served videos, web scraping, reddis, reverse proxy, reverse-engineering, and a Postgres-backed API-driven backend.
+            </p>
           </a>
         </div>
 
@@ -92,19 +111,24 @@
         <div class="portfolio-item reveal in-view" data-category="web">
           <a href="https://pickleworld-frontend.vercel.app/" target="_blank" class="portfolio-link"
             rel="noopener noreferrer">
-            <img src="assets/images/pickleworld.svg" alt="Pickle World" class="portfolio-image" />
-            <h3 class="portfolio-title">Pickle World Reservation</h3>
+            <img src="assets/images/pickleworld.svg" width="800" height="200" loading="lazy" decoding="async"
+              alt="Pickle World" class="portfolio-image" />
+            <h3 class="portfolio-title">Pickle World Court Reservation</h3>
             <div class="project-info">
-              <span class="status ">Not Deployed</span>
+              <span class="status status-offline">Not Deployed</span>
               <div class="project-tech">
-                <span>React.js</span>
+                <span>React</span>
                 <span>Tailwind</span>
+                <span>TypeScript</span>
+                <span>Node</span>
                 <span>MySQL</span>
-                <span>Node.js</span>
-                <span>Express.js</span>
+                <span>Express</span>
               </div>
             </div>
-            <p class="portfolio-description">A web application for reserving courts in a pickleball facility.</p>
+            <p class="portfolio-description">
+              Pickleball court booking — REST API, MySQL, WebSocket, WebHooks, and Express.
+              Features include user authentication, search functionality, and a clean, intuitive interface.
+            </p>
           </a>
         </div>
 
@@ -112,7 +136,8 @@
         <div class="portfolio-item reveal in-view" data-category="mobile">
           <a href="https://www.facebook.com/share/v/1BcHgnFtZG/" target="_blank" class="portfolio-link"
             rel="noopener noreferrer">
-            <img src="assets/images/archronicle.svg" alt="AR Chronicle" class="portfolio-image" />
+            <img src="assets/images/archronicle.svg" width="800" height="200" loading="lazy" decoding="async"
+              alt="AR Chronicle" class="portfolio-image" />
             <h3 class="portfolio-title">AR Chronicle</h3>
             <div class="project-info">
               <span class="status status-completed">Completed</span>
@@ -123,14 +148,16 @@
                 <span>ARCore</span>
               </div>
             </div>
-            <p class="portfolio-description">An Android app exploring landmarks through augmented reality.</p>
+            <p class="portfolio-description">
+              Historical landmarks in Augmented Reality with maps — Android, OpenStreetMap, Wiki Api, GPS Calibration, Vector Graphics, Plane Detection, Device Motion, Real-time location tracking, Distance Calculation, and Unity.
+            </p>
           </a>
         </div>
       </div>
     </section>
 
     <footer class="site-footer">
-      <p>© 2025 Ryle Anthony Gabotero. All rights reserved.</p>
+      <p>© 2025–2026 Ryle Anthony Gabotero. All rights reserved.</p>
     </footer>
   </main>
 
@@ -143,8 +170,8 @@
     </a>
   </nav>
 
-  <script src="js/page-transition.js"></script>
-  <script src="js/script.js"></script>
+  <script src="js/page-transition.js" defer></script>
+  <script src="js/script.js" defer></script>
 </body>
 
 </html>

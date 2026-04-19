@@ -5,9 +5,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="Portfolio of Ryle Anthony Gabotero - Software Developer specializing in full-stack development" />
-  <title>Ryle | Aspiring Software Engineer</title>
+    content="Portfolio of Ryle Anthony Gabotero — full-stack developer building web apps with React, Node.js, and APIs." />
+  <meta name="theme-color" content="#fcfcfc" />
+  <meta name="robots" content="index, follow" />
+  <title>Ryle Anthony Gabotero | Full-stack Developer</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ryle Anthony Gabotero | Full-stack Developer" />
+  <meta property="og:description"
+    content="Portfolio — full-stack projects, tech stack, and contact. Building with React, Node.js, TypeScript, and PostgreSQL." />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ryle Anthony Gabotero | Full-stack Developer" />
+  <meta name="twitter:description"
+    content="Portfolio — full-stack projects, tech stack, and contact." />
+  <!-- After deploy: replace YOUR_DOMAIN with your real origin (e.g. yourname.vercel.app) for social previews -->
+  <meta property="og:url" content="https://YOUR_DOMAIN/" />
+  <meta property="og:image" content="https://YOUR_DOMAIN/assets/images/profile.jpg" />
+  <meta name="twitter:image" content="https://YOUR_DOMAIN/assets/images/profile.jpg" />
   <link rel="shortcut icon" href="assets/icons/tech.svg" type="image/x-icon">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Ryle Anthony Gabotero","jobTitle":"Software Developer","sameAs":["https://www.linkedin.com/in/rylegabotero/","https://github.com/Dev-RyleR6","https://gitlab.com/ryleanthony.gabotero"]}
+  </script>
 
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/base.css" />
@@ -24,16 +42,18 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- main page -->
-  <main class="page">
+  <main class="page" id="main-content">
 
     <!-- HERO -->
 
     <section class="hero" id="hero">
       <!-- Profile picture with frame -->
       <div class="hero-image-wrapper">
-        <img src="assets/images/profile.jpg" alt="Ryle Anthony Gabotero - Software Developer" class="hero-image" />
+        <img src="assets/images/profile.jpg" width="400" height="400" decoding="async" fetchpriority="high"
+          alt="Ryle Anthony Gabotero - Software Developer" class="hero-image" />
       </div>
 
       <!-- Hero content -->
@@ -86,17 +106,20 @@
         <ul class="socials-list about">
           <li>
             <a href="https://www.linkedin.com/in/rylegabotero/" target="_blank" rel="noopener noreferrer">
-              <img src="assets/icons/InBug-Black.png" alt="LinkedIn logo">LinkedIn
+              <img src="assets/icons/InBug-Black.png" width="20" height="20" loading="lazy" decoding="async"
+                alt="LinkedIn logo">LinkedIn
             </a>
           </li>
           <li>
             <a href="https://github.com/Dev-RyleR6" target="_blank" rel="noopener noreferrer">
-              <img src="assets/icons/github-mark.svg" alt="GitHub logo">GitHub
+              <img src="assets/icons/github-mark.svg" width="20" height="20" loading="lazy" decoding="async"
+                alt="GitHub logo">GitHub
             </a>
           </li>
           <li>
             <a href="https://gitlab.com/ryleanthony.gabotero" target="_blank" rel="noopener noreferrer">
-              <img src="assets/icons/gitlab.svg" alt="GitLab logo">GitLab
+              <img src="assets/icons/gitlab.svg" width="20" height="20" loading="lazy" decoding="async"
+                alt="GitLab logo">GitLab
             </a>
           </li>
         </ul>
@@ -159,7 +182,8 @@
         <div class="portfolio-item">
           <a href="https://myanime-frontend.vercel.app/" target="_blank" class="portfolio-link"
             rel="noopener noreferrer">
-            <img src="assets/images/myanimelogo.svg" alt="myAnime" class="portfolio-image" />
+            <img src="assets/images/myanimelogo.svg" width="800" height="200" loading="lazy" decoding="async" alt="myAnime"
+              class="portfolio-image" />
             <h3 class="portfolio-title">myAnime | Anime Streaming Platform</h3>
             <div class="project-info">
               <span class="status status-live">Live</span>
@@ -167,15 +191,13 @@
               <div class="project-tech">
                 <span>React</span>
                 <span>Tailwind</span>
-                <span>Node.js</span>
+                <span>Node</span>
                 <span>TypeScript</span>
-                <span>Express.js</span>
                 <span>PostgreSQL</span>
               </div>
             </div>
             <p class="portfolio-description">
-              An ad-free anime streaming platform built with modern web technologies.
-              Features include user authentication, search functionality, and a clean, intuitive interface.
+              Ad-free streaming — auth, search, proxy-served videos, web scraping, reddis, reverse proxy, reverse-engineering, and a Postgres-backed API-driven backend.
             </p>
           </a>
         </div>
@@ -184,21 +206,23 @@
         <div class="portfolio-item">
           <a href="https://pickleworld-frontend.vercel.app/" target="_blank" class="portfolio-link"
             rel="noopener noreferrer">
-            <img src="assets/images/pickleworld.svg" alt="Project 2" class="portfolio-image" />
+            <img src="assets/images/pickleworld.svg" width="800" height="200" loading="lazy" decoding="async"
+              alt="Pickle World" class="portfolio-image" />
             <h3 class="portfolio-title">Pickle World Court Reservation</h3>
             <div class="project-info">
               <span class="status status-offline">Not Deployed</span>
               <div class="project-tech">
-                <span>React.js</span>
+                <span>React</span>
                 <span>Tailwind</span>
+                <span>TypeScript</span>
+                <span>Node</span>
                 <span>MySQL</span>
-                <span>Node.js</span>
-                <span>Express.js</span>
+                <span>Express</span>
               </div>
             </div>
             <p class="portfolio-description">
-              A web application for reserving courts in a pickleball facility. Built with a focus on user experience and
-              efficient booking management.
+              Pickleball court booking — REST API, MySQL, WebSocket, WebHooks, and Express.
+              Features include user authentication, search functionality, and a clean, intuitive interface.
             </p>
           </a>
         </div>
@@ -206,7 +230,8 @@
         <div class="portfolio-item">
           <a href="https://www.facebook.com/share/v/1BcHgnFtZG/" target="_blank" class="portfolio-link"
             rel="noopener noreferrer">
-            <img src="assets/images/archronicle.svg" alt="Project 3" class="portfolio-image" />
+            <img src="assets/images/archronicle.svg" width="800" height="200" loading="lazy" decoding="async"
+              alt="AR Chronicle" class="portfolio-image" />
             <h3 class="portfolio-title">AR Chronicle</h3>
             <div class="project-info">
               <span class="status status-completed">Completed</span>
@@ -218,9 +243,9 @@
               </div>
             </div>
             <p class="portfolio-description">
-              An app for exploring nearby historical landmarks through augmented reality and interactive maps.
+              Historical landmarks in Augmented Reality with maps — Android, OpenStreetMap, Wiki Api, GPS Calibration, Vector Graphics, Plane Detection, Device Motion, Real-time location tracking, Distance Calculation, and Unity.
             </p>
-          </a>
+          </a> 
         </div>
 
       </div>
@@ -395,9 +420,12 @@
         July 15, 2025 - Cebu Institute of Technology – University.
       </p>
       <div class="image-collage">
-        <img src="assets/images/Hackathon.jpg" alt="Hackathon event photo 1">
-        <img src="assets/images/Hackathon2.jpg" alt="Hackathon event photo 2">
-        <img src="assets/images/4th.jpg" alt="Hackathon event photo 3">
+        <img src="assets/images/Hackathon.jpg" width="800" height="600" loading="lazy" decoding="async"
+          alt="Hackathon event photo 1">
+        <img src="assets/images/Hackathon2.jpg" width="800" height="600" loading="lazy" decoding="async"
+          alt="Hackathon event photo 2">
+        <img src="assets/images/4th.jpg" width="800" height="600" loading="lazy" decoding="async"
+          alt="Hackathon event photo 3">
       </div>
 
       <p class="experience-title">
@@ -405,8 +433,10 @@
         June 25-26, 2024 - Southview Hotel, Dumaguete City.
       </p>
       <div class="image-collage-2">
-        <img src="assets/images/Aideas.jpg" alt="AI Innovation event photo 1">
-        <img src="assets/images/aideas3.jpg" alt="AI Innovation event photo 2">
+        <img src="assets/images/Aideas.jpg" width="800" height="600" loading="lazy" decoding="async"
+          alt="AI Innovation event photo 1">
+        <img src="assets/images/aideas3.jpg" width="800" height="600" loading="lazy" decoding="async"
+          alt="AI Innovation event photo 2">
       </div>
     </section>
 
@@ -430,28 +460,32 @@
           <ul class="socials-list contact-socials-list">
             <li>
               <a href="https://www.linkedin.com/in/rylegabotero/" target="_blank" rel="noopener noreferrer">
-                <img src="assets/icons/InBug-Black.png" alt="LinkedIn logo">LinkedIn
+                <img src="assets/icons/InBug-Black.png" width="20" height="20" loading="lazy" decoding="async"
+                alt="LinkedIn logo">LinkedIn
               </a>
             </li>
             <li>
               <a href="https://github.com/Dev-RyleR6" target="_blank" rel="noopener noreferrer">
-                <img src="assets/icons/github-mark.svg" alt="GitHub logo">GitHub
+                <img src="assets/icons/github-mark.svg" width="20" height="20" loading="lazy" decoding="async"
+                alt="GitHub logo">GitHub
               </a>
             </li>
             <li>
               <a href="https://gitlab.com/ryleanthony.gabotero" target="_blank" rel="noopener noreferrer">
-                <img src="assets/icons/gitlab.svg" alt="GitLab logo">GitLab
+                <img src="assets/icons/gitlab.svg" width="20" height="20" loading="lazy" decoding="async"
+                alt="GitLab logo">GitLab
               </a>
             </li>
             <li>
               <a href="mailto:ryleanthony.gabotero@gmail.com" target="_blank" rel="noopener noreferrer">
-                <img src="assets/icons/gmail.svg" alt="Gmail logo">Gmail
+                <img src="assets/icons/gmail.svg" width="20" height="20" loading="lazy" decoding="async"
+                  alt="Gmail logo">Gmail
               </a>
             </li>
           </ul>
 
           <footer class="site-footer desktop-footer">
-            <p>© 2025 Ryle Anthony Gabotero. All rights reserved.</p>
+            <p>© 2025–2026 Ryle Anthony Gabotero. All rights reserved.</p>
           </footer>
         </div>
 
@@ -501,7 +535,7 @@
       </div>
 
       <footer class="site-footer mobile-footer">
-        <p>© 2025 Ryle Anthony Gabotero. All rights reserved.</p>
+        <p>© 2025–2026 Ryle Anthony Gabotero. All rights reserved.</p>
       </footer>
 
 
