@@ -2,6 +2,11 @@
   margin-top: var(--spacing-lg);
 }
 
+/* projects.html: extra bottom space for fixed nav + home indicator */
+body.page-archive .page {
+  padding-bottom: max(5.5rem, calc(4.25rem + env(safe-area-inset-bottom, 0px)));
+}
+
 /* Portfolio grid container */
 .portfolio-grid {
   display: grid;

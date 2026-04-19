@@ -15,10 +15,10 @@
   <link rel="stylesheet" href="css/section/navigation.css" />
 </head>
 
-<body>
+<body class="page-archive">
 
   <div
-    id="page-transition"
+    id="page-transition-incoming"
     class="page-transition page-transition--incoming"
     aria-busy="true"
     aria-label="Loading projects archive"
@@ -28,6 +28,19 @@
         <span></span><span></span><span></span>
       </div>
       <p class="page-transition__label">Loading archive</p>
+    </div>
+  </div>
+
+  <div
+    id="page-transition-out-home"
+    class="page-transition page-transition--outbound"
+    aria-hidden="true"
+  >
+    <div class="page-transition__panel">
+      <div class="page-transition__dots" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+      <p class="page-transition__label">Returning home</p>
     </div>
   </div>
 
@@ -121,7 +134,7 @@
     </footer>
   </main>
 
-  <nav class="nav">
+  <nav class="nav nav--compact" aria-label="Primary">
     <a class="nav-button" href="index.html" aria-label="Go to home">
       <img src="assets/icons/user.svg" alt="Home">
     </a>

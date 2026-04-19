@@ -57,7 +57,7 @@ body.page-transition-lock {
   background: var(--color-primary);
   opacity: 0.35;
   transform: scale(0.85);
-  animation: page-transition-dot 1s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  animation: page-transition-dot 1s cubic-bezier(0.45, 0, 0.55, 1) 8 both;
 }
 
 .page-transition__dots span:nth-child(2) {
