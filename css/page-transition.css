@@ -1,0 +1,196 @@
+/* Full-page transition when opening projects archive — matches glass / tokens from base */
+
+body.page-transition-lock {
+  overflow: hidden;
+}
+
+.page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  display: grid;
+  place-items: center;
+  padding: max(var(--spacing-md), env(safe-area-inset-top))
+    max(var(--spacing-md), env(safe-area-inset-right))
+    max(var(--spacing-md), env(safe-area-inset-bottom))
+    max(var(--spacing-md), env(safe-area-inset-left));
+  background: rgba(252, 252, 252, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.page-transition__panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl) var(--spacing-xxl);
+  max-width: min(20rem, 100%);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+
+.page-transition__label {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.page-transition__dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 28px;
+}
+
+.page-transition__dots span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  opacity: 0.35;
+  transform: scale(0.85);
+  animation: page-transition-dot 1s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.page-transition__dots span:nth-child(2) {
+  animation-delay: 0.15s;
+  background: var(--color-accent);
+}
+
+.page-transition__dots span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes page-transition-dot {
+  0%,
+  80%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.85);
+  }
+
+  40% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+/* Outbound (index → projects): hidden until link click */
+.page-transition--outbound {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0.38s;
+}
+
+.page-transition--outbound .page-transition__panel {
+  opacity: 0;
+  transform: translateY(10px) scale(0.96);
+  transition:
+    opacity 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.48s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.page-transition--outbound.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition:
+    opacity 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0s;
+}
+
+.page-transition--outbound.is-visible .page-transition__panel {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Incoming (projects load): cover then peel away */
+.page-transition--incoming {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0.42s,
+    backdrop-filter 0.42s ease;
+}
+
+.page-transition--incoming .page-transition__panel {
+  animation: page-transition-panel-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes page-transition-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.page-transition--incoming.is-done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  backdrop-filter: blur(0);
+  -webkit-backdrop-filter: blur(0);
+  transition:
+    opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0s linear 0.4s,
+    backdrop-filter 0.35s ease;
+}
+
+.page-transition--incoming.is-done .page-transition__panel {
+  animation: none;
+  transform: translateY(-6px) scale(0.98);
+  opacity: 0;
+  transition:
+    opacity 0.32s ease,
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition--outbound,
+  .page-transition--outbound.is-visible,
+  .page-transition--incoming,
+  .page-transition--incoming.is-done {
+    transition-duration: 0.15s;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .page-transition--outbound .page-transition__panel,
+  .page-transition--outbound.is-visible .page-transition__panel {
+    transform: none;
+    transition: opacity 0.15s ease;
+  }
+
+  .page-transition--incoming .page-transition__panel {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .page-transition--incoming.is-done .page-transition__panel {
+    transform: none;
+  }
+
+  .page-transition__dots span {
+    animation: none;
+    opacity: 0.55;
+    transform: scale(1);
+  }
+}

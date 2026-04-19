@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
     content="Portfolio of Ryle Anthony Gabotero - Software Developer specializing in full-stack development" />
-  <title>Ryle | Aspiring Software Developer</title>
+  <title>Ryle | Aspiring Software Engineer</title>
   <link rel="shortcut icon" href="assets/icons/tech.svg" type="image/x-icon">
 
   <link rel="stylesheet" href="css/reset.css" />
@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="css/section/tech-stack.css" />
   <link rel="stylesheet" href="css/section/navigation.css" />
   <link rel="stylesheet" href="css/section/contact.css" />
+  <link rel="stylesheet" href="css/page-transition.css" />
 
 </head>
 
@@ -40,11 +41,11 @@
       <div class="hero-content">
         <h1 class="hero-title">
           <span class="hero-name">Ryle Anthony Gabotero</span>
-          <span class="hero-role">Aspiring Software Developer</span>
+          <span class="hero-role">Aspiring Software Engineer</span>
         </h1>
 
         <p class="hero-subtitle">
-          I'm an aspiring developer building full-stack software, with a strong interest in backend and server-side
+          I'm an aspiring software engineer building full-stack software, with a strong interest in backend and server-side
           systems like APIs and databases.
         </p>
 
@@ -510,6 +511,19 @@
     </a>
   </nav>
 
+  <div
+    id="page-transition"
+    class="page-transition page-transition--outbound"
+    aria-hidden="true"
+  >
+    <div class="page-transition__panel">
+      <div class="page-transition__dots" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+      <p class="page-transition__label">Opening archive</p>
+    </div>
+  </div>
+
   <!-- Toast-style snackbar (contact form + global use) -->
   <div id="snackbar" class="snackbar" role="status" aria-live="polite" aria-atomic="true" hidden>
     <div class="snackbar__inner">
@@ -536,6 +550,7 @@
     </div>
   </div>
 
+  <script src="js/page-transition.js"></script>
   <script src="js/script.js"></script>
   <script src="js/components/form.js"></script>
 
