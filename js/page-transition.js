@@ -122,7 +122,7 @@
     );
     installOutgoing(
       document.getElementById("page-transition-out-home"),
-      'a[href$="index.html"]:not([target="_blank"])'
+      'a[href="/"]:not([target="_blank"]), a[href="/index.html"]:not([target="_blank"]), a[href$="index.html"]:not([target="_blank"])'
     );
     return;
   }
