@@ -1,0 +1,24 @@
+/* Snackbar styles matching the current theme */
+.snackbar {
+  visibility: hidden;
+  min-width: 240px;
+  background: #222;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 16px 24px;
+  position: fixed;
+  left: 50%;
+  bottom: 48px;
+  transform: translateX(-50%);
+  z-index: 9999;
+  font-size: 1rem;
+  box-shadow: 0 4px 24px rgba(60,60,60,0.12);
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.snackbar.show {
+  visibility: visible;
+  opacity: 1;
+}

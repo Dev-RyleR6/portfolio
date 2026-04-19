@@ -16,12 +16,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     if (!name || !email || !message) {
-      alert("Please fill in all fields.");
+      showSnackbar("Please fill in all fields.");
     } else if (!isValidEmail(email)) {
-      alert("Please enter a valid email address.");
+      showSnackbar("Please enter a valid email address.");
     } else {
-      alert("Thanks for reaching out! Your message has been received.");
+      showSnackbar("Thanks for reaching out! Your message has been received.");
       form.reset();
     }
   });
+
+  // Snackbar function
+  function showSnackbar(message) {
+    const snackbar = document.getElementById("snackbar");
+    if (!snackbar) return;
+    snackbar.textContent = message;
+    snackbar.classList.add("show");
+    setTimeout(() => {
+      snackbar.classList.remove("show");
+    }, 3000);
+  };
 });
