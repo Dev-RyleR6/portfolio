@@ -1,24 +1,173 @@
-/* Snackbar styles matching the current theme */
+/* Toast-style snackbar: theme-aligned, motion-safe, responsive */
+
 .snackbar {
-  visibility: hidden;
-  min-width: 240px;
-  background: #222;
-  color: #fff;
-  text-align: center;
-  border-radius: 8px;
-  padding: 16px 24px;
+  --snackbar-bg: rgba(26, 26, 26, 0.94);
+  --snackbar-border: rgba(255, 255, 255, 0.1);
+  --snackbar-accent: var(--color-accent);
+  --snackbar-text: #fafafa;
+  --snackbar-shadow: 0 16px 48px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+
   position: fixed;
   left: 50%;
-  bottom: 48px;
-  transform: translateX(-50%);
-  z-index: 9999;
-  font-size: 1rem;
-  box-shadow: 0 4px 24px rgba(60,60,60,0.12);
+  z-index: 10000;
+  max-width: min(28rem, calc(100vw - 2 * var(--spacing-md)));
+  width: max-content;
+  min-width: min(100%, 12rem);
+
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  pointer-events: none;
+
   opacity: 0;
-  transition: opacity 0.3s, visibility 0.3s;
+  visibility: hidden;
+  transform: translate3d(-50%, 1.25rem, 0) scale(0.97);
+  filter: blur(0);
+  transition:
+    opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0.35s,
+    filter 0.3s ease;
+
+  bottom: max(5.75rem, calc(env(safe-area-inset-bottom, 0px) + 5.25rem));
 }
 
-.snackbar.show {
-  visibility: visible;
+.snackbar[hidden] {
+  display: none;
+}
+
+.snackbar__inner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--snackbar-bg);
+  color: var(--snackbar-text);
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--snackbar-border);
+  box-shadow: var(--snackbar-shadow);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.snackbar__inner::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--snackbar-accent);
+  border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
+  opacity: 0.95;
+}
+
+.snackbar__glyph {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  margin-top: 1px;
+  color: var(--snackbar-accent);
+}
+
+.snackbar__icon {
+  grid-area: 1 / 1;
+  display: none;
+}
+
+.snackbar[data-variant="success"] {
+  --snackbar-accent: #2ecc71;
+}
+
+.snackbar[data-variant="success"] .snackbar__icon--success {
+  display: block;
+}
+
+.snackbar[data-variant="error"] {
+  --snackbar-accent: #e74c3c;
+}
+
+.snackbar[data-variant="error"] .snackbar__icon--error {
+  display: block;
+}
+
+.snackbar[data-variant="info"] {
+  --snackbar-accent: #74b9ff;
+}
+
+.snackbar[data-variant="info"] .snackbar__icon--info {
+  display: block;
+}
+
+.snackbar__message {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  word-break: break-word;
+}
+
+.snackbar.is-visible {
   opacity: 1;
+  visibility: visible;
+  transform: translate3d(-50%, 0, 0) scale(1);
+  transition:
+    opacity 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0s,
+    filter 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .snackbar {
+    max-width: calc(100vw - 2 * var(--spacing-sm));
+    width: min(100%, 28rem);
+    min-width: 0;
+    bottom: max(5.25rem, calc(env(safe-area-inset-bottom, 0px) + 4.75rem));
+  }
+
+  .snackbar__inner {
+    padding: var(--spacing-sm) var(--spacing-md);
+    gap: 10px;
+  }
+
+  .snackbar__message {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .snackbar {
+    left: var(--spacing-sm);
+    right: var(--spacing-sm);
+    width: auto;
+    max-width: none;
+    transform: translate3d(0, 1.25rem, 0) scale(0.97);
+  }
+
+  .snackbar.is-visible {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .snackbar,
+  .snackbar.is-visible {
+    transform: translate3d(-50%, 0, 0);
+    filter: none;
+    transition-duration: 0.18s;
+    transition-timing-function: ease;
+  }
+
+  @media (max-width: 380px) {
+    .snackbar,
+    .snackbar.is-visible {
+      transform: translate3d(0, 0, 0);
+    }
+  }
 }
