@@ -1,9 +1,10 @@
 /**
- * Contact form: Submits to /api/contact (Vercel Serverless Function proxying to Web3Forms).
- * Keeps API keys hidden securely on the server.
- * Fallback: opens the visitor's mail client (mailto).
+ * Contact form: Web3Forms email delivery (https://web3forms.com).
+ * hCaptcha: spam protection handled directly from client.
+ * Fallback: opens the visitor's mail client (mailto fallback).
  */
-const CONTACT_API_URL = "/api/contact";
+const WEB3FORMS_ACCESS_KEY = "acdc23cb-071d-4695-93c3-088e0f114aea";
+const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 
 // Base64-encoded fallback email to protect against web scrapers
 const OBFUSCATED_EMAIL = "cnlsZWFudGhvbnkuZ2Fib3Rlcm9AZ21haWwuY29t";
@@ -145,13 +146,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setSending(true);
     try {
-      const res = await fetch(CONTACT_API_URL, {
+      const res = await fetch(WEB3FORMS_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
         body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `Portfolio Contact: ${cleanName.slice(0, 60)}`,
           name: cleanName,
           email,
           message,
@@ -160,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }),
       });
       const data = await res.json().catch(() => ({}));
-      if (res.ok && data.success) {
+      if (data.success) {
         lastSubmitTime = Date.now();
         if (typeof window.uiSuccessFeedback === "function") {
           window.uiSuccessFeedback();
