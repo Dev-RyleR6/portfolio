@@ -1,12 +1,19 @@
 /**
- * Contact form: Web3Forms email delivery when WEB3FORMS_ACCESS_KEY is set
- * (https://web3forms.com — free, add your domain in their dashboard).
- * hCaptcha: enable “hCaptcha” under spam protection in the Web3Forms dashboard.
- * If the key is empty, submits open the visitor's mail client (mailto fallback).
+ * Contact form: Submits to /api/contact (Vercel Serverless Function proxying to Web3Forms).
+ * Keeps API keys hidden securely on the server.
+ * Fallback: opens the visitor's mail client (mailto).
  */
-const WEB3FORMS_ACCESS_KEY = "acdc23cb-071d-4695-93c3-088e0f114aea";
-const CONTACT_EMAIL = "ryleanthony.gabotero@gmail.com";
-const WEB3FORMS_URL = "https://api.web3forms.com/submit";
+const CONTACT_API_URL = "/api/contact";
+
+// Base64-encoded fallback email to protect against web scrapers
+const OBFUSCATED_EMAIL = "cnlsZWFudGhvbnkuZ2Fib3Rlcm9AZ21haWwuY29t";
+function getContactEmail() {
+  try {
+    return atob(OBFUSCATED_EMAIL);
+  } catch {
+    return "";
+  }
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("#contactForm");
@@ -73,22 +80,34 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
+  let lastSubmitTime = 0;
+  const SUBMIT_COOLDOWN_MS = 10000;
+
   function openMailto({ name, email, message }) {
-    const subject = encodeURIComponent(name);
-    let body = `${message}\n\n—\n${name}\n${email}`;
+    const cleanName = name.replace(/[\r\n]/g, " ").trim();
+    const subject = encodeURIComponent(`Portfolio inquiry from ${cleanName.slice(0, 60)}`);
+    let body = `${message}\n\n—\n${cleanName}\n${email}`;
     if (body.length > 1800) {
       body =
         body.slice(0, 1700) +
-        "\n\n[Message truncated — please use a shorter note or configure Web3Forms.]";
+        "\n\n[Message truncated — please use a shorter note.]";
     }
-    const url = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${encodeURIComponent(body)}`;
+    const emailTo = getContactEmail();
+    const url = `mailto:${emailTo}?subject=${subject}&body=${encodeURIComponent(body)}`;
     window.location.assign(url);
   }
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const honeypot = document.querySelector("#contact-company")?.value?.trim();
+    const now = Date.now();
+    if (now - lastSubmitTime < SUBMIT_COOLDOWN_MS) {
+      const waitSeconds = Math.ceil((SUBMIT_COOLDOWN_MS - (now - lastSubmitTime)) / 1000);
+      showSnackbar(`Please wait ${waitSeconds}s before sending another message.`, "info");
+      return;
+    }
+
+    const honeypot = document.querySelector("#contact-company")?.value?.trim() ?? "";
     if (honeypot) {
       showSnackbar("Unable to send this message.", "error");
       return;
@@ -107,70 +126,64 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const web3Key = WEB3FORMS_ACCESS_KEY.trim();
-    if (web3Key) {
-      if (!isCaptchaPanelVisible()) {
-        revealCaptchaPanel();
-        showSnackbar(
-          "Complete the verification, then tap Send again.",
-          "info"
-        );
-        return;
-      }
+    const cleanName = name.replace(/[\r\n]/g, " ").trim();
 
-      const captchaToken = getHCaptchaToken();
-      if (!captchaToken) {
-        showSnackbar("Please complete the verification.", "error");
-        return;
-      }
-
-      setSending(true);
-      try {
-        const res = await fetch(WEB3FORMS_URL, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            access_key: web3Key,
-            subject: name,
-            name,
-            email,
-            message,
-            "h-captcha-response": captchaToken,
-          }),
-        });
-        const data = await res.json().catch(() => ({}));
-        if (data.success) {
-          if (typeof window.uiSuccessFeedback === "function") {
-            window.uiSuccessFeedback();
-          }
-          showSnackbar("Message sent. I’ll get back to you soon.", "success");
-          form.reset();
-          resetHCaptcha();
-          hideCaptchaPanel();
-        } else {
-          resetHCaptcha();
-          showSnackbar(
-            typeof data.message === "string"
-              ? data.message
-              : "Could not send. Try again or email directly.",
-            "error"
-          );
-        }
-      } catch {
-        resetHCaptcha();
-        showSnackbar("Network error. Check your connection or try email.", "error");
-      } finally {
-        setSending(false);
-      }
+    if (!isCaptchaPanelVisible()) {
+      revealCaptchaPanel();
+      showSnackbar(
+        "Complete the verification, then tap Send again.",
+        "info"
+      );
       return;
     }
 
-    showSnackbar("Opening your email app with this message…", "info");
-    openMailto({ name, email, message });
-    form.reset();
+    const captchaToken = getHCaptchaToken();
+    if (!captchaToken) {
+      showSnackbar("Please complete the verification.", "error");
+      return;
+    }
+
+    setSending(true);
+    try {
+      const res = await fetch(CONTACT_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: cleanName,
+          email,
+          message,
+          botcheck: honeypot,
+          "h-captcha-response": captchaToken,
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.success) {
+        lastSubmitTime = Date.now();
+        if (typeof window.uiSuccessFeedback === "function") {
+          window.uiSuccessFeedback();
+        }
+        showSnackbar("Message sent. I’ll get back to you soon.", "success");
+        form.reset();
+        resetHCaptcha();
+        hideCaptchaPanel();
+      } else {
+        resetHCaptcha();
+        showSnackbar(
+          typeof data.message === "string"
+            ? data.message
+            : "Could not send. Try again or email directly.",
+          "error"
+        );
+      }
+    } catch {
+      resetHCaptcha();
+      showSnackbar("Network error. Check your connection or try email.", "error");
+    } finally {
+      setSending(false);
+    }
   });
 
   let snackbarHideTimer;

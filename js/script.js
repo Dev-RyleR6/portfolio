@@ -99,7 +99,7 @@ function toggleCertificate() {
 
     if (isMobile) {
         // On mobile, just open the PDF in a new tab to avoid auto-download/iframe issues
-        window.open(pdfUrl, '_blank');
+        window.open(pdfUrl, '_blank', 'noopener,noreferrer');
         return;
     }
 
@@ -107,7 +107,12 @@ function toggleCertificate() {
     if (container.style.display === 'none' || !container.style.display) {
         // Dynamically add iframe if it doesn't exist
         if (!container.querySelector('iframe')) {
-            container.innerHTML = `<iframe src="${pdfUrl}" class="certificate-iframe" title="Huawei Certificate"></iframe>`;
+            const iframe = document.createElement('iframe');
+            iframe.src = pdfUrl;
+            iframe.className = 'certificate-iframe';
+            iframe.title = 'Huawei Certificate';
+            iframe.loading = 'lazy';
+            container.appendChild(iframe);
         }
         
         container.style.display = 'block';
