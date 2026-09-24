@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="Project archive — full-stack web apps, mobile AR, and experiments by Ryle Anthony Gabotero." />
-  <meta name="theme-color" content="#fcfcfc" />
+  <meta name="description" content="Full-stack web, mobile AR, and technical projects by Ryle Anthony Gabotero." />
+  <meta name="theme-color" content="#f7f7f5" />
   <meta name="robots" content="index, follow" />
   <title>Projects | Ryle Anthony Gabotero</title>
   <meta property="og:type" content="website" />
@@ -15,163 +13,64 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Projects | Ryle Anthony Gabotero" />
   <meta property="og:url" content="https://YOUR_DOMAIN/projects" />
-  <link rel="shortcut icon" href="assets/icons/tech.svg" type="image/x-icon">
-
+  <link rel="shortcut icon" href="assets/icons/tech.svg" type="image/x-icon" />
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/page-transition.css" />
   <link rel="stylesheet" href="css/section/portfolio.css" />
   <link rel="stylesheet" href="css/section/navigation.css" />
-  <style>
-    body.page-archive .portfolio-description {
-      text-align: justify;
-    }
-  </style>
+  <link rel="stylesheet" href="css/refresh.css" />
 </head>
-
 <body class="page-archive">
   <a class="skip-link" href="#main-content">Skip to main content</a>
-
-  <div
-    id="page-transition-incoming"
-    class="page-transition page-transition--incoming"
-    aria-busy="true"
-    aria-label="Loading projects archive"
-  >
-    <div class="page-transition__panel">
-      <div class="page-transition__dots" aria-hidden="true">
-        <span></span><span></span><span></span>
-      </div>
-      <p class="page-transition__label">Loading archive</p>
-    </div>
-  </div>
-
-  <div
-    id="page-transition-out-home"
-    class="page-transition page-transition--outbound"
-    aria-hidden="true"
-  >
-    <div class="page-transition__panel">
-      <div class="page-transition__dots" aria-hidden="true">
-        <span></span><span></span><span></span>
-      </div>
-      <p class="page-transition__label">Returning home</p>
-    </div>
-  </div>
-
   <main class="page" id="main-content">
-    <section class="section portfolio">
+    <section class="section portfolio" aria-labelledby="archive-title">
       <header class="archive-header">
-        <a href="/" class="back-link">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
-          </svg>
-          Back to Home
-        </a>
-        <h1 class="hero-name" style="font-size: 2.2rem; margin-top: var(--spacing-md);">Projects Archive</h1>
-        <p class="section-text" style="text-align: center; margin-bottom: var(--spacing-xl);">
-          A collection of my full-stack applications, mobile apps, and technical experiments.
-        </p>
+        <a href="/" class="back-link"><span aria-hidden="true">←</span> Back to home</a>
+        <p class="eyebrow">Project archive</p>
+        <h1 class="archive-title" id="archive-title">Work across web and mobile</h1>
+        <p class="section-text">Full-stack applications, backend systems, mobile AR, and technical experiments.</p>
       </header>
-
-      <!-- Filter Bar (Placeholder for future JS) -->
-      <div class="archive-filters">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="web">Web</button>
-        <button class="filter-btn" data-filter="mobile">Mobile</button>
+      <div class="archive-filters" aria-label="Filter projects">
+        <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-btn" data-filter="web" aria-pressed="false">Web</button>
+        <button class="filter-btn" data-filter="mobile" aria-pressed="false">Mobile</button>
       </div>
-
       <div class="portfolio-grid">
-        <!-- Project 1 -->
-        <div class="portfolio-item reveal in-view" data-category="web">
-          <a href="https://myanime-frontend.vercel.app/" target="_blank" class="portfolio-link"
-            rel="noopener noreferrer">
-            <img src="assets/images/myanimelogo.svg" width="800" height="200" loading="lazy" decoding="async" alt="myAnime"
-              class="portfolio-image" />
-            <h3 class="portfolio-title">myAnime | Anime Streaming Platform</h3>
-            <div class="project-info">
-              <span class="status status-live">Live</span>
-              <span class="status status-ongoing">(In Progress)</span>
-              <div class="project-tech">
-                <span>React</span>
-                <span>Tailwind</span>
-                <span>Node</span>
-                <span>TypeScript</span>
-                <span>PostgreSQL</span>
-              </div>
-            </div>
-            <p class="portfolio-description">
-              Ad-free streaming — auth, search, proxy-served videos, web scraping, reddis, reverse proxy, reverse-engineering, and a Postgres-backed API-driven backend.
-            </p>
-          </a>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="portfolio-item reveal in-view" data-category="web">
-          <a href="https://pickleworld-frontend.vercel.app/" target="_blank" class="portfolio-link"
-            rel="noopener noreferrer">
-            <img src="assets/images/pickleworld.svg" width="800" height="200" loading="lazy" decoding="async"
-              alt="Pickle World" class="portfolio-image" />
-            <h3 class="portfolio-title">Pickle World Court Reservation</h3>
-            <div class="project-info">
-              <span class="status status-offline">Not Deployed</span>
-              <div class="project-tech">
-                <span>React</span>
-                <span>Tailwind</span>
-                <span>TypeScript</span>
-                <span>Node</span>
-                <span>MySQL</span>
-                <span>Express</span>
-              </div>
-            </div>
-            <p class="portfolio-description">
-              Pickleball court booking — REST API, MySQL, WebSocket, WebHooks, and Express.
-              Features include user authentication, search functionality, and a clean, intuitive interface.
-            </p>
-          </a>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="portfolio-item reveal in-view" data-category="mobile">
-          <a href="https://www.facebook.com/share/v/1BcHgnFtZG/" target="_blank" class="portfolio-link"
-            rel="noopener noreferrer">
-            <img src="assets/images/archronicle.svg" width="800" height="200" loading="lazy" decoding="async"
-              alt="AR Chronicle" class="portfolio-image" />
-            <h3 class="portfolio-title">AR Chronicle</h3>
-            <div class="project-info">
-              <span class="status status-completed">Completed</span>
-              <div class="project-tech">
-                <span>Android Studio</span>
-                <span>Kotlin</span>
-                <span>Unity</span>
-                <span>ARCore</span>
-              </div>
-            </div>
-            <p class="portfolio-description">
-              Historical landmarks in Augmented Reality with maps — Android, OpenStreetMap, Wiki Api, GPS Calibration, Vector Graphics, Plane Detection, Device Motion, Real-time location tracking, Distance Calculation, and Unity.
-            </p>
-          </a>
-        </div>
+        <article class="portfolio-item" data-category="web">
+          <img src="assets/images/myanimelogo.svg" width="800" height="200" loading="lazy" decoding="async" alt="myAnime project preview" class="portfolio-image" />
+          <div class="portfolio-card-content">
+            <div class="project-heading-row"><h2 class="portfolio-title">myAnime</h2><span class="status status-live">Live · In progress</span></div>
+            <p class="portfolio-description">An ad-free anime streaming platform with authentication, search, a PostgreSQL-backed API, web scraping, Redis caching, and proxy-served video.</p>
+            <div class="project-tech" aria-label="Technologies used"><span>React</span><span>TypeScript</span><span>Node.js</span><span>PostgreSQL</span></div>
+            <a href="https://myanime-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-link">View live project <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+        <article class="portfolio-item" data-category="web">
+          <img src="assets/images/pickleworld.svg" width="800" height="200" loading="lazy" decoding="async" alt="Pickle World project preview" class="portfolio-image" />
+          <div class="portfolio-card-content">
+            <div class="project-heading-row"><h2 class="portfolio-title">Pickle World</h2><span class="status status-offline">In development</span></div>
+            <p class="portfolio-description">A pickleball court booking platform with authentication, search, real-time updates, REST APIs, WebSockets, webhooks, and MySQL.</p>
+            <div class="project-tech" aria-label="Technologies used"><span>React</span><span>TypeScript</span><span>Node.js</span><span>MySQL</span></div>
+            <a href="https://pickleworld-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-link">View project preview <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+        <article class="portfolio-item" data-category="mobile">
+          <img src="assets/images/archronicle.svg" width="800" height="200" loading="lazy" decoding="async" alt="AR Chronicle project preview" class="portfolio-image" />
+          <div class="portfolio-card-content">
+            <div class="project-heading-row"><h2 class="portfolio-title">AR Chronicle</h2><span class="status status-completed">Completed</span></div>
+            <p class="portfolio-description">An Android AR experience for exploring historical landmarks using Kotlin, Unity, ARCore, maps, GPS calibration, and real-time location tracking.</p>
+            <div class="project-tech" aria-label="Technologies used"><span>Kotlin</span><span>Unity</span><span>ARCore</span><span>OpenStreetMap</span></div>
+            <a href="https://www.facebook.com/share/v/1BcHgnFtZG/" target="_blank" rel="noopener noreferrer" class="text-link">Watch project demo <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
       </div>
     </section>
-
-    <footer class="site-footer">
-      <p>© 2025 Ryle Anthony Gabotero. All rights reserved.</p>
-    </footer>
+    <footer class="site-footer"><p>© 2026 Ryle Anthony Gabotero. All rights reserved.</p></footer>
   </main>
-
   <nav class="nav nav--compact" aria-label="Primary">
-    <a class="nav-button" href="/" aria-label="Go to home">
-      <img src="assets/icons/user.svg" alt="Home">
-    </a>
-    <a class="nav-button active" href="/projects" aria-label="Go to archive">
-      <img src="assets/icons/projects.svg" alt="Archive">
-    </a>
+    <a class="nav-button" href="/" aria-label="Home"><img src="assets/icons/home.svg" alt="" aria-hidden="true" /><span>Home</span></a>
+    <a class="nav-button active" href="/projects" aria-label="Projects" aria-current="page"><img src="assets/icons/projects.svg" alt="" aria-hidden="true" /><span>Projects</span></a>
   </nav>
-
-  <script src="js/page-transition.js" defer></script>
   <script src="js/script.js" defer></script>
 </body>
-
 </html>

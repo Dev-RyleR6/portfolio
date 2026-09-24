@@ -1,11 +1,14 @@
 {
   "rewrites": [
     { "source": "/projects", "destination": "/projects.html" },
-    { "source": "/projects/", "destination": "/projects.html" }
+    { "source": "/projects/", "destination": "/projects.html" },
+    { "source": "/gallery", "destination": "/gallery.html" },
+    { "source": "/gallery/", "destination": "/gallery.html" }
   ],
   "redirects": [
     { "source": "/index.html", "destination": "/", "permanent": true },
-    { "source": "/projects.html", "destination": "/projects", "permanent": true }
+    { "source": "/projects.html", "destination": "/projects", "permanent": true },
+    { "source": "/gallery.html", "destination": "/gallery", "permanent": true }
   ],
   "headers": [
     {
