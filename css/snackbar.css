@@ -53,18 +53,6 @@
   overflow: hidden;
 }
 
-.snackbar__inner::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: var(--snackbar-accent);
-  border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
-  opacity: 0.9;
-}
-
 .snackbar__glyph {
   flex-shrink: 0;
   display: grid;

@@ -26,7 +26,7 @@
   <!-- Top Status Bar -->
   <g transform="translate(24, 20)">
     <circle cx="6" cy="6" r="4" fill="#3eb589"/>
-    <text x="18" y="10" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="0.1em" fill="#3eb589" text-transform="uppercase">LIVE TELEMETRY &amp; PACKET PIPELINE</text>
+    <text x="18" y="10" font-family="DM Sans, system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="0.1em" fill="#3eb589" text-transform="uppercase">LIVE TELEMETRY &amp; PACKET PIPELINE</text>
     <text x="752" y="10" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" fill="rgba(255,255,255,0.45)" text-anchor="end">PROTO: TCP/UDP/TLS | ENGINE: SCAPY+C</text>
   </g>
 
@@ -35,7 +35,7 @@
     <!-- Stage 1: Ingestion -->
     <rect x="0" y="0" width="168" height="120" rx="10" fill="url(#panelGrad)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
     <rect x="0" y="0" width="168" height="26" rx="10" fill="rgba(62, 181, 137, 0.08)"/>
-    <text x="14" y="17" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="700" fill="#e2e8f0">01. CAPTURE / BUFFER</text>
+    <text x="14" y="17" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#e2e8f0">01. CAPTURE / BUFFER</text>
     <text x="14" y="48" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">Raw Packet Feed</text>
     <text x="14" y="66" font-family="ui-monospace, monospace" font-size="10" fill="#6ee7b7">&gt; 10Gbps Interface</text>
     <text x="14" y="84" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">Circular Ring Buffer</text>
@@ -48,7 +48,7 @@
     <!-- Stage 2: Dissection & Parsing -->
     <rect x="202" y="0" width="168" height="120" rx="10" fill="url(#panelGrad)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
     <rect x="202" y="0" width="168" height="26" rx="10" fill="rgba(62, 181, 137, 0.08)"/>
-    <text x="216" y="17" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="700" fill="#e2e8f0">02. PROTOCOL PARSER</text>
+    <text x="216" y="17" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#e2e8f0">02. PROTOCOL PARSER</text>
     <text x="216" y="48" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">Header Unpacking</text>
     <text x="216" y="66" font-family="ui-monospace, monospace" font-size="10" fill="#6ee7b7">Flow Tuple Hashing</text>
     <text x="216" y="84" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">DNS / TLS SNI Decode</text>
@@ -61,7 +61,7 @@
     <!-- Stage 3: Heuristics & Scoring -->
     <rect x="404" y="0" width="168" height="120" rx="10" fill="url(#panelGrad)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
     <rect x="404" y="0" width="168" height="26" rx="10" fill="rgba(62, 181, 137, 0.08)"/>
-    <text x="418" y="17" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="700" fill="#e2e8f0">03. THREAT ENGINE</text>
+    <text x="418" y="17" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#e2e8f0">03. THREAT ENGINE</text>
     <text x="418" y="48" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">Anomaly Scoring</text>
     <text x="418" y="66" font-family="ui-monospace, monospace" font-size="10" fill="#6ee7b7">Syn Flood / Port Scan</text>
     <text x="418" y="84" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">Beaconing Detection</text>
@@ -74,7 +74,7 @@
     <!-- Stage 4: Alert Dispatch & Triage -->
     <rect x="606" y="0" width="146" height="120" rx="10" fill="url(#panelGrad)" stroke="rgba(62, 181, 137, 0.4)" stroke-width="1"/>
     <rect x="606" y="0" width="146" height="26" rx="10" fill="rgba(62, 181, 137, 0.16)"/>
-    <text x="618" y="17" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="700" fill="#3eb589">04. MITIGATION</text>
+    <text x="618" y="17" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#3eb589">04. MITIGATION</text>
     <text x="618" y="48" font-family="ui-monospace, monospace" font-size="10" fill="#f8fafc">Structured JSON</text>
     <text x="618" y="66" font-family="ui-monospace, monospace" font-size="10" fill="#6ee7b7">IPTables Drop Hook</text>
     <text x="618" y="84" font-family="ui-monospace, monospace" font-size="10" fill="#f8fafc">Real-time Alert</text>
@@ -84,8 +84,8 @@
   <!-- Bottom Metric / Architecture Summary -->
   <g transform="translate(24, 186)">
     <rect x="0" y="0" width="752" height="34" rx="8" fill="rgba(0,0,0,0.3)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-    <text x="16" y="21" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600" fill="#cbd5e1">Competition Tested:</text>
-    <text x="144" y="21" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="500" fill="#94a3b8">WorldSkills Philippines Clark 2026 &amp; Regional Gold Medalist</text>
+    <text x="16" y="21" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#cbd5e1">Competition Tested:</text>
+    <text x="144" y="21" font-family="DM Sans, sans-serif" font-size="11" font-weight="500" fill="#94a3b8">WorldSkills Philippines Clark 2026 &amp; Regional Gold Medalist</text>
     <text x="736" y="21" font-family="ui-monospace, monospace" font-size="11" font-weight="700" fill="#3eb589" text-anchor="end">Latency: &lt; 1.2ms / pkt</text>
   </g>
 </svg>

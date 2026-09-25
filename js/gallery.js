@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const previousButton = dialog.querySelector("[data-lightbox-previous]");
   const nextButton = dialog.querySelector("[data-lightbox-next]");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const TRANSPARENT_SPACER = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E";
   let activeItems = [];
   let activeIndex = 0;
   let returnFocus = null;
@@ -54,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
       requestAnimationFrame(() => image.classList.remove("is-changing"));
     };
 
-    if (!animate || reducedMotion || !image.src) {
+    if (!animate || reducedMotion || !image.src || image.src.startsWith("data:")) {
       applyImage();
       return;
     }
@@ -93,6 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   image.addEventListener("load", () => {
+    if (!dialog.open || !image.src || image.src.startsWith("data:")) return;
     if (!image.naturalWidth || !image.naturalHeight) return;
     const ratio = image.naturalWidth / image.naturalHeight;
     dialog.classList.remove("is-portrait", "is-square", "is-landscape");
@@ -116,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
   dialog.addEventListener("close", () => {
     dialog.classList.remove("is-closing", "is-portrait", "is-square", "is-landscape");
     document.documentElement.classList.remove("modal-open");
-    image.removeAttribute("src");
+    image.src = TRANSPARENT_SPACER;
     if (returnFocus instanceof HTMLElement) returnFocus.focus({ preventScroll: true });
   });
 
