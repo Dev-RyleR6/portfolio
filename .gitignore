@@ -35,6 +35,7 @@ yarn-error.log*
 
 # Tooling and local audit directories
 .impeccable/
+artifacts/
 
 # Local raw uncompressed competition photos
 public/assets/images/worldskills/nationals/IMG_2670.JPG

@@ -3,21 +3,24 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { SectionDock } from "@/components/SectionDock";
 import { projects } from "@/lib/projects";
 
-const filters = [
+export const projectFilters = [
   ["all", "All (5)"],
   ["backend", "Backend & Systems"],
   ["security-ai", "Security & AI"],
   ["mobile", "Mobile AR"],
 ] as const;
 
+type ProjectFilter = (typeof projectFilters)[number][0];
+
 export function ProjectArchive() {
-  const [filter, setFilter] = useState<(typeof filters)[number][0]>("all");
+  const [filter, setFilter] = useState<ProjectFilter>("all");
   return (
     <>
       <div className="archive-filters" aria-label="Filter case studies">
-        {filters.map(([value, label]) => (
+        {projectFilters.map(([value, label]) => (
           <button className={`filter-btn${filter === value ? " active" : ""}`} aria-pressed={filter === value} onClick={() => setFilter(value)} key={value}>{label}</button>
         ))}
       </div>
@@ -42,6 +45,12 @@ export function ProjectArchive() {
           </article>
         )})}
       </div>
+      <SectionDock
+        label="Filter projects"
+        items={projectFilters.map(([id, label]) => ({ id, label }))}
+        activeId={filter}
+        onItemSelect={(id) => setFilter(id as ProjectFilter)}
+      />
     </>
   );
 }

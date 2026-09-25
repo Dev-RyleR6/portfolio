@@ -20,12 +20,16 @@ html {
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
+  min-width: 0;
 }
 
 .site-tabs__links {
   display: flex;
+  flex: 1 1 auto;
   min-width: 0;
+  padding-right: 0.25rem;
   overflow-x: auto;
+  overscroll-behavior-inline: contain;
   scrollbar-width: none;
 }
 
@@ -68,8 +72,8 @@ html {
 .site-theme-toggle {
   display: grid;
   flex: 0 0 auto;
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2.75rem;
+  height: 2.75rem;
   padding: 0;
   place-items: center;
   border: 1px solid var(--color-border);
@@ -102,7 +106,7 @@ html {
 .page-intro h1 {
   max-width: 16ch;
   margin: 0;
-  font-size: clamp(2.25rem, 7vw, 4.25rem);
+  font-size: clamp(2.25rem, 6vw, 3.75rem);
   font-weight: 760;
   line-height: 1.03;
   letter-spacing: -0.055em;
@@ -207,57 +211,226 @@ html {
   margin-top: 1.1rem;
 }
 
+.action-chip {
+  min-height: 2.75rem;
+}
+
+.text-link {
+  min-height: 2.5rem;
+  padding-block: 0.35rem;
+}
+
+[data-theme="dark"] .action-chip--primary {
+  color: #0d0f11;
+  background: #f0f3f1;
+  border-color: #f0f3f1;
+}
+
+[data-theme="dark"] .action-chip--primary:hover {
+  color: #0d0f11;
+  background: #d8deda;
+  border-color: #d8deda;
+}
+
 .section-dock {
   position: fixed;
-  left: 50%;
+  left: max(
+    calc(1.5rem + env(safe-area-inset-left, 0px)),
+    calc((100vw - 52rem) / 2 + 1.25rem)
+  );
   bottom: max(1rem, calc(env(safe-area-inset-bottom, 0px) + 0.7rem));
   z-index: 100;
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  justify-content: flex-start;
+  gap: 0;
   max-width: calc(100vw - 1rem);
-  padding: 0.4rem;
-  overflow-x: auto;
+  padding: 0.32rem;
+  overflow: hidden;
   border: 1px solid var(--glass-border);
   border-radius: 999px;
-  background: var(--glass-bg);
+  background: color-mix(in srgb, var(--color-surface) 96%, transparent);
   box-shadow: var(--shadow-lg);
-  transform: translateX(-50%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(calc(100% + 2rem)) scale(0.94);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  scrollbar-width: none;
+  transition: left 360ms cubic-bezier(0.22, 1, 0.36, 1), border-color 180ms ease, box-shadow 180ms ease, opacity 220ms ease, transform 360ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 360ms;
 }
 
-.section-dock::-webkit-scrollbar {
+.section-dock.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+  transition-delay: 0s;
+}
+
+.section-dock.is-open {
+  left: 50%;
+  border-color: color-mix(in srgb, var(--color-accent) 42%, var(--color-border));
+  box-shadow: 0 14px 42px color-mix(in srgb, #000 24%, transparent);
+  transform: translate(-50%, 0) scale(1);
+}
+
+.section-dock__trigger {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  order: 0;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.58rem;
+  min-width: 9.5rem;
+  min-height: 3rem;
+  padding: 0.42rem 0.72rem;
+  border: 0;
+  border-radius: 999px;
+  color: var(--color-text);
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+
+.section-dock__trigger:hover,
+.section-dock__trigger:focus-visible {
+  background: var(--color-hover);
+}
+
+.section-dock__trigger:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+.section-dock__symbol {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: none;
+  fill: var(--color-accent);
+  stroke: var(--color-accent);
+  stroke-linecap: round;
+  stroke-width: 1.6;
+}
+
+.section-dock.is-visible:not(.is-open) .section-dock__trigger {
+  grid-template-columns: 1fr;
+  width: 3rem;
+  min-width: 3rem;
+  height: 3rem;
+  padding: 0;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.section-dock.is-visible:not(.is-open) .section-dock__current,
+.section-dock.is-visible:not(.is-open) .section-dock__chevron {
   display: none;
 }
 
-.section-dock a {
+.section-dock__current {
+  display: grid;
+  min-width: 0;
+  line-height: 1.05;
+}
+
+.section-dock__current > span {
+  color: var(--color-text-muted);
+  font-size: 0.6rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.section-dock__current strong {
+  max-width: 8rem;
+  overflow: hidden;
+  font-size: 0.76rem;
+  font-weight: 750;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.section-dock__chevron {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+  transition: transform 240ms ease;
+}
+
+.section-dock.is-open .section-dock__chevron {
+  transform: rotate(180deg);
+}
+
+.section-dock__panel {
+  order: 1;
+  max-width: 0;
+  min-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(-0.5rem) scaleX(0.96);
+  transform-origin: left center;
+  transition: max-width 360ms cubic-bezier(0.22, 1, 0.36, 1), opacity 160ms ease, transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.section-dock.is-open .section-dock__panel {
+  max-width: min(68vw, 48rem);
+  margin-left: 0.25rem;
+  border-left: 1px solid var(--color-border);
+  opacity: 1;
+  transform: none;
+}
+
+.section-dock.is-open .section-dock__trigger {
+  background: var(--color-hover);
+}
+
+.section-dock__links {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding-left: 0.5rem;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: none;
+}
+
+.section-dock__links::-webkit-scrollbar {
+  display: none;
+}
+
+.section-dock__links :is(a, button) {
   display: inline-flex;
   align-items: center;
   gap: 0.42rem;
   min-height: 2.75rem;
   padding: 0.55rem 0.82rem;
+  border: 0;
   border-radius: 999px;
   color: var(--color-text-muted);
+  background: transparent;
   font-size: 0.75rem;
   font-weight: 750;
   text-decoration: none;
   white-space: nowrap;
+  cursor: pointer;
 }
 
-.section-dock a:hover,
-.section-dock a.active,
-.section-dock a[aria-current="location"] {
+.section-dock__links :is(a, button):hover {
   color: var(--color-text);
   background: var(--color-hover);
-  box-shadow: inset 0 0 0 1px var(--color-border);
 }
 
-.section-dock svg {
-  width: 16px;
-  height: 16px;
-  flex: none;
+.section-dock__links :is(a, button).active,
+.section-dock__links a[aria-current="location"],
+.section-dock__links button[aria-pressed="true"] {
+  color: var(--color-accent);
+  background: var(--color-hover);
+  box-shadow: inset 0 0 0 1px var(--color-accent);
 }
 
 body.has-section-dock .page {
@@ -284,7 +457,7 @@ body.has-section-dock .page {
 
 @media (max-width: 720px) {
   .site-tabs {
-    margin: 1rem 0 1.25rem;
+    margin: 0.75rem 0 0.25rem;
   }
 
   .site-tabs__inner {
@@ -302,6 +475,40 @@ body.has-section-dock .page {
     left: 0.68rem;
   }
 
+  .profile-hero .profile-actions {
+    margin-top: 0.8rem;
+  }
+
+  .profile-identity {
+    margin-bottom: 0.75rem;
+  }
+
+  .profile-meta {
+    gap: 0.25rem;
+    line-height: 1.4;
+  }
+
+  .profile-meta-item {
+    flex-basis: 100%;
+  }
+
+  .profile-meta-separator {
+    display: none;
+  }
+
+  .page-intro {
+    padding: 1.75rem 0 2.75rem;
+  }
+
+  .page-intro h1 {
+    font-size: clamp(2.15rem, 10vw, 2.75rem);
+  }
+
+  .section,
+  .content-section {
+    padding-block: 2.25rem;
+  }
+
   .section-heading--split,
   .summary-grid {
     grid-template-columns: 1fr;
@@ -312,8 +519,25 @@ body.has-section-dock .page {
   }
 
   .section-dock {
-    justify-content: flex-start;
     width: auto;
+    bottom: max(0.75rem, calc(env(safe-area-inset-bottom, 0px) + 0.5rem));
+  }
+
+  .section-dock__trigger {
+    min-width: 8.75rem;
+  }
+
+  .section-dock.is-open .section-dock__trigger {
+    min-width: 6.4rem;
+    padding-inline: 0.7rem;
+  }
+
+  .section-dock.is-open .section-dock__current > span {
+    display: none;
+  }
+
+  .section-dock.is-open .section-dock__panel {
+    max-width: calc(100vw - 8.2rem);
   }
 }
 
@@ -323,12 +547,12 @@ body.has-section-dock .page {
   }
 
   .site-theme-toggle {
-    width: 2rem;
-    height: 2rem;
+    width: 2.75rem;
+    height: 2.75rem;
   }
 
-  .section-dock a {
-    min-height: 2.6rem;
+  .section-dock__links :is(a, button) {
+    min-height: 2.75rem;
     padding-inline: 0.68rem;
     font-size: 0.7rem;
   }

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { ProjectArchive } from "@/components/ProjectArchive";
-import { SectionDock } from "@/components/SectionDock";
 import { SiteShell } from "@/components/SiteShell";
 import { pageMetadata } from "@/lib/site";
 
@@ -19,7 +18,6 @@ export default function ProjectsPage() {
           <ProjectArchive />
         </section>
       </SiteShell>
-      <SectionDock label="Projects on this page" items={[{ id: "overview", label: "Overview" }, { id: "myanime", label: "myAnime" }, { id: "safeview", label: "SafeView" }, { id: "ovalens", label: "OvaLens" }, { id: "archronicle", label: "AR Chronicle" }, { id: "pickleworld", label: "Pickle World" }]} />
     </>
   );
 }
