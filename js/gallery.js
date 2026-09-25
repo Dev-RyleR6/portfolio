@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const dialog = document.querySelector("#gallery-lightbox");
-  const galleryItems = Array.from(document.querySelectorAll(".gallery-item[data-full-src]"));
+  const galleryItems = Array.from(document.querySelectorAll("[data-full-src]"));
 
   if (!dialog || !galleryItems.length || typeof dialog.showModal !== "function") return;
 
@@ -25,6 +25,11 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const updateOrientation = (thumbnail) => {
+    if (!thumbnail) {
+      dialog.classList.remove("is-portrait", "is-square");
+      dialog.classList.add("is-landscape");
+      return;
+    }
     const width = thumbnail.naturalWidth || Number(thumbnail.getAttribute("width")) || 1;
     const height = thumbnail.naturalHeight || Number(thumbnail.getAttribute("height")) || 1;
     const ratio = width / height;
@@ -36,14 +41,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const renderImage = (index, animate = true) => {
     activeIndex = (index + activeItems.length) % activeItems.length;
     const item = activeItems[activeIndex];
-    const thumbnail = item.querySelector("img");
-    const itemCaption = item.querySelector("figcaption")?.textContent.trim() || thumbnail.alt;
-    const source = item.dataset.fullSrc || thumbnail.currentSrc || thumbnail.src;
+    const thumbnail = item.querySelector("img.is-active") || item.querySelector("img");
+    const itemCaption = item.getAttribute("data-caption") || item.querySelector("figcaption")?.textContent.trim() || thumbnail?.alt || item.getAttribute("aria-label") || "Evidence preview";
+    const source = item.dataset.fullSrc || thumbnail?.currentSrc || thumbnail?.src;
 
     const applyImage = () => {
       updateOrientation(thumbnail);
       image.src = source;
-      image.alt = thumbnail.alt;
+      image.alt = itemCaption;
       caption.textContent = itemCaption;
       updateNavigation();
       requestAnimationFrame(() => image.classList.remove("is-changing"));
@@ -59,9 +64,10 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const openLightbox = (item) => {
-    const gallery = item.closest(".activity-gallery");
-    activeItems = Array.from(gallery.querySelectorAll(".gallery-item[data-full-src]"));
-    activeIndex = activeItems.indexOf(item);
+    const container = item.closest(".activity-gallery, .compact-gallery, .achievement-media, .achievement-card, .credential-card, .portfolio-item");
+    activeItems = container ? Array.from(container.querySelectorAll("[data-full-src]")) : [item];
+    if (!activeItems.length) activeItems = [item];
+    activeIndex = Math.max(0, activeItems.indexOf(item));
     returnFocus = item;
     renderImage(activeIndex, false);
     dialog.classList.remove("is-closing");
@@ -85,6 +91,13 @@ document.addEventListener("DOMContentLoaded", () => {
     dialog.classList.add("is-closing");
     closeTimer = window.setTimeout(finishClose, 180);
   };
+
+  image.addEventListener("load", () => {
+    if (!image.naturalWidth || !image.naturalHeight) return;
+    const ratio = image.naturalWidth / image.naturalHeight;
+    dialog.classList.remove("is-portrait", "is-square", "is-landscape");
+    dialog.classList.add(ratio < 0.88 ? "is-portrait" : ratio > 1.12 ? "is-landscape" : "is-square");
+  });
 
   galleryItems.forEach((item) => item.addEventListener("click", () => openLightbox(item)));
   closeButton.addEventListener("click", closeLightbox);

@@ -29,3 +29,14 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Tooling and local audit directories
+.impeccable/
+
+# Local raw uncompressed competition photos
+assets/images/worldskills/nationals/IMG_2670.JPG
+assets/images/worldskills/nationals/IMG_2740.JPG
+assets/images/worldskills/nationals/IMG_2870.JPG
+assets/images/worldskills/nationals/IMG_3031.JPG
+assets/images/worldskills/nationals/IMG_3037.JPG
+assets/images/worldskills/nationals/image.png
+

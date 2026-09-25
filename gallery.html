@@ -13,6 +13,16 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta property="og:url" content="https://YOUR_DOMAIN/gallery" />
   <link rel="shortcut icon" href="assets/icons/tech.svg" type="image/x-icon" />
+  <script>
+    (function() {
+      var saved = localStorage.getItem("portfolio-theme");
+      var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var theme = saved || (prefersDark ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute("content", theme === "dark" ? "#0d0f11" : "#f7f7f5");
+    })();
+  </script>
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/section/navigation.css" />
@@ -191,10 +201,29 @@
     <footer class="site-footer"><p>&copy; 2026 Ryle Anthony Gabotero. All rights reserved.</p></footer>
   </main>
 
-  <nav class="nav nav--compact" aria-label="Primary">
+  <nav class="nav nav--compact" aria-label="Primary navigation">
     <a class="nav-button" href="/" aria-label="Home"><img src="assets/icons/home.svg" alt="" aria-hidden="true" /><span>Home</span></a>
     <a class="nav-button" href="/projects" aria-label="Projects"><img src="assets/icons/projects.svg" alt="" aria-hidden="true" /><span>Projects</span></a>
     <a class="nav-button active" href="/gallery" aria-label="Gallery" aria-current="page"><img src="assets/icons/experience.svg" alt="" aria-hidden="true" /><span>Gallery</span></a>
+    <button class="nav-button nav-theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" title="Toggle dark/light theme">
+      <span class="theme-icon-wrap" aria-hidden="true">
+        <svg class="theme-icon theme-icon--sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="theme-icon theme-icon--moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </span>
+      <span class="theme-label">Theme</span>
+    </button>
   </nav>
   <script src="js/script.js" defer></script>
   <script src="js/gallery.js" defer></script>

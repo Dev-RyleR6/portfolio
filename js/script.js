@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
       current = targets[targets.length - 1].id;
     } else {
       for (const section of targets) {
-        if (marker >= section.offsetTop) current = section.id;
+        const top = Math.round(section.getBoundingClientRect().top + window.scrollY);
+        if (marker >= top) current = section.id;
       }
     }
 
@@ -44,12 +45,55 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   updateActiveNav();
 
+  const themeToggle = document.getElementById("themeToggle");
+  const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+
+  function getEffectiveTheme() {
+    const currentAttr = document.documentElement.getAttribute("data-theme");
+    if (currentAttr === "dark" || currentAttr === "light") return currentAttr;
+    const stored = localStorage.getItem("portfolio-theme");
+    if (stored === "dark" || stored === "light") return stored;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+
+  function applyTheme(theme, persist = false) {
+    document.documentElement.setAttribute("data-theme", theme);
+    if (persist) {
+      localStorage.setItem("portfolio-theme", theme);
+    }
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute("content", theme === "dark" ? "#0d0f11" : "#f7f7f5");
+    }
+    if (themeToggle) {
+      const isDark = theme === "dark";
+      themeToggle.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
+      themeToggle.setAttribute("aria-pressed", String(isDark));
+    }
+  }
+
+  if (themeToggle) {
+    const initialTheme = getEffectiveTheme();
+    applyTheme(initialTheme, false);
+
+    themeToggle.addEventListener("click", () => {
+      const current = getEffectiveTheme();
+      const next = current === "dark" ? "light" : "dark";
+      applyTheme(next, true);
+    });
+  }
+
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+    if (!localStorage.getItem("portfolio-theme")) {
+      applyTheme(e.matches ? "dark" : "light", false);
+    }
+  });
+
   if (!reducedMotion && "IntersectionObserver" in window) {
     const revealObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
-          entry.target.classList.add("in-view");
+          entry.target.classList.add("in-view", "is-visible");
           observer.unobserve(entry.target);
         });
       },
@@ -57,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     document
-      .querySelectorAll(".section, .hero, .portfolio-item, .achievement-card, .credential-card")
+      .querySelectorAll(".section, .hero, .portfolio-item, .achievement-card, .credential-card, .pillar-card, .service-card")
       .forEach((element) => {
         element.classList.add("reveal");
         revealObserver.observe(element);
@@ -77,7 +121,8 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       projects.forEach((project) => {
-        const visible = filter === "all" || project.dataset.category === filter;
+        const categories = (project.dataset.category || "").split(/\s+/);
+        const visible = filter === "all" || categories.includes(filter);
         project.classList.toggle("project-hidden", !visible);
       });
     });
@@ -89,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const controllers = slideshows.map((slideshow, slideshowIndex) => {
       const slides = Array.from(slideshow.querySelectorAll(":scope > img"));
       const dots = Array.from(slideshow.querySelectorAll(".slideshow-dots i"));
-      const interactionTarget = slideshow.closest("a") || slideshow;
+      const interactionTarget = slideshow.closest("a, button") || slideshow;
       let current = 0;
       let timer = null;
       let pausedByInteraction = false;
@@ -102,6 +147,12 @@ document.addEventListener("DOMContentLoaded", () => {
           slide.setAttribute("aria-hidden", String(!active));
         });
         dots.forEach((dot, index) => dot.classList.toggle("is-active", index === current));
+        const activeSlide = slides[current];
+        if (activeSlide && interactionTarget && interactionTarget.hasAttribute("data-full-src")) {
+          const fullSrc = activeSlide.dataset.fullSrc || activeSlide.currentSrc || activeSlide.src;
+          if (fullSrc) interactionTarget.setAttribute("data-full-src", fullSrc);
+          if (activeSlide.alt) interactionTarget.setAttribute("data-caption", activeSlide.alt);
+        }
       };
 
       const stop = () => {

@@ -3,17 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Full-stack web, mobile AR, and technical projects by Ryle Anthony Gabotero." />
+  <meta name="description" content="Case studies and engineering projects by Ryle Anthony Gabotero — Software Engineer specializing in Backend Systems, Cybersecurity, AI, and Data Science." />
   <meta name="theme-color" content="#f7f7f5" />
   <meta name="robots" content="index, follow" />
-  <title>Projects | Ryle Anthony Gabotero</title>
+  <title>Projects &amp; Case Studies | Ryle Anthony Gabotero</title>
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Projects | Ryle Anthony Gabotero" />
-  <meta property="og:description" content="Full-stack apps, mobile AR, and technical experiments." />
+  <meta property="og:title" content="Projects &amp; Case Studies | Ryle Anthony Gabotero" />
+  <meta property="og:description" content="Detailed case studies across streaming reverse proxies, network packet telemetry, machine learning pipelines, and mobile AR." />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Projects | Ryle Anthony Gabotero" />
+  <meta name="twitter:title" content="Projects &amp; Case Studies | Ryle Anthony Gabotero" />
   <meta property="og:url" content="https://YOUR_DOMAIN/projects" />
   <link rel="shortcut icon" href="assets/icons/tech.svg" type="image/x-icon" />
+  <script>
+    (function() {
+      var saved = localStorage.getItem("portfolio-theme");
+      var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var theme = saved || (prefersDark ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute("content", theme === "dark" ? "#0d0f11" : "#f7f7f5");
+    })();
+  </script>
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/section/portfolio.css" />
@@ -25,52 +35,134 @@
   <main class="page" id="main-content">
     <section class="section portfolio" aria-labelledby="archive-title">
       <header class="archive-header">
-        <a href="/" class="back-link"><span aria-hidden="true">←</span> Back to home</a>
-        <p class="eyebrow">Project archive</p>
-        <h1 class="archive-title" id="archive-title">Work across web and mobile</h1>
-        <p class="section-text">Full-stack applications, backend systems, mobile AR, and technical experiments.</p>
+        <a href="/" class="back-link"><span aria-hidden="true">&larr;</span> Back to home</a>
+        <p class="eyebrow">Case Studies &amp; Projects</p>
+        <h1 class="archive-title" id="archive-title">Engineered systems across web, security, and AI</h1>
+        <p class="section-text">Detailed technical architectures spanning high-throughput streaming proxies, packet telemetry engines, neural machine learning pipelines, and mobile SLAM AR.</p>
       </header>
-      <div class="archive-filters" aria-label="Filter projects">
-        <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
-        <button class="filter-btn" data-filter="web" aria-pressed="false">Web</button>
-        <button class="filter-btn" data-filter="mobile" aria-pressed="false">Mobile</button>
+
+      <div class="archive-filters" aria-label="Filter case studies">
+        <button class="filter-btn active" data-filter="all" aria-pressed="true">All (5)</button>
+        <button class="filter-btn" data-filter="backend" aria-pressed="false">Backend &amp; Systems</button>
+        <button class="filter-btn" data-filter="security-ai" aria-pressed="false">Security &amp; AI</button>
+        <button class="filter-btn" data-filter="mobile" aria-pressed="false">Mobile AR</button>
       </div>
+
       <div class="portfolio-grid">
-        <article class="portfolio-item" data-category="web">
-          <img src="assets/images/myanimelogo.svg" width="800" height="200" loading="lazy" decoding="async" alt="myAnime project preview" class="portfolio-image" />
+        <article class="portfolio-item" data-category="backend">
+          <img src="assets/images/myanimelogo.svg" width="800" height="200" loading="lazy" decoding="async" alt="myAnime streaming platform preview" class="portfolio-image" />
           <div class="portfolio-card-content">
-            <div class="project-heading-row"><h2 class="portfolio-title">myAnime</h2><span class="status status-live">Live · In progress</span></div>
-            <p class="portfolio-description">An ad-free anime streaming platform with authentication, search, a PostgreSQL-backed API, web scraping, Redis caching, and proxy-served video.</p>
-            <div class="project-tech" aria-label="Technologies used"><span>React</span><span>TypeScript</span><span>Node.js</span><span>PostgreSQL</span></div>
+            <div class="project-heading-row">
+              <h2 class="portfolio-title">myAnime · Reverse Proxy &amp; Streaming Engine</h2>
+              <span class="status status-live">Live · In progress</span>
+            </div>
+            <p class="portfolio-description">An ad-free streaming architecture designed to bypass CORS and upstream provider rate restrictions via a custom Node.js reverse proxy. Features byte-range video streaming, automated scraping workers, Redis in-memory caching for low-latency queries, and a relational PostgreSQL schema.</p>
+            <div class="project-tech" aria-label="Technologies used"><span>React</span><span>TypeScript</span><span>Node.js</span><span>Express</span><span>PostgreSQL</span><span>Redis</span></div>
             <a href="https://myanime-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-link">View live project <span aria-hidden="true">↗</span></a>
           </div>
         </article>
-        <article class="portfolio-item" data-category="web">
-          <img src="assets/images/pickleworld.svg" width="800" height="200" loading="lazy" decoding="async" alt="Pickle World project preview" class="portfolio-image" />
+
+        <article class="portfolio-item" data-category="security-ai">
+          <img src="assets/images/networktelemetry.svg" width="800" height="200" loading="lazy" decoding="async" alt="Network Telemetry &amp; Threat Engine diagram" class="portfolio-image" />
           <div class="portfolio-card-content">
-            <div class="project-heading-row"><h2 class="portfolio-title">Pickle World</h2><span class="status status-offline">In development</span></div>
-            <p class="portfolio-description">A pickleball court booking platform with authentication, search, real-time updates, REST APIs, WebSockets, webhooks, and MySQL.</p>
-            <div class="project-tech" aria-label="Technologies used"><span>React</span><span>TypeScript</span><span>Node.js</span><span>MySQL</span></div>
-            <a href="https://pickleworld-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-link">View project preview <span aria-hidden="true">↗</span></a>
+            <div class="project-heading-row">
+              <h2 class="portfolio-title">Network Telemetry &amp; Threat Analysis Engine</h2>
+              <span class="status status-completed">Competition Tested</span>
+            </div>
+            <p class="portfolio-description">Packet capture and protocol inspection engine developed during WorldSkills national and regional cybersecurity competitions. Performs live header dissection (TCP, UDP, DNS, TLS SNI), flow tuple hashing, threshold-based threat scoring, and structured JSON telemetry dispatching with automated firewall drop hooks.</p>
+            <div class="project-tech" aria-label="Technologies used"><span>Python</span><span>C/C++</span><span>Wireshark</span><span>Scapy</span><span>Linux Hardening</span></div>
+            <a href="/gallery#worldskills-national" class="text-link">View competition evidence <span aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
-        <article class="portfolio-item" data-category="mobile">
-          <img src="assets/images/archronicle.svg" width="800" height="200" loading="lazy" decoding="async" alt="AR Chronicle project preview" class="portfolio-image" />
+
+        <article class="portfolio-item" data-category="security-ai">
+          <img src="assets/images/mldatapipeline.svg" width="800" height="200" loading="lazy" decoding="async" alt="Automated ML Data Pipeline diagram" class="portfolio-image" />
           <div class="portfolio-card-content">
-            <div class="project-heading-row"><h2 class="portfolio-title">AR Chronicle</h2><span class="status status-completed">Completed</span></div>
-            <p class="portfolio-description">An Android AR experience for exploring historical landmarks using Kotlin, Unity, ARCore, maps, GPS calibration, and real-time location tracking.</p>
-            <div class="project-tech" aria-label="Technologies used"><span>Kotlin</span><span>Unity</span><span>ARCore</span><span>OpenStreetMap</span></div>
+            <div class="project-heading-row">
+              <h2 class="portfolio-title">Automated ML Data &amp; Inference Pipeline</h2>
+              <span class="status status-completed">10/10 Distinction</span>
+            </div>
+            <p class="portfolio-description">Automated machine learning data extraction, transformation, feature scaling, and deep neural network inference pipeline developed and evaluated during the 120-hour KOICA DX Center curriculum. Scored a perfect 10/10 in Deep Learning Architecture with tracked loss, accuracy, and low-latency REST endpoints.</p>
+            <div class="project-tech" aria-label="Technologies used"><span>Python</span><span>TensorFlow</span><span>Pandas</span><span>NumPy</span><span>Scikit-Learn</span></div>
+            <button type="button" class="text-link" data-full-src="assets/images/evidence/koica-competency.webp" data-caption="KOICA DX Center Certificate of Competency (Seven Assessed AI &amp; Data Analytics Domains)">View competency certificate <span aria-hidden="true">↗</span></button>
+          </div>
+        </article>
+
+        <article class="portfolio-item" data-category="mobile">
+          <img src="assets/images/archronicle.svg" width="800" height="200" loading="lazy" decoding="async" alt="AR Chronicle mobile project preview" class="portfolio-image" />
+          <div class="portfolio-card-content">
+            <div class="project-heading-row">
+              <h2 class="portfolio-title">AR Chronicle · Geospatial SLAM Navigation</h2>
+              <span class="status status-completed">Completed</span>
+            </div>
+            <p class="portfolio-description">Native Android Augmented Reality exploration application combining ARCore SLAM plane detection, Unity 3D engine, OpenStreetMap GPS geofencing, and real-time gyro-assisted compass heading calibration for interactive landmark discovery.</p>
+            <div class="project-tech" aria-label="Technologies used"><span>Kotlin</span><span>Unity</span><span>ARCore</span><span>OpenStreetMap</span><span>GPS</span></div>
             <a href="https://www.facebook.com/share/v/1BcHgnFtZG/" target="_blank" rel="noopener noreferrer" class="text-link">Watch project demo <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="portfolio-item" data-category="backend">
+          <img src="assets/images/pickleworld.svg" width="800" height="200" loading="lazy" decoding="async" alt="Pickle World project preview" class="portfolio-image" />
+          <div class="portfolio-card-content">
+            <div class="project-heading-row">
+              <h2 class="portfolio-title">Pickle World · Real-Time Venue Booking Engine</h2>
+              <span class="status status-offline">In development</span>
+            </div>
+            <p class="portfolio-description">A multi-court pickleball reservation engine with real-time slot locks via WebSockets, webhook-driven payment reconciliation, and strict transaction isolation on MySQL to prevent double-booking under concurrency.</p>
+            <div class="project-tech" aria-label="Technologies used"><span>React</span><span>TypeScript</span><span>Node.js</span><span>MySQL</span><span>WebSockets</span></div>
+            <a href="https://pickleworld-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-link">View project preview <span aria-hidden="true">↗</span></a>
           </div>
         </article>
       </div>
     </section>
+
     <footer class="site-footer"><p>© 2026 Ryle Anthony Gabotero. All rights reserved.</p></footer>
   </main>
-  <nav class="nav nav--compact" aria-label="Primary">
+
+  <nav class="nav nav--compact" aria-label="Primary navigation">
     <a class="nav-button" href="/" aria-label="Home"><img src="assets/icons/home.svg" alt="" aria-hidden="true" /><span>Home</span></a>
     <a class="nav-button active" href="/projects" aria-label="Projects" aria-current="page"><img src="assets/icons/projects.svg" alt="" aria-hidden="true" /><span>Projects</span></a>
+    <a class="nav-button" href="/gallery" aria-label="Gallery"><img src="assets/icons/experience.svg" alt="" aria-hidden="true" /><span>Gallery</span></a>
+    <button class="nav-button nav-theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" title="Toggle dark/light theme">
+      <span class="theme-icon-wrap" aria-hidden="true">
+        <svg class="theme-icon theme-icon--sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="theme-icon theme-icon--moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </span>
+      <span class="theme-label">Theme</span>
+    </button>
   </nav>
+
+  <dialog class="gallery-lightbox" id="gallery-lightbox" aria-labelledby="gallery-lightbox-title" aria-describedby="gallery-lightbox-caption">
+    <div class="gallery-lightbox__shell">
+      <h2 class="visually-hidden" id="gallery-lightbox-title">Evidence viewer</h2>
+      <button class="gallery-lightbox__close" type="button" data-lightbox-close aria-label="Close viewer">&times;</button>
+      <button class="gallery-lightbox__nav gallery-lightbox__nav--previous" type="button" data-lightbox-previous aria-label="Previous item">&larr;</button>
+      <figure class="gallery-lightbox__figure">
+        <div class="gallery-lightbox__image-wrap">
+          <img data-lightbox-image alt="" />
+        </div>
+        <figcaption id="gallery-lightbox-caption">
+          <span data-lightbox-caption></span>
+          <span class="gallery-lightbox__count" data-lightbox-count aria-live="polite"></span>
+        </figcaption>
+      </figure>
+      <button class="gallery-lightbox__nav gallery-lightbox__nav--next" type="button" data-lightbox-next aria-label="Next item">&rarr;</button>
+    </div>
+  </dialog>
+
   <script src="js/script.js" defer></script>
+  <script src="js/gallery.js" defer></script>
 </body>
 </html>
