@@ -47,7 +47,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#f7f7f5" },
-    { media: "(prefers-color-scheme: dark)", color: "#0d0f11" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
   ],
 };
 
@@ -55,7 +55,9 @@ const themeScript = `
   try {
     const saved = localStorage.getItem("portfolio-theme");
     const dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    document.documentElement.dataset.theme = saved || (dark ? "dark" : "light");
+    const theme = saved || (dark ? "dark" : "light");
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
   } catch {}
 `;
 
@@ -66,7 +68,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
     name: siteConfig.name,
     jobTitle: "Software Engineer",
     url: siteUrl,
-    sameAs: [siteConfig.linkedin, siteConfig.github, siteConfig.gitlab],
+    sameAs: [siteConfig.linkedin, siteConfig.github, siteConfig.gitlab, siteConfig.telegram],
   };
 
   return (

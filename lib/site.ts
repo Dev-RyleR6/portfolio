@@ -9,6 +9,7 @@ export const siteConfig = {
   github: "https://github.com/Dev-RyleR6",
   gitlab: "https://gitlab.com/ryleanthony.gabotero",
   linkedin: "https://www.linkedin.com/in/rylegabotero/",
+  telegram: "https://t.me/ryleanthony",
 };
 
 export function getSiteUrl() {
