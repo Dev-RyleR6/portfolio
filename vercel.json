@@ -2,13 +2,19 @@
   "rewrites": [
     { "source": "/projects", "destination": "/projects.html" },
     { "source": "/projects/", "destination": "/projects.html" },
+    { "source": "/experience", "destination": "/experience.html" },
+    { "source": "/experience/", "destination": "/experience.html" },
     { "source": "/gallery", "destination": "/gallery.html" },
-    { "source": "/gallery/", "destination": "/gallery.html" }
+    { "source": "/gallery/", "destination": "/gallery.html" },
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/contact/", "destination": "/contact.html" }
   ],
   "redirects": [
     { "source": "/index.html", "destination": "/", "permanent": true },
     { "source": "/projects.html", "destination": "/projects", "permanent": true },
-    { "source": "/gallery.html", "destination": "/gallery", "permanent": true }
+    { "source": "/experience.html", "destination": "/experience", "permanent": true },
+    { "source": "/gallery.html", "destination": "/gallery", "permanent": true },
+    { "source": "/contact.html", "destination": "/contact", "permanent": true }
   ],
   "headers": [
     {

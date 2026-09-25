@@ -27,23 +27,34 @@
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/section/navigation.css" />
   <link rel="stylesheet" href="css/refresh.css" />
+  <link rel="stylesheet" href="css/section/page-system.css" />
 </head>
-<body class="page-archive page-gallery">
+<body class="page-archive page-gallery has-section-dock">
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <main class="page" id="main-content">
-    <header class="archive-header gallery-header">
-      <a href="/#experience" class="back-link"><span aria-hidden="true">&larr;</span> Back to experience</a>
+    <header class="profile-header shared-profile-header">
+      <div class="profile-cover-container"><img src="assets/images/cover.svg" width="1200" height="300" alt="Abstract technical architecture banner" class="profile-cover" fetchpriority="high" /></div>
+      <div class="profile-intro-block">
+        <div class="profile-avatar-row"><div class="profile-avatar-wrapper"><img src="assets/images/profile.jpg" width="400" height="400" alt="Ryle Anthony Gabotero" class="profile-avatar" fetchpriority="high" /></div></div>
+        <div class="profile-identity">
+          <p class="page-intro__kicker">Software engineer</p><p class="profile-name">Ryle Anthony Gabotero</p><p class="profile-headline">I build reliable backend systems, security tools, and applied AI products.</p>
+          <div class="profile-meta"><span class="profile-meta-item">Negros Island Region, Philippines</span><span class="profile-meta-separator" aria-hidden="true">&middot;</span><span class="profile-meta-item">Foundation University</span></div>
+          <div class="profile-actions" aria-label="Primary actions"><a href="/projects" class="action-chip action-chip--primary">Explore projects <span aria-hidden="true">&rarr;</span></a><a href="/contact" class="action-chip">Start a conversation</a><a href="https://github.com/Dev-RyleR6" target="_blank" rel="noopener noreferrer" class="action-chip">GitHub <span aria-hidden="true">&nearr;</span></a></div>
+        </div>
+      </div>
+    </header>
+
+    <nav class="site-tabs" aria-label="Portfolio pages">
+      <div class="site-tabs__inner">
+        <div class="site-tabs__links"><a class="site-tab" href="/">Profile</a><a class="site-tab" href="/projects">Projects</a><a class="site-tab" href="/experience">Experience</a><a class="site-tab" href="/gallery" aria-current="page">Gallery</a><a class="site-tab" href="/contact">Contact</a></div>
+        <button class="site-theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme"><span class="theme-icon-wrap" aria-hidden="true"><svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M1 12h2M21 12h2"></path></svg><svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span></button>
+      </div>
+    </nav>
+
+    <header class="archive-header gallery-header" id="overview">
       <p class="eyebrow">Activity gallery</p>
       <h1 class="archive-title">Competitions, training, and workshops</h1>
       <p class="section-text">Selected moments and supporting evidence from technical activities. Select an image to explore it without leaving the gallery.</p>
-      <nav class="gallery-jump-links" aria-label="Gallery sections">
-        <a href="#worldskills-national">WorldSkills National</a>
-        <a href="#worldskills-regional">WorldSkills Regional</a>
-        <a href="#koica">KOICA</a>
-        <a href="#huawei">Huawei</a>
-        <a href="#hackit">Can You HackIT</a>
-        <a href="#aideas">AI.deas</a>
-      </nav>
     </header>
 
     <section class="gallery-section" id="worldskills-national" aria-labelledby="worldskills-national-title">
@@ -201,30 +212,7 @@
     <footer class="site-footer"><p>&copy; 2026 Ryle Anthony Gabotero. All rights reserved.</p></footer>
   </main>
 
-  <nav class="nav nav--compact" aria-label="Primary navigation">
-    <a class="nav-button" href="/" aria-label="Home"><img src="assets/icons/home.svg" alt="" aria-hidden="true" /><span>Home</span></a>
-    <a class="nav-button" href="/projects" aria-label="Projects"><img src="assets/icons/projects.svg" alt="" aria-hidden="true" /><span>Projects</span></a>
-    <a class="nav-button active" href="/gallery" aria-label="Gallery" aria-current="page"><img src="assets/icons/experience.svg" alt="" aria-hidden="true" /><span>Gallery</span></a>
-    <button class="nav-button nav-theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" title="Toggle dark/light theme">
-      <span class="theme-icon-wrap" aria-hidden="true">
-        <svg class="theme-icon theme-icon--sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="5"></circle>
-          <line x1="12" y1="1" x2="12" y2="3"></line>
-          <line x1="12" y1="21" x2="12" y2="23"></line>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-          <line x1="1" y1="12" x2="3" y2="12"></line>
-          <line x1="21" y1="12" x2="23" y2="12"></line>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </svg>
-        <svg class="theme-icon theme-icon--moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-      </span>
-      <span class="theme-label">Theme</span>
-    </button>
-  </nav>
+  <nav class="section-dock" aria-label="Gallery sections"><a href="#overview" class="active" aria-current="location">Overview</a><a href="#worldskills-national">National</a><a href="#worldskills-regional">Regional</a><a href="#koica">KOICA</a><a href="#huawei">Huawei</a><a href="#hackit">HackIT</a><a href="#aideas">AI.deas</a></nav>
   <script src="js/script.js" defer></script>
   <script src="js/gallery.js" defer></script>
 </body>

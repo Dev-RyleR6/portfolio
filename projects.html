@@ -29,13 +29,34 @@
   <link rel="stylesheet" href="css/section/portfolio.css" />
   <link rel="stylesheet" href="css/section/navigation.css" />
   <link rel="stylesheet" href="css/refresh.css" />
+  <link rel="stylesheet" href="css/section/page-system.css" />
 </head>
-<body class="page-archive">
+<body class="page-archive has-section-dock">
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <main class="page" id="main-content">
-    <section class="section portfolio" aria-labelledby="archive-title">
+    <header class="profile-header shared-profile-header">
+      <div class="profile-cover-container"><img src="assets/images/cover.svg" width="1200" height="300" alt="Abstract technical architecture banner" class="profile-cover" fetchpriority="high" /></div>
+      <div class="profile-intro-block">
+        <div class="profile-avatar-row"><div class="profile-avatar-wrapper"><img src="assets/images/profile.jpg" width="400" height="400" alt="Ryle Anthony Gabotero" class="profile-avatar" fetchpriority="high" /></div></div>
+        <div class="profile-identity">
+          <p class="page-intro__kicker">Software engineer</p>
+          <p class="profile-name">Ryle Anthony Gabotero</p>
+          <p class="profile-headline">I build reliable backend systems, security tools, and applied AI products.</p>
+          <div class="profile-meta"><span class="profile-meta-item">Negros Island Region, Philippines</span><span class="profile-meta-separator" aria-hidden="true">&middot;</span><span class="profile-meta-item">Foundation University</span></div>
+          <div class="profile-actions" aria-label="Primary actions"><a href="/projects" class="action-chip action-chip--primary">Explore projects <span aria-hidden="true">&rarr;</span></a><a href="/contact" class="action-chip">Start a conversation</a><a href="https://github.com/Dev-RyleR6" target="_blank" rel="noopener noreferrer" class="action-chip">GitHub <span aria-hidden="true">&nearr;</span></a></div>
+        </div>
+      </div>
+    </header>
+
+    <nav class="site-tabs" aria-label="Portfolio pages">
+      <div class="site-tabs__inner">
+        <div class="site-tabs__links"><a class="site-tab" href="/">Profile</a><a class="site-tab" href="/projects" aria-current="page">Projects</a><a class="site-tab" href="/experience">Experience</a><a class="site-tab" href="/gallery">Gallery</a><a class="site-tab" href="/contact">Contact</a></div>
+        <button class="site-theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme"><span class="theme-icon-wrap" aria-hidden="true"><svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M1 12h2M21 12h2"></path></svg><svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span></button>
+      </div>
+    </nav>
+
+    <section class="section portfolio" id="overview" aria-labelledby="archive-title">
       <header class="archive-header">
-        <a href="/" class="back-link"><span aria-hidden="true">&larr;</span> Back to home</a>
         <p class="eyebrow">Case Studies &amp; Projects</p>
         <h1 class="archive-title" id="archive-title">Engineered systems across web, security, and AI</h1>
         <p class="section-text">Detailed technical architectures spanning high-throughput streaming proxies, real-time desktop security agents, computer vision pipelines, and mobile SLAM AR.</p>
@@ -49,7 +70,7 @@
       </div>
 
       <div class="portfolio-grid">
-        <article class="portfolio-item" data-category="backend">
+        <article class="portfolio-item" id="myanime" data-category="backend">
           <img src="assets/images/myanimelogo.svg" width="800" height="200" loading="lazy" decoding="async" alt="myAnime streaming platform preview" class="portfolio-image" />
           <div class="portfolio-card-content">
             <div class="project-heading-row">
@@ -65,7 +86,7 @@
           </div>
         </article>
 
-        <article class="portfolio-item" data-category="security-ai">
+        <article class="portfolio-item" id="safeview" data-category="security-ai">
           <img src="assets/images/safeview.svg" width="800" height="200" loading="lazy" decoding="async" alt="SafeView real-time OCR and transformer detection architecture diagram" class="portfolio-image" />
           <div class="portfolio-card-content">
             <div class="project-heading-row">
@@ -81,7 +102,7 @@
           </div>
         </article>
 
-        <article class="portfolio-item" data-category="security-ai">
+        <article class="portfolio-item" id="ovalens" data-category="security-ai">
           <img src="assets/images/ovalens.svg" width="800" height="200" loading="lazy" decoding="async" alt="OvaLens YOLOv8 computer vision and IoT conveyor architecture diagram" class="portfolio-image" />
           <div class="portfolio-card-content">
             <div class="project-heading-row">
@@ -97,7 +118,7 @@
           </div>
         </article>
 
-        <article class="portfolio-item" data-category="mobile">
+        <article class="portfolio-item" id="archronicle" data-category="mobile">
           <img src="assets/images/archronicle.svg" width="800" height="200" loading="lazy" decoding="async" alt="AR Chronicle mobile project preview" class="portfolio-image" />
           <div class="portfolio-card-content">
             <div class="project-heading-row">
@@ -113,7 +134,7 @@
           </div>
         </article>
 
-        <article class="portfolio-item" data-category="backend">
+        <article class="portfolio-item" id="pickleworld" data-category="backend">
           <img src="assets/images/pickleworld.svg" width="800" height="200" loading="lazy" decoding="async" alt="Pickle World project preview" class="portfolio-image" />
           <div class="portfolio-card-content">
             <div class="project-heading-row">
@@ -134,30 +155,7 @@
     <footer class="site-footer"><p>© 2026 Ryle Anthony Gabotero. All rights reserved.</p></footer>
   </main>
 
-  <nav class="nav nav--compact" aria-label="Primary navigation">
-    <a class="nav-button" href="/" aria-label="Home"><img src="assets/icons/home.svg" alt="" aria-hidden="true" /><span>Home</span></a>
-    <a class="nav-button active" href="/projects" aria-label="Projects" aria-current="page"><img src="assets/icons/projects.svg" alt="" aria-hidden="true" /><span>Projects</span></a>
-    <a class="nav-button" href="/gallery" aria-label="Gallery"><img src="assets/icons/experience.svg" alt="" aria-hidden="true" /><span>Gallery</span></a>
-    <button class="nav-button nav-theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" title="Toggle dark/light theme">
-      <span class="theme-icon-wrap" aria-hidden="true">
-        <svg class="theme-icon theme-icon--sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="5"></circle>
-          <line x1="12" y1="1" x2="12" y2="3"></line>
-          <line x1="12" y1="21" x2="12" y2="23"></line>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-          <line x1="1" y1="12" x2="3" y2="12"></line>
-          <line x1="21" y1="12" x2="23" y2="12"></line>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </svg>
-        <svg class="theme-icon theme-icon--moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-      </span>
-      <span class="theme-label">Theme</span>
-    </button>
-  </nav>
+  <nav class="section-dock" aria-label="Projects on this page"><a href="#overview" class="active" aria-current="location">Overview</a><a href="#myanime">myAnime</a><a href="#safeview">SafeView</a><a href="#ovalens">OvaLens</a><a href="#archronicle">AR Chronicle</a><a href="#pickleworld">Pickle World</a></nav>
 
   <dialog class="gallery-lightbox" id="gallery-lightbox" aria-labelledby="gallery-lightbox-title" aria-describedby="gallery-lightbox-caption">
     <div class="gallery-lightbox__shell">

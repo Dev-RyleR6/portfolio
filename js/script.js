@@ -1,142 +1,42 @@
 document.addEventListener("DOMContentLoaded", () => {
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ==========================================================================
-     Profile Tab System (About, Projects, Experience, Contact)
+  /* ===========================================================================
+     Context dock: section navigation and scroll position
      ========================================================================== */
-  const subnavTabs = Array.from(document.querySelectorAll(".subnav-tab[data-tab]"));
-  const tabPanels = Array.from(document.querySelectorAll(".tab-panel"));
-  const subnav = document.getElementById("profile-subnav");
+  const sectionLinks = Array.from(document.querySelectorAll(".section-dock a[href^='#']"));
+  const dockSections = sectionLinks
+    .map((link) => document.getElementById(link.getAttribute("href").slice(1)))
+    .filter(Boolean);
 
-  const tabAliases = {
-    about: "about",
-    profile: "about",
-    projects: "projects",
-    portfolio: "projects",
-    experience: "experience",
-    pillars: "experience",
-    timeline: "experience",
-    credentials: "experience",
-    contact: "contact"
-  };
-
-  function switchTab(rawTabName, updateHash = true, shouldScroll = false) {
-    if (!subnavTabs.length || !tabPanels.length) return;
-
-    const normalized = (rawTabName || "").toLowerCase().replace(/^#/, "");
-    const targetTab = tabAliases[normalized] || "about";
-
-    subnavTabs.forEach((tab) => {
-      const isMatch = tab.dataset.tab === targetTab;
-      tab.classList.toggle("active", isMatch);
-      tab.setAttribute("aria-selected", String(isMatch));
-      if (isMatch) {
-        tab.removeAttribute("tabindex");
-      } else {
-        tab.setAttribute("tabindex", "-1");
-      }
-    });
-
-    tabPanels.forEach((panel) => {
-      const isMatch = panel.id === `tab-${targetTab}`;
-      if (isMatch) {
-        panel.removeAttribute("hidden");
-        panel.classList.add("is-active");
-      } else {
-        panel.setAttribute("hidden", "");
-        panel.classList.remove("is-active");
-      }
-    });
-
-    if (updateHash && window.history && window.history.replaceState) {
-      window.history.replaceState(null, "", `#${targetTab}`);
-    }
-
-    if (shouldScroll && subnav) {
-      const navRect = subnav.getBoundingClientRect();
-      if (navRect.top < 0) {
-        subnav.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
-      }
-    }
-
-    // Ensure newly visible elements are revealed
-    if ("IntersectionObserver" in window) {
-      const activePanel = document.getElementById(`tab-${targetTab}`);
-      if (activePanel) {
-        activePanel.querySelectorAll(".reveal").forEach((el) => {
-          el.classList.add("in-view", "is-visible");
-        });
-      }
-    }
-  }
-
-  // Click handlers on tab buttons
-  subnavTabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      switchTab(tab.dataset.tab, true, true);
-    });
-  });
-
-  // Keyboard navigation for tablist (W3C APG Tabs Pattern)
-  const tablist = document.querySelector('[role="tablist"]');
-  if (tablist) {
-    tablist.addEventListener("keydown", (e) => {
-      const tabs = subnavTabs;
-      const index = tabs.indexOf(document.activeElement);
-      if (index === -1) return;
-
-      let nextIndex = null;
-      if (e.key === "ArrowRight" || e.key === "ArrowDown") {
-        nextIndex = (index + 1) % tabs.length;
-      } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
-        nextIndex = (index - 1 + tabs.length) % tabs.length;
-      } else if (e.key === "Home") {
-        nextIndex = 0;
-      } else if (e.key === "End") {
-        nextIndex = tabs.length - 1;
-      }
-
-      if (nextIndex !== null) {
-        e.preventDefault();
-        tabs[nextIndex].focus();
-        switchTab(tabs[nextIndex].dataset.tab, true, false);
-      }
+  function setActiveSection(sectionId) {
+    sectionLinks.forEach((link) => {
+      const active = link.getAttribute("href") === `#${sectionId}`;
+      link.classList.toggle("active", active);
+      if (active) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
     });
   }
 
-  // Intercept any internal links targeting tabs (e.g. data-tab-target or href="#contact")
-  document.addEventListener("click", (e) => {
-    const targetEl = e.target.closest("[data-tab-target]");
-    if (targetEl) {
-      e.preventDefault();
-      const tabName = targetEl.getAttribute("data-tab-target");
-      switchTab(tabName, true, true);
-      return;
-    }
+  if (dockSections.length && "IntersectionObserver" in window) {
+    const visibleSections = new Map();
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) visibleSections.set(entry.target.id, entry.boundingClientRect.top);
+        else visibleSections.delete(entry.target.id);
+      });
 
-    const anchor = e.target.closest("a[href^='#']");
-    if (anchor && !anchor.classList.contains("subnav-tab")) {
-      const href = anchor.getAttribute("href");
-      const cleanHref = href.slice(1);
-      if (tabAliases[cleanHref]) {
-        e.preventDefault();
-        switchTab(cleanHref, true, true);
-      }
-    }
-  });
+      const current = [...visibleSections.entries()].sort((a, b) => Math.abs(a[1]) - Math.abs(b[1]))[0];
+      if (current) setActiveSection(current[0]);
+    }, { rootMargin: "-18% 0px -62% 0px", threshold: 0 });
 
-  // Handle URL hash on initial page load and hash changes
-  function handleHash() {
-    const hash = window.location.hash.slice(1);
-    if (hash && tabAliases[hash]) {
-      switchTab(hash, false, false);
-    } else {
-      switchTab("about", false, false);
-    }
+    dockSections.forEach((section) => sectionObserver.observe(section));
   }
 
-  window.addEventListener("hashchange", handleHash);
-  handleHash();
+  if (sectionLinks.length) {
+    const initial = window.location.hash.slice(1) || dockSections[0]?.id;
+    if (initial) setActiveSection(initial);
+  }
 
   /* ==========================================================================
      Theme Toggle (Dark / Light)
