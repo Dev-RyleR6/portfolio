@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="100%" height="100%">
   <defs>
-    <linearGradient id="bgGradTelemetry" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="bgGradSafeView" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#141917"/>
       <stop offset="50%" stop-color="#19201d"/>
       <stop offset="100%" stop-color="#111614"/>
@@ -9,18 +9,18 @@
       <stop offset="0%" stop-color="#212a26"/>
       <stop offset="100%" stop-color="#171e1b"/>
     </linearGradient>
-    <linearGradient id="accentGradTelemetry" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="accentGradSafeView" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#3eb589"/>
       <stop offset="100%" stop-color="#6ee7b7"/>
     </linearGradient>
-    <pattern id="gridTelemetry" width="20" height="20" patternUnits="userSpaceOnUse">
+    <pattern id="gridSafeView" width="20" height="20" patternUnits="userSpaceOnUse">
       <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1"/>
     </pattern>
   </defs>
 
   <!-- Background Base -->
-  <rect width="800" height="240" rx="16" fill="url(#bgGradTelemetry)"/>
-  <rect width="800" height="240" rx="16" fill="url(#gridTelemetry)"/>
+  <rect width="800" height="240" rx="16" fill="url(#bgGradSafeView)"/>
+  <rect width="800" height="240" rx="16" fill="url(#gridSafeView)"/>
   <rect width="798" height="238" x="1" y="1" rx="15" fill="none" stroke="rgba(62, 181, 137, 0.25)" stroke-width="1.5"/>
 
   <!-- Top Status Bar -->

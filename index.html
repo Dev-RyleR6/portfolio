@@ -47,22 +47,79 @@
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <main class="page" id="main-content">
-    <section class="hero" id="hero" aria-labelledby="hero-title">
-      <div class="hero-image-wrapper">
-        <img src="assets/images/profile.jpg" width="400" height="400" decoding="async" fetchpriority="high" alt="Ryle Anthony Gabotero" class="hero-image" />
+    <header class="profile-header">
+      <div class="profile-cover-container">
+        <img src="assets/images/cover.svg" width="1200" height="300" alt="Technical architecture banner" class="profile-cover" fetchpriority="high" />
       </div>
-      <div class="hero-content">
-        <p class="eyebrow">Software Engineer · Systems &amp; Security</p>
-        <h1 class="hero-title" id="hero-title">
-          <span class="hero-name">Ryle Anthony Gabotero</span>
-          <span class="hero-role">Backend Systems · Cybersecurity · AI &amp; Data Science</span>
-        </h1>
-        <p class="hero-subtitle">I architect resilient backend services, high-throughput streaming systems, and data-intensive pipelines, backed by competition-tested experience in cybersecurity and applied AI.</p>
-        <div class="hero-actions">
-          <a href="#portfolio" class="button button-primary">Selected work</a>
-          <a href="#pillars" class="button button-secondary">Core pillars</a>
-          <a href="#contact" class="button button-outline">Contact me</a>
+
+      <div class="profile-intro-block">
+        <div class="profile-avatar-row">
+          <div class="profile-avatar-wrapper">
+            <img src="assets/images/profile.webp" width="400" height="400" alt="Ryle Anthony Gabotero" class="profile-avatar" fetchpriority="high" decoding="async" />
+          </div>
+          <div class="profile-badge-row">
+            <span class="status-badge status-badge--available">
+              <span class="status-pip"></span> Available for engineering roles &amp; research
+            </span>
+          </div>
         </div>
+
+        <div class="profile-identity">
+          <h1 class="profile-name">Ryle Anthony Gabotero</h1>
+          <p class="profile-headline">Software Engineer &middot; Backend Systems, Cybersecurity &amp; AI Engineering</p>
+          <div class="profile-meta">
+            <span class="profile-meta-item">
+              <svg class="meta-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              Negros Island Region, Philippines
+            </span>
+            <span class="profile-meta-separator">&middot;</span>
+            <span class="profile-meta-item">
+              <svg class="meta-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+              Foundation University
+            </span>
+          </div>
+        </div>
+
+        <div class="profile-actions">
+          <a href="https://github.com/Dev-RyleR6" target="_blank" rel="noopener noreferrer" class="action-chip action-chip--primary">
+            <svg class="chip-icon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>GitHub</span>
+          </a>
+          <a href="https://gitlab.com/ryleanthony.gabotero" target="_blank" rel="noopener noreferrer" class="action-chip">
+            <svg class="chip-icon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m23.6 9.57-1.35-4.14a.8.8 0 0 0-1.53 0L19.38 9.6H4.62L3.28 5.43a.8.8 0 0 0-1.53 0L.4 9.57a1.64 1.64 0 0 0 .6 1.83l11 8 11-8a1.64 1.64 0 0 0 .6-1.83Z"/></svg>
+            <span>GitLab</span>
+          </a>
+          <a href="https://www.linkedin.com/in/rylegabotero/" target="_blank" rel="noopener noreferrer" class="action-chip">
+            <svg class="chip-icon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a href="#contact" class="action-chip">
+            <svg class="chip-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>Contact</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <nav class="profile-subnav" id="profile-subnav" aria-label="Profile navigation">
+      <div class="subnav-container">
+        <a href="#about" class="subnav-link active">About</a>
+        <a href="#experience" class="subnav-link">Experience</a>
+        <a href="#portfolio" class="subnav-link">Projects</a>
+        <a href="#pillars" class="subnav-link">Pillars &amp; Honors</a>
+        <a href="#tech-stack" class="subnav-link">Skills</a>
+        <a href="#contact" class="subnav-link">Contact</a>
+      </div>
+    </nav>
+
+    <section class="profile-section" id="about" aria-labelledby="about-heading">
+      <div class="section-heading">
+        <p class="eyebrow">Engineering Focus</p>
+        <h2 class="profile-section-title" id="about-heading">About</h2>
+      </div>
+      <div class="section-text" style="max-width: none;">
+        <p>I am a Software Engineer dedicated to understanding how systems, protocols, and abstractions power modern software. I build production-grade backend systems, low-latency streaming reverse proxies, and automated machine learning pipelines with high throughput and strict transactional reliability.</p>
+        <p style="margin-top: 0.85rem;">My technical discipline is forged in national competitions and rigorous programs: representing the Negros Island Region as a National Cybersecurity Competitor at WorldSkills Philippines Clark 2026, winning the Regional Gold Medal in Cybersecurity, achieving Regional Finalist standing in the Huawei Developer Competition APAC 2025, and placing 4th overall at Can You HackIT.</p>
       </div>
     </section>
 
@@ -70,7 +127,7 @@
       <div class="section-heading">
         <p class="eyebrow">Featured Case Studies</p>
         <h2 class="section-title" id="portfolio-title">Engineered systems &amp; applied research</h2>
-        <p class="section-text">High-signal engineering projects highlighting streaming reverse proxies, packet telemetry engines, neural data pipelines, and geospatial AR.</p>
+        <p class="section-text">High-signal engineering projects highlighting streaming reverse proxies, real-time desktop security agents, computer vision pipelines, and geospatial AR.</p>
       </div>
       <div class="portfolio-grid portfolio-grid--featured">
         <article class="portfolio-item">
@@ -82,33 +139,42 @@
             </div>
             <p class="portfolio-description">High-throughput anime streaming architecture engineered with a custom Node.js reverse proxy to handle byte-range video streaming, rate limiting, and CORS bypass. Integrated with Redis cache layers, web scraping workers, and a PostgreSQL relational schema.</p>
             <div class="project-tech" aria-label="Technologies used"><span>Node.js</span><span>Express</span><span>PostgreSQL</span><span>Redis</span><span>TypeScript</span></div>
-            <a href="https://myanime-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-link">View live project <span aria-hidden="true">↗</span></a>
+            <div class="project-links">
+              <a href="https://myanime-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-link">View live project <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/Dev-RyleR6/myAnime" target="_blank" rel="noopener noreferrer" class="text-link">GitHub repo <span aria-hidden="true">↗</span></a>
+            </div>
           </div>
         </article>
 
         <article class="portfolio-item">
-          <img src="assets/images/networktelemetry.svg" width="800" height="200" loading="lazy" decoding="async" alt="Network Telemetry and Threat Engine architecture diagram" class="portfolio-image" />
+          <img src="assets/images/safeview.svg" width="800" height="200" loading="lazy" decoding="async" alt="SafeView real-time OCR and transformer detection architecture diagram" class="portfolio-image" />
           <div class="portfolio-card-content">
             <div class="project-heading-row">
-              <h3 class="portfolio-title">Network Telemetry &amp; Threat Analysis Engine</h3>
-              <span class="status status-completed">Competition Tested</span>
+              <h3 class="portfolio-title">SafeView · Real-Time Visual Phishing Detection</h3>
+              <span class="status status-completed">Open Source</span>
             </div>
-            <p class="portfolio-description">High-performance packet capture and security telemetry pipeline developed during national and regional cybersecurity competitions. Performs live protocol dissection, connection state tracking, anomaly telemetry scoring, and automated mitigation hooks.</p>
-            <div class="project-tech" aria-label="Technologies used"><span>Python</span><span>C/C++</span><span>Wireshark</span><span>Scapy</span><span>Linux Hardening</span></div>
-            <a href="/gallery#worldskills-national" class="text-link">Explore competition evidence <span aria-hidden="true">&rarr;</span></a>
+            <p class="portfolio-description">Real-time Windows security agent scanning active screen buffers via Tesseract OCR and Sentence-Transformers semantic embeddings to detect visual phishing and fraudulent overlays with zero cloud data transmission and sub-50ms local inference.</p>
+            <div class="project-tech" aria-label="Technologies used"><span>Python</span><span>Sentence-Transformers</span><span>Tesseract OCR</span><span>Tkinter</span><span>Windows API</span></div>
+            <div class="project-links">
+              <a href="https://github.com/Dev-RyleR6/SafeView" target="_blank" rel="noopener noreferrer" class="text-link">Explore repository <span aria-hidden="true">↗</span></a>
+              <a href="/gallery#worldskills-national" class="text-link">Competition context <span aria-hidden="true">&rarr;</span></a>
+            </div>
           </div>
         </article>
 
         <article class="portfolio-item">
-          <img src="assets/images/mldatapipeline.svg" width="800" height="200" loading="lazy" decoding="async" alt="Automated ML Data Pipeline and Neural Architecture diagram" class="portfolio-image" />
+          <img src="assets/images/ovalens.svg" width="800" height="200" loading="lazy" decoding="async" alt="OvaLens YOLOv8 computer vision and IoT conveyor architecture diagram" class="portfolio-image" />
           <div class="portfolio-card-content">
             <div class="project-heading-row">
-              <h3 class="portfolio-title">Automated ML Data &amp; Inference Pipeline</h3>
-              <span class="status status-completed">10/10 Distinction</span>
+              <h3 class="portfolio-title">OvaLens Ecosystem · YOLOv8 Computer Vision &amp; IoT</h3>
+              <span class="status status-completed">Capstone Distinction</span>
             </div>
-            <p class="portfolio-description">End-to-end data processing, feature transformation, and deep neural network inference pipeline developed and evaluated during the 120-hour KOICA DX Center AI program, earning a top 10/10 evaluation score in Deep Learning Architecture.</p>
-            <div class="project-tech" aria-label="Technologies used"><span>Python</span><span>TensorFlow</span><span>Pandas</span><span>NumPy</span><span>Scikit-Learn</span></div>
-            <button type="button" class="text-link" data-full-src="assets/images/evidence/koica-competency.webp" data-caption="KOICA DX Center Certificate of Competency (Seven Assessed AI &amp; Data Analytics Domains)">View competency proof <span aria-hidden="true">↗</span></button>
+            <p class="portfolio-description">Automated duck egg candling and fertility sorting ecosystem powered by a custom YOLOv8 deep learning model, high-resolution IMX179 camera exposure control center, Python edge client, and ESP32 microcontroller conveyor gate actuation.</p>
+            <div class="project-tech" aria-label="Technologies used"><span>Python</span><span>YOLOv8</span><span>OpenCV</span><span>ESP32</span><span>Hardware IoT</span></div>
+            <div class="project-links">
+              <a href="https://github.com/Dev-RyleR6/OvaLens" target="_blank" rel="noopener noreferrer" class="text-link">Model repository <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/Dev-RyleR6/OvaLens---Edge-App" target="_blank" rel="noopener noreferrer" class="text-link">Edge client <span aria-hidden="true">↗</span></a>
+            </div>
           </div>
         </article>
 
@@ -121,7 +187,10 @@
             </div>
             <p class="portfolio-description">Android Augmented Reality exploration system for historical landmarks combining ARCore SLAM surface detection, Unity 3D engine, OpenStreetMap geofencing, and real-time GPS coordinate calibration.</p>
             <div class="project-tech" aria-label="Technologies used"><span>Kotlin</span><span>Unity</span><span>ARCore</span><span>OpenStreetMap</span><span>GPS</span></div>
-            <a href="https://www.facebook.com/share/v/1BcHgnFtZG/" target="_blank" rel="noopener noreferrer" class="text-link">Watch project demo <span aria-hidden="true">↗</span></a>
+            <div class="project-links">
+              <a href="https://github.com/Dev-RyleR6/ARChroniclesmainAPP" target="_blank" rel="noopener noreferrer" class="text-link">GitHub repo <span aria-hidden="true">↗</span></a>
+              <a href="https://www.facebook.com/share/v/1BcHgnFtZG/" target="_blank" rel="noopener noreferrer" class="text-link">Watch project demo <span aria-hidden="true">↗</span></a>
+            </div>
           </div>
         </article>
       </div>
@@ -283,9 +352,8 @@
             <button type="button" class="gallery-item" data-full-src="assets/images/Aideas.jpg" data-caption="Participants at the DICT AI.deas for Impact workshop" aria-label="Inspect DICT AI.deas photos">
               <span class="activity-slideshow" data-slideshow>
                 <img class="is-active" src="assets/images/Aideas.jpg" width="1293" height="1084" loading="lazy" decoding="async" alt="Participants at the DICT AI.deas for Impact workshop" />
-                <img src="assets/images/aideas2.jpg" width="1293" height="1084" loading="lazy" decoding="async" alt="Foundation University participants working during the AI.deas workshop" aria-hidden="true" />
                 <img src="assets/images/aideas3.jpg" width="1293" height="1084" loading="lazy" decoding="async" alt="AI.deas for Impact certificate recipients on stage" aria-hidden="true" />
-                <span class="slideshow-dots" aria-hidden="true"><i class="is-active"></i><i></i><i></i></span>
+                <span class="slideshow-dots" aria-hidden="true"><i class="is-active"></i><i></i></span>
               </span>
             </button>
           </figure>
@@ -418,14 +486,6 @@
       </div>
     </section>
 
-    <section class="section about" id="about" aria-labelledby="about-heading">
-      <div class="section-heading"><p class="eyebrow">About</p><h2 class="section-title" id="about-heading">Curious about the entire system</h2></div>
-      <div class="about-layout">
-        <p class="about-lead">I’m a Software Engineer and BSIT student driven by understanding software systems from low-level network packets to high-throughput application servers and neural architectures.</p>
-        <p>I learn by building real-world products, defending systems under competitive pressure, and pushing performance boundaries. My work centers on backend engineering, cybersecurity, and applied machine learning, with a commitment to clean architecture and verifiable craft.</p>
-      </div>
-    </section>
-
     <section class="section contact-section" id="contact" aria-labelledby="contact-heading">
       <div class="section-heading">
         <p class="eyebrow">Contact</p>
@@ -455,7 +515,7 @@
   </main>
 
   <nav class="nav" aria-label="Primary navigation">
-    <a class="nav-button" href="#hero" aria-label="Home"><img src="assets/icons/home.svg" alt="" aria-hidden="true" /><span>Home</span></a>
+    <a class="nav-button active" href="#about" aria-label="Profile"><img src="assets/icons/home.svg" alt="" aria-hidden="true" /><span>Profile</span></a>
     <a class="nav-button" href="#portfolio" aria-label="Projects"><img src="assets/icons/projects.svg" alt="" aria-hidden="true" /><span>Projects</span></a>
     <a class="nav-button" href="#pillars" aria-label="Pillars"><img src="assets/icons/tech.svg" alt="" aria-hidden="true" /><span>Pillars</span></a>
     <a class="nav-button" href="#experience" aria-label="Timeline"><img src="assets/icons/experience.svg" alt="" aria-hidden="true" /><span>Timeline</span></a>

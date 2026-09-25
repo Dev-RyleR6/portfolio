@@ -1,13 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
   const navButtons = Array.from(document.querySelectorAll(".nav-button[href^='#']"));
+  const subNavLinks = Array.from(document.querySelectorAll(".subnav-link[href^='#']"));
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function updateActiveNav() {
-    if (!navButtons.length) return;
+    const allNavItems = [...navButtons, ...subNavLinks];
+    if (!allNavItems.length) return;
 
-    const targets = navButtons
-      .map((button) => document.querySelector(button.getAttribute("href")))
-      .filter(Boolean);
+    const targets = Array.from(
+      new Set(
+        allNavItems
+          .map((item) => document.querySelector(item.getAttribute("href")))
+          .filter(Boolean)
+      )
+    );
     if (!targets.length) return;
 
     const marker = window.scrollY + Math.min(window.innerHeight * 0.35, 260);
@@ -27,6 +33,13 @@ document.addEventListener("DOMContentLoaded", () => {
       button.classList.toggle("active", active);
       if (active) button.setAttribute("aria-current", "location");
       else button.removeAttribute("aria-current");
+    });
+
+    subNavLinks.forEach((link) => {
+      const active = link.getAttribute("href") === `#${current}`;
+      link.classList.toggle("active", active);
+      if (active) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
     });
   }
 

@@ -1,22 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="100%" height="100%">
   <defs>
-    <linearGradient id="bgGradML" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="bgGradOvaLens" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#12181f"/>
       <stop offset="50%" stop-color="#16202a"/>
       <stop offset="100%" stop-color="#0f151c"/>
     </linearGradient>
-    <linearGradient id="panelGradML" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="panelGradOvaLens" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#1e293b"/>
       <stop offset="100%" stop-color="#141e2d"/>
     </linearGradient>
-    <pattern id="gridML" width="20" height="20" patternUnits="userSpaceOnUse">
+    <pattern id="gridOvaLens" width="20" height="20" patternUnits="userSpaceOnUse">
       <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1"/>
     </pattern>
   </defs>
 
   <!-- Background Base -->
-  <rect width="800" height="240" rx="16" fill="url(#bgGradML)"/>
-  <rect width="800" height="240" rx="16" fill="url(#gridML)"/>
+  <rect width="800" height="240" rx="16" fill="url(#bgGradOvaLens)"/>
+  <rect width="800" height="240" rx="16" fill="url(#gridOvaLens)"/>
   <rect width="798" height="238" x="1" y="1" rx="15" fill="none" stroke="rgba(56, 189, 248, 0.25)" stroke-width="1.5"/>
 
   <!-- Top Status Bar -->
@@ -29,7 +29,7 @@
   <!-- Main Pipeline Blocks -->
   <g transform="translate(24, 48)">
     <!-- Stage 1: Vision Sensor -->
-    <rect x="0" y="0" width="168" height="120" rx="10" fill="url(#panelGradML)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <rect x="0" y="0" width="168" height="120" rx="10" fill="url(#panelGradOvaLens)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
     <rect x="0" y="0" width="168" height="26" rx="10" fill="rgba(56, 189, 248, 0.08)"/>
     <text x="14" y="17" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#e2e8f0">01. VISION SENSOR</text>
     <text x="14" y="48" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">IMX179 8MP Sensor</text>
@@ -42,7 +42,7 @@
     <polygon points="194,56 200,60 194,64" fill="#38bdf8"/>
 
     <!-- Stage 2: Preprocessing -->
-    <rect x="202" y="0" width="168" height="120" rx="10" fill="url(#panelGradML)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <rect x="202" y="0" width="168" height="120" rx="10" fill="url(#panelGradOvaLens)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
     <rect x="202" y="0" width="168" height="26" rx="10" fill="rgba(56, 189, 248, 0.08)"/>
     <text x="216" y="17" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#e2e8f0">02. PREPROCESSING</text>
     <text x="216" y="48" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">Color Space Normalize</text>
@@ -55,7 +55,7 @@
     <polygon points="396,56 402,60 396,64" fill="#38bdf8"/>
 
     <!-- Stage 3: YOLOv8 Model -->
-    <rect x="404" y="0" width="168" height="120" rx="10" fill="url(#panelGradML)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <rect x="404" y="0" width="168" height="120" rx="10" fill="url(#panelGradOvaLens)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
     <rect x="404" y="0" width="168" height="26" rx="10" fill="rgba(56, 189, 248, 0.08)"/>
     <text x="418" y="17" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#e2e8f0">03. YOLOV8 MODEL</text>
     <text x="418" y="48" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">Deep Vision Backbone</text>
@@ -68,7 +68,7 @@
     <polygon points="598,56 604,60 598,64" fill="#38bdf8"/>
 
     <!-- Stage 4: IoT Actuation -->
-    <rect x="606" y="0" width="146" height="120" rx="10" fill="url(#panelGradML)" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1"/>
+    <rect x="606" y="0" width="146" height="120" rx="10" fill="url(#panelGradOvaLens)" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1"/>
     <rect x="606" y="0" width="146" height="26" rx="10" fill="rgba(56, 189, 248, 0.16)"/>
     <text x="618" y="17" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#38bdf8">04. IOT ACTUATION</text>
     <text x="618" y="48" font-family="ui-monospace, monospace" font-size="10" fill="#f8fafc">ESP32 Controller</text>

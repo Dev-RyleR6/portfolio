@@ -78,14 +78,15 @@ textarea:focus-visible {
   box-shadow: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-primary);
 }
 
-/* Main page container */
+/* Main page container - unboxed fluid column */
 .page {
-  max-width: 900px;
-  margin: var(--spacing-xxl) auto var(--spacing-lg);
-  background: var(--color-white);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-md);
-  padding: var(--spacing-xxl) var(--spacing-xl) 60px;
+  width: 100%;
+  max-width: 52rem;
+  margin: 0 auto;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 1.5rem 1.25rem max(6rem, calc(4.75rem + env(safe-area-inset-bottom)));
 }
 
 /* Section divider */
