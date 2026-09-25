@@ -1834,13 +1834,18 @@ body.page-archive .page {
 }
 
 .archive-header {
+  gap: 0.65rem;
   align-items: flex-start;
   margin-bottom: 2rem;
 }
 
+.archive-header .eyebrow {
+  margin: 0;
+}
+
 .archive-title {
   max-width: 100%;
-  margin-top: 1.5rem;
+  margin: 0;
   font-size: clamp(2rem, 6vw, 3rem);
   font-weight: 750;
   line-height: 1.08;
@@ -1848,7 +1853,7 @@ body.page-archive .page {
 }
 
 .archive-header .section-text {
-  margin-bottom: 0;
+  margin: 0;
   text-align: left;
 }
 
@@ -1869,6 +1874,7 @@ body.page-archive .page {
 
 /* Activity gallery */
 .gallery-header {
+  padding-top: clamp(1.75rem, 4vw, 2.5rem);
   padding-bottom: clamp(2.5rem, 6vw, 4rem);
 }
 

@@ -1,11 +1,26 @@
 import type { NextConfig } from "next";
 
+const isDevelopment = process.env.NODE_ENV === "development";
+const scriptSources = [
+  "'self'",
+  "'unsafe-inline'",
+  ...(isDevelopment ? ["'unsafe-eval'"] : []),
+  "https://web3forms.com",
+  "https://*.hcaptcha.com",
+].join(" ");
+const connectSources = [
+  "'self'",
+  ...(isDevelopment ? ["ws:"] : []),
+  "https://api.web3forms.com",
+  "https://*.hcaptcha.com",
+].join(" ");
+
 const contentSecurityPolicy = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' https://web3forms.com https://*.hcaptcha.com",
+  `script-src ${scriptSources}`,
   "style-src 'self' 'unsafe-inline' https://*.hcaptcha.com",
   "frame-src 'self' https://*.hcaptcha.com",
-  "connect-src 'self' https://api.web3forms.com https://*.hcaptcha.com",
+  `connect-src ${connectSources}`,
   "img-src 'self' data: https:",
   "font-src 'self' data:",
   "object-src 'none'",

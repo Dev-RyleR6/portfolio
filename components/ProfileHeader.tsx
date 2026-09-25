@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 
 export function ProfileHeader({ home = false }: { home?: boolean }) {
@@ -25,11 +24,11 @@ export function ProfileHeader({ home = false }: { home?: boolean }) {
             <span className="profile-meta-separator" aria-hidden="true">·</span>
             <span className="profile-meta-item">Foundation University</span>
           </div>
-          <div className="profile-actions" aria-label="Primary actions">
-            <Link href="/projects" className="action-chip action-chip--primary">Explore projects <span aria-hidden="true">→</span></Link>
-            <Link href="/contact" className="action-chip">Start a conversation</Link>
-            <a href={siteConfig.github} target="_blank" rel="noopener noreferrer" className="action-chip">GitHub <span aria-hidden="true">↗</span></a>
-          </div>
+          <nav className="profile-actions profile-social-links" aria-label="Professional profiles">
+            <a href={siteConfig.github} target="_blank" rel="noopener noreferrer" className="profile-social-link"><Image src="/assets/icons/github-mark.svg" width={16} height={16} alt="" />GitHub</a>
+            <a href={siteConfig.gitlab} target="_blank" rel="noopener noreferrer" className="profile-social-link"><Image src="/assets/icons/gitlab.svg" width={16} height={16} alt="" />GitLab</a>
+            <a href={siteConfig.linkedin} target="_blank" rel="noopener noreferrer" className="profile-social-link"><Image src="/assets/icons/InBug-Black.png" width={16} height={16} alt="" />LinkedIn</a>
+          </nav>
         </div>
       </div>
     </header>
