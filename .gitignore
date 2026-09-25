@@ -1,6 +1,7 @@
 # Environment and secret files
 .env
 .env.*
+!.env.example
 *.local
 
 # Dependencies & build outputs
@@ -8,6 +9,9 @@ node_modules/
 dist/
 build/
 .vercel
+.next/
+out/
+*.tsbuildinfo
 
 # Operating System files
 .DS_Store
@@ -33,10 +37,9 @@ yarn-error.log*
 .impeccable/
 
 # Local raw uncompressed competition photos
-assets/images/worldskills/nationals/IMG_2670.JPG
-assets/images/worldskills/nationals/IMG_2740.JPG
-assets/images/worldskills/nationals/IMG_2870.JPG
-assets/images/worldskills/nationals/IMG_3031.JPG
-assets/images/worldskills/nationals/IMG_3037.JPG
-assets/images/worldskills/nationals/image.png
-
+public/assets/images/worldskills/nationals/IMG_2670.JPG
+public/assets/images/worldskills/nationals/IMG_2740.JPG
+public/assets/images/worldskills/nationals/IMG_2870.JPG
+public/assets/images/worldskills/nationals/IMG_3031.JPG
+public/assets/images/worldskills/nationals/IMG_3037.JPG
+public/assets/images/worldskills/nationals/image.png
