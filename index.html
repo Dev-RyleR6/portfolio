@@ -45,7 +45,7 @@
   <link rel="stylesheet" href="css/refresh.css" />
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a class="skip-link" href="#tab-content">Skip to main content</a>
   <main class="page" id="main-content">
     <header class="profile-header">
       <div class="profile-cover-container">
@@ -56,11 +56,6 @@
         <div class="profile-avatar-row">
           <div class="profile-avatar-wrapper">
             <img src="assets/images/profile.webp" width="400" height="400" alt="Ryle Anthony Gabotero" class="profile-avatar" fetchpriority="high" decoding="async" />
-          </div>
-          <div class="profile-badge-row">
-            <span class="status-badge status-badge--available">
-              <span class="status-pip"></span> Available for engineering roles &amp; research
-            </span>
           </div>
         </div>
 
@@ -93,453 +88,487 @@
             <svg class="chip-icon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
             <span>LinkedIn</span>
           </a>
-          <a href="#contact" class="action-chip">
+          <button type="button" class="action-chip" data-tab-target="contact">
             <svg class="chip-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
             <span>Contact</span>
-          </a>
+          </button>
         </div>
       </div>
     </header>
 
     <nav class="profile-subnav" id="profile-subnav" aria-label="Profile navigation">
       <div class="subnav-container">
-        <a href="#about" class="subnav-link active">About</a>
-        <a href="#experience" class="subnav-link">Experience</a>
-        <a href="#portfolio" class="subnav-link">Projects</a>
-        <a href="#pillars" class="subnav-link">Pillars &amp; Honors</a>
-        <a href="#tech-stack" class="subnav-link">Skills</a>
-        <a href="#contact" class="subnav-link">Contact</a>
+        <div class="subnav-tabs" role="tablist" aria-label="Profile views">
+          <button type="button" class="subnav-tab active" role="tab" id="tab-btn-about" aria-controls="tab-about" aria-selected="true" data-tab="about">About</button>
+          <button type="button" class="subnav-tab" role="tab" id="tab-btn-projects" aria-controls="tab-projects" aria-selected="false" data-tab="projects">Projects</button>
+          <button type="button" class="subnav-tab" role="tab" id="tab-btn-experience" aria-controls="tab-experience" aria-selected="false" data-tab="experience">Experience</button>
+          <button type="button" class="subnav-tab" role="tab" id="tab-btn-contact" aria-controls="tab-contact" aria-selected="false" data-tab="contact">Contact</button>
+        </div>
+        <div class="subnav-actions">
+          <a href="/gallery" class="subnav-action-link" title="Activity Gallery">Gallery <span aria-hidden="true">&rarr;</span></a>
+          <button class="subnav-theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" title="Toggle dark/light theme">
+            <span class="theme-icon-wrap" aria-hidden="true">
+              <svg class="theme-icon theme-icon--sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+              <svg class="theme-icon theme-icon--moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </span>
+          </button>
+        </div>
       </div>
     </nav>
 
-    <section class="profile-section" id="about" aria-labelledby="about-heading">
-      <div class="section-heading">
-        <p class="eyebrow">Engineering Focus</p>
-        <h2 class="profile-section-title" id="about-heading">About</h2>
-      </div>
-      <div class="section-text" style="max-width: none;">
-        <p>I am a Software Engineer dedicated to understanding how systems, protocols, and abstractions power modern software. I build production-grade backend systems, low-latency streaming reverse proxies, and automated machine learning pipelines with high throughput and strict transactional reliability.</p>
-        <p style="margin-top: 0.85rem;">My technical discipline is forged in national competitions and rigorous programs: representing the Negros Island Region as a National Cybersecurity Competitor at WorldSkills Philippines Clark 2026, winning the Regional Gold Medal in Cybersecurity, achieving Regional Finalist standing in the Huawei Developer Competition APAC 2025, and placing 4th overall at Can You HackIT.</p>
-      </div>
-    </section>
-
-    <section class="section portfolio" id="portfolio" aria-labelledby="portfolio-title">
-      <div class="section-heading">
-        <p class="eyebrow">Featured Case Studies</p>
-        <h2 class="section-title" id="portfolio-title">Engineered systems &amp; applied research</h2>
-        <p class="section-text">High-signal engineering projects highlighting streaming reverse proxies, real-time desktop security agents, computer vision pipelines, and geospatial AR.</p>
-      </div>
-      <div class="portfolio-grid portfolio-grid--featured">
-        <article class="portfolio-item">
-          <img src="assets/images/myanimelogo.svg" width="800" height="200" loading="lazy" decoding="async" alt="myAnime streaming architecture preview" class="portfolio-image" />
-          <div class="portfolio-card-content">
-            <div class="project-heading-row">
-              <h3 class="portfolio-title">myAnime · Reverse Proxy &amp; Streaming Engine</h3>
-              <span class="status status-live">Live · In progress</span>
-            </div>
-            <p class="portfolio-description">High-throughput anime streaming architecture engineered with a custom Node.js reverse proxy to handle byte-range video streaming, rate limiting, and CORS bypass. Integrated with Redis cache layers, web scraping workers, and a PostgreSQL relational schema.</p>
-            <div class="project-tech" aria-label="Technologies used"><span>Node.js</span><span>Express</span><span>PostgreSQL</span><span>Redis</span><span>TypeScript</span></div>
-            <div class="project-links">
-              <a href="https://myanime-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-link">View live project <span aria-hidden="true">↗</span></a>
-              <a href="https://github.com/Dev-RyleR6/myAnime" target="_blank" rel="noopener noreferrer" class="text-link">GitHub repo <span aria-hidden="true">↗</span></a>
-            </div>
+    <div class="profile-content-wrap" id="tab-content">
+      <!-- TAB 1: ABOUT (Bio & Engineering Focus + Domain-Tiered Technical Arsenal) -->
+      <section class="tab-panel is-active" id="tab-about" role="tabpanel" aria-labelledby="tab-btn-about">
+        <div class="profile-section" style="border-top: none; padding-top: 0.5rem;">
+          <div class="section-heading">
+            <p class="eyebrow">Engineering Focus</p>
+            <h2 class="profile-section-title">Systems architecture &amp; technical depth</h2>
           </div>
-        </article>
-
-        <article class="portfolio-item">
-          <img src="assets/images/safeview.svg" width="800" height="200" loading="lazy" decoding="async" alt="SafeView real-time OCR and transformer detection architecture diagram" class="portfolio-image" />
-          <div class="portfolio-card-content">
-            <div class="project-heading-row">
-              <h3 class="portfolio-title">SafeView · Real-Time Visual Phishing Detection</h3>
-              <span class="status status-completed">Open Source</span>
-            </div>
-            <p class="portfolio-description">Real-time Windows security agent scanning active screen buffers via Tesseract OCR and Sentence-Transformers semantic embeddings to detect visual phishing and fraudulent overlays with zero cloud data transmission and sub-50ms local inference.</p>
-            <div class="project-tech" aria-label="Technologies used"><span>Python</span><span>Sentence-Transformers</span><span>Tesseract OCR</span><span>Tkinter</span><span>Windows API</span></div>
-            <div class="project-links">
-              <a href="https://github.com/Dev-RyleR6/SafeView" target="_blank" rel="noopener noreferrer" class="text-link">Explore repository <span aria-hidden="true">↗</span></a>
-              <a href="/gallery#worldskills-national" class="text-link">Competition context <span aria-hidden="true">&rarr;</span></a>
-            </div>
+          <div class="section-text" style="max-width: none;">
+            <p>I am a Software Engineer dedicated to understanding how systems, protocols, and abstractions power modern software. I build production-grade backend systems, low-latency streaming reverse proxies, and automated machine learning pipelines with high throughput and strict transactional reliability.</p>
+            <p style="margin-top: 0.85rem;">My technical discipline is forged in national competitions and rigorous programs: representing the Negros Island Region as a National Cybersecurity Competitor at WorldSkills Philippines Clark 2026, winning the Regional Gold Medal in Cybersecurity, achieving Regional Finalist standing in the Huawei Developer Competition APAC 2025, and placing 4th overall at Can You HackIT.</p>
           </div>
-        </article>
+        </div>
 
-        <article class="portfolio-item">
-          <img src="assets/images/ovalens.svg" width="800" height="200" loading="lazy" decoding="async" alt="OvaLens YOLOv8 computer vision and IoT conveyor architecture diagram" class="portfolio-image" />
-          <div class="portfolio-card-content">
-            <div class="project-heading-row">
-              <h3 class="portfolio-title">OvaLens Ecosystem · YOLOv8 Computer Vision &amp; IoT</h3>
-              <span class="status status-completed">Capstone Distinction</span>
-            </div>
-            <p class="portfolio-description">Automated duck egg candling and fertility sorting ecosystem powered by a custom YOLOv8 deep learning model, high-resolution IMX179 camera exposure control center, Python edge client, and ESP32 microcontroller conveyor gate actuation.</p>
-            <div class="project-tech" aria-label="Technologies used"><span>Python</span><span>YOLOv8</span><span>OpenCV</span><span>ESP32</span><span>Hardware IoT</span></div>
-            <div class="project-links">
-              <a href="https://github.com/Dev-RyleR6/OvaLens" target="_blank" rel="noopener noreferrer" class="text-link">Model repository <span aria-hidden="true">↗</span></a>
-              <a href="https://github.com/Dev-RyleR6/OvaLens---Edge-App" target="_blank" rel="noopener noreferrer" class="text-link">Edge client <span aria-hidden="true">↗</span></a>
-            </div>
+        <div class="profile-section">
+          <div class="section-heading">
+            <p class="eyebrow">Technical Arsenal</p>
+            <h2 class="profile-section-title">Domain-tiered engineering competencies</h2>
+            <p class="section-text">Structured by architectural layer, distinguishing core systems expertise from supporting platforms.</p>
           </div>
-        </article>
+          <div class="tech-card">
+            <div class="tech-tier-grid">
+              <div class="tech-group">
+                <div class="tech-group-header">
+                  <span class="tech-tier-pill">Tier 1</span>
+                  <h3 class="tech-group-title">Backend &amp; Distributed Systems</h3>
+                </div>
+                <p class="tech-group-desc">Server-side runtimes, relational data modeling, proxy streaming, and caching.</p>
+                <div class="tech-tags">
+                  <span class="tech-tag">Node.js</span>
+                  <span class="tech-tag">Express</span>
+                  <span class="tech-tag">TypeScript</span>
+                  <span class="tech-tag">PostgreSQL</span>
+                  <span class="tech-tag">MySQL</span>
+                  <span class="tech-tag">Redis</span>
+                  <span class="tech-tag">REST APIs</span>
+                  <span class="tech-tag">WebSockets</span>
+                  <span class="tech-tag">Docker</span>
+                </div>
+              </div>
 
-        <article class="portfolio-item">
-          <img src="assets/images/archronicle.svg" width="800" height="200" loading="lazy" decoding="async" alt="AR Chronicle mobile project preview" class="portfolio-image" />
-          <div class="portfolio-card-content">
-            <div class="project-heading-row">
-              <h3 class="portfolio-title">AR Chronicle · Geospatial SLAM Navigation</h3>
-              <span class="status status-completed">Completed</span>
-            </div>
-            <p class="portfolio-description">Android Augmented Reality exploration system for historical landmarks combining ARCore SLAM surface detection, Unity 3D engine, OpenStreetMap geofencing, and real-time GPS coordinate calibration.</p>
-            <div class="project-tech" aria-label="Technologies used"><span>Kotlin</span><span>Unity</span><span>ARCore</span><span>OpenStreetMap</span><span>GPS</span></div>
-            <div class="project-links">
-              <a href="https://github.com/Dev-RyleR6/ARChroniclesmainAPP" target="_blank" rel="noopener noreferrer" class="text-link">GitHub repo <span aria-hidden="true">↗</span></a>
-              <a href="https://www.facebook.com/share/v/1BcHgnFtZG/" target="_blank" rel="noopener noreferrer" class="text-link">Watch project demo <span aria-hidden="true">↗</span></a>
-            </div>
-          </div>
-        </article>
-      </div>
-      <div class="portfolio-archive-link"><a href="/projects" class="button button-outline">View all 5 case studies in archive <span aria-hidden="true">↗</span></a></div>
-    </section>
+              <div class="tech-group">
+                <div class="tech-group-header">
+                  <span class="tech-tier-pill">Tier 2</span>
+                  <h3 class="tech-group-title">Cybersecurity &amp; Resilience</h3>
+                </div>
+                <p class="tech-group-desc">Packet analysis, protocol dissection, traffic inspection, and system hardening.</p>
+                <div class="tech-tags">
+                  <span class="tech-tag">Wireshark</span>
+                  <span class="tech-tag">Scapy</span>
+                  <span class="tech-tag">Network Packet Analysis</span>
+                  <span class="tech-tag">Linux Security</span>
+                  <span class="tech-tag">TCP/IP &amp; TLS</span>
+                  <span class="tech-tag">Threat Modeling</span>
+                  <span class="tech-tag">Incident Response</span>
+                </div>
+              </div>
 
-    <section class="section services" id="pillars" aria-labelledby="pillars-heading">
-      <div class="section-heading">
-        <p class="eyebrow">Core Architecture</p>
-        <h2 class="section-title" id="pillars-heading">Three technical pillars</h2>
-        <p class="section-text">Specialized engineering domains grounded in production software, national cybersecurity competitions, and formal assessments.</p>
-      </div>
-      <div class="services-grid pillars-grid">
-        <article class="service-card pillar-card">
-          <p class="service-index pillar-index">01</p>
-          <span class="pillar-badge">Distributed Systems</span>
-          <h3 class="service-title pillar-title">Backend Systems &amp; Distributed Architecture</h3>
-          <p class="service-description pillar-description">Designing high-throughput REST and WebSocket APIs, streaming reverse proxies, connection pooling, Redis caching, microservices, and relational schema optimization (PostgreSQL, MySQL). Built for sub-second response times, data integrity, and fault tolerance.</p>
-          <div class="pillar-tags" aria-label="Core backend competencies">
-            <span class="pillar-tag">Reverse Proxies</span>
-            <span class="pillar-tag">Redis Caching</span>
-            <span class="pillar-tag">PostgreSQL</span>
-            <span class="pillar-tag">WebSockets</span>
-            <span class="pillar-tag">REST APIs</span>
-            <span class="pillar-tag">Docker</span>
-          </div>
-        </article>
-        <article class="service-card pillar-card">
-          <p class="service-index pillar-index">02</p>
-          <span class="pillar-badge">Security &amp; Resilience</span>
-          <h3 class="service-title pillar-title">Offensive &amp; Defensive Cybersecurity</h3>
-          <p class="service-description pillar-description">Network telemetry inspection, threat modeling, protocol analysis, attack surface minimization, and competition-hardened incident response. Represented NIR at WorldSkills Philippines Clark 2026 after winning the NIR Regional Gold Medal in Cybersecurity.</p>
-          <div class="pillar-tags" aria-label="Core security competencies">
-            <span class="pillar-tag">Packet Telemetry</span>
-            <span class="pillar-tag">Protocol Analysis</span>
-            <span class="pillar-tag">Wireshark</span>
-            <span class="pillar-tag">Linux Hardening</span>
-            <span class="pillar-tag">WorldSkills Gold</span>
-            <span class="pillar-tag">Threat Modeling</span>
-          </div>
-        </article>
-        <article class="service-card pillar-card">
-          <p class="service-index pillar-index">03</p>
-          <span class="pillar-badge">Machine Learning</span>
-          <h3 class="service-title pillar-title">Applied AI &amp; Data Science Engineering</h3>
-          <p class="service-description pillar-description">Multi-stage data ETL, feature extraction, neural network architectures (MLP, CNNs), model evaluation (loss/accuracy metrics), and real-time inference endpoints. Evaluated with a top 10/10 in Deep Learning Architecture by the KOICA DX Center.</p>
-          <div class="pillar-tags" aria-label="Core AI competencies">
-            <span class="pillar-tag">Data Pipelines</span>
-            <span class="pillar-tag">TensorFlow</span>
-            <span class="pillar-tag">Deep Learning 10/10</span>
-            <span class="pillar-tag">Pandas &amp; NumPy</span>
-            <span class="pillar-tag">Model Validation</span>
-            <span class="pillar-tag">ETL Automation</span>
-          </div>
-        </article>
-      </div>
-    </section>
+              <div class="tech-group">
+                <div class="tech-group-header">
+                  <span class="tech-tier-pill">Tier 3</span>
+                  <h3 class="tech-group-title">Applied AI &amp; Data Science</h3>
+                </div>
+                <p class="tech-group-desc">Data ingestion ETL, matrix tensor pipelines, neural architecture, and inference.</p>
+                <div class="tech-tags">
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">TensorFlow</span>
+                  <span class="tech-tag">Pandas</span>
+                  <span class="tech-tag">NumPy</span>
+                  <span class="tech-tag">Scikit-Learn</span>
+                  <span class="tech-tag">ETL Pipelines</span>
+                  <span class="tech-tag">Deep Learning (10/10)</span>
+                </div>
+              </div>
 
-    <section class="section experience" id="experience" aria-labelledby="experience-heading">
-      <div class="section-heading">
-        <p class="eyebrow">Competitive Timeline</p>
-        <h2 class="section-title" id="experience-heading">Tested beyond the classroom</h2>
-        <p class="section-text">A unified chronological record of national competitions, regional gold championships, and technical hackathons.</p>
-      </div>
-      <div class="achievement-list">
-        <article class="achievement-card achievement-card--featured">
-          <div class="achievement-copy">
-            <div class="achievement-meta">
-              <time datetime="2026-09">September 2026</time>
-              <span>National Competitor · Cybersecurity</span>
-            </div>
-            <h3>WorldSkills Philippines Clark 2026</h3>
-            <p class="achievement-role">National Cybersecurity Competitor · Team NIR</p>
-            <p>Represented the Negros Island Region at the prestigious national skills competition in Clark Freeport Zone, Pampanga (TESDA-sanctioned). Defended network infrastructure and executed incident response in live, timed environments.</p>
-            <div class="achievement-actions">
-              <a class="text-link" href="/gallery#worldskills-national">View national gallery <span aria-hidden="true">&rarr;</span></a>
-              <a class="text-link text-link--secondary" href="https://tesda.gov.ph/Media/NewsDetail/20489" target="_blank" rel="noopener noreferrer">TESDA event record <span aria-hidden="true">↗</span></a>
-            </div>
-          </div>
-          <figure class="achievement-media">
-            <button type="button" class="gallery-item" data-full-src="assets/images/worldskills/nationals/8d9c0df7-8dbb-4809-a3c0-072189056fb9.jpg" data-caption="Opening program stage at WorldSkills Philippines Clark 2026" aria-label="Inspect WorldSkills national highlights">
-              <span class="activity-slideshow" data-slideshow>
-                <img class="is-active" src="assets/images/worldskills/nationals/8d9c0df7-8dbb-4809-a3c0-072189056fb9.jpg" width="2048" height="1536" loading="lazy" decoding="async" alt="Opening program stage at WorldSkills Philippines Clark 2026" />
-                <img src="assets/images/worldskills/nationals/IMG_3422.JPG" width="2656" height="1992" loading="lazy" decoding="async" alt="Team NIR Cybersecurity competitors working at their national competition stations" aria-hidden="true" />
-                <img class="slideshow-image--contain" src="assets/images/experience/worldskills-team-nir.webp" width="1365" height="1152" loading="lazy" decoding="async" alt="Team NIR Cyber Security competitors with their expert" aria-hidden="true" />
-                <span class="slideshow-dots" aria-hidden="true"><i class="is-active"></i><i></i><i></i></span>
-              </span>
-            </button>
-            <figcaption>WorldSkills Philippines Clark 2026 national competition highlights</figcaption>
-          </figure>
-        </article>
-
-        <article class="achievement-card achievement-card--featured">
-          <div class="achievement-copy">
-            <div class="achievement-meta">
-              <time datetime="2026-06">June 2026</time>
-              <span>Gold Medalist · Regional Champion</span>
-            </div>
-            <h3>WorldSkills Philippines NIR Regional Skills Olympics</h3>
-            <p class="achievement-role">Gold Medalist · Cybersecurity (1st Place)</p>
-            <p>Won the Cybersecurity skill area with teammate Earl John Estandarte, earning regional gold and qualifying to represent the region at the WorldSkills Philippines national competition.</p>
-            <div class="achievement-actions">
-              <button type="button" class="text-link text-link--secondary" data-full-src="assets/images/evidence/worldskills-regional-gold.webp" data-caption="WorldSkills Philippines NIR Regional Skills Olympics Gold Medal Certificate in Cybersecurity">View certificate <span aria-hidden="true">↗</span></button>
-              <a class="text-link text-link--secondary" href="https://www.foundationu.edu.ph/post/foundation-university-bags-gold-medals-at-the-nir-regional-skills-olympics" target="_blank" rel="noopener noreferrer">University announcement <span aria-hidden="true">↗</span></a>
-              <a class="text-link" href="/gallery#worldskills-regional">View gallery <span aria-hidden="true">&rarr;</span></a>
-            </div>
-          </div>
-          <figure class="achievement-media">
-            <button type="button" class="gallery-item" data-full-src="assets/images/worldskills/regional/image.png" data-caption="Cybersecurity gold medalists and officials on stage at the 2026 NIR Regional Skills Olympics" aria-label="Inspect Regional Skills Olympics awarding ceremony">
-              <span class="activity-slideshow" data-slideshow>
-                <img class="is-active" src="assets/images/worldskills/regional/image.png" width="1920" height="1279" loading="lazy" decoding="async" alt="Cybersecurity gold medalists and officials on stage at the 2026 NIR Regional Skills Olympics" />
-                <img src="assets/images/worldskills/regional/7d0953b1-da82-47b0-a924-263d45a849d9.jpg" width="2048" height="1365" loading="lazy" decoding="async" alt="Foundation University delegation with the university president at the 2026 NIR Regional Skills Olympics" aria-hidden="true" />
-                <span class="slideshow-dots" aria-hidden="true"><i class="is-active"></i><i></i></span>
-              </span>
-            </button>
-            <figcaption>Cybersecurity awarding ceremony and Foundation University delegation</figcaption>
-          </figure>
-        </article>
-
-        <article class="achievement-card">
-          <div class="achievement-meta"><time datetime="2025-11">November 2025</time><span>APAC Finalist · Cloud &amp; AI</span></div>
-          <h3>Huawei Developer Competition</h3>
-          <p class="achievement-role">Developer Competition Participant &amp; Finalist</p>
-          <p>Built cloud-native intelligent solutions in Huawei’s premier Asia-Pacific developer challenge, completing the comprehensive enterprise competition program.</p>
-          <div class="achievement-actions">
-            <a class="text-link" href="/gallery#huawei">View gallery <span aria-hidden="true">&rarr;</span></a>
-          </div>
-          <a class="achievement-evidence-preview" href="assets/docs/HDC2511200D53A1DE.pdf" target="_blank" rel="noopener noreferrer">
-            <span>Certificate · PDF</span>
-            <strong>Huawei Developer Competition participation evidence <span aria-hidden="true">↗</span></strong>
-          </a>
-        </article>
-
-        <article class="achievement-card">
-          <div class="achievement-meta"><time datetime="2025-07-15">July 2025</time><span>4th Place · Top 5 Finalist</span></div>
-          <h3>Can You HackIT: The IBPAP Challenge</h3>
-          <p class="achievement-role">Hackathon Developer · Team SHIFT</p>
-          <p>Architected and presented a working solution within 24 hours with Team SHIFT at Cebu Institute of Technology–University, securing a Top 5 finalist finish.</p>
-          <a class="text-link" href="/gallery#hackit">View gallery <span aria-hidden="true">&rarr;</span></a>
-          <figure class="achievement-media achievement-media--preview">
-            <button type="button" class="gallery-item" data-full-src="assets/images/Hackathon2.jpg" data-caption="Team SHIFT developing its solution during Can You HackIT" aria-label="Inspect Can You HackIT photos">
-              <span class="activity-slideshow" data-slideshow>
-                <img class="is-active" src="assets/images/Hackathon2.jpg" width="2160" height="2880" loading="lazy" decoding="async" alt="Team SHIFT developing its solution during Can You HackIT" />
-                <img src="assets/images/Hackathon.jpg" width="1542" height="2047" loading="lazy" decoding="async" alt="Team SHIFT and mentors beside the IBPAP event banner" aria-hidden="true" />
-                <img src="assets/images/4th.jpg" width="1536" height="2048" loading="lazy" decoding="async" alt="Can You HackIT screen listing Team SHIFT among the Top 5 teams" aria-hidden="true" />
-                <span class="slideshow-dots" aria-hidden="true"><i class="is-active"></i><i></i><i></i></span>
-              </span>
-            </button>
-          </figure>
-        </article>
-
-        <article class="achievement-card">
-          <div class="achievement-meta"><time datetime="2024-06">June 2024</time><span>Innovation Finalist · AI for Impact</span></div>
-          <h3>DICT AI.deas for Impact</h3>
-          <p class="achievement-role">AI for Innovation Participant</p>
-          <p>Selected participant in the Department of Information and Communications Technology (DICT) innovation workshop in Dumaguete City, pitching AI solutions for regional challenges.</p>
-          <a class="text-link" href="/gallery#aideas">View gallery <span aria-hidden="true">&rarr;</span></a>
-          <figure class="achievement-media achievement-media--preview">
-            <button type="button" class="gallery-item" data-full-src="assets/images/Aideas.jpg" data-caption="Participants at the DICT AI.deas for Impact workshop" aria-label="Inspect DICT AI.deas photos">
-              <span class="activity-slideshow" data-slideshow>
-                <img class="is-active" src="assets/images/Aideas.jpg" width="1293" height="1084" loading="lazy" decoding="async" alt="Participants at the DICT AI.deas for Impact workshop" />
-                <img src="assets/images/aideas3.jpg" width="1293" height="1084" loading="lazy" decoding="async" alt="AI.deas for Impact certificate recipients on stage" aria-hidden="true" />
-                <span class="slideshow-dots" aria-hidden="true"><i class="is-active"></i><i></i></span>
-              </span>
-            </button>
-          </figure>
-        </article>
-      </div>
-    </section>
-
-    <section class="section credentials" id="credentials" aria-labelledby="credentials-heading">
-      <div class="section-heading">
-        <p class="eyebrow">Certifications &amp; Training</p>
-        <h2 class="section-title" id="credentials-heading">Structured technical development</h2>
-        <p class="section-text">Formal assessments and intensive multi-week programs that validate applied systems knowledge and machine learning architecture.</p>
-      </div>
-      <div class="credential-grid">
-        <article class="credential-card">
-          <div class="credential-number" aria-hidden="true">01</div>
-          <p class="credential-issuer">KOICA DX Center · Hannam University · Silliman University</p>
-          <h3>Advanced Big Data Analytics &amp; Artificial Intelligence</h3>
-          <p class="credential-meta">120 hours · June 22–July 31, 2026</p>
-          <p>Completed seven assessed competency domains spanning machine learning, neural networks, TensorFlow, reinforcement learning, and autonomous AI agents.</p>
-          <p class="credential-highlight">10/10 · Deep Learning Architecture (Distinction)</p>
-          <a class="activity-preview" href="/gallery#koica" aria-label="View the KOICA AI and data analytics training gallery">
-            <span class="activity-slideshow activity-slideshow--credential" data-slideshow>
-              <img class="is-active" src="assets/images/koica/d915f4f0-dc73-4783-8342-510dd5113937.jpg" width="2048" height="1152" loading="lazy" decoding="async" alt="Participants and instructors during the KOICA advanced AI and data analytics training" />
-              <img src="assets/images/koica/bdebab4f-c647-4631-aa7e-b79867e6bbe9.jpg" width="2048" height="1365" loading="lazy" decoding="async" alt="Ryle receiving a KOICA completion certificate on stage" aria-hidden="true" />
-              <img src="assets/images/koica/8788d8eb-6a86-4e6d-bafc-b5dc5ac366a3.jpg" width="1182" height="666" loading="lazy" decoding="async" alt="KOICA trainees holding completion and competency certificates" aria-hidden="true" />
-              <span class="slideshow-dots" aria-hidden="true"><i class="is-active"></i><i></i><i></i></span>
-            </span>
-            <span>View training gallery <span aria-hidden="true">&rarr;</span></span>
-          </a>
-          <button type="button" class="credential-proof gallery-item" data-full-src="assets/images/evidence/koica-competency.webp" data-caption="KOICA DX Center Certificate of Competency showing seven assessed AI and data analytics domains">
-            <img src="assets/images/evidence/koica-competency.webp" width="1600" height="1067" loading="lazy" decoding="async" alt="KOICA DX Center Certificate of Competency showing seven assessed AI and data analytics domains" />
-            <span>Inspect competency certificate <span aria-hidden="true">↗</span></span>
-          </button>
-          <p class="credential-note">Official evidence confirms perfect marks in deep learning architecture.</p>
-        </article>
-
-        <article class="credential-card">
-          <div class="credential-number" aria-hidden="true">02</div>
-          <p class="credential-issuer">IITP · TOPCIT Philippines</p>
-          <h3>TOPCIT ICT Competency Assessment</h3>
-          <p class="credential-meta">Level 2 · 365/1000 · July 23, 2026</p>
-          <p>Standardized diagnostic examination evaluating software development, data management, systems architecture, cybersecurity, and IT project management.</p>
-          <a class="text-link" href="assets/docs/My Page _ Score &amp; Certificate _Overall achievement _ TOPCIT.pdf" target="_blank" rel="noopener noreferrer">View original score report (PDF) <span aria-hidden="true">↗</span></a>
-          <a class="text-link" href="https://www.topcit.or.kr/introduction/ability.do" target="_blank" rel="noopener noreferrer">View official level definitions <span aria-hidden="true">↗</span></a>
-          <p class="credential-note">Two-page official score breakdown.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section tech-stack" id="tech-stack" aria-labelledby="stack-heading">
-      <div class="section-heading">
-        <p class="eyebrow">Technical Toolkit</p>
-        <h2 class="section-title" id="stack-heading">Domain-tiered technical arsenal</h2>
-        <p class="section-text">Structured by engineering responsibility and architectural layer, distinguishing core systems expertise from supporting tooling.</p>
-      </div>
-      <div class="tech-card">
-        <div class="tech-tier-grid">
-          <div class="tech-group">
-            <div class="tech-group-header">
-              <span class="tech-tier-pill">Tier 1</span>
-              <h3 class="tech-group-title">Backend &amp; Distributed Systems</h3>
-            </div>
-            <p class="tech-group-desc">Server-side runtimes, relational data modeling, proxy streaming, and caching.</p>
-            <div class="tech-tags">
-              <span class="tech-tag">Node.js</span>
-              <span class="tech-tag">Express</span>
-              <span class="tech-tag">TypeScript</span>
-              <span class="tech-tag">PostgreSQL</span>
-              <span class="tech-tag">MySQL</span>
-              <span class="tech-tag">Redis</span>
-              <span class="tech-tag">REST APIs</span>
-              <span class="tech-tag">WebSockets</span>
-              <span class="tech-tag">Docker</span>
-            </div>
-          </div>
-
-          <div class="tech-group">
-            <div class="tech-group-header">
-              <span class="tech-tier-pill">Tier 2</span>
-              <h3 class="tech-group-title">Cybersecurity &amp; Resilience</h3>
-            </div>
-            <p class="tech-group-desc">Telemetry packet capture, protocol dissection, traffic analysis, and hardening.</p>
-            <div class="tech-tags">
-              <span class="tech-tag">Wireshark</span>
-              <span class="tech-tag">Scapy</span>
-              <span class="tech-tag">Packet Telemetry</span>
-              <span class="tech-tag">Linux Security</span>
-              <span class="tech-tag">TCP/IP &amp; TLS</span>
-              <span class="tech-tag">Threat Modeling</span>
-              <span class="tech-tag">Incident Response</span>
-            </div>
-          </div>
-
-          <div class="tech-group">
-            <div class="tech-group-header">
-              <span class="tech-tier-pill">Tier 3</span>
-              <h3 class="tech-group-title">Applied AI &amp; Data Science</h3>
-            </div>
-            <p class="tech-group-desc">Data ingestion ETL, matrix tensor pipelines, neural architecture, and inference.</p>
-            <div class="tech-tags">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">TensorFlow</span>
-              <span class="tech-tag">Pandas</span>
-              <span class="tech-tag">NumPy</span>
-              <span class="tech-tag">Scikit-Learn</span>
-              <span class="tech-tag">ETL Pipelines</span>
-              <span class="tech-tag">Deep Learning (10/10)</span>
-            </div>
-          </div>
-
-          <div class="tech-group">
-            <div class="tech-group-header">
-              <span class="tech-tier-pill">Tier 4</span>
-              <h3 class="tech-group-title">Client Platforms &amp; Delivery</h3>
-            </div>
-            <p class="tech-group-desc">Mobile AR runtimes, responsive user interfaces, and automated deployment.</p>
-            <div class="tech-tags">
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">Kotlin</span>
-              <span class="tech-tag">Unity</span>
-              <span class="tech-tag">ARCore</span>
-              <span class="tech-tag">Git / GitHub CI</span>
-              <span class="tech-tag">GitLab</span>
-              <span class="tech-tag">Postman</span>
-              <span class="tech-tag">Vercel</span>
+              <div class="tech-group">
+                <div class="tech-group-header">
+                  <span class="tech-tier-pill">Tier 4</span>
+                  <h3 class="tech-group-title">Client Platforms &amp; Delivery</h3>
+                </div>
+                <p class="tech-group-desc">Mobile AR runtimes, responsive user interfaces, and automated deployment.</p>
+                <div class="tech-tags">
+                  <span class="tech-tag">React</span>
+                  <span class="tech-tag">Kotlin</span>
+                  <span class="tech-tag">Unity</span>
+                  <span class="tech-tag">ARCore</span>
+                  <span class="tech-tag">Git / GitHub CI</span>
+                  <span class="tech-tag">GitLab</span>
+                  <span class="tech-tag">Postman</span>
+                  <span class="tech-tag">Vercel</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section contact-section" id="contact" aria-labelledby="contact-heading">
-      <div class="section-heading">
-        <p class="eyebrow">Contact</p>
-        <h2 class="section-title" id="contact-heading">Let’s build something resilient</h2>
-        <p class="section-text">For software engineering roles, security research, or project collaborations, reach out directly or connect through the links below.</p>
-      </div>
-      <div class="contact-card">
-        <div class="contact-info">
-          <p class="contact-text">Email me directly at <a href="mailto:ryleanthony.gabotero@gmail.com">ryleanthony.gabotero@gmail.com</a>.</p>
-          <ul class="socials-list contact-socials-list" aria-label="Social profiles">
-            <li><a href="https://www.linkedin.com/in/rylegabotero/" target="_blank" rel="noopener noreferrer"><img src="assets/icons/InBug-Black.png" width="20" height="20" loading="lazy" decoding="async" alt="" aria-hidden="true" />LinkedIn</a></li>
-            <li><a href="https://github.com/Dev-RyleR6" target="_blank" rel="noopener noreferrer"><img src="assets/icons/github-mark.svg" width="20" height="20" loading="lazy" decoding="async" alt="" aria-hidden="true" />GitHub</a></li>
-            <li><a href="https://gitlab.com/ryleanthony.gabotero" target="_blank" rel="noopener noreferrer"><img src="assets/icons/gitlab.svg" width="20" height="20" loading="lazy" decoding="async" alt="" aria-hidden="true" />GitLab</a></li>
-          </ul>
+      <!-- TAB 2: PROJECTS (Featured Case Studies: myAnime, SafeView, OvaLens, AR Chronicle, Pickle World) -->
+      <section class="tab-panel" id="tab-projects" role="tabpanel" aria-labelledby="tab-btn-projects" hidden>
+        <div class="profile-section" style="border-top: none; padding-top: 0.5rem;">
+          <div class="section-heading">
+            <p class="eyebrow">Featured Case Studies</p>
+            <h2 class="profile-section-title">Engineered systems &amp; applied research</h2>
+            <p class="section-text">High-signal engineering projects highlighting streaming reverse proxies, real-time desktop security agents, computer vision pipelines, and geospatial AR.</p>
+          </div>
+          <div class="portfolio-grid portfolio-grid--featured">
+            <article class="portfolio-item">
+              <img src="assets/images/myanimelogo.svg" width="800" height="200" loading="lazy" decoding="async" alt="myAnime streaming architecture preview" class="portfolio-image" />
+              <div class="portfolio-card-content">
+                <div class="project-heading-row">
+                  <h3 class="portfolio-title">myAnime · Reverse Proxy &amp; Streaming Engine</h3>
+                  <span class="project-tag">Web Application</span>
+                </div>
+                <p class="portfolio-description">High-throughput anime streaming architecture engineered with a custom Node.js reverse proxy to handle byte-range video streaming, rate limiting, and CORS bypass. Integrated with Redis cache layers, web scraping workers, and a PostgreSQL relational schema.</p>
+                <div class="project-tech" aria-label="Technologies used"><span>Node.js</span><span>Express</span><span>PostgreSQL</span><span>Redis</span><span>TypeScript</span></div>
+                <div class="project-links">
+                  <a href="https://myanime-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-link">View live project <span aria-hidden="true">↗</span></a>
+                  <a href="https://github.com/Dev-RyleR6/myAnime" target="_blank" rel="noopener noreferrer" class="text-link">GitHub repo <span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </article>
+
+            <article class="portfolio-item">
+              <img src="assets/images/safeview.svg" width="800" height="200" loading="lazy" decoding="async" alt="SafeView real-time OCR and transformer detection architecture diagram" class="portfolio-image" />
+              <div class="portfolio-card-content">
+                <div class="project-heading-row">
+                  <h3 class="portfolio-title">SafeView · Real-Time Visual Phishing Detection</h3>
+                  <span class="project-tag">Security Software</span>
+                </div>
+                <p class="portfolio-description">Real-time Windows security agent scanning active screen buffers via Tesseract OCR and Sentence-Transformers semantic embeddings to detect visual phishing and fraudulent overlays with zero cloud data transmission and sub-50ms local inference.</p>
+                <div class="project-tech" aria-label="Technologies used"><span>Python</span><span>Sentence-Transformers</span><span>Tesseract OCR</span><span>Tkinter</span><span>Windows API</span></div>
+                <div class="project-links">
+                  <a href="https://github.com/Dev-RyleR6/SafeView" target="_blank" rel="noopener noreferrer" class="text-link">Explore repository <span aria-hidden="true">↗</span></a>
+                  <a href="/gallery#worldskills-national" class="text-link">Competition context <span aria-hidden="true">&rarr;</span></a>
+                </div>
+              </div>
+            </article>
+
+            <article class="portfolio-item">
+              <img src="assets/images/ovalens.svg" width="800" height="200" loading="lazy" decoding="async" alt="OvaLens YOLOv8 computer vision and IoT conveyor architecture diagram" class="portfolio-image" />
+              <div class="portfolio-card-content">
+                <div class="project-heading-row">
+                  <h3 class="portfolio-title">OvaLens Ecosystem · YOLOv8 Computer Vision &amp; IoT</h3>
+                  <span class="project-tag">Computer Vision &amp; IoT</span>
+                </div>
+                <p class="portfolio-description">Automated duck egg candling and fertility sorting ecosystem powered by a custom YOLOv8 deep learning model, high-resolution IMX179 camera exposure control center, Python edge client, and ESP32 microcontroller conveyor gate actuation.</p>
+                <div class="project-tech" aria-label="Technologies used"><span>Python</span><span>YOLOv8</span><span>OpenCV</span><span>ESP32</span><span>Hardware IoT</span></div>
+                <div class="project-links">
+                  <a href="https://github.com/Dev-RyleR6/OvaLens" target="_blank" rel="noopener noreferrer" class="text-link">Model repository <span aria-hidden="true">↗</span></a>
+                  <a href="https://github.com/Dev-RyleR6/OvaLens---Edge-App" target="_blank" rel="noopener noreferrer" class="text-link">Edge client <span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </article>
+
+            <article class="portfolio-item">
+              <img src="assets/images/archronicle.svg" width="800" height="200" loading="lazy" decoding="async" alt="AR Chronicle mobile project preview" class="portfolio-image" />
+              <div class="portfolio-card-content">
+                <div class="project-heading-row">
+                  <h3 class="portfolio-title">AR Chronicle · Geospatial SLAM Navigation</h3>
+                  <span class="project-tag">Mobile AR</span>
+                </div>
+                <p class="portfolio-description">Android Augmented Reality exploration system for historical landmarks combining ARCore SLAM surface detection, Unity 3D engine, OpenStreetMap geofencing, and real-time GPS coordinate calibration.</p>
+                <div class="project-tech" aria-label="Technologies used"><span>Kotlin</span><span>Unity</span><span>ARCore</span><span>OpenStreetMap</span><span>GPS</span></div>
+                <div class="project-links">
+                  <a href="https://github.com/Dev-RyleR6/ARChroniclesmainAPP" target="_blank" rel="noopener noreferrer" class="text-link">GitHub repo <span aria-hidden="true">↗</span></a>
+                  <a href="https://www.facebook.com/share/v/1BcHgnFtZG/" target="_blank" rel="noopener noreferrer" class="text-link">Watch project demo <span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </article>
+
+            <article class="portfolio-item">
+              <img src="assets/images/pickleworld.svg" width="800" height="200" loading="lazy" decoding="async" alt="Pickle World court reservation project preview" class="portfolio-image" />
+              <div class="portfolio-card-content">
+                <div class="project-heading-row">
+                  <h3 class="portfolio-title">Pickle World · Real-Time Venue Booking Engine</h3>
+                  <span class="project-tag">Full-Stack System</span>
+                </div>
+                <p class="portfolio-description">Multi-court pickleball reservation engine with real-time slot locks via WebSockets, webhook-driven payment reconciliation, and strict transaction isolation on MySQL to prevent double-booking under concurrency.</p>
+                <div class="project-tech" aria-label="Technologies used"><span>React</span><span>TypeScript</span><span>Node.js</span><span>MySQL</span><span>WebSockets</span></div>
+                <div class="project-links">
+                  <a href="https://pickleworld-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-link">View live preview <span aria-hidden="true">↗</span></a>
+                  <a href="https://github.com/Dev-RyleR6/pickleball_reservation_system" target="_blank" rel="noopener noreferrer" class="text-link">GitHub repo <span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="portfolio-archive-link" style="margin-top: 2rem;">
+            <a href="/projects" class="button button-outline">View all 5 case studies in archive <span aria-hidden="true">&rarr;</span></a>
+          </div>
         </div>
-        <form class="contact-form" id="contactForm" novalidate autocomplete="on">
-          <div class="form-group contact-form__hp" aria-hidden="true"><label for="contact-company">Company</label><input type="text" id="contact-company" name="botcheck" tabindex="-1" autocomplete="off" /></div>
-          <div class="form-group"><label for="contact-name">Name</label><input id="contact-name" name="name" type="text" autocomplete="name" maxlength="120" /></div>
-          <div class="form-group"><label for="contact-email">Email</label><input id="contact-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" /></div>
-          <div class="form-group"><label for="contact-message">Message</label><textarea id="contact-message" name="message" rows="4" maxlength="4000"></textarea></div>
-          <div id="contactCaptchaWrap" class="form-group contact-form__captcha-wrap contact-form__captcha-wrap--hidden" aria-hidden="true"><span id="contact-captcha-label" class="contact-form__captcha-label">Verification</span><div class="h-captcha" data-captcha="true" data-size="compact" data-theme="light" role="group" aria-labelledby="contact-captcha-label"></div></div>
-          <button type="submit" class="contact-submit" id="contactSubmit"><span class="contact-submit__label">Send message</span><span class="contact-submit__spinner" aria-hidden="true"></span></button>
-        </form>
-      </div>
-    </section>
+      </section>
+
+      <!-- TAB 3: EXPERIENCE (Pillars + Competitive Timeline + Formal Credentials) -->
+      <section class="tab-panel" id="tab-experience" role="tabpanel" aria-labelledby="tab-btn-experience" hidden>
+        <!-- Architectural Pillars -->
+        <div class="profile-section" style="border-top: none; padding-top: 0.5rem;">
+          <div class="section-heading">
+            <p class="eyebrow">Core Architecture</p>
+            <h2 class="profile-section-title">Three technical pillars</h2>
+            <p class="section-text">Specialized engineering domains grounded in production software, national cybersecurity competitions, and formal assessments.</p>
+          </div>
+          <div class="services-grid pillars-grid">
+            <article class="service-card pillar-card">
+              <p class="service-index pillar-index">01</p>
+              <span class="pillar-badge">Distributed Systems</span>
+              <h3 class="service-title pillar-title">Backend Systems &amp; Distributed Architecture</h3>
+              <p class="service-description pillar-description">Designing high-throughput REST and WebSocket APIs, streaming reverse proxies, connection pooling, Redis caching, microservices, and relational schema optimization (PostgreSQL, MySQL). Built for sub-second response times, data integrity, and fault tolerance.</p>
+              <div class="pillar-tags" aria-label="Core backend competencies">
+                <span class="pillar-tag">Reverse Proxies</span>
+                <span class="pillar-tag">Redis Caching</span>
+                <span class="pillar-tag">PostgreSQL</span>
+                <span class="pillar-tag">WebSockets</span>
+                <span class="pillar-tag">REST APIs</span>
+                <span class="pillar-tag">Docker</span>
+              </div>
+            </article>
+            <article class="service-card pillar-card">
+              <p class="service-index pillar-index">02</p>
+              <span class="pillar-badge">Security &amp; Resilience</span>
+              <h3 class="service-title pillar-title">Offensive &amp; Defensive Cybersecurity</h3>
+              <p class="service-description pillar-description">Network traffic inspection, threat modeling, protocol analysis, attack surface minimization, and competition-hardened incident response. Represented NIR at WorldSkills Philippines Clark 2026 after winning the NIR Regional Gold Medal in Cybersecurity.</p>
+              <div class="pillar-tags" aria-label="Core security competencies">
+                <span class="pillar-tag">Packet Analysis</span>
+                <span class="pillar-tag">Protocol Analysis</span>
+                <span class="pillar-tag">Wireshark</span>
+                <span class="pillar-tag">Linux Hardening</span>
+                <span class="pillar-tag">WorldSkills Gold</span>
+                <span class="pillar-tag">Threat Modeling</span>
+              </div>
+            </article>
+            <article class="service-card pillar-card">
+              <p class="service-index pillar-index">03</p>
+              <span class="pillar-badge">Machine Learning</span>
+              <h3 class="service-title pillar-title">Applied AI &amp; Data Science Engineering</h3>
+              <p class="service-description pillar-description">Multi-stage data ETL, feature extraction, neural network architectures (MLP, CNNs), model evaluation (loss/accuracy metrics), and real-time inference endpoints. Evaluated with a top 10/10 in Deep Learning Architecture by the KOICA DX Center.</p>
+              <div class="pillar-tags" aria-label="Core AI competencies">
+                <span class="pillar-tag">Data Pipelines</span>
+                <span class="pillar-tag">TensorFlow</span>
+                <span class="pillar-tag">Deep Learning 10/10</span>
+                <span class="pillar-tag">Pandas &amp; NumPy</span>
+                <span class="pillar-tag">Model Validation</span>
+                <span class="pillar-tag">ETL Automation</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Competitive Timeline -->
+        <div class="profile-section">
+          <div class="section-heading">
+            <p class="eyebrow">Competitive Timeline</p>
+            <h2 class="profile-section-title">Tested beyond the classroom</h2>
+            <p class="section-text">A unified chronological record of national skills championships, regional gold awards, and technical hackathons.</p>
+          </div>
+          <div class="achievement-list">
+            <article class="achievement-card achievement-card--featured">
+              <div class="achievement-copy">
+                <div class="achievement-meta">
+                  <time datetime="2026-09">September 2026</time>
+                  <span>National Competitor &middot; Cybersecurity</span>
+                </div>
+                <h3>WorldSkills Philippines Clark 2026</h3>
+                <p class="achievement-role">National Cybersecurity Competitor &middot; Team NIR</p>
+                <p>Represented the Negros Island Region at the prestigious national skills competition in Clark Freeport Zone, Pampanga (TESDA-sanctioned). Defended network infrastructure and executed incident response in live, timed environments.</p>
+                <div class="achievement-actions">
+                  <a class="text-link" href="/gallery#worldskills-national">View national gallery <span aria-hidden="true">&rarr;</span></a>
+                  <a class="text-link text-link--secondary" href="https://tesda.gov.ph/Media/NewsDetail/20489" target="_blank" rel="noopener noreferrer">TESDA event record <span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+              <figure class="achievement-media">
+                <button type="button" class="gallery-item" data-full-src="assets/images/worldskills/nationals/8d9c0df7-8dbb-4809-a3c0-072189056fb9.jpg" data-caption="Opening program stage at WorldSkills Philippines Clark 2026" aria-label="Inspect WorldSkills national highlights">
+                  <span class="activity-slideshow" data-slideshow>
+                    <img class="is-active" src="assets/images/worldskills/nationals/8d9c0df7-8dbb-4809-a3c0-072189056fb9.jpg" width="2048" height="1536" loading="lazy" decoding="async" alt="Opening program stage at WorldSkills Philippines Clark 2026" />
+                    <img src="assets/images/worldskills/nationals/IMG_3422.JPG" width="2656" height="1992" loading="lazy" decoding="async" alt="Team NIR Cybersecurity competitors working at their national competition stations" aria-hidden="true" />
+                    <img class="slideshow-image--contain" src="assets/images/experience/worldskills-team-nir.webp" width="1365" height="1152" loading="lazy" decoding="async" alt="Team NIR Cyber Security competitors with their expert" aria-hidden="true" />
+                    <span class="slideshow-dots" aria-hidden="true"><i class="is-active"></i><i></i><i></i></span>
+                  </span>
+                </button>
+                <figcaption>WorldSkills Philippines Clark 2026 national competition highlights</figcaption>
+              </figure>
+            </article>
+
+            <article class="achievement-card achievement-card--featured">
+              <div class="achievement-copy">
+                <div class="achievement-meta">
+                  <time datetime="2026-06">June 2026</time>
+                  <span>Gold Medalist &middot; Regional Champion</span>
+                </div>
+                <h3>WorldSkills Philippines NIR Regional Skills Olympics</h3>
+                <p class="achievement-role">Gold Medalist &middot; Cybersecurity (1st Place)</p>
+                <p>Won the Cybersecurity skill area with teammate Earl John Estandarte, earning regional gold and qualifying to represent the region at the WorldSkills Philippines national competition.</p>
+                <div class="achievement-actions">
+                  <button type="button" class="text-link text-link--secondary" data-full-src="assets/images/evidence/worldskills-regional-gold.webp" data-caption="WorldSkills Philippines NIR Regional Skills Olympics Gold Medal Certificate in Cybersecurity">View certificate <span aria-hidden="true">↗</span></button>
+                  <a class="text-link text-link--secondary" href="https://www.foundationu.edu.ph/post/foundation-university-bags-gold-medals-at-the-nir-regional-skills-olympics" target="_blank" rel="noopener noreferrer">University announcement <span aria-hidden="true">↗</span></a>
+                  <a class="text-link" href="/gallery#worldskills-regional">View gallery <span aria-hidden="true">&rarr;</span></a>
+                </div>
+              </div>
+              <figure class="achievement-media">
+                <button type="button" class="gallery-item" data-full-src="assets/images/worldskills/regional/image.png" data-caption="Cybersecurity gold medalists and officials on stage at the 2026 NIR Regional Skills Olympics" aria-label="Inspect Regional Skills Olympics awarding ceremony">
+                  <span class="activity-slideshow" data-slideshow>
+                    <img class="is-active" src="assets/images/worldskills/regional/image.png" width="1920" height="1279" loading="lazy" decoding="async" alt="Cybersecurity gold medalists and officials on stage at the 2026 NIR Regional Skills Olympics" />
+                    <img src="assets/images/worldskills/regional/7d0953b1-da82-47b0-a924-263d45a849d9.jpg" width="2048" height="1365" loading="lazy" decoding="async" alt="Foundation University delegation with the university president at the 2026 NIR Regional Skills Olympics" aria-hidden="true" />
+                    <span class="slideshow-dots" aria-hidden="true"><i class="is-active"></i><i></i></span>
+                  </span>
+                </button>
+                <figcaption>Cybersecurity awarding ceremony and Foundation University delegation</figcaption>
+              </figure>
+            </article>
+
+            <article class="achievement-card">
+              <div class="achievement-meta"><time datetime="2025-11">November 2025</time><span>APAC Finalist &middot; Cloud &amp; AI</span></div>
+              <h3>Huawei Developer Competition</h3>
+              <p class="achievement-role">Developer Competition Participant &amp; Finalist</p>
+              <p>Built cloud-native intelligent solutions in Huawei’s premier Asia-Pacific developer challenge, completing the comprehensive enterprise competition program.</p>
+              <div class="achievement-actions">
+                <a class="text-link" href="/gallery#huawei">View gallery <span aria-hidden="true">&rarr;</span></a>
+              </div>
+              <a class="achievement-evidence-preview" href="assets/docs/HDC2511200D53A1DE.pdf" target="_blank" rel="noopener noreferrer">
+                <span>Certificate &middot; PDF</span>
+                <strong>Huawei Developer Competition participation evidence <span aria-hidden="true">↗</span></strong>
+              </a>
+            </article>
+
+            <article class="achievement-card">
+              <div class="achievement-meta"><time datetime="2025-07-15">July 2025</time><span>4th Place &middot; Top 5 Finalist</span></div>
+              <h3>Can You HackIT: The IBPAP Challenge</h3>
+              <p class="achievement-role">Hackathon Developer &middot; Team SHIFT</p>
+              <p>Architected and presented a working solution within 24 hours with Team SHIFT at Cebu Institute of Technology–University, securing a Top 5 finalist finish.</p>
+              <div class="achievement-actions">
+                <a class="text-link" href="/gallery#hackit">View gallery <span aria-hidden="true">&rarr;</span></a>
+              </div>
+              <figure class="achievement-media achievement-media--preview">
+                <button type="button" class="gallery-item" data-full-src="assets/images/Hackathon2.jpg" data-caption="Team SHIFT developing its solution during Can You HackIT" aria-label="Inspect Can You HackIT photos">
+                  <span class="activity-slideshow" data-slideshow>
+                    <img class="is-active" src="assets/images/Hackathon2.jpg" width="2160" height="2880" loading="lazy" decoding="async" alt="Team SHIFT developing its solution during Can You HackIT" />
+                    <img src="assets/images/Hackathon.jpg" width="1542" height="2047" loading="lazy" decoding="async" alt="Team SHIFT and mentors beside the IBPAP event banner" aria-hidden="true" />
+                    <img src="assets/images/4th.jpg" width="1536" height="2048" loading="lazy" decoding="async" alt="Can You HackIT screen listing Team SHIFT among the Top 5 teams" aria-hidden="true" />
+                    <span class="slideshow-dots" aria-hidden="true"><i class="is-active"></i><i></i><i></i></span>
+                  </span>
+                </button>
+              </figure>
+            </article>
+
+            <article class="achievement-card">
+              <div class="achievement-meta"><time datetime="2024-06">June 2024</time><span>Innovation Finalist &middot; AI for Impact</span></div>
+              <h3>DICT AI.deas for Impact</h3>
+              <p class="achievement-role">AI for Innovation Participant</p>
+              <p>Selected participant in the Department of Information and Communications Technology (DICT) innovation workshop in Dumaguete City, pitching AI solutions for regional challenges.</p>
+              <div class="achievement-actions">
+                <a class="text-link" href="/gallery#aideas">View gallery <span aria-hidden="true">&rarr;</span></a>
+              </div>
+              <figure class="achievement-media achievement-media--preview">
+                <button type="button" class="gallery-item" data-full-src="assets/images/Aideas.jpg" data-caption="Participants at the DICT AI.deas for Impact workshop" aria-label="Inspect DICT AI.deas photos">
+                  <span class="activity-slideshow" data-slideshow>
+                    <img class="is-active" src="assets/images/Aideas.jpg" width="1293" height="1084" loading="lazy" decoding="async" alt="Participants at the DICT AI.deas for Impact workshop" />
+                    <img src="assets/images/aideas3.jpg" width="1293" height="1084" loading="lazy" decoding="async" alt="AI.deas for Impact certificate recipients on stage" aria-hidden="true" />
+                    <span class="slideshow-dots" aria-hidden="true"><i class="is-active"></i><i></i></span>
+                  </span>
+                </button>
+              </figure>
+            </article>
+          </div>
+        </div>
+
+        <!-- Credentials & Training -->
+        <div class="profile-section">
+          <div class="section-heading">
+            <p class="eyebrow">Certifications &amp; Training</p>
+            <h2 class="profile-section-title">Structured technical assessments</h2>
+            <p class="section-text">Formal assessments and intensive multi-week programs that validate applied systems knowledge and machine learning architecture.</p>
+          </div>
+          <div class="credential-grid">
+            <article class="credential-card">
+              <div class="credential-number" aria-hidden="true">01</div>
+              <p class="credential-issuer">KOICA DX Center &middot; Hannam University &middot; Silliman University</p>
+              <h3>Advanced Big Data Analytics &amp; Artificial Intelligence</h3>
+              <p class="credential-meta">120 hours &middot; June 22&ndash;July 31, 2026</p>
+              <p>Completed seven assessed competency domains spanning machine learning, neural networks, TensorFlow, reinforcement learning, and autonomous AI agents.</p>
+              <p class="credential-highlight">10/10 &middot; Deep Learning Architecture (Distinction)</p>
+              <a class="activity-preview" href="/gallery#koica" aria-label="View the KOICA AI and data analytics training gallery">
+                <span class="activity-slideshow activity-slideshow--credential" data-slideshow>
+                  <img class="is-active" src="assets/images/koica/d915f4f0-dc73-4783-8342-510dd5113937.jpg" width="2048" height="1152" loading="lazy" decoding="async" alt="Participants and instructors during the KOICA advanced AI and data analytics training" />
+                  <img src="assets/images/koica/bdebab4f-c647-4631-aa7e-b79867e6bbe9.jpg" width="2048" height="1365" loading="lazy" decoding="async" alt="Ryle receiving a KOICA completion certificate on stage" aria-hidden="true" />
+                  <img src="assets/images/koica/8788d8eb-6a86-4e6d-bafc-b5dc5ac366a3.jpg" width="1182" height="666" loading="lazy" decoding="async" alt="KOICA trainees holding completion and competency certificates" aria-hidden="true" />
+                  <span class="slideshow-dots" aria-hidden="true"><i class="is-active"></i><i></i><i></i></span>
+                </span>
+                <span>View training gallery <span aria-hidden="true">&rarr;</span></span>
+              </a>
+              <button type="button" class="credential-proof gallery-item" data-full-src="assets/images/evidence/koica-competency.webp" data-caption="KOICA DX Center Certificate of Competency showing seven assessed AI and data analytics domains">
+                <img src="assets/images/evidence/koica-competency.webp" width="1600" height="1067" loading="lazy" decoding="async" alt="KOICA DX Center Certificate of Competency showing seven assessed AI and data analytics domains" />
+                <span>Inspect competency certificate <span aria-hidden="true">↗</span></span>
+              </button>
+              <p class="credential-note">Official evidence confirms perfect marks in deep learning architecture.</p>
+            </article>
+
+            <article class="credential-card">
+              <div class="credential-number" aria-hidden="true">02</div>
+              <p class="credential-issuer">IITP &middot; TOPCIT Philippines</p>
+              <h3>TOPCIT ICT Competency Assessment</h3>
+              <p class="credential-meta">Level 2 &middot; 365/1000 &middot; July 23, 2026</p>
+              <p>Standardized diagnostic examination evaluating software development, data management, systems architecture, cybersecurity, and IT project management.</p>
+              <a class="text-link" href="assets/docs/My Page _ Score &amp; Certificate _Overall achievement _ TOPCIT.pdf" target="_blank" rel="noopener noreferrer">View original score report (PDF) <span aria-hidden="true">↗</span></a>
+              <a class="text-link" href="https://www.topcit.or.kr/introduction/ability.do" target="_blank" rel="noopener noreferrer">View official level definitions <span aria-hidden="true">↗</span></a>
+              <p class="credential-note">Two-page official score breakdown.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 4: CONTACT (Direct Inquiries + Form + Social Channels) -->
+      <section class="tab-panel" id="tab-contact" role="tabpanel" aria-labelledby="tab-btn-contact" hidden>
+        <div class="profile-section" style="border-top: none; padding-top: 0.5rem;">
+          <div class="section-heading">
+            <p class="eyebrow">Contact</p>
+            <h2 class="profile-section-title">Let’s build something resilient</h2>
+            <p class="section-text">For software engineering roles, security research, or project collaborations, reach out directly or connect through the links below.</p>
+          </div>
+          <div class="contact-card">
+            <div class="contact-info">
+              <p class="contact-text">Email me directly at <a href="mailto:ryleanthony.gabotero@gmail.com">ryleanthony.gabotero@gmail.com</a>.</p>
+              <ul class="socials-list contact-socials-list" aria-label="Social profiles">
+                <li><a href="https://www.linkedin.com/in/rylegabotero/" target="_blank" rel="noopener noreferrer"><img src="assets/icons/InBug-Black.png" width="20" height="20" loading="lazy" decoding="async" alt="" aria-hidden="true" />LinkedIn</a></li>
+                <li><a href="https://github.com/Dev-RyleR6" target="_blank" rel="noopener noreferrer"><img src="assets/icons/github-mark.svg" width="20" height="20" loading="lazy" decoding="async" alt="" aria-hidden="true" />GitHub</a></li>
+                <li><a href="https://gitlab.com/ryleanthony.gabotero" target="_blank" rel="noopener noreferrer"><img src="assets/icons/gitlab.svg" width="20" height="20" loading="lazy" decoding="async" alt="" aria-hidden="true" />GitLab</a></li>
+              </ul>
+            </div>
+            <form class="contact-form" id="contactForm" novalidate autocomplete="on">
+              <div class="form-group contact-form__hp" aria-hidden="true"><label for="contact-company">Company</label><input type="text" id="contact-company" name="botcheck" tabindex="-1" autocomplete="off" /></div>
+              <div class="form-group"><label for="contact-name">Name</label><input id="contact-name" name="name" type="text" autocomplete="name" maxlength="120" /></div>
+              <div class="form-group"><label for="contact-email">Email</label><input id="contact-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" /></div>
+              <div class="form-group"><label for="contact-message">Message</label><textarea id="contact-message" name="message" rows="4" maxlength="4000"></textarea></div>
+              <div id="contactCaptchaWrap" class="form-group contact-form__captcha-wrap contact-form__captcha-wrap--hidden" aria-hidden="true"><span id="contact-captcha-label" class="contact-form__captcha-label">Verification</span><div class="h-captcha" data-captcha="true" data-size="compact" data-theme="light" role="group" aria-labelledby="contact-captcha-label"></div></div>
+              <button type="submit" class="contact-submit" id="contactSubmit"><span class="contact-submit__label">Send message</span><span class="contact-submit__spinner" aria-hidden="true"></span></button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+
     <footer class="site-footer"><p>© 2026 Ryle Anthony Gabotero. All rights reserved.</p></footer>
   </main>
-
-  <nav class="nav" aria-label="Primary navigation">
-    <a class="nav-button active" href="#about" aria-label="Profile"><img src="assets/icons/home.svg" alt="" aria-hidden="true" /><span>Profile</span></a>
-    <a class="nav-button" href="#portfolio" aria-label="Projects"><img src="assets/icons/projects.svg" alt="" aria-hidden="true" /><span>Projects</span></a>
-    <a class="nav-button" href="#pillars" aria-label="Pillars"><img src="assets/icons/tech.svg" alt="" aria-hidden="true" /><span>Pillars</span></a>
-    <a class="nav-button" href="#experience" aria-label="Timeline"><img src="assets/icons/experience.svg" alt="" aria-hidden="true" /><span>Timeline</span></a>
-    <a class="nav-button" href="#contact" aria-label="Contact"><img src="assets/icons/contact.svg" alt="" aria-hidden="true" /><span>Contact</span></a>
-    <button class="nav-button nav-theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" title="Toggle dark/light theme">
-      <span class="theme-icon-wrap" aria-hidden="true">
-        <svg class="theme-icon theme-icon--sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="5"></circle>
-          <line x1="12" y1="1" x2="12" y2="3"></line>
-          <line x1="12" y1="21" x2="12" y2="23"></line>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-          <line x1="1" y1="12" x2="3" y2="12"></line>
-          <line x1="21" y1="12" x2="23" y2="12"></line>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </svg>
-        <svg class="theme-icon theme-icon--moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-      </span>
-      <span class="theme-label">Theme</span>
-    </button>
-  </nav>
 
   <dialog class="gallery-lightbox" id="gallery-lightbox" aria-labelledby="gallery-lightbox-title" aria-describedby="gallery-lightbox-caption">
     <div class="gallery-lightbox__shell">

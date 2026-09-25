@@ -1,63 +1,146 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const navButtons = Array.from(document.querySelectorAll(".nav-button[href^='#']"));
-  const subNavLinks = Array.from(document.querySelectorAll(".subnav-link[href^='#']"));
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  function updateActiveNav() {
-    const allNavItems = [...navButtons, ...subNavLinks];
-    if (!allNavItems.length) return;
+  /* ==========================================================================
+     Profile Tab System (About, Projects, Experience, Contact)
+     ========================================================================== */
+  const subnavTabs = Array.from(document.querySelectorAll(".subnav-tab[data-tab]"));
+  const tabPanels = Array.from(document.querySelectorAll(".tab-panel"));
+  const subnav = document.getElementById("profile-subnav");
 
-    const targets = Array.from(
-      new Set(
-        allNavItems
-          .map((item) => document.querySelector(item.getAttribute("href")))
-          .filter(Boolean)
-      )
-    );
-    if (!targets.length) return;
+  const tabAliases = {
+    about: "about",
+    profile: "about",
+    projects: "projects",
+    portfolio: "projects",
+    experience: "experience",
+    pillars: "experience",
+    timeline: "experience",
+    credentials: "experience",
+    contact: "contact"
+  };
 
-    const marker = window.scrollY + Math.min(window.innerHeight * 0.35, 260);
-    let current = targets[0].id;
+  function switchTab(rawTabName, updateHash = true, shouldScroll = false) {
+    if (!subnavTabs.length || !tabPanels.length) return;
 
-    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8) {
-      current = targets[targets.length - 1].id;
-    } else {
-      for (const section of targets) {
-        const top = Math.round(section.getBoundingClientRect().top + window.scrollY);
-        if (marker >= top) current = section.id;
+    const normalized = (rawTabName || "").toLowerCase().replace(/^#/, "");
+    const targetTab = tabAliases[normalized] || "about";
+
+    subnavTabs.forEach((tab) => {
+      const isMatch = tab.dataset.tab === targetTab;
+      tab.classList.toggle("active", isMatch);
+      tab.setAttribute("aria-selected", String(isMatch));
+      if (isMatch) {
+        tab.removeAttribute("tabindex");
+      } else {
+        tab.setAttribute("tabindex", "-1");
+      }
+    });
+
+    tabPanels.forEach((panel) => {
+      const isMatch = panel.id === `tab-${targetTab}`;
+      if (isMatch) {
+        panel.removeAttribute("hidden");
+        panel.classList.add("is-active");
+      } else {
+        panel.setAttribute("hidden", "");
+        panel.classList.remove("is-active");
+      }
+    });
+
+    if (updateHash && window.history && window.history.replaceState) {
+      window.history.replaceState(null, "", `#${targetTab}`);
+    }
+
+    if (shouldScroll && subnav) {
+      const navRect = subnav.getBoundingClientRect();
+      if (navRect.top < 0) {
+        subnav.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
       }
     }
 
-    navButtons.forEach((button) => {
-      const active = button.getAttribute("href") === `#${current}`;
-      button.classList.toggle("active", active);
-      if (active) button.setAttribute("aria-current", "location");
-      else button.removeAttribute("aria-current");
-    });
+    // Ensure newly visible elements are revealed
+    if ("IntersectionObserver" in window) {
+      const activePanel = document.getElementById(`tab-${targetTab}`);
+      if (activePanel) {
+        activePanel.querySelectorAll(".reveal").forEach((el) => {
+          el.classList.add("in-view", "is-visible");
+        });
+      }
+    }
+  }
 
-    subNavLinks.forEach((link) => {
-      const active = link.getAttribute("href") === `#${current}`;
-      link.classList.toggle("active", active);
-      if (active) link.setAttribute("aria-current", "location");
-      else link.removeAttribute("aria-current");
+  // Click handlers on tab buttons
+  subnavTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      switchTab(tab.dataset.tab, true, true);
+    });
+  });
+
+  // Keyboard navigation for tablist (W3C APG Tabs Pattern)
+  const tablist = document.querySelector('[role="tablist"]');
+  if (tablist) {
+    tablist.addEventListener("keydown", (e) => {
+      const tabs = subnavTabs;
+      const index = tabs.indexOf(document.activeElement);
+      if (index === -1) return;
+
+      let nextIndex = null;
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        nextIndex = (index + 1) % tabs.length;
+      } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        nextIndex = (index - 1 + tabs.length) % tabs.length;
+      } else if (e.key === "Home") {
+        nextIndex = 0;
+      } else if (e.key === "End") {
+        nextIndex = tabs.length - 1;
+      }
+
+      if (nextIndex !== null) {
+        e.preventDefault();
+        tabs[nextIndex].focus();
+        switchTab(tabs[nextIndex].dataset.tab, true, false);
+      }
     });
   }
 
-  let scrollTicking = false;
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (scrollTicking) return;
-      scrollTicking = true;
-      requestAnimationFrame(() => {
-        updateActiveNav();
-        scrollTicking = false;
-      });
-    },
-    { passive: true }
-  );
-  updateActiveNav();
+  // Intercept any internal links targeting tabs (e.g. data-tab-target or href="#contact")
+  document.addEventListener("click", (e) => {
+    const targetEl = e.target.closest("[data-tab-target]");
+    if (targetEl) {
+      e.preventDefault();
+      const tabName = targetEl.getAttribute("data-tab-target");
+      switchTab(tabName, true, true);
+      return;
+    }
 
+    const anchor = e.target.closest("a[href^='#']");
+    if (anchor && !anchor.classList.contains("subnav-tab")) {
+      const href = anchor.getAttribute("href");
+      const cleanHref = href.slice(1);
+      if (tabAliases[cleanHref]) {
+        e.preventDefault();
+        switchTab(cleanHref, true, true);
+      }
+    }
+  });
+
+  // Handle URL hash on initial page load and hash changes
+  function handleHash() {
+    const hash = window.location.hash.slice(1);
+    if (hash && tabAliases[hash]) {
+      switchTab(hash, false, false);
+    } else {
+      switchTab("about", false, false);
+    }
+  }
+
+  window.addEventListener("hashchange", handleHash);
+  handleHash();
+
+  /* ==========================================================================
+     Theme Toggle (Dark / Light)
+     ========================================================================== */
   const themeToggle = document.getElementById("themeToggle");
   const metaThemeColor = document.querySelector('meta[name="theme-color"]');
 
@@ -101,6 +184,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  /* ==========================================================================
+     Reveal on Scroll Animation
+     ========================================================================== */
   if (!reducedMotion && "IntersectionObserver" in window) {
     const revealObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -114,13 +200,16 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     document
-      .querySelectorAll(".section, .hero, .portfolio-item, .achievement-card, .credential-card, .pillar-card, .service-card")
+      .querySelectorAll(".portfolio-item, .achievement-card, .credential-card, .pillar-card, .service-card")
       .forEach((element) => {
         element.classList.add("reveal");
         revealObserver.observe(element);
       });
   }
 
+  /* ==========================================================================
+     Archive Page Project Filters (projects.html)
+     ========================================================================== */
   const filterButtons = document.querySelectorAll(".filter-btn");
   const projects = document.querySelectorAll(".portfolio-item[data-category]");
 
@@ -141,6 +230,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  /* ==========================================================================
+     Slideshow Carousels
+     ========================================================================== */
   const slideshows = Array.from(document.querySelectorAll("[data-slideshow]"));
 
   if (!reducedMotion && slideshows.length) {

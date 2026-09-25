@@ -19,11 +19,10 @@
   <rect width="800" height="240" rx="16" fill="url(#gridOvaLens)"/>
   <rect width="798" height="238" x="1" y="1" rx="15" fill="none" stroke="rgba(56, 189, 248, 0.25)" stroke-width="1.5"/>
 
-  <!-- Top Status Bar -->
+  <!-- Top Title Bar -->
   <g transform="translate(24, 20)">
-    <circle cx="6" cy="6" r="4" fill="#38bdf8"/>
-    <text x="18" y="10" font-family="DM Sans, system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="0.1em" fill="#38bdf8" text-transform="uppercase">OVALENS // YOLOV8 COMPUTER VISION &amp; IOT PIPELINE</text>
-    <text x="752" y="10" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" fill="rgba(255,255,255,0.45)" text-anchor="end">FOUNDATION UNIVERSITY CAPSTONE | ESP32 CONVEYOR IOT</text>
+    <text x="0" y="10" font-family="DM Sans, system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="0.06em" fill="#38bdf8" text-transform="uppercase">OvaLens &middot; YOLOv8 Computer Vision &amp; IoT Pipeline</text>
+    <text x="752" y="10" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" fill="rgba(255,255,255,0.5)" text-anchor="end">CAPSTONE ECOSYSTEM &middot; ESP32 CONVEYOR CONTROL</text>
   </g>
 
   <!-- Main Pipeline Blocks -->
@@ -74,14 +73,14 @@
     <text x="618" y="48" font-family="ui-monospace, monospace" font-size="10" fill="#f8fafc">ESP32 Controller</text>
     <text x="618" y="66" font-family="ui-monospace, monospace" font-size="10" fill="#7dd3fc">Serial UART Link</text>
     <text x="618" y="84" font-family="ui-monospace, monospace" font-size="10" fill="#f8fafc">Pneumatic Gate</text>
-    <text x="618" y="104" font-family="ui-monospace, monospace" font-size="9" fill="#38bdf8">Status: 95%+ mAP</text>
+    <text x="618" y="104" font-family="ui-monospace, monospace" font-size="9" fill="#38bdf8">Hardware Sort Gate</text>
   </g>
 
-  <!-- Bottom Metric / Architecture Summary -->
+  <!-- Bottom Architecture Summary -->
   <g transform="translate(24, 186)">
     <rect x="0" y="0" width="752" height="34" rx="8" fill="rgba(0,0,0,0.3)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
     <text x="16" y="21" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#cbd5e1">Capstone Architecture:</text>
-    <text x="156" y="21" font-family="DM Sans, sans-serif" font-size="11" font-weight="500" fill="#94a3b8">Foundation University · Automated Duck Egg Candling &amp; Sorting Ecosystem</text>
-    <text x="736" y="21" font-family="ui-monospace, monospace" font-size="11" font-weight="700" fill="#38bdf8" text-anchor="end">Model: YOLOv8 PyTorch</text>
+    <text x="156" y="21" font-family="DM Sans, sans-serif" font-size="11" font-weight="500" fill="#94a3b8">Foundation University &middot; Automated Duck Egg Candling &amp; Sorting Ecosystem</text>
+    <text x="736" y="21" font-family="ui-monospace, monospace" font-size="11" font-weight="600" fill="#38bdf8" text-anchor="end">YOLOv8 PyTorch &middot; ESP32</text>
   </g>
 </svg>
