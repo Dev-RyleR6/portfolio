@@ -284,6 +284,7 @@ html {
 .site-tabs + .content-section,
 .site-tabs + .section {
   padding-top: 2.25rem;
+  border-top: 0;
 }
 
 .action-chip {
