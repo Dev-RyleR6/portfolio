@@ -86,6 +86,21 @@ function parseColor(input: string | undefined, fallback: RGBA): RGBA {
     return [chan(hh + 1 / 3), chan(hh), chan(hh - 1 / 3), alpha]
 }
 
+function resolveCssColor(input: string | undefined, fallback: RGBA): RGBA {
+    if (!input || typeof document === "undefined") return parseColor(input, fallback)
+
+    const value = String(input).trim()
+    if (value.slice(0, 4).toLowerCase() !== "var(") return parseColor(value, fallback)
+
+    const inner = value.slice(4, value.lastIndexOf(")")).trim()
+    const comma = inner.indexOf(",")
+    const property = (comma >= 0 ? inner.slice(0, comma) : inner).trim()
+    const resolved = getComputedStyle(document.documentElement).getPropertyValue(property).trim()
+
+    if (resolved) return parseColor(resolved, fallback)
+    return comma >= 0 ? parseColor(inner.slice(comma + 1).trim(), fallback) : fallback
+}
+
 const VERT = `
 attribute vec2 aPos;
 varying vec2 vUv;
@@ -343,18 +358,15 @@ export default function VectorWordmark(props: VectorWordmarkProps) {
         letterSpacing: String(font?.letterSpacing ?? "0px"),
     }
 
-    const accentRGBA = parseColor(accent, [1, 1, 1, 0.4])
-    const labelColor = `rgb(${Math.round(accentRGBA[0] * 255)}, ${Math.round(
-        accentRGBA[1] * 255
-    )}, ${Math.round(accentRGBA[2] * 255)})`
-
     const live = useRef({
         text,
         fontSpec,
         textColor,
         shade,
         background,
-        accentRGBA,
+        textRGBA: parseColor(textColor, [0.859, 0.918, 0.992, 1]),
+        shadeRGBA: parseColor(shade, [0.035, 0.063, 0.102, 1]),
+        accentRGBA: parseColor(accent, [1, 1, 1, 0.4]),
         reach,
         speed,
         damping,
@@ -365,11 +377,27 @@ export default function VectorWordmark(props: VectorWordmarkProps) {
     live.current.textColor = textColor
     live.current.shade = shade
     live.current.background = background
-    live.current.accentRGBA = accentRGBA
     live.current.reach = reach
     live.current.speed = speed
     live.current.damping = damping
     live.current.hg = hg
+
+    useEffect(() => {
+        const updateColors = () => {
+            live.current.textRGBA = resolveCssColor(textColor, [0.859, 0.918, 0.992, 1])
+            live.current.shadeRGBA = resolveCssColor(shade, [0.035, 0.063, 0.102, 1])
+            live.current.accentRGBA = resolveCssColor(accent, [1, 1, 1, 0.4])
+        }
+
+        updateColors()
+        const observer = new MutationObserver(updateColors)
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ["data-theme", "style"],
+        })
+
+        return () => observer.disconnect()
+    }, [accent, shade, textColor])
 
     useEffect(() => {
         const host = hostRef.current
@@ -667,8 +695,8 @@ export default function VectorWordmark(props: VectorWordmarkProps) {
 
         function draw() {
             const L = live.current
-            const tc = parseColor(L.textColor, [0.859, 0.918, 0.992, 1])
-            const sc = parseColor(L.shade, [0.035, 0.063, 0.102, 1])
+            const tc = L.textRGBA
+            const sc = L.shadeRGBA
             const ac = L.accentRGBA
 
             gl!.viewport(0, 0, bufW, bufH)
@@ -785,7 +813,7 @@ export default function VectorWordmark(props: VectorWordmarkProps) {
                                   "ui-monospace, SFMono-Regular, Menlo, monospace",
                               fontSize: 11,
                               letterSpacing: "0.08em",
-                              color: labelColor,
+                              color: accent,
                           }}
                       />
                   ))

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
+import { SiteShell } from "@/components/SiteShell";
 import { getSiteUrl, siteConfig } from "@/lib/site";
 import "@/css/reset.css";
 import "@/css/base.css";
@@ -77,7 +78,9 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema).replace(/</g, "\\u003c") }} />
       </head>
-      <body className="has-section-dock">{children}</body>
+      <body className="has-section-dock">
+        <SiteShell>{children}</SiteShell>
+      </body>
     </html>
   );
 }

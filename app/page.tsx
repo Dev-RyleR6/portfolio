@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SectionDock } from "@/components/SectionDock";
-import { SiteShell } from "@/components/SiteShell";
 
 export const metadata: Metadata = { alternates: { canonical: "/" } };
 
@@ -21,7 +20,6 @@ const toolGroups = [
 export default function HomePage() {
   return (
     <>
-      <SiteShell home>
         <section className="content-section" id="focus" aria-labelledby="focus-title">
           <div className="section-heading--split">
             <div><p className="eyebrow">Engineering focus</p><h2 id="focus-title">Systems that stay clear under complexity</h2></div>
@@ -59,7 +57,6 @@ export default function HomePage() {
             <Link className="summary-card summary-card--link" href="/gallery"><p className="summary-card__label">Evidence</p><h3>Activity gallery →</h3><p>Photos, certificates, and supporting event records.</p></Link>
           </div>
         </section>
-      </SiteShell>
       <SectionDock items={[{ id: "intro", label: "Profile" }, { id: "focus", label: "Focus" }, { id: "stack", label: "Toolkit" }, { id: "proof", label: "Proof" }]} />
     </>
   );

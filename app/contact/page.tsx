@@ -3,7 +3,6 @@ import Link from "next/link";
 import Script from "next/script";
 import { ContactForm } from "@/components/ContactForm";
 import { SectionDock } from "@/components/SectionDock";
-import { SiteShell } from "@/components/SiteShell";
 import { pageMetadata, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata("Contact", "Contact Ryle Anthony Gabotero about software engineering roles, security research, and technical collaborations.", "/contact");
@@ -11,7 +10,6 @@ export const metadata: Metadata = pageMetadata("Contact", "Contact Ryle Anthony 
 export default function ContactPage() {
   return (
     <>
-      <SiteShell>
         <header className="page-intro" id="hello"><p className="page-intro__kicker">Contact</p><h1>Let’s build something resilient.</h1><p className="page-intro__lede">I’m open to software engineering opportunities, security research, technical collaborations, and thoughtful conversations about systems and applied AI.</p></header>
 
         <section className="content-section" id="channels" aria-labelledby="channels-title">
@@ -35,7 +33,6 @@ export default function ContactPage() {
           <div className="section-heading--split"><div><p className="eyebrow">Elsewhere</p><h2 id="profiles-title">More technical profiles</h2></div><p>GitLab includes additional repository activity, while the project and experience pages provide a curated view of the work and its outcomes.</p></div>
           <div className="profile-actions"><a className="action-chip" href={siteConfig.gitlab} target="_blank" rel="noopener noreferrer">GitLab ↗</a><Link className="action-chip" href="/projects">Project case studies →</Link><Link className="action-chip" href="/experience">Experience record →</Link></div>
         </section>
-      </SiteShell>
       <SectionDock items={[{ id: "hello", label: "Hello" }, { id: "channels", label: "Channels" }, { id: "message", label: "Message" }, { id: "profiles", label: "Profiles" }]} />
       <Script src="https://web3forms.com/client/script.js" strategy="afterInteractive" />
     </>

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { GalleryGrid, type GalleryImage } from "@/components/GalleryGrid";
 import { SectionDock } from "@/components/SectionDock";
-import { SiteShell } from "@/components/SiteShell";
 import { pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata("Activity Gallery", "Competition, training, and workshop evidence from WorldSkills, KOICA, Huawei, Can You HackIT, and DICT AI.deas.", "/gallery");
@@ -48,7 +47,6 @@ function GalleryHeading({ eyebrow, title, description }: { eyebrow: string; titl
 export default function GalleryPage() {
   return (
     <>
-      <SiteShell>
         <header className="archive-header gallery-header" id="overview"><p className="eyebrow">Activity gallery</p><h1 className="archive-title">Competitions, training, and workshops</h1><p className="section-text">Selected moments and supporting evidence from technical activities. Select an image to inspect it without leaving the gallery.</p></header>
         <section className="gallery-section" id="worldskills-national"><GalleryHeading eyebrow="September 7–11, 2026 · Clark, Pampanga" title="WorldSkills Philippines Clark 2026" description="Representing the Negros Island Region in the Cybersecurity skill area at the national competition." /><GalleryGrid images={national} /></section>
         <section className="gallery-section" id="worldskills-regional"><GalleryHeading eyebrow="June 8–10, 2026 · Dumaguete City" title="NIR Regional Skills Olympics" description="Cybersecurity gold medal and qualification for the WorldSkills Philippines national competition." /><GalleryGrid images={regional} columns="evidence" /></section>
@@ -56,7 +54,6 @@ export default function GalleryPage() {
         <section className="gallery-section" id="huawei"><GalleryHeading eyebrow="November 2025 · APAC" title="Huawei Developer Competition" description="Participation in Huawei’s APAC developer competition program." /><div className="gallery-document-card"><div><p className="credential-issuer">Activity evidence</p><h3>Developer Competition Certificate</h3><p>The available record for this activity is the original certificate PDF.</p></div><a className="button button-outline" href="/assets/docs/HDC2511200D53A1DE.pdf" target="_blank" rel="noopener noreferrer">View certificate PDF ↗</a></div></section>
         <section className="gallery-section" id="hackit"><GalleryHeading eyebrow="July 2025 · Cebu City" title="Can You HackIT: The IBPAP Challenge" description="Team SHIFT’s build session and Top 5 recognition at Cebu Institute of Technology–University." /><GalleryGrid images={hackit} columns="three" /></section>
         <section className="gallery-section" id="aideas"><GalleryHeading eyebrow="June 25–26, 2024 · Dumaguete City" title="DICT AI.deas for Impact" description="AI for Innovation and Social Impact workshop activities and completion recognition." /><GalleryGrid images={aideas} /></section>
-      </SiteShell>
       <SectionDock label="Gallery sections" items={[{ id: "overview", label: "Overview" }, { id: "worldskills-national", label: "National" }, { id: "worldskills-regional", label: "Regional" }, { id: "koica", label: "KOICA" }, { id: "huawei", label: "Huawei" }, { id: "hackit", label: "HackIT" }, { id: "aideas", label: "AI.deas" }]} />
     </>
   );

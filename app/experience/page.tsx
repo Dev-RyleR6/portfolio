@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { SectionDock } from "@/components/SectionDock";
-import { SiteShell } from "@/components/SiteShell";
 import { pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata("Experience & Credentials", "National and regional cybersecurity competitions, technical training, and formal assessments earned by Ryle Anthony Gabotero.", "/experience");
@@ -22,7 +21,6 @@ const compactAchievements = [
 export default function ExperiencePage() {
   return (
     <>
-      <SiteShell>
         <header className="page-intro" id="overview">
           <p className="page-intro__kicker">Experience & credentials</p>
           <h1>Practice tested beyond the classroom.</h1>
@@ -58,7 +56,6 @@ export default function ExperiencePage() {
             <article className="credential-card"><div className="credential-number" aria-hidden="true">02</div><p className="credential-issuer">IITP · TOPCIT Philippines</p><h3>TOPCIT ICT Competency Assessment</h3><p className="credential-meta">Level 2 · 365/1000 · July 23, 2026</p><p>Standardized assessment covering software development, data management, systems architecture, cybersecurity, and IT project management.</p><a className="text-link" href="/assets/docs/My Page _ Score & Certificate _Overall achievement _ TOPCIT.pdf" target="_blank" rel="noopener noreferrer">Open score report ↗</a></article>
           </div>
         </section>
-      </SiteShell>
       <SectionDock items={[{ id: "overview", label: "Overview" }, { id: "pillars", label: "Capabilities" }, { id: "competitions", label: "Competitions" }, { id: "credentials", label: "Credentials" }]} />
     </>
   );

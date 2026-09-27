@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { ProjectArchive } from "@/components/ProjectArchive";
-import { SiteShell } from "@/components/SiteShell";
 import { pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata("Projects & Case Studies", "Engineering case studies spanning streaming proxies, desktop security, computer vision, mobile AR, and real-time booking systems.", "/projects");
@@ -8,7 +7,6 @@ export const metadata: Metadata = pageMetadata("Projects & Case Studies", "Engin
 export default function ProjectsPage() {
   return (
     <>
-      <SiteShell>
         <section className="section portfolio" id="overview" aria-labelledby="projects-title">
           <header className="archive-header">
             <p className="eyebrow">Case studies & projects</p>
@@ -17,7 +15,6 @@ export default function ProjectsPage() {
           </header>
           <ProjectArchive />
         </section>
-      </SiteShell>
     </>
   );
 }
