@@ -9,9 +9,8 @@ export default function ProjectsPage() {
     <>
         <section className="section portfolio" id="overview" aria-labelledby="projects-title">
           <header className="archive-header">
-            <p className="eyebrow">Case studies & projects</p>
-            <h1 className="archive-title" id="projects-title">Engineered systems across web, security, and AI</h1>
-            <p className="section-text">Detailed technical architectures spanning high-throughput streaming proxies, real-time desktop security agents, computer vision pipelines, and mobile SLAM AR.</p>
+            <h1 className="archive-title" id="projects-title">Projects built around real systems problems.</h1>
+            <p className="section-text">A selected archive of software systems, security tooling, applied AI, and mobile AR—each documented through its architecture, stack, and available source.</p>
           </header>
           <ProjectArchive />
         </section>
