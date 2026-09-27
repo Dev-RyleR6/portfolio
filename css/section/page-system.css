@@ -328,16 +328,17 @@ html {
 .section-dock {
   position: fixed;
   left: 50%;
-  bottom: max(1rem, calc(env(safe-area-inset-bottom, 0px) + 0.75rem));
+  bottom: 0;
   z-index: 100;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  max-width: min(calc(100vw - 1.5rem), 52rem);
+  justify-content: flex-end;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  pointer-events: none;
   opacity: 0;
   visibility: hidden;
-  pointer-events: none;
-  transform: translate(-50%, calc(100% + 2.5rem));
+  transform: translate(-50%, calc(100% + 2rem));
   transition:
     transform 380ms cubic-bezier(0.16, 1, 0.3, 1),
     opacity 240ms ease,
@@ -347,144 +348,53 @@ html {
 .section-dock.is-visible {
   opacity: 1;
   visibility: visible;
-  pointer-events: auto;
   transform: translate(-50%, 0);
   transition-delay: 0s;
 }
 
 /* --------------------------------------------------------------------------
-   Collapsed State: Tactile Floating Glass Bottom Key
-   -------------------------------------------------------------------------- */
-
-.section-dock__key {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.62rem;
-  min-height: 2.75rem;
-  padding: 0.38rem 0.95rem 0.38rem 0.72rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.85);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(246, 248, 246, 0.84) 100%);
-  color: var(--color-text);
-  box-shadow:
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.95),
-    0 16px 38px -8px rgba(18, 22, 20, 0.14),
-    0 4px 12px -2px rgba(18, 22, 20, 0.08),
-    0 0 0 1px rgba(220, 225, 222, 0.75);
-  backdrop-filter: blur(24px) saturate(190%);
-  -webkit-backdrop-filter: blur(24px) saturate(190%);
-  cursor: pointer;
-  user-select: none;
-  -webkit-user-select: none;
-  transition:
-    transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 220ms ease,
-    border-color 220ms ease;
-  animation: dockKeyPop 300ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.section-dock__key:hover {
-  transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 1);
-  box-shadow:
-    inset 0 1px 1px 0 rgba(255, 255, 255, 1),
-    0 20px 42px -6px rgba(18, 22, 20, 0.18),
-    0 6px 16px -2px rgba(18, 22, 20, 0.1),
-    0 0 0 1px var(--color-accent);
-}
-
-.section-dock__key:active {
-  transform: translateY(0) scale(0.98);
-}
-
-.section-dock__key:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-}
-
-.section-dock__key-icon {
-  display: grid;
-  place-items: center;
-  width: 1.85rem;
-  height: 1.85rem;
-  border-radius: 50%;
-  color: var(--color-accent);
-  background: var(--color-accent-subtle);
-  flex: none;
-}
-
-.section-dock__key-icon svg {
-  width: 1rem;
-  height: 1rem;
-}
-
-.section-dock__key-meta {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  line-height: 1.12;
-  min-width: 0;
-}
-
-.section-dock__key-sub {
-  font-size: 0.6rem;
-  font-weight: 750;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-}
-
-.section-dock__key-val {
-  font-size: 0.78rem;
-  font-weight: 750;
-  color: var(--color-text);
-  max-width: 10rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.section-dock__key-cue {
-  display: grid;
-  place-items: center;
-  width: 1.4rem;
-  height: 1.4rem;
-  color: var(--color-text-muted);
-  flex: none;
-  transition: transform 200ms ease, color 200ms ease;
-}
-
-.section-dock__key-cue svg {
-  width: 0.95rem;
-  height: 0.95rem;
-}
-
-.section-dock__key:hover .section-dock__key-cue {
-  color: var(--color-accent);
-  transform: translateY(-2px);
-}
-
-/* --------------------------------------------------------------------------
-   Expanded State: Full Glassmorphic Island Dock
+   Floating Glass Dock Island (Pops up above the half box)
    -------------------------------------------------------------------------- */
 
 .section-dock__glass {
   display: flex;
   align-items: center;
   gap: 0.28rem;
-  padding: 0.35rem 0.42rem;
+  margin-bottom: 0.5rem;
+  padding: 0.35rem 0.55rem;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.85);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(247, 248, 246, 0.8) 100%);
   box-shadow:
     inset 0 1px 1px 0 rgba(255, 255, 255, 0.95),
-    0 20px 48px -10px rgba(18, 22, 20, 0.13),
-    0 6px 18px -4px rgba(18, 22, 20, 0.07),
+    0 20px 48px -10px rgba(18, 22, 20, 0.14),
+    0 6px 18px -4px rgba(18, 22, 20, 0.08),
     0 0 0 1px rgba(220, 225, 222, 0.7);
   backdrop-filter: blur(24px) saturate(190%);
   -webkit-backdrop-filter: blur(24px) saturate(190%);
-  max-width: 100%;
-  animation: dockGlassPop 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  max-width: min(calc(100vw - 1.5rem), 52rem);
+  transform-origin: center bottom;
+}
+
+.section-dock.is-expanded .section-dock__glass {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+  transition:
+    transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 240ms ease;
+}
+
+.section-dock.is-collapsed .section-dock__glass {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(16px) scale(0.95);
+  transition:
+    transform 240ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 180ms ease,
+    visibility 0s linear 240ms;
 }
 
 .section-dock__brand {
@@ -585,67 +495,96 @@ html {
   outline-offset: -2px;
 }
 
-.section-dock__collapse-action {
-  display: grid;
-  place-items: center;
-  width: 2.75rem;
-  height: 2.75rem;
-  min-width: 2.75rem;
+/* --------------------------------------------------------------------------
+   Sticky Small Box Button / Half-Box Button at the Bottom
+   -------------------------------------------------------------------------- */
+
+.section-dock__halfbox {
+  position: relative;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 24px;
   padding: 0;
-  border: 0;
-  border-radius: 50%;
-  background: transparent;
+  margin: 0;
+  border-radius: 9px 9px 0 0;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-bottom: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(244, 246, 244, 0.9) 100%);
   color: var(--color-text-muted);
+  box-shadow:
+    inset 0 1px 1px 0 rgba(255, 255, 255, 1),
+    0 -4px 16px -2px rgba(18, 22, 20, 0.12),
+    0 0 0 1px rgba(220, 225, 222, 0.75);
+  backdrop-filter: blur(20px) saturate(190%);
+  -webkit-backdrop-filter: blur(20px) saturate(190%);
   cursor: pointer;
-  flex: none;
+  user-select: none;
+  -webkit-user-select: none;
   transition:
+    height 220ms cubic-bezier(0.16, 1, 0.3, 1),
     color 160ms ease,
-    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease,
     transform 160ms ease;
 }
 
-.section-dock__collapse-action:hover {
-  color: var(--color-text);
-  background: var(--color-hover);
-  transform: translateY(1px);
+/* Accessible touch target enlargement */
+.section-dock__halfbox::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  right: -10px;
+  top: -16px;
+  bottom: 0;
 }
 
-.section-dock__collapse-action:focus-visible {
+.section-dock__halfbox:hover {
+  height: 27px;
+  color: var(--color-accent);
+  border-color: rgba(255, 255, 255, 1);
+  box-shadow:
+    inset 0 1px 1px 0 rgba(255, 255, 255, 1),
+    0 -6px 20px -2px rgba(18, 22, 20, 0.18),
+    0 0 0 1px var(--color-accent);
+}
+
+.section-dock__halfbox:active {
+  transform: scale(0.96);
+}
+
+.section-dock__halfbox:focus-visible {
   outline: 2px solid var(--color-accent);
-  outline-offset: -2px;
+  outline-offset: 2px;
 }
 
-.section-dock__collapse-action svg {
-  width: 1.05rem;
-  height: 1.05rem;
+.section-dock__halfbox-icon {
+  display: grid;
+  place-items: center;
+  width: 14px;
+  height: 14px;
+  flex: none;
+  transition: transform 220ms ease;
+}
+
+.section-dock__halfbox-icon svg {
+  width: 13px;
+  height: 13px;
+}
+
+.section-dock__halfbox:hover .section-dock__halfbox-icon {
+  transform: translateY(-1px);
 }
 
 /* --------------------------------------------------------------------------
    Dark Mode Glassmorphism
    -------------------------------------------------------------------------- */
 
-[data-theme="dark"] .section-dock__key {
-  border-color: rgba(255, 255, 255, 0.16);
-  background: linear-gradient(180deg, rgba(28, 32, 38, 0.88) 0%, rgba(14, 16, 20, 0.92) 100%);
-  box-shadow:
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.22),
-    0 20px 48px -10px rgba(0, 0, 0, 0.75),
-    0 6px 18px -2px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(255, 255, 255, 0.05);
-}
-
-[data-theme="dark"] .section-dock__key:hover {
-  border-color: rgba(255, 255, 255, 0.28);
-  box-shadow:
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.32),
-    0 24px 54px -8px rgba(0, 0, 0, 0.85),
-    0 8px 22px -2px rgba(0, 0, 0, 0.6),
-    0 0 0 1px var(--color-accent);
-}
-
 [data-theme="dark"] .section-dock__glass {
   border-color: rgba(255, 255, 255, 0.14);
-  background: linear-gradient(180deg, rgba(26, 30, 35, 0.86) 0%, rgba(13, 15, 18, 0.9) 100%);
+  background: linear-gradient(180deg, rgba(26, 30, 35, 0.88) 0%, rgba(13, 15, 18, 0.92) 100%);
   box-shadow:
     inset 0 1px 0 0 rgba(255, 255, 255, 0.18),
     0 24px 60px -12px rgba(0, 0, 0, 0.75),
@@ -653,26 +592,23 @@ html {
     0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
-@keyframes dockKeyPop {
-  from {
-    opacity: 0;
-    transform: translateY(6px) scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+[data-theme="dark"] .section-dock__halfbox {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: linear-gradient(180deg, rgba(28, 32, 38, 0.94) 0%, rgba(14, 16, 20, 0.96) 100%);
+  color: var(--color-text-muted);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.25),
+    0 -6px 20px -2px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
-@keyframes dockGlassPop {
-  from {
-    opacity: 0;
-    transform: translateY(6px) scale(0.97);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+[data-theme="dark"] .section-dock__halfbox:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.35),
+    0 -8px 24px -2px rgba(0, 0, 0, 0.85),
+    0 0 0 1px var(--color-accent);
 }
 
 body.has-section-dock .page {
@@ -779,9 +715,6 @@ body.has-section-dock .page {
     font-size: 0.72rem;
   }
 
-  .section-dock__key {
-    padding-inline: 0.8rem 0.65rem;
-  }
 }
 
 @media (max-width: 480px) {
@@ -792,10 +725,6 @@ body.has-section-dock .page {
   .site-theme-toggle {
     width: 2.75rem;
     height: 2.75rem;
-  }
-
-  .section-dock__key-val {
-    max-width: 7.5rem;
   }
 }
 
