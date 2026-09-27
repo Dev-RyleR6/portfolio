@@ -1,6 +1,13 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from "react";
 
 export type DockItem = { id: string; label: string };
 
@@ -11,53 +18,110 @@ type SectionDockProps = {
   onItemSelect?: (id: string) => void;
 };
 
-export function SectionDock({ items, label = "Sections on this page", activeId, onItemSelect }: SectionDockProps) {
+const STORAGE_KEY = "portfolio-dock-collapsed";
+
+function subscribeStorage(callback: () => void) {
+  window.addEventListener("storage", callback);
+  return () => window.removeEventListener("storage", callback);
+}
+
+function getStoredCollapsed() {
+  try {
+    return localStorage.getItem(STORAGE_KEY) === "true";
+  } catch {
+    return false;
+  }
+}
+
+function getServerSnapshot() {
+  return false;
+}
+
+export function SectionDock({
+  items,
+  label = "Sections on this page",
+  activeId,
+  onItemSelect,
+}: SectionDockProps) {
   const [observedActive, setObservedActive] = useState(items[0]?.id ?? "");
   const [isVisible, setIsVisible] = useState(false);
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const storedCollapsed = useSyncExternalStore(
+    subscribeStorage,
+    getStoredCollapsed,
+    getServerSnapshot,
+  );
+  const [collapsedOverride, setCollapsedOverride] = useState<boolean | null>(null);
+  const isCollapsed = collapsedOverride ?? storedCollapsed;
+
   const dockRef = useRef<HTMLElement>(null);
-  const wasVisibleRef = useRef(false);
   const panelId = useId();
   const active = activeId ?? observedActive;
-  const activeLabel = items.find(({ id }) => id === active)?.label ?? items[0]?.label ?? "Overview";
-  const isOpen = isVisible && !isCollapsed;
+  const activeLabel =
+    items.find(({ id }) => id === active)?.label ?? items[0]?.label ?? "Overview";
 
+  const handleCollapse = useCallback(() => {
+    setCollapsedOverride(true);
+    try {
+      localStorage.setItem(STORAGE_KEY, "true");
+      window.dispatchEvent(new Event("storage"));
+    } catch {}
+  }, []);
+
+  const handleExpand = useCallback(() => {
+    setCollapsedOverride(false);
+    try {
+      localStorage.setItem(STORAGE_KEY, "false");
+      window.dispatchEvent(new Event("storage"));
+    } catch {}
+  }, []);
+
+  // Observe sections on the page for scroll-spy when not an explicit filter
   useEffect(() => {
     if (onItemSelect) return;
 
-    const sections = items.map(({ id }) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+    const sections = items
+      .map(({ id }) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
     if (!sections.length) return;
 
     const visible = new Map<string, number>();
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) visible.set(entry.target.id, entry.boundingClientRect.top);
-        else visible.delete(entry.target.id);
-      });
-      const current = [...visible.entries()].sort((a, b) => Math.abs(a[1]) - Math.abs(b[1]))[0];
-      if (current) setObservedActive(current[0]);
-    }, { rootMargin: "-18% 0px -62% 0px", threshold: 0 });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            visible.set(entry.target.id, entry.boundingClientRect.top);
+          } else {
+            visible.delete(entry.target.id);
+          }
+        });
+        const current = [...visible.entries()].sort(
+          (a, b) => Math.abs(a[1]) - Math.abs(b[1]),
+        )[0];
+        if (current) setObservedActive(current[0]);
+      },
+      { rootMargin: "-18% 0px -62% 0px", threshold: 0 },
+    );
 
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
   }, [items, onItemSelect]);
 
+  // Reveal dock when scrolled past hero/tabs header
   useEffect(() => {
     let animationFrame = 0;
     let revealThreshold = window.innerHeight;
 
     const measureRevealThreshold = () => {
       const pageTabs = document.querySelector<HTMLElement>(".site-tabs");
-      revealThreshold = pageTabs ? pageTabs.offsetTop + pageTabs.offsetHeight : window.innerHeight;
+      revealThreshold = pageTabs
+        ? pageTabs.offsetTop + pageTabs.offsetHeight
+        : window.innerHeight;
     };
 
     const updateVisibility = () => {
       cancelAnimationFrame(animationFrame);
       animationFrame = requestAnimationFrame(() => {
         const nextVisible = window.scrollY > revealThreshold;
-
-        if (nextVisible && !wasVisibleRef.current) setIsCollapsed(false);
-        wasVisibleRef.current = nextVisible;
         setIsVisible(nextVisible);
       });
     };
@@ -78,100 +142,192 @@ export function SectionDock({ items, label = "Sections on this page", activeId, 
     };
   }, []);
 
+  // Keyboard accessibility: Escape to collapse
   useEffect(() => {
-    if (!isOpen) return;
+    if (isCollapsed || !isVisible) return;
 
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setIsCollapsed(true);
-        dockRef.current?.querySelector<HTMLButtonElement>(".section-dock__trigger")?.focus();
+        handleCollapse();
+        dockRef.current
+          ?.querySelector<HTMLButtonElement>(".section-dock__key")
+          ?.focus();
       }
     };
 
     document.addEventListener("keydown", closeOnEscape);
     return () => document.removeEventListener("keydown", closeOnEscape);
-  }, [isOpen]);
+  }, [isCollapsed, isVisible, handleCollapse]);
 
   return (
     <nav
-      className={`section-dock${isVisible ? " is-visible" : ""}${isOpen ? " is-open" : ""}`}
+      className={`section-dock${isVisible ? " is-visible" : ""}${
+        isCollapsed ? " is-collapsed" : " is-expanded"
+      }`}
       aria-label={label}
       aria-hidden={!isVisible}
       ref={dockRef}
     >
-      <button
-        className="section-dock__trigger"
-        type="button"
-        aria-controls={panelId}
-        aria-expanded={isOpen}
-        aria-label={
-          onItemSelect
-            ? isOpen
-              ? "Collapse filter options"
-              : `Filter projects. Active filter: ${activeLabel}`
-            : isOpen
-              ? "Collapse page sections"
-              : `Expand page sections. Current section: ${activeLabel}`
-        }
-        tabIndex={isVisible ? undefined : -1}
-        onClick={() => setIsCollapsed((current) => !current)}
-      >
-        {onItemSelect ? (
-          <svg className="section-dock__symbol" viewBox="0 0 18 18" aria-hidden="true" fill="none" stroke="currentColor">
-            <path d="M2.5 4.5h13M4.5 9h9M7 13.5h4" strokeWidth="1.6" strokeLinecap="round" />
-          </svg>
-        ) : (
-          <svg className="section-dock__symbol" viewBox="0 0 18 18" aria-hidden="true">
-            <circle cx="3" cy="4" r="1" />
-            <circle cx="3" cy="9" r="1" />
-            <circle cx="3" cy="14" r="1" />
-            <path d="M6 4h9M6 9h9M6 14h9" />
-          </svg>
-        )}
-        <span className="section-dock__current">
-          <span>{isOpen ? (onItemSelect ? "Filter" : "Navigation") : (onItemSelect ? "Category" : "Sections")}</span>
-          <strong>{isOpen ? "Collapse" : activeLabel}</strong>
-        </span>
-        <svg className="section-dock__chevron" viewBox="0 0 16 16" aria-hidden="true">
-          <path d="m4.5 6 3.5 3.5L11.5 6" />
-        </svg>
-      </button>
-
-      <div className="section-dock__panel" id={panelId} aria-hidden={!isOpen}>
-        <div className="section-dock__links">
-          {items.map(({ id, label: itemLabel }) => (
-            onItemSelect ? (
-              <button
-                type="button"
-                className={active === id ? "active" : undefined}
-                aria-pressed={active === id}
-                tabIndex={isOpen ? undefined : -1}
-                onClick={() => {
-                  onItemSelect(id);
-                  const overview = document.getElementById("overview");
-                  if (overview && window.scrollY > overview.offsetTop) {
-                    overview.scrollIntoView({ behavior: "smooth", block: "start" });
-                  }
-                }}
-                key={id}
+      {isCollapsed ? (
+        /* Bottom Key (tactile collapsed pill key) */
+        <button
+          type="button"
+          className="section-dock__key"
+          onClick={handleExpand}
+          aria-expanded={false}
+          aria-controls={panelId}
+          aria-label={`Expand ${
+            onItemSelect ? "filter options" : "navigation sections"
+          }. Current: ${activeLabel}`}
+          tabIndex={isVisible ? undefined : -1}
+        >
+          <span className="section-dock__key-icon" aria-hidden="true">
+            {onItemSelect ? (
+              <svg
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.7"
+                strokeLinecap="round"
               >
-                {itemLabel}
-              </button>
+                <path d="M2.5 4h11M4.5 8h7M6.5 12h3" />
+              </svg>
             ) : (
-              <a
-                href={`#${id}`}
-                className={active === id ? "active" : undefined}
-                aria-current={active === id ? "location" : undefined}
-                tabIndex={isOpen ? undefined : -1}
-                onClick={() => setObservedActive(id)}
-                key={id}
+              <svg
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
-                {itemLabel}
-              </a>
-            )
-          ))}
+                <path d="M2 5L8 2L14 5L8 8L2 5Z" />
+                <path d="M2 8L8 11L14 8" />
+                <path d="M2 11L8 14L14 11" />
+              </svg>
+            )}
+          </span>
+          <span className="section-dock__key-meta">
+            <span className="section-dock__key-sub">
+              {onItemSelect ? "Category" : "Section"}
+            </span>
+            <strong className="section-dock__key-val">{activeLabel}</strong>
+          </span>
+          <span className="section-dock__key-cue" aria-hidden="true">
+            <svg
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M4 10l4-4 4 4" />
+            </svg>
+          </span>
+        </button>
+      ) : (
+        /* Full Glass Dock (expanded glassmorphic dock) */
+        <div className="section-dock__glass" id={panelId}>
+          <div className="section-dock__brand" aria-hidden="true">
+            <span className="section-dock__brand-icon">
+              {onItemSelect ? (
+                <svg
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                  strokeLinecap="round"
+                >
+                  <path d="M2.5 4h11M4.5 8h7M6.5 12h3" />
+                </svg>
+              ) : (
+                <svg
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M2 5L8 2L14 5L8 8L2 5Z" />
+                  <path d="M2 8L8 11L14 8" />
+                  <path d="M2 11L8 14L14 11" />
+                </svg>
+              )}
+            </span>
+            <span className="section-dock__brand-label">
+              {onItemSelect ? "Filters" : "Sections"}
+            </span>
+          </div>
+
+          <div className="section-dock__divider" aria-hidden="true" />
+
+          <div className="section-dock__items">
+            {items.map(({ id, label: itemLabel }) =>
+              onItemSelect ? (
+                <button
+                  type="button"
+                  className={`section-dock__btn${
+                    active === id ? " is-active" : ""
+                  }`}
+                  aria-pressed={active === id}
+                  tabIndex={isVisible ? undefined : -1}
+                  onClick={() => {
+                    onItemSelect(id);
+                    const overview = document.getElementById("overview");
+                    if (overview && window.scrollY > overview.offsetTop) {
+                      overview.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      });
+                    }
+                  }}
+                  key={id}
+                >
+                  {itemLabel}
+                </button>
+              ) : (
+                <a
+                  href={`#${id}`}
+                  className={`section-dock__btn${
+                    active === id ? " is-active" : ""
+                  }`}
+                  aria-current={active === id ? "location" : undefined}
+                  tabIndex={isVisible ? undefined : -1}
+                  onClick={() => setObservedActive(id)}
+                  key={id}
+                >
+                  {itemLabel}
+                </a>
+              ),
+            )}
+          </div>
+
+          <div className="section-dock__divider" aria-hidden="true" />
+
+          <button
+            type="button"
+            className="section-dock__collapse-action"
+            onClick={handleCollapse}
+            aria-label="Collapse to bottom key"
+            title="Collapse to bottom key"
+            tabIndex={isVisible ? undefined : -1}
+          >
+            <svg
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M4 6l4 4 4-4" />
+            </svg>
+          </button>
         </div>
-      </div>
+      )}
     </nav>
   );
 }
