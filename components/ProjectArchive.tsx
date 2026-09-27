@@ -7,7 +7,7 @@ import { SectionDock } from "@/components/SectionDock";
 import { projects } from "@/lib/projects";
 
 export const projectFilters = [
-  ["all", "All (5)"],
+  ["all", `All (${projects.length})`],
   ["backend", "Backend & Systems"],
   ["security-ai", "Security & AI"],
   ["mobile", "Mobile AR"],
@@ -32,6 +32,7 @@ export function ProjectArchive() {
             <Image src={project.image} width={800} height={200} loading="lazy" alt={project.imageAlt} className="portfolio-image" />
             <div className="portfolio-card-content">
               <div className="project-heading-row"><h2 className="portfolio-title">{project.title} · {project.subtitle}</h2><span className="project-tag">{project.categoryLabel}</span></div>
+              {project.status ? <div className="project-info"><span className="status status-offline">{project.status.label}</span><p className="project-status-note">{project.status.reason}</p></div> : null}
               <p className="portfolio-description">{project.description}</p>
               <div className="project-tech" aria-label="Technologies used">{project.technologies.map((technology) => <span key={technology}>{technology}</span>)}</div>
               <div className="project-links">

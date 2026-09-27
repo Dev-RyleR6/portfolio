@@ -4,12 +4,13 @@ export const siteConfig = {
   name: "Ryle Anthony Gabotero",
   title: "Ryle Anthony Gabotero | Software Engineer",
   description:
-    "Software engineer focused on backend systems, cybersecurity, applied AI, and data engineering.",
+    "Software engineer focused on backend systems, cybersecurity, applied AI, and data engineering, with AI integrated into the development workflow.",
   email: "ryleanthony.gabotero@gmail.com",
   github: "https://github.com/Dev-RyleR6",
   gitlab: "https://gitlab.com/ryleanthony.gabotero",
   linkedin: "https://www.linkedin.com/in/rylegabotero/",
   telegram: "https://t.me/ryleanthony",
+  resume: "/assets/docs/RyleGaboteroCV.pdf",
 };
 
 export function getSiteUrl() {

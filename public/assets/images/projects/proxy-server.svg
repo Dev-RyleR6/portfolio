@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" role="img" aria-labelledby="title description">
+  <title id="title">HLS proxy architecture</title>
+  <desc id="description">A client request flows through a streaming proxy and cache layer to a content delivery network.</desc>
+  <rect width="800" height="400" fill="#0c1117" />
+  <g fill="none" stroke="#263a31" stroke-width="2">
+    <path d="M104 200H294" />
+    <path d="M506 200H696" />
+    <path d="M164 140H294" opacity=".6" />
+    <path d="M506 260H636" opacity=".6" />
+  </g>
+  <g fill="#54c99b">
+    <circle cx="104" cy="200" r="6" />
+    <circle cx="164" cy="140" r="4" opacity=".7" />
+    <circle cx="696" cy="200" r="6" />
+    <circle cx="636" cy="260" r="4" opacity=".7" />
+  </g>
+  <g fill="#121b17" stroke="#54c99b" stroke-width="2">
+    <rect x="294" y="92" width="212" height="216" rx="28" />
+  </g>
+  <g fill="#e7e9ea" font-family="Arial, sans-serif" text-anchor="middle">
+    <text x="400" y="52" font-size="14" font-weight="700" letter-spacing="3">STREAM DELIVERY LAYER</text>
+    <text x="400" y="177" font-size="24" font-weight="700" letter-spacing="5">HLS</text>
+    <text x="400" y="222" font-size="46" font-weight="800" letter-spacing="-1">PROXY</text>
+  </g>
+  <g fill="#8b9690" font-family="Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2">
+    <text x="78" y="226">CLIENT</text>
+    <text x="664" y="226">CDN</text>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5" text-anchor="middle">
+    <rect x="312" y="254" width="72" height="28" rx="8" fill="#1b2a23" />
+    <rect x="392" y="254" width="80" height="28" rx="8" fill="#1b2a23" />
+    <text x="348" y="273" fill="#9ee1c2">CACHE</text>
+    <text x="432" y="273" fill="#9ee1c2">RANGE</text>
+  </g>
+</svg>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { SectionDock } from "@/components/SectionDock";
-import { pageMetadata } from "@/lib/site";
+import { pageMetadata, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata("Experience & Credentials", "National and regional cybersecurity competitions, technical training, and formal assessments earned by Ryle Anthony Gabotero.", "/experience");
 
@@ -21,10 +21,30 @@ const compactAchievements = [
 export default function ExperiencePage() {
   return (
     <>
-        <header className="page-intro" id="overview">
-          <p className="page-intro__kicker">Experience & credentials</p>
-          <h1>Practice tested beyond the classroom.</h1>
-          <p className="page-intro__lede">National and regional competition experience, intensive technical programs, and formal assessments—organized by what I practiced, achieved, and validated.</p>
+        <header className="page-intro page-intro--experience" id="overview">
+          <div className="experience-intro__heading">
+            <p className="page-intro__kicker">Experience & credentials</p>
+            <h1>Practice tested beyond the classroom.</h1>
+          </div>
+          <div className="experience-intro__details">
+            <p className="page-intro__lede">National and regional competition experience, intensive technical programs, and formal assessments—organized by what I practiced, achieved, and validated.</p>
+            <a className="resume-entry" href={siteConfig.resume} target="_blank" rel="noopener noreferrer">
+              <svg className="resume-entry__document" aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                <path d="M6.75 3.25h7.5l3 3v14.5H6.75z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+                <path d="M14.25 3.25v3h3M9.5 11h5M9.5 14.5h5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span className="resume-entry__copy">
+                <strong>Résumé</strong>
+                <span>Experience, skills, and credentials · PDF</span>
+              </span>
+              <span className="resume-entry__open">
+                Open PDF
+                <svg aria-hidden="true" viewBox="0 0 18 18" fill="none">
+                  <path d="M4 14 14 4M7 4h7v7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+            </a>
+          </div>
         </header>
 
         <section className="content-section" id="pillars" aria-labelledby="pillars-title">

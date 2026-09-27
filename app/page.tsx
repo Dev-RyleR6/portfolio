@@ -5,56 +5,87 @@ import { SectionDock } from "@/components/SectionDock";
 export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 const focusAreas = [
-  ["01 · Systems", "Backend & distributed architecture", "Streaming proxies, transactional data models, WebSocket workflows, caching, and resilient APIs."],
-  ["02 · Security", "Cybersecurity & resilience", "Packet analysis, protocol inspection, Linux hardening, threat modeling, and incident response."],
-  ["03 · Intelligence", "Applied AI & data engineering", "ETL pipelines, computer vision, semantic models, evaluation, and low-latency local inference."],
+  { area: "Systems", title: "Backend systems & real-time workflows", description: "APIs, streaming proxies, transactional data models, WebSocket flows, and caching designed around clear system boundaries." },
+  { area: "Security", title: "Security-aware engineering", description: "Packet analysis, protocol inspection, Linux and Windows Server hardening, and threat modeling used to surface failure modes early." },
+  { area: "Intelligence", title: "Applied AI & data pipelines", description: "ETL, computer vision, model evaluation, and low-latency local inference shaped around a defined product need." },
 ] as const;
 
 const toolGroups = [
-  { tier: "Core", title: "Backend systems", description: "Runtime, data, caching, and real-time communication.", tools: ["Node.js", "TypeScript", "Express", "PostgreSQL", "MySQL", "Redis", "WebSockets"] },
-  { tier: "Defense", title: "Security", description: "Network visibility, analysis, and system hardening.", tools: ["Wireshark", "Scapy", "TCP/IP & TLS", "Linux Security", "Threat Modeling"] },
-  { tier: "Models", title: "AI & data", description: "Data preparation, model training, and inference.", tools: ["Python", "TensorFlow", "YOLOv8", "Pandas", "NumPy", "Scikit-learn"] },
-  { tier: "Delivery", title: "Product platforms", description: "Interfaces, mobile experiences, infrastructure, and shipping.", tools: ["React", "Kotlin", "Unity", "ARCore", "Docker", "GitHub CI"] },
+  { tier: "Core", title: "Backend & data", description: "Services, relational storage, caching, and live communication.", tools: ["Node.js", "TypeScript", "Express", "Laravel", "CodeIgniter", "PostgreSQL", "MySQL", "Redis", "WebSockets"] },
+  { tier: "Defense", title: "Security & networking", description: "Offensive and defensive workflows, network visibility, protocol analysis, and system hardening.", tools: ["Wireshark", "Scapy", "TCP/IP & TLS", "Networking", "Offensive Security", "Defensive Security", "Linux Security", "Threat Modeling", "Firewall Configuration", "System Administration"] },
+  { tier: "Models", title: "Applied AI", description: "Data preparation, computer vision, model training, and inference.", tools: ["Python", "TensorFlow", "YOLOv8", "Pandas", "NumPy", "Scikit-learn"] },
+  { tier: "Delivery", title: "Frontend, delivery & infrastructure", description: "Responsive interfaces, component styling, containerized development, automated delivery, and shipping.", tools: ["React", "Next.js", "Tailwind CSS", "Bootstrap", "Kotlin", "Unity", "ARCore", "Docker", "GitHub Actions", "CI/CD"] },
+  { tier: "Workflow", title: "AI development harnesses", description: "AI-assisted research, implementation, refactoring, testing, and review.", tools: ["Codex", "Cursor", "Antigravity", "GitHub Copilot", "OpenCode"] },
 ];
+
+const proofLinks = [
+  { label: "Case studies", title: "Architecture, constraints, and tradeoffs", description: "Explore selected products with implementation detail, technology choices, source links, and demos where available.", href: "/projects" },
+  { label: "Experience", title: "Competition and training record", description: "Review WorldSkills participation, technical programs, assessments, and documented results.", href: "/experience" },
+  { label: "Evidence", title: "Certificates and activity records", description: "Browse the supporting material behind credentials, events, and technical activities.", href: "/gallery" },
+] as const;
+
+function ArrowIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 20 20" width="20" height="20" fill="none">
+      <path d="M4 10h11M11 6l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
 
 export default function HomePage() {
   return (
     <>
         <section className="content-section" id="focus" aria-labelledby="focus-title">
-          <div className="section-heading--split">
-            <div><p className="eyebrow">Engineering focus</p><h2 id="focus-title">Systems that stay clear under complexity</h2></div>
-            <p>I work across the layers where reliability matters most: APIs, data flows, network behavior, local inference, and the interfaces that make those systems understandable. My goal is simple—turn difficult technical problems into products people can trust.</p>
+          <div className="section-heading--split profile-section-heading">
+            <h2 id="focus-title">A little about me and what I do</h2>
+            <p>Hi, I’m Ryle. I’m an aspiring software engineer who enjoys turning complex technical problems into reliable, useful products. My work usually sits across backend systems, cybersecurity, and applied AI. I now use AI in my workflow to speed up research, implementation, refactoring, and testing, while I stay responsible for the architecture, security decisions, and final review.</p>
           </div>
-          <div className="summary-grid">
-            {focusAreas.map(([label, title, description]) => <article className="summary-card" key={label}><p className="summary-card__label">{label}</p><h3>{title}</h3><p>{description}</p></article>)}
+          <div className="focus-ledger">
+            {focusAreas.map((item) => (
+              <article className="focus-ledger__row" key={item.area}>
+                <p className="focus-ledger__label">{item.area}</p>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </article>
+            ))}
           </div>
         </section>
 
         <section className="content-section" id="stack" aria-labelledby="stack-title">
-          <div className="section-heading--split">
-            <div><p className="eyebrow">Technical toolkit</p><h2 id="stack-title">Organized by the job each tool does</h2></div>
-            <p>The stack is grouped by capability so it is easier to see how the pieces connect, instead of presenting one long list of technologies.</p>
+          <div className="section-heading--split profile-section-heading">
+            <h2 id="stack-title">Tools I’ve worked with</h2>
+            <p>These are the tools I’ve used throughout my development across backend systems, responsive interfaces, cybersecurity, networking, applied AI, containers, and CI/CD. Each group shows where the tools fit in my workflow.</p>
           </div>
-          <div className="tech-card"><div className="tech-tier-grid">
+          <div className="toolkit-matrix">
             {toolGroups.map((group) => (
-              <div className="tech-group" key={group.title}>
-                <div className="tech-group-header"><span className="tech-tier-pill">{group.tier}</span><h3 className="tech-group-title">{group.title}</h3></div>
-                <p className="tech-group-desc">{group.description}</p>
-                <div className="tech-tags">{group.tools.map((tool) => <span className="tech-tag" key={tool}>{tool}</span>)}</div>
-              </div>
+              <article className="toolkit-row" key={group.title}>
+                <p className="toolkit-row__label">{group.tier}</p>
+                <div className="toolkit-row__copy">
+                  <h3>{group.title}</h3>
+                  <p>{group.description}</p>
+                </div>
+                <ul className="toolkit-row__tools" aria-label={`${group.title} technologies`}>
+                  {group.tools.map((tool) => <li key={tool}>{tool}</li>)}
+                </ul>
+              </article>
             ))}
-          </div></div>
+          </div>
         </section>
 
         <section className="content-section" id="proof" aria-labelledby="proof-title">
-          <div className="section-heading--split">
-            <div><p className="eyebrow">Proof of practice</p><h2 id="proof-title">Built, tested, and evaluated</h2></div>
-            <p>My work includes production-minded personal systems, a regional cybersecurity gold medal, national WorldSkills representation, and assessed AI training. Explore the technical decisions and evidence behind those outcomes.</p>
+          <div className="section-heading--split profile-section-heading">
+            <h2 id="proof-title">What I’ve built and achieved</h2>
+            <p>My projects, competition record, credentials, and activity evidence show the work behind my development. Explore the path that matches the level of detail you need.</p>
           </div>
-          <div className="summary-grid">
-            <Link className="summary-card summary-card--link" href="/projects"><p className="summary-card__label">Case studies</p><h3>Five engineered products →</h3><p>Architecture, constraints, stack, and links for each project.</p></Link>
-            <Link className="summary-card summary-card--link" href="/experience"><p className="summary-card__label">Experience</p><h3>Competitions & credentials →</h3><p>WorldSkills, technical programs, assessments, and results.</p></Link>
-            <Link className="summary-card summary-card--link" href="/gallery"><p className="summary-card__label">Evidence</p><h3>Activity gallery →</h3><p>Photos, certificates, and supporting event records.</p></Link>
+          <div className="proof-ledger">
+            {proofLinks.map((item) => (
+              <Link className="proof-ledger__row" href={item.href} key={item.href}>
+                <span className="proof-ledger__label">{item.label}</span>
+                <strong>{item.title}</strong>
+                <span className="proof-ledger__description">{item.description}</span>
+                <span className="proof-ledger__arrow"><ArrowIcon /></span>
+              </Link>
+            ))}
           </div>
         </section>
       <SectionDock items={[{ id: "intro", label: "Profile" }, { id: "focus", label: "Focus" }, { id: "stack", label: "Toolkit" }, { id: "proof", label: "Proof" }]} />
