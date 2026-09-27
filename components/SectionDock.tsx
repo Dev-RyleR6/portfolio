@@ -59,19 +59,18 @@ export function SectionDock({
   const activeLabel =
     items.find(({ id }) => id === active)?.label ?? items[0]?.label ?? "Overview";
 
-  const handleToggle = useCallback(() => {
-    const nextState = !isCollapsed;
-    setCollapsedOverride(nextState);
-    try {
-      localStorage.setItem(STORAGE_KEY, String(nextState));
-      window.dispatchEvent(new Event("storage"));
-    } catch {}
-  }, [isCollapsed]);
-
   const handleCollapse = useCallback(() => {
     setCollapsedOverride(true);
     try {
       localStorage.setItem(STORAGE_KEY, "true");
+      window.dispatchEvent(new Event("storage"));
+    } catch {}
+  }, []);
+
+  const handleExpand = useCallback(() => {
+    setCollapsedOverride(false);
+    try {
+      localStorage.setItem(STORAGE_KEY, "false");
       window.dispatchEvent(new Event("storage"));
     } catch {}
   }, []);
@@ -150,9 +149,11 @@ export function SectionDock({
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         handleCollapse();
-        dockRef.current
-          ?.querySelector<HTMLButtonElement>(".section-dock__halfbox")
-          ?.focus();
+        requestAnimationFrame(() => {
+          dockRef.current
+            ?.querySelector<HTMLButtonElement>(".section-dock__halfbox")
+            ?.focus();
+        });
       }
     };
 
@@ -169,124 +170,136 @@ export function SectionDock({
       aria-hidden={!isVisible}
       ref={dockRef}
     >
-      {/* Floating Glass Dock Island */}
-      <div
-        className="section-dock__glass"
-        id={panelId}
-        aria-hidden={isCollapsed}
-      >
-        <div className="section-dock__brand" aria-hidden="true">
-          <span className="section-dock__brand-icon">
-            {onItemSelect ? (
-              <svg
-                viewBox="0 0 16 16"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.7"
-                strokeLinecap="round"
-              >
-                <path d="M2.5 4h11M4.5 8h7M6.5 12h3" />
-              </svg>
-            ) : (
-              <svg
-                viewBox="0 0 16 16"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M2 5L8 2L14 5L8 8L2 5Z" />
-                <path d="M2 8L8 11L14 8" />
-                <path d="M2 11L8 14L14 11" />
-              </svg>
+      {isCollapsed ? (
+        /* Shorter & wider sticky small half-box button at the viewport bottom */
+        <button
+          type="button"
+          className="section-dock__halfbox"
+          onClick={handleExpand}
+          aria-expanded={false}
+          aria-controls={panelId}
+          aria-label={`Open ${onItemSelect ? "filter options" : "navigation dock"}. Active: ${activeLabel}`}
+          title={`Open ${onItemSelect ? "filters" : "sections"}`}
+          tabIndex={isVisible ? undefined : -1}
+        >
+          <span className="section-dock__halfbox-icon" aria-hidden="true">
+            <svg
+              viewBox="0 0 20 10"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M5 7.5l5-5 5 5" />
+            </svg>
+          </span>
+        </button>
+      ) : (
+        /* Floating Glass Dock with collapse button inside */
+        <div
+          className="section-dock__glass"
+          id={panelId}
+        >
+          <div className="section-dock__brand" aria-hidden="true">
+            <span className="section-dock__brand-icon">
+              {onItemSelect ? (
+                <svg
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                  strokeLinecap="round"
+                >
+                  <path d="M2.5 4h11M4.5 8h7M6.5 12h3" />
+                </svg>
+              ) : (
+                <svg
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M2 5L8 2L14 5L8 8L2 5Z" />
+                  <path d="M2 8L8 11L14 8" />
+                  <path d="M2 11L8 14L14 11" />
+                </svg>
+              )}
+            </span>
+            <span className="section-dock__brand-label">
+              {onItemSelect ? "Filters" : "Sections"}
+            </span>
+          </div>
+
+          <div className="section-dock__divider" aria-hidden="true" />
+
+          <div className="section-dock__items">
+            {items.map(({ id, label: itemLabel }) =>
+              onItemSelect ? (
+                <button
+                  type="button"
+                  className={`section-dock__btn${
+                    active === id ? " is-active" : ""
+                  }`}
+                  aria-pressed={active === id}
+                  tabIndex={isVisible ? undefined : -1}
+                  onClick={() => {
+                    onItemSelect(id);
+                    const overview = document.getElementById("overview");
+                    if (overview && window.scrollY > overview.offsetTop) {
+                      overview.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      });
+                    }
+                  }}
+                  key={id}
+                >
+                  {itemLabel}
+                </button>
+              ) : (
+                <a
+                  href={`#${id}`}
+                  className={`section-dock__btn${
+                    active === id ? " is-active" : ""
+                  }`}
+                  aria-current={active === id ? "location" : undefined}
+                  tabIndex={isVisible ? undefined : -1}
+                  onClick={() => setObservedActive(id)}
+                  key={id}
+                >
+                  {itemLabel}
+                </a>
+              ),
             )}
-          </span>
-          <span className="section-dock__brand-label">
-            {onItemSelect ? "Filters" : "Sections"}
-          </span>
-        </div>
+          </div>
 
-        <div className="section-dock__divider" aria-hidden="true" />
+          <div className="section-dock__divider" aria-hidden="true" />
 
-        <div className="section-dock__items">
-          {items.map(({ id, label: itemLabel }) =>
-            onItemSelect ? (
-              <button
-                type="button"
-                className={`section-dock__btn${
-                  active === id ? " is-active" : ""
-                }`}
-                aria-pressed={active === id}
-                tabIndex={isVisible && !isCollapsed ? undefined : -1}
-                onClick={() => {
-                  onItemSelect(id);
-                  const overview = document.getElementById("overview");
-                  if (overview && window.scrollY > overview.offsetTop) {
-                    overview.scrollIntoView({
-                      behavior: "smooth",
-                      block: "start",
-                    });
-                  }
-                }}
-                key={id}
-              >
-                {itemLabel}
-              </button>
-            ) : (
-              <a
-                href={`#${id}`}
-                className={`section-dock__btn${
-                  active === id ? " is-active" : ""
-                }`}
-                aria-current={active === id ? "location" : undefined}
-                tabIndex={isVisible && !isCollapsed ? undefined : -1}
-                onClick={() => setObservedActive(id)}
-                key={id}
-              >
-                {itemLabel}
-              </a>
-            ),
-          )}
-        </div>
-      </div>
-
-      {/* Sticky Small Box Button / Half-Box Button at the Bottom */}
-      <button
-        type="button"
-        className="section-dock__halfbox"
-        onClick={handleToggle}
-        aria-expanded={!isCollapsed}
-        aria-controls={panelId}
-        aria-label={
-          isCollapsed
-            ? `Open ${onItemSelect ? "filter options" : "navigation dock"}. Active: ${activeLabel}`
-            : "Collapse dock"
-        }
-        title={
-          isCollapsed
-            ? `Open ${onItemSelect ? "filters" : "sections"}`
-            : "Collapse dock"
-        }
-        tabIndex={isVisible ? undefined : -1}
-      >
-        <span className="section-dock__halfbox-icon" aria-hidden="true">
-          <svg
-            viewBox="0 0 16 16"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+          <button
+            type="button"
+            className="section-dock__collapse-action"
+            onClick={handleCollapse}
+            aria-label="Collapse dock"
+            title="Collapse dock"
+            tabIndex={isVisible ? undefined : -1}
           >
-            {isCollapsed ? (
-              <path d="M3.5 10.5L8 6l4.5 4.5" />
-            ) : (
-              <path d="M3.5 6.5L8 11l4.5-4.5" />
-            )}
-          </svg>
-        </span>
-      </button>
+            <svg
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M4 6l4 4 4-4" />
+            </svg>
+          </button>
+        </div>
+      )}
     </nav>
   );
 }
