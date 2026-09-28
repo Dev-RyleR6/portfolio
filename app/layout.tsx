@@ -60,57 +60,124 @@ const themeScript = `
 `;
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
-  const profileSchema = {
+  const structuredData = {
     "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    mainEntity: {
-      "@type": "Person",
-      name: siteConfig.name,
-      alternateName: "devR6",
-      jobTitle: "Software Engineer",
-      url: siteUrl,
-      image: `${siteUrl}/assets/images/profile2.webp`,
-      description: siteConfig.description,
-      email: `mailto:${siteConfig.email}`,
-      alumniOf: {
-        "@type": "CollegeOrUniversity",
-        name: "Foundation University",
-        url: "https://www.foundationu.edu.ph",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: siteUrl,
+        name: `${siteConfig.name} | Software Engineer`,
+        description: siteConfig.description,
+        publisher: {
+          "@id": `${siteUrl}/#person`,
+        },
+        inLanguage: "en-US",
       },
-      address: {
-        "@type": "PostalAddress",
-        addressRegion: "Negros Island Region",
-        addressCountry: "PH",
+      {
+        "@type": "ProfilePage",
+        "@id": `${siteUrl}/#profilepage`,
+        url: siteUrl,
+        name: `${siteConfig.name} - Software Engineer Portfolio`,
+        isPartOf: {
+          "@id": `${siteUrl}/#website`,
+        },
+        mainEntity: {
+          "@id": `${siteUrl}/#person`,
+        },
       },
-      knowsAbout: [
-        "Backend Architecture",
-        "Cybersecurity",
-        "Network Packet Analysis",
-        "Computer Vision",
-        "YOLOv8",
-        "TypeScript",
-        "Next.js",
-        "Node.js",
-        "PostgreSQL",
-        "Redis",
-        "Linux Hardening",
-      ],
-      award: [
-        "National Competitor - WorldSkills Philippines Clark 2026 (Cybersecurity)",
-        "Gold Medalist - NIR Regional Skills Olympics 2026 (Cybersecurity)",
-        "Finalist - Huawei Developer Competition APAC 2025 (Cloud & AI)",
-        "4th Place - Can You HackIT: The IBPAP Challenge 2025",
-        "TOPCIT ICT Competency Assessment - Level 2 (Score: 365/1000)",
-      ],
-      sameAs: [
-        siteConfig.github,
-        siteConfig.gitlab,
-        siteConfig.linkedin,
-        siteConfig.telegram,
-        "https://tesda.gov.ph/Media/NewsDetail/20489",
-        "https://www.foundationu.edu.ph/post/foundation-university-bags-gold-medals-at-the-nir-regional-skills-olympics",
-      ],
-    },
+      {
+        "@type": "Person",
+        "@id": `${siteUrl}/#person`,
+        name: siteConfig.name,
+        alternateName: "devR6",
+        jobTitle: "Software Engineer",
+        url: siteUrl,
+        image: `${siteUrl}/assets/images/profile2.webp`,
+        description: siteConfig.description,
+        email: `mailto:${siteConfig.email}`,
+        alumniOf: {
+          "@type": "CollegeOrUniversity",
+          name: "Foundation University",
+          url: "https://www.foundationu.edu.ph",
+        },
+        address: {
+          "@type": "PostalAddress",
+          addressRegion: "Negros Island Region",
+          addressCountry: "PH",
+        },
+        knowsAbout: [
+          "Backend Architecture",
+          "Cybersecurity",
+          "Network Packet Analysis",
+          "Computer Vision",
+          "YOLOv8",
+          "TypeScript",
+          "Next.js",
+          "Node.js",
+          "PostgreSQL",
+          "Redis",
+          "Linux Hardening",
+        ],
+        award: [
+          "National Competitor - WorldSkills Philippines Clark 2026 (Cybersecurity)",
+          "Gold Medalist - NIR Regional Skills Olympics 2026 (Cybersecurity)",
+          "Finalist - Huawei Developer Competition APAC 2025 (Cloud & AI)",
+          "4th Place - Can You HackIT: The IBPAP Challenge 2025",
+          "TOPCIT ICT Competency Assessment - Level 2 (Score: 365/1000)",
+        ],
+        sameAs: [
+          siteConfig.github,
+          siteConfig.gitlab,
+          siteConfig.linkedin,
+          siteConfig.telegram,
+          "https://tesda.gov.ph/Media/NewsDetail/20489",
+          "https://www.foundationu.edu.ph/post/foundation-university-bags-gold-medals-at-the-nir-regional-skills-olympics",
+        ],
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${siteUrl}/#navigation`,
+        name: "Primary Navigation",
+        itemListElement: [
+          {
+            "@type": "SiteNavigationElement",
+            position: 1,
+            name: "Profile",
+            description: "Background, technical focus, and skills overview",
+            url: `${siteUrl}/`,
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 2,
+            name: "Projects",
+            description: "Software case studies spanning streaming proxies, computer vision, and systems architecture",
+            url: `${siteUrl}/projects`,
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 3,
+            name: "Experience",
+            description: "Cybersecurity competitions, hackathons, and certifications",
+            url: `${siteUrl}/experience`,
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 4,
+            name: "Gallery",
+            description: "Photographic and credential evidence from competitions and training",
+            url: `${siteUrl}/gallery`,
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 5,
+            name: "Contact",
+            description: "Direct communication channels and inquiry dispatch",
+            url: `${siteUrl}/contact`,
+          },
+        ],
+      },
+    ],
   };
 
   return (
@@ -120,7 +187,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(profileSchema).replace(/</g, "\\u003c"),
+            __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
           }}
         />
       </head>
