@@ -38,6 +38,9 @@ export const metadata: Metadata = {
     description: siteConfig.description,
   },
   icons: { icon: "/assets/icons/tech.svg" },
+  verification: {
+    google: "DR8xHqXTLS90oHcFRZT82RH2lhiHGUl8_XEgBiWjGlw",
+  },
 };
 
 export const viewport: Viewport = {
