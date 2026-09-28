@@ -40,14 +40,12 @@ export function PageTabs() {
     };
   }
 
-  const scrollToRouteStart = useCallback((href: string) => {
+  const scrollToRouteStart = useCallback((href: string, instant = false) => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const behavior = instant || reducedMotion ? "instant" : "smooth";
 
     if (href === "/") {
-      window.scrollTo({
-        top: 0,
-        behavior: reducedMotion ? "auto" : "smooth",
-      });
+      window.scrollTo({ top: 0, behavior });
       return;
     }
 
@@ -61,10 +59,7 @@ export function PageTabs() {
       ? header.getBoundingClientRect().bottom + window.scrollY + marginTop
       : 0;
 
-    window.scrollTo({
-      top,
-      behavior: reducedMotion ? "auto" : "smooth",
-    });
+    window.scrollTo({ top, behavior });
   }, []);
 
   function selectTab(event: MouseEvent<HTMLAnchorElement>, href: string) {
@@ -74,12 +69,8 @@ export function PageTabs() {
 
     if (href === pathname) {
       event.preventDefault();
-      scrollToRouteStart(href);
+      scrollToRouteStart(href, false);
       return;
-    }
-
-    if (href === "/") {
-      window.scrollTo({ top: 0, behavior: "instant" });
     }
 
     pendingScrollRef.current = href;
@@ -128,13 +119,12 @@ export function PageTabs() {
     };
   }, [pathname]);
 
+  // Position route scroll target on mount instantly
   useEffect(() => {
     if (pendingScrollRef.current !== pathname) return;
 
     pendingScrollRef.current = null;
-    const animationFrame = requestAnimationFrame(() => scrollToRouteStart(pathname));
-
-    return () => cancelAnimationFrame(animationFrame);
+    scrollToRouteStart(pathname, true);
   }, [pathname, scrollToRouteStart]);
 
   return (
@@ -142,7 +132,14 @@ export function PageTabs() {
       <div className="site-tabs__inner">
         <div className="site-tabs__links" ref={linksRef}>
           {pages.map(([href, label]) => (
-            <Link className="site-tab" href={href} scroll={false} onClick={(event) => selectTab(event, href)} aria-current={pathname === href ? "page" : undefined} key={href}>
+            <Link
+              className="site-tab"
+              href={href}
+              scroll={false}
+              onClick={(event) => selectTab(event, href)}
+              aria-current={pathname === href ? "page" : undefined}
+              key={href}
+            >
               {label}
               {pathname === href ? <span className="site-tab__indicator" ref={indicatorRef} aria-hidden="true" /> : null}
             </Link>

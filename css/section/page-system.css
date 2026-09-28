@@ -1,6 +1,5 @@
 /* Shared page tabs, modular section layout, and per-page section dock */
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: 5.25rem;
 }
 

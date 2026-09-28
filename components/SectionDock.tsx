@@ -239,7 +239,20 @@ export function SectionDock({
                 }`}
                 aria-current={active === id ? "location" : undefined}
                 tabIndex={isVisible && !isCollapsed ? undefined : -1}
-                onClick={() => setObservedActive(id)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setObservedActive(id);
+                  if (id === "intro") {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    history.pushState(null, "", " ");
+                    return;
+                  }
+                  const target = document.getElementById(id);
+                  if (target) {
+                    target.scrollIntoView({ behavior: "smooth", block: "start" });
+                    history.pushState(null, "", `#${id}`);
+                  }
+                }}
                 key={id}
               >
                 {itemLabel}
