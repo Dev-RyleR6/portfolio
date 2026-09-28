@@ -8,12 +8,12 @@ const browser = await chromium.launch({ channel: "msedge", headless: true });
 const page = await browser.newPage();
 
 const outputs = [
-  { path: "app/icon.png", size: 512 },
-  { path: "app/apple-icon.png", size: 180 },
-  { path: "public/icon.png", size: 512 },
-  { path: "public/assets/icons/pwa-192.png", size: 192 },
-  { path: "public/assets/icons/pwa-512.png", size: 512 },
-  { path: "public/assets/icons/pwa-maskable-512.png", size: 512 },
+  { path: "app/icon.png", size: 512, rounded: true },
+  { path: "app/apple-icon.png", size: 180, rounded: true },
+  { path: "public/icon.png", size: 512, rounded: true },
+  { path: "public/assets/icons/pwa-192.png", size: 192, rounded: true },
+  { path: "public/assets/icons/pwa-512.png", size: 512, rounded: true },
+  { path: "public/assets/icons/pwa-maskable-512.png", size: 512, rounded: false },
 ];
 
 for (const output of outputs) {
@@ -25,10 +25,11 @@ for (const output of outputs) {
         <style>
           * { box-sizing: border-box; }
           html, body { width: 100%; height: 100%; margin: 0; }
-          body { background: #000000; }
+          body { background: transparent; }
           #icon {
             width: 100%;
             height: 100%;
+            border-radius: ${output.rounded ? "22%" : "0"};
             background: #000000;
             overflow: hidden;
           }
@@ -46,7 +47,7 @@ for (const output of outputs) {
       </body>
     </html>
   `);
-  await page.locator("#icon").screenshot({ path: output.path });
+  await page.locator("#icon").screenshot({ path: output.path, omitBackground: true });
 }
 
 await browser.close();
