@@ -1,5 +1,6 @@
 "use client";
 
+import { useSyncExternalStore } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -8,7 +9,26 @@ import VectorWordmark from "@/components/originkit/ui/vector-wordmark";
 import { AvatarLabelGroup } from "@/components/base/avatar/avatar-label-group";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
+const MOBILE_HANDLES = { size: 5, spread: 35, labels: false };
+const DESKTOP_HANDLES = { size: 10, spread: 15, labels: true };
+
+function subscribeMediaQuery(callback: () => void) {
+  const mql = window.matchMedia("(max-width: 768px)");
+  mql.addEventListener("change", callback);
+  return () => mql.removeEventListener("change", callback);
+}
+
+function getIsMobile() {
+  return window.matchMedia("(max-width: 768px)").matches;
+}
+
+function getServerIsMobile() {
+  return false;
+}
+
 export function ProfileHeader() {
+  const isMobile = useSyncExternalStore(subscribeMediaQuery, getIsMobile, getServerIsMobile);
+  const handles = isMobile ? MOBILE_HANDLES : DESKTOP_HANDLES;
   const home = usePathname() === "/";
 
   if (!home) {
@@ -51,7 +71,7 @@ export function ProfileHeader() {
             speed={20}
             reach={150}
             damping={60}
-            handles={{ size: 10, spread: 15, labels: false }}
+            handles={handles}
             style={{ minWidth: "100%", minHeight: "100%" }}
           />
         </div>
