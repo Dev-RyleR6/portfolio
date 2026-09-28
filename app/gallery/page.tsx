@@ -15,7 +15,7 @@ const national: GalleryImage[] = [
 ];
 
 const regional: GalleryImage[] = [
-  { src: "/assets/images/worldskills/regional/image.png", width: 1920, height: 1279, alt: "Cybersecurity gold medalists at the NIR Regional Skills Olympics", caption: "Cybersecurity awarding ceremony" },
+  { src: "/assets/images/worldskills/regional/image.webp", width: 1920, height: 1279, alt: "Cybersecurity gold medalists at the NIR Regional Skills Olympics", caption: "Cybersecurity awarding ceremony" },
   { src: "/assets/images/worldskills/regional/7d0953b1-da82-47b0-a924-263d45a849d9.jpg", width: 2048, height: 1365, alt: "Foundation University delegation at the Regional Skills Olympics", caption: "Foundation University delegation" },
   { src: "/assets/images/evidence/worldskills-regional-gold.webp", width: 1600, height: 1201, alt: "WorldSkills regional gold medal certificate in Cybersecurity", caption: "Gold medal certificate", variant: "gallery-item--document" },
   { src: "/assets/images/evidence/worldskills-regional-certificates.webp", width: 1200, height: 1604, alt: "Recognition and participation certificates", caption: "Recognition and participation certificates", variant: "gallery-item--document" },

@@ -9,7 +9,7 @@ import "@/css/snackbar.css";
 import "@/css/section/hero.css";
 import "@/css/section/about.css";
 import "@/css/section/portfolio.css";
-import "@/css/section/services.css";
+
 import "@/css/section/tech-stack.css";
 import "@/css/section/navigation.css";
 import "@/css/section/contact.css";

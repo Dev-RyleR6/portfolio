@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import { chromium } from "playwright-core";
 
-const sourcePath = "public/assets/icons/appicon.png";
+const sourcePath = "scripts/appicon.png";
 const sourceImage = await fs.readFile(sourcePath);
 const sourceDataUrl = `data:image/png;base64,${sourceImage.toString("base64")}`;
 const browser = await chromium.launch({ channel: "msedge", headless: true });

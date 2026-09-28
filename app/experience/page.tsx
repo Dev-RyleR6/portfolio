@@ -37,7 +37,7 @@ const featuredCompetitions = [
     role: "Gold medal · Cybersecurity",
     summary:
       "Won the Cybersecurity skill area with teammate Earl John Estandarte, qualifying to represent the region at the national WorldSkills competition.",
-    image: "/assets/images/worldskills/regional/image.png",
+    image: "/assets/images/worldskills/regional/image.webp",
     imageAlt: "Cybersecurity gold medalists at the NIR Regional Skills Olympics",
     caption: "Regional cybersecurity awarding ceremony",
     links: [

@@ -729,8 +729,9 @@ export default function VectorWordmark(props: VectorWordmarkProps) {
             raf = requestAnimationFrame(frame)
         }
 
+        let inView = true
         const gate = () => {
-            if (running && !document.hidden) {
+            if (running && !document.hidden && inView) {
                 if (!raf) {
                     last = 0
                     raf = requestAnimationFrame(frame)
@@ -745,6 +746,13 @@ export default function VectorWordmark(props: VectorWordmarkProps) {
             boxDirty = true
         })
         ro.observe(host)
+
+        const io = new IntersectionObserver(([entry]) => {
+            inView = entry ? entry.isIntersecting : true
+            gate()
+        }, { threshold: 0 })
+        io.observe(host)
+
         document.addEventListener("visibilitychange", gate)
 
         if (typeof document !== "undefined" && document.fonts) {
@@ -762,10 +770,10 @@ export default function VectorWordmark(props: VectorWordmarkProps) {
             if (raf) cancelAnimationFrame(raf)
             if (idleTimer) window.clearTimeout(idleTimer)
             ro.disconnect()
+            io.disconnect()
             host.removeEventListener("pointermove", onMove)
             host.removeEventListener("pointerleave", onLeave)
             document.removeEventListener("visibilitychange", gate)
-
         }
 
     }, [])

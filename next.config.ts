@@ -5,23 +5,19 @@ const scriptSources = [
   "'self'",
   "'unsafe-inline'",
   ...(isDevelopment ? ["'unsafe-eval'"] : []),
-  "https://web3forms.com",
-  "https://*.hcaptcha.com",
   "https://va.vercel-scripts.com",
 ].join(" ");
 const connectSources = [
   "'self'",
   ...(isDevelopment ? ["ws:"] : []),
-  "https://api.web3forms.com",
-  "https://*.hcaptcha.com",
   "https://vitals.vercel-insights.com",
 ].join(" ");
 
 const contentSecurityPolicy = [
   "default-src 'self'",
   `script-src ${scriptSources}`,
-  "style-src 'self' 'unsafe-inline' https://*.hcaptcha.com",
-  "frame-src 'self' https://*.hcaptcha.com",
+  "style-src 'self' 'unsafe-inline'",
+  "frame-src 'self'",
   `connect-src ${connectSources}`,
   "img-src 'self' data: https:",
   "font-src 'self' data:",
@@ -33,6 +29,9 @@ const contentSecurityPolicy = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  images: {
+    formats: ["image/avif", "image/webp"],
+  },
   async headers() {
     return [
       {

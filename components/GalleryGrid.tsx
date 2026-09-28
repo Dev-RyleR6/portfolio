@@ -47,16 +47,19 @@ export function GalleryGrid({
 }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [active, setActive] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
   const current = images[active];
 
   function open(index: number) {
     setActive(index);
+    setIsOpen(true);
     dialogRef.current?.showModal();
     document.documentElement.classList.add("modal-open");
   }
 
   function close() {
     dialogRef.current?.close();
+    setIsOpen(false);
     document.documentElement.classList.remove("modal-open");
   }
 
@@ -108,7 +111,7 @@ export function GalleryGrid({
         className={`gallery-lightbox is-${orientation}`}
         ref={dialogRef}
         aria-label="Gallery image viewer"
-        onClose={() => document.documentElement.classList.remove("modal-open")}
+        onClose={() => { setIsOpen(false); document.documentElement.classList.remove("modal-open"); }}
         onClick={(event) => { if (event.target === dialogRef.current) close(); }}
         onKeyDown={(event) => {
           if (images.length < 2) return;
@@ -120,7 +123,7 @@ export function GalleryGrid({
           <button className="gallery-lightbox__close" type="button" onClick={close} aria-label="Close image viewer"><CloseIcon /></button>
           {images.length > 1 && <button className="gallery-lightbox__nav gallery-lightbox__nav--previous" type="button" onClick={() => move(-1)} aria-label="Previous image"><ChevronIcon direction="left" /></button>}
           <figure className="gallery-lightbox__figure">
-            <div className="gallery-lightbox__image-wrap"><Image src={current.src} width={current.width} height={current.height} sizes="(max-width: 800px) 100vw, 1120px" alt={current.alt} /></div>
+            <div className="gallery-lightbox__image-wrap">{isOpen && <Image src={current.src} width={current.width} height={current.height} sizes="(max-width: 800px) 100vw, 1120px" alt={current.alt} priority />}</div>
             <figcaption aria-live="polite"><span>{current.caption}</span><span className="gallery-lightbox__count">{active + 1} / {images.length}</span></figcaption>
           </figure>
           {images.length > 1 && <button className="gallery-lightbox__nav gallery-lightbox__nav--next" type="button" onClick={() => move(1)} aria-label="Next image"><ChevronIcon direction="right" /></button>}
