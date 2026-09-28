@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { GitHubActivity } from "@/components/GitHubActivity";
 import { SectionDock } from "@/components/SectionDock";
 
 import { getSiteUrl, siteConfig } from "@/lib/site";
@@ -115,6 +116,8 @@ export default function HomePage() {
           </div>
         </section>
 
+        <GitHubActivity />
+
         <section className="content-section" id="proof" aria-labelledby="proof-title">
           <div className="section-heading--split profile-section-heading">
             <h2 id="proof-title">What I’ve built and achieved</h2>
@@ -131,7 +134,7 @@ export default function HomePage() {
             ))}
           </div>
         </section>
-      <SectionDock showThemeToggle items={[{ id: "intro", label: "Profile" }, { id: "focus", label: "Focus" }, { id: "stack", label: "Toolkit" }, { id: "proof", label: "Proof" }]} />
+      <SectionDock showThemeToggle items={[{ id: "intro", label: "Profile" }, { id: "focus", label: "Focus" }, { id: "stack", label: "Toolkit" }, { id: "activity", label: "Activity" }, { id: "proof", label: "Proof" }]} />
     </>
   );
 }

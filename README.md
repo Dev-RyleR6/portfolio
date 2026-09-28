@@ -23,6 +23,14 @@ RESEND_FROM_EMAIL=contact@your-domain.com
 
 Set `NEXT_PUBLIC_SITE_URL` in production if the deployment platform does not expose a Vercel production URL. It is used for canonical URLs, the sitemap, and structured metadata.
 
+The GitHub activity section reads the contribution calendar through GitHub's GraphQL API. Add a server-only token with read access to the profile data:
+
+```text
+GITHUB_TOKEN=github_pat_your_token_here
+```
+
+Do not prefix this token with `NEXT_PUBLIC_`. The activity data is cached for six hours, and the section falls back to a profile link if GitHub is unavailable.
+
 The optional footer visitor status uses Upstash Redis for anonymous, short-lived presence:
 
 ```text
