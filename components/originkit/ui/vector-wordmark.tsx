@@ -778,8 +778,6 @@ export default function VectorWordmark(props: VectorWordmarkProps) {
                 overflow: "hidden",
                 background,
 
-                minWidth: 1200,
-                minHeight: 800,
                 width: "100%",
                 height: "100%",
                 ...style,

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { type MouseEvent, useCallback, useEffect, useLayoutEffect, useRef } from "react";
+import { type MouseEvent, useCallback, useLayoutEffect, useRef } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const pages = [
@@ -77,6 +77,12 @@ export function PageTabs() {
   }
 
   useLayoutEffect(() => {
+    // Settle scroll position BEFORE paint so there is no 1-frame visual flash/jerk
+    if (pendingScrollRef.current === pathname) {
+      pendingScrollRef.current = null;
+      scrollToRouteStart(pathname, true);
+    }
+
     const links = linksRef.current;
     const activeTab = links?.querySelector<HTMLElement>('[aria-current="page"]');
     const indicator = indicatorRef.current;
@@ -93,11 +99,18 @@ export function PageTabs() {
 
     animationRef.current?.cancel();
 
+    // Do not animate horizontal pill if the nav bar itself moved vertically (to/from Profile)
+    const isVerticalTransition =
+      from &&
+      from.pathname !== pathname &&
+      (from.pathname === "/" || pathname === "/");
+
     if (
       from &&
       from.pathname !== pathname &&
       from.width > 0 &&
       target.width > 0 &&
+      !isVerticalTransition &&
       !window.matchMedia("(prefers-reduced-motion: reduce)").matches
     ) {
       animationRef.current = indicator.animate(
@@ -117,14 +130,6 @@ export function PageTabs() {
       left: target.left,
       width: target.width,
     };
-  }, [pathname]);
-
-  // Position route scroll target on mount instantly
-  useEffect(() => {
-    if (pendingScrollRef.current !== pathname) return;
-
-    pendingScrollRef.current = null;
-    scrollToRouteStart(pathname, true);
   }, [pathname, scrollToRouteStart]);
 
   return (
@@ -135,7 +140,7 @@ export function PageTabs() {
             <Link
               className="site-tab"
               href={href}
-              scroll={false}
+              scroll={href === "/"}
               onClick={(event) => selectTab(event, href)}
               aria-current={pathname === href ? "page" : undefined}
               key={href}
