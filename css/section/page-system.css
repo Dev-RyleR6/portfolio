@@ -290,7 +290,10 @@ html {
   text-align: justify;
   text-align-last: start;
   text-justify: inter-word;
-  hyphens: auto;
+  -webkit-hyphens: none;
+  hyphens: none;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .summary-grid {

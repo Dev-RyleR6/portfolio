@@ -57,7 +57,7 @@ export default function GalleryPage() {
   return (
     <>
       <header className="archive-header gallery-header" id="overview">
-        <h1 className="archive-title">Technical work, in context</h1>
+        <h1 className="archive-title">The work behind the results</h1>
         <p className="section-text">A visual record of competitions, training, workshops, and the evidence behind the experience. Open any image for a closer look.</p>
       </header>
 

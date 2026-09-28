@@ -20,7 +20,7 @@ const featuredCompetitions = [
     title: "WorldSkills Philippines Clark 2026",
     role: "Cybersecurity · Team NIR",
     summary:
-      "Represented the Negros Island Region at the national skills competition, defending network infrastructure, analyzing network packet captures, and completing incident-response tasks in a timed environment.",
+      "Represented the Negros Island Region at the national skills competition, working across defensive and offensive cybersecurity tasks. This included securing network infrastructure, analyzing packet captures, responding to incidents, and solving CTF-style challenges in a timed competition environment.",
     image: "/assets/images/worldskills/nationals/8d9c0df7-8dbb-4809-a3c0-072189056fb9.jpg",
     imageAlt: "Opening program at WorldSkills Philippines Clark 2026",
     caption: "WorldSkills Philippines national competition ceremony",

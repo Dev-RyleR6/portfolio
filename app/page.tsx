@@ -45,7 +45,7 @@ export default function HomePage() {
         <section className="content-section" id="focus" aria-labelledby="focus-title">
           <div className="section-heading--split profile-section-heading">
             <h2 id="focus-title">A little about me and what I do</h2>
-            <p>Hi, I’m Ryle. I’m an aspiring software engineer who enjoys turning complex technical problems into reliable, useful products. My work usually sits across backend systems, cybersecurity, and applied AI. I use AI to accelerate research, implementation, refactoring, and testing while staying responsible for architecture, security decisions, and final review.</p>
+            <p>Hi, I’m Ryle. I’m a software engineer who likes building things that solve real problems. Most of my work involves backend development, cybersecurity, and applied AI. I now integrate AI as part of my workflow to speed up research, implementation, debugging, refactoring, and testing, while still making the architecture, security, and final implementation decisions myself. I enjoy figuring out how things work, solving technical problems, and turning ideas into software that’s actually useful.</p>
           </div>
           <div className="focus-ledger">
             {focusAreas.map((item) => (
@@ -97,7 +97,7 @@ export default function HomePage() {
         <section className="content-section" id="proof" aria-labelledby="proof-title">
           <div className="section-heading--split profile-section-heading">
             <h2 id="proof-title">What I’ve built and achieved</h2>
-            <p>My projects, competition record, credentials, and activity evidence show the work behind my development. Explore the path that matches the level of detail you need.</p>
+            <p>My projects, competitions, certifications, and other work reflect what I’ve built and learned along the way. Explore each section for a closer look at the work behind them.</p>
           </div>
           <div className="proof-ledger">
             {proofLinks.map((item) => (
