@@ -421,7 +421,7 @@ html {
   }
 
   .profile-avatar-row {
-    margin-top: -3.25rem;
+    margin-top: -2.75rem;
     margin-bottom: 0.85rem;
     padding-inline: 0.75rem;
   }
@@ -825,6 +825,10 @@ body.has-section-dock .page {
     margin-top: 0.8rem;
   }
 
+  .profile-avatar-row {
+    margin-top: -2.5rem;
+  }
+
   .profile-social-links {
     column-gap: 0.75rem;
     row-gap: 0.15rem;
@@ -976,11 +980,11 @@ body.has-section-dock .page {
   }
 
   .avatar-label-group__content {
-    padding-top: 2.7rem;
+    padding-top: 3rem;
   }
 
   .avatar-label-group__title {
-    font-size: 1.3rem;
+    font-size: clamp(1.05rem, 4.9vw, 1.3rem);
     line-height: 1.06;
   }
 
@@ -996,11 +1000,61 @@ body.has-section-dock .page {
 
   .site-tabs__links {
     margin-left: -0.5rem;
+    scroll-padding-inline: 0.5rem;
+    scroll-snap-type: inline proximity;
+    touch-action: pan-x;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      #000 0,
+      #000 calc(100% - 0.9rem),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      #000 0,
+      #000 calc(100% - 0.9rem),
+      transparent 100%
+    );
+  }
+
+  .site-tabs__inner {
+    gap: 0.15rem;
+  }
+
+  .site-tab {
+    min-height: 2.75rem;
+    padding-inline: 0.55rem;
+    font-size: 0.72rem;
+    scroll-snap-align: start;
+  }
+
+  .site-tab__indicator {
+    right: 0.55rem;
+    left: 0.55rem;
   }
 
   .site-theme-toggle {
     width: 2.75rem;
     height: 2.75rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .profile-social-links {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 0.2rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .profile-social-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .profile-social-link {
+    flex: 0 0 auto;
+    font-size: 0.78rem;
   }
 }
 
@@ -1016,18 +1070,25 @@ body.has-section-dock .page {
     padding-inline: 0;
   }
 
+  .profile-cover-container {
+    height: 6.75rem;
+  }
+
   .avatar-label-group--md {
-    --avatar-label-size: 80px;
+    --avatar-label-size: 76px;
   }
 
   .avatar-label-group__title {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 
-  .profile-social-links {
-    display: grid;
-    grid-template-columns: repeat(2, max-content);
-    gap: 0 1rem;
+  .avatar-label-group__subtitle {
+    margin-top: 0.25rem;
+    font-size: 0.68rem;
+  }
+
+  .profile-meta {
+    font-size: 0.76rem;
   }
 }
 
