@@ -58,7 +58,7 @@ export function ProfileHeader() {
             <a href={siteConfig.linkedin} target="_blank" rel="noopener noreferrer" className="profile-social-link"><Image src="/assets/icons/InBug-Black.png" width={16} height={16} alt="" />LinkedIn</a>
             <a href={siteConfig.telegram} target="_blank" rel="noopener noreferrer" className="profile-social-link"><Image src="/assets/icons/telegram.svg" width={16} height={16} alt="" />Telegram</a>
             <a href={siteConfig.resume} target="_blank" rel="noopener noreferrer" className="profile-social-link">
-              <svg aria-hidden="true" viewBox="0 0 16 16" fill="none">
+              <svg aria-hidden="true" width={16} height={16} viewBox="0 0 16 16" fill="none">
                 <path d="M4 1.75h5l3 3v9.5H4z" stroke="currentColor" strokeWidth="1.35" strokeLinejoin="round" />
                 <path d="M9 1.75v3h3M6.25 8h3.5M6.25 10.5h3.5" stroke="currentColor" strokeWidth="1.35" strokeLinecap="round" strokeLinejoin="round" />
               </svg>

@@ -1,96 +1,137 @@
 "use client";
 
-import { FormEvent, useRef, useState } from "react";
-
-declare global {
-  interface Window { hcaptcha?: { reset: () => void } }
-}
-
-type Notice = { message: string; variant: "info" | "success" | "error" } | null;
+import { FormEvent, useState } from "react";
+import { siteConfig } from "@/lib/site";
 
 export function ContactForm() {
-  const formRef = useRef<HTMLFormElement>(null);
-  const lastSubmission = useRef(0);
-  const [captchaVisible, setCaptchaVisible] = useState(false);
-  const [sending, setSending] = useState(false);
-  const [notice, setNotice] = useState<Notice>(null);
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  function announce(message: string, variant: NonNullable<Notice>["variant"]) {
-    setNotice({ message, variant });
-    window.setTimeout(() => setNotice(null), 3600);
-  }
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("sending");
+    setErrorMessage("");
 
-  async function submit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const now = Date.now();
-    if (now - lastSubmission.current < 10_000) {
-      announce("Please wait a moment before sending another message.", "info");
-      return;
-    }
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
-    const form = event.currentTarget;
-    const data = new FormData(form);
     const payload = {
-      name: String(data.get("name") || "").trim(),
-      email: String(data.get("email") || "").trim(),
-      message: String(data.get("message") || "").trim(),
-      botcheck: String(data.get("botcheck") || ""),
-      "h-captcha-response": String(data.get("h-captcha-response") || ""),
+      name: String(formData.get("name") || "").trim(),
+      email: String(formData.get("email") || "").trim(),
+      message: String(formData.get("message") || "").trim(),
+      botcheck: String(formData.get("botcheck") || ""),
     };
 
     if (!payload.name || !payload.email || !payload.message) {
-      announce("Please fill in all fields.", "error");
-      return;
-    }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)) {
-      announce("Please enter a valid email address.", "error");
-      return;
-    }
-    if (!captchaVisible) {
-      setCaptchaVisible(true);
-      announce("Complete the verification, then select Send again.", "info");
-      return;
-    }
-    if (!payload["h-captcha-response"]) {
-      announce("Please complete the verification.", "error");
+      setStatus("error");
+      setErrorMessage("Please fill in all fields.");
       return;
     }
 
-    setSending(true);
     try {
-      const response = await fetch("/api/contact", {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      const result = await response.json().catch(() => ({}));
-      if (!response.ok || !result.success) throw new Error(typeof result.message === "string" ? result.message : "Could not send your message.");
-      lastSubmission.current = Date.now();
+
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.message || "Failed to send message.");
+      }
+
+      setStatus("success");
       form.reset();
-      window.hcaptcha?.reset();
-      setCaptchaVisible(false);
-      announce("Message sent. I’ll get back to you soon.", "success");
-    } catch (error) {
-      window.hcaptcha?.reset();
-      announce(error instanceof Error ? error.message : "Network error. Please try email instead.", "error");
-    } finally {
-      setSending(false);
+    } catch (err) {
+      setStatus("error");
+      setErrorMessage(
+        err instanceof Error
+          ? err.message
+          : `Could not send message. Please email me directly at ${siteConfig.email}.`
+      );
     }
   }
 
+  if (status === "success") {
+    return (
+      <div className="contact-status contact-status--success" role="status">
+        <h3>Message sent!</h3>
+        <p>Thanks for reaching out. I’ll get back to you as soon as possible.</p>
+        <button
+          type="button"
+          onClick={() => setStatus("idle")}
+          className="contact-btn-secondary"
+        >
+          Send another message
+        </button>
+      </div>
+    );
+  }
+
   return (
-    <>
-      <form className="contact-form" ref={formRef} onSubmit={submit} noValidate autoComplete="on">
-        <div className="form-group contact-form__hp" aria-hidden="true"><label htmlFor="contact-company">Company</label><input type="text" id="contact-company" name="botcheck" tabIndex={-1} autoComplete="off" /></div>
-        <div className="form-group"><label htmlFor="contact-name">Name</label><input id="contact-name" name="name" type="text" autoComplete="name" maxLength={120} placeholder="Your name" /></div>
-        <div className="form-group"><label htmlFor="contact-email">Email</label><input id="contact-email" name="email" type="email" autoComplete="email" inputMode="email" maxLength={254} placeholder="you@example.com" /></div>
-        <div className="form-group"><label htmlFor="contact-message">Message</label><textarea id="contact-message" name="message" rows={6} maxLength={4000} placeholder="A little context about your project or opportunity…" /></div>
-        <div className={`form-group contact-form__captcha-wrap ${captchaVisible ? "contact-form__captcha-wrap--visible" : "contact-form__captcha-wrap--hidden"}`} aria-hidden={!captchaVisible}>
-          <span className="contact-form__captcha-label">Verification</span><div className="h-captcha" data-captcha="true" data-size="compact" data-theme="light" />
+    <form className="contact-form" onSubmit={handleSubmit}>
+      {/* Honeypot field */}
+      <input
+        type="checkbox"
+        name="botcheck"
+        className="hidden"
+        style={{ display: "none" }}
+        tabIndex={-1}
+        autoComplete="off"
+      />
+
+      {status === "error" && (
+        <div className="contact-status contact-status--error" role="alert">
+          <p>{errorMessage}</p>
         </div>
-        <button type="submit" className={`contact-submit${sending ? " is-loading" : ""}`} disabled={sending} aria-busy={sending}><span className="contact-submit__label">{sending ? "Sending…" : "Send message"}</span><span className="contact-submit__spinner" aria-hidden="true" /></button>
-      </form>
-      {notice && <div className="snackbar is-visible" data-variant={notice.variant} role="status" aria-live="polite"><div className="snackbar__inner"><span className="snackbar__glyph" aria-hidden="true">●</span><p className="snackbar__message">{notice.message}</p></div></div>}
-    </>
+      )}
+
+      <div className="form-group">
+        <label htmlFor="contact-name">Name</label>
+        <input
+          id="contact-name"
+          name="name"
+          type="text"
+          required
+          placeholder="Your name"
+          autoComplete="name"
+          disabled={status === "sending"}
+        />
+      </div>
+
+      <div className="form-group">
+        <label htmlFor="contact-email">Email</label>
+        <input
+          id="contact-email"
+          name="email"
+          type="email"
+          required
+          placeholder="you@example.com"
+          autoComplete="email"
+          disabled={status === "sending"}
+        />
+      </div>
+
+      <div className="form-group">
+        <label htmlFor="contact-message">Message</label>
+        <textarea
+          id="contact-message"
+          name="message"
+          rows={6}
+          required
+          placeholder="What's on your mind?"
+          disabled={status === "sending"}
+        />
+      </div>
+
+      <button
+        type="submit"
+        disabled={status === "sending"}
+        className="contact-submit"
+      >
+        {status === "sending" ? "Sending…" : "Send message"}
+      </button>
+    </form>
   );
 }

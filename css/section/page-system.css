@@ -165,7 +165,7 @@ html {
 
 .experience-intro__details {
   gap: clamp(1.35rem, 3vw, 2rem);
-  padding-top: 2.4rem;
+  padding-top: 0;
 }
 
 .page-intro--experience h1 {
@@ -358,7 +358,8 @@ html {
   border-color: var(--color-accent);
 }
 
-.profile-social-link img {
+.profile-social-link img,
+.profile-social-link svg {
   width: 1rem;
   height: 1rem;
   flex: 0 0 auto;
@@ -368,7 +369,9 @@ html {
 }
 
 .profile-social-link:hover img,
-.profile-social-link:focus-visible img {
+.profile-social-link:focus-visible img,
+.profile-social-link:hover svg,
+.profile-social-link:focus-visible svg {
   opacity: 1;
 }
 

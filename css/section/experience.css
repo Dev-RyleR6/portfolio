@@ -1,225 +1,424 @@
-/* Experience item container */
-.experience-item {
-  margin-bottom: 18px;
-  padding: var(--spacing-md);
-  background: #fafafa;
+/* Experience & Credentials — Editorial Systems Ledger & Timeline Layout */
+
+/* --------------------------------------------------
+ * 0. Experience Hero Alignment
+ * -------------------------------------------------- */
+.page-intro--experience .experience-intro__details {
+  padding-top: 0 !important;
+}
+
+@media (min-width: 769px) {
+  .page-intro--experience .page-intro__lede {
+    margin-top: -0.65rem;
+  }
+}
+
+/* --------------------------------------------------
+ * 1. Capabilities Systems Ledger
+ * -------------------------------------------------- */
+.capabilities-ledger {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 1.25rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.capabilities-ledger__item {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 2rem;
+  padding: 1.75rem 1rem;
+  border-bottom: 1px solid var(--color-border-subtle);
   border-radius: var(--border-radius-sm);
-  transition: background 0.2s;
+  color: inherit;
+  text-decoration: none;
+  transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
 }
 
-.experience-item:hover {
-  background: #f5f5f5;
+.capabilities-ledger__item:hover,
+.capabilities-ledger__item:focus-visible {
+  background: var(--color-hover);
+  border-bottom-color: color-mix(in srgb, var(--color-accent) 35%, var(--color-border));
+  outline: none;
 }
 
-/* Experience role/title */
-.experience-role {
-  font-weight: 600;
-  margin-bottom: 2px;
-  color: var(--color-text);
+.capabilities-ledger__col-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
 }
 
-/* Experience details/description */
-.experience-details {
+.capabilities-ledger__num {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
   color: var(--color-text-muted);
-  font-size: 0.95rem;
-  line-height: 1.5;
+  letter-spacing: 0.06em;
 }
 
-/* Experience section title */
-.experience-title {
-  color: var(--color-text);
-  font-size: 1rem;
-  font-weight: 600;
-  margin-top: var(--spacing-xl);
-  margin-bottom: var(--spacing-md);
-  line-height: 1.6;
-  padding-bottom: var(--spacing-sm);
-  border-bottom: 2px solid var(--color-border);
-}
-
-/* First experience title doesn't need top margin */
-.experience-title:first-of-type {
-  margin-top: var(--spacing-lg);
-}
-
-/* Experience entry container */
-.experience-entry {
-  margin-bottom: var(--spacing-xl);
-}
-
-/* Experience title inside experience-entry */
-.experience-entry .experience-title {
-  margin-top: var(--spacing-lg);
-}
-
-#certificateContainer {
-  display: none;
-}
-
-/* Certificate button - Matches theme button style */
-.certificate-button {
+.capabilities-ledger__badge {
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-xs) var(--spacing-lg);
-  margin-top: var(--spacing-md);
-  margin-bottom: var(--spacing-md);
-  background: none;
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--color-accent);
+  background: var(--color-accent-subtle);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 25%, transparent);
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .capabilities-ledger__badge {
+  border-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
+}
+
+.capabilities-ledger__col-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  min-width: 0;
+}
+
+.capabilities-ledger__heading-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.capabilities-ledger__title {
+  margin: 0;
+  font-size: 1.22rem;
+  font-weight: 700;
   color: var(--color-text);
-  font-weight: 500;
-  font-size: 1rem;
-  border-radius: var(--border-radius-sm);
-  border: 1px solid var(--color-border);
-  transition: all 0.2s ease;
-  cursor: pointer;
+  line-height: 1.35;
 }
 
-.certificate-button:hover {
-  background: var(--color-hover);
-  border-color: #ddd;
-}
-
-.certificate-button:active {
-  transform: scale(0.98);
-}
-
-/* Certificate button text */
-.certificate-button-text {
-  line-height: 1;
-}
-
-/* Certificate icon */
-.certificate-icon {
-  width: 18px;
-  height: 18px;
+.capabilities-ledger__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  white-space: nowrap;
   flex-shrink: 0;
-  stroke: currentColor;
+  transition: color 0.18s ease, transform 0.18s ease;
 }
 
-/* Certificate container - holds the iframe */
-.certificate-container {
-  margin-top: var(--spacing-md);
-  margin-bottom: var(--spacing-xl);
-  width: 100%;
-  border-radius: var(--border-radius-sm);
-  overflow: hidden;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-  background: var(--color-white);
+.capabilities-ledger__action svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  transition: transform 0.18s ease;
+}
+
+.capabilities-ledger__item:hover .capabilities-ledger__action,
+.capabilities-ledger__item:focus-visible .capabilities-ledger__action {
+  color: var(--color-accent-hover);
+  transform: translateX(4px);
+}
+
+.capabilities-ledger__description {
+  max-width: 66ch;
+  margin: 0;
+  color: var(--color-text-light);
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+.capabilities-ledger__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.25rem;
+}
+
+.capabilities-ledger__tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  background: var(--color-hover);
   border: 1px solid var(--color-border);
-  animation: fadeIn 0.3s ease;
+  color: var(--color-text-light);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.74rem;
+  font-weight: 600;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Certificate iframe */
-.certificate-iframe {
+/* --------------------------------------------------
+ * 2. Competition & Experience Timeline Ledger
+ * -------------------------------------------------- */
+.timeline-ledger {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  height: 600px;
-  border: none;
+  margin-top: 1.25rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.timeline-ledger__item {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 2rem;
+  padding: 2rem 1rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+  border-radius: var(--border-radius-sm);
+  transition: background 0.18s ease;
+}
+
+.timeline-ledger__item:hover {
+  background: color-mix(in srgb, var(--color-hover) 65%, transparent);
+}
+
+.timeline-ledger__col-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.timeline-ledger__date {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.timeline-ledger__standing {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-text);
+  background: var(--color-hover);
+  border: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.timeline-ledger__col-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  min-width: 0;
+}
+
+.timeline-ledger__title {
+  margin: 0;
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.35;
+}
+
+.timeline-ledger__role {
+  margin: 0;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.timeline-ledger__summary {
+  max-width: 66ch;
+  margin: 0;
+  color: var(--color-text-light);
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+.timeline-ledger__media-wrap {
+  margin: 0.5rem 0 0.5rem;
+  max-width: 560px;
+}
+
+.timeline-ledger__media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--color-border);
+  object-fit: cover;
   display: block;
 }
 
-/* Responsive iframe height */
-@media (max-width: 768px) {
-  .certificate-iframe {
-    height: 500px;
-  }
+.timeline-ledger__caption {
+  margin-top: 0.45rem;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
 }
 
-/* Image collage for experience photos - Improved grid layout */
-.image-collage {
+.timeline-ledger__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1.25rem;
+  margin-top: 0.35rem;
+}
+
+.timeline-ledger__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  min-height: 2.5rem;
+  padding-block: 0.35rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.timeline-ledger__link:hover,
+.timeline-ledger__link:focus-visible {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+  outline: none;
+}
+
+.timeline-ledger__link--secondary {
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.timeline-ledger__link--secondary:hover {
+  color: var(--color-text);
+  border-bottom-color: var(--color-border);
+}
+
+/* --------------------------------------------------
+ * 3. Formal Validation & Credentials Register
+ * -------------------------------------------------- */
+.credentials-register {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 1.25rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.credentials-register__row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-md);
-  margin-top: var(--spacing-md);
-  margin-bottom: var(--spacing-xl);
-  width: 100%;
-}
-
-.image-collage img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 2rem;
+  padding: 1.85rem 1rem;
+  border-bottom: 1px solid var(--color-border-subtle);
   border-radius: var(--border-radius-sm);
-  box-shadow: var(--shadow-sm);
-  transition: all 0.3s ease;
-  cursor: pointer;
+  transition: background 0.18s ease;
 }
 
-.image-collage img:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+.credentials-register__row:hover {
+  background: color-mix(in srgb, var(--color-hover) 65%, transparent);
 }
 
-/* Second image collage variant - 2 column layout */
-.image-collage-2 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--spacing-md);
-  margin-top: var(--spacing-md);
-  margin-bottom: var(--spacing-xl);
-  width: 100%;
+.credentials-register__col-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
 }
 
-.image-collage-2 img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: var(--border-radius-sm);
-  box-shadow: var(--shadow-sm);
-  transition: all 0.3s ease;
-  cursor: pointer;
+.credentials-register__issuer {
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--color-text-muted);
 }
 
-.image-collage-2 img:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+.credentials-register__duration {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
 }
 
-/* Responsive design for tablets */
-@media (max-width: 968px) {
-  .image-collage {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .image-collage img {
-    height: 220px;
-  }
-  
-  .image-collage-2 img {
-    height: 280px;
-  }
+.credentials-register__col-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  min-width: 0;
 }
 
-/* Responsive design for mobile screens */
+.credentials-register__title {
+  margin: 0;
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.35;
+}
+
+.credentials-register__score-badge {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  padding: 0.22rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 750;
+  color: var(--color-accent);
+  background: var(--color-accent-subtle);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 25%, transparent);
+}
+
+.credentials-register__summary {
+  max-width: 66ch;
+  margin: 0;
+  color: var(--color-text-light);
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+.credentials-register__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.25rem;
+}
+
+/* --------------------------------------------------
+ * 4. Responsive Adaptations
+ * -------------------------------------------------- */
 @media (max-width: 768px) {
-  .image-collage {
+  .capabilities-ledger__item,
+  .timeline-ledger__item,
+  .credentials-register__row {
     grid-template-columns: 1fr;
-    gap: var(--spacing-sm);
+    gap: 0.75rem;
+    padding: 1.35rem 0.5rem;
   }
-  
-  .image-collage img {
-    height: 200px;
+
+  .capabilities-ledger__col-meta {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .capabilities-ledger__heading-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .capabilities-ledger__action {
+    margin-top: 0.35rem;
+  }
+
+  .timeline-ledger__col-meta {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .timeline-ledger__media-wrap {
     max-width: 100%;
   }
-  
-  .image-collage-2 {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-sm);
-  }
-  
-  .image-collage-2 img {
-    height: 250px;
-    max-width: 100%;
+
+  .credentials-register__col-meta {
+    flex-direction: column;
+    gap: 0.25rem;
   }
 }
-

@@ -7,7 +7,6 @@ import "@/css/base.css";
 import "@/css/snackbar.css";
 import "@/css/section/hero.css";
 import "@/css/section/about.css";
-import "@/css/section/experience.css";
 import "@/css/section/portfolio.css";
 import "@/css/section/services.css";
 import "@/css/section/tech-stack.css";

@@ -7,10 +7,10 @@ import { SectionDock } from "@/components/SectionDock";
 import { projects } from "@/lib/projects";
 
 export const projectFilters = [
-  ["all", `All (${projects.length})`],
-  ["backend", "Backend & Systems"],
-  ["security-ai", "Security & AI"],
-  ["mobile", "Mobile AR"],
+  ["all", `All (${projects.length})`, "All"],
+  ["backend", "Backend & Systems", "Backend"],
+  ["security-ai", "Security & AI", "Security"],
+  ["mobile", "Mobile AR", "Mobile"],
 ] as const;
 
 type ProjectFilter = (typeof projectFilters)[number][0];
@@ -56,7 +56,7 @@ export function ProjectArchive() {
     <>
       <div className="project-toolbar">
         <div className="archive-filters" aria-label="Filter projects" role="group">
-          {projectFilters.map(([value, label]) => (
+          {projectFilters.map(([value, label, compactLabel]) => (
             <button
               className={`filter-btn${filter === value ? " active" : ""}`}
               aria-controls="project-archive-results"
@@ -65,7 +65,8 @@ export function ProjectArchive() {
               type="button"
               key={value}
             >
-              {label}
+              <span className="filter-label--full">{label}</span>
+              <span className="filter-label--compact">{compactLabel}</span>
             </button>
           ))}
         </div>
