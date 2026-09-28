@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { SectionDock } from "@/components/SectionDock";
 import { projects } from "@/lib/projects";
 
 export const projectFilters = [
@@ -50,7 +49,9 @@ function ArrowIcon({ external = false }: { external?: boolean }) {
 export function ProjectArchive() {
   const [filter, setFilter] = useState<ProjectFilter>("all");
   const [view, setView] = useState<ProjectView>("grid");
-  const visibleProjects = projects.filter((project) => filter === "all" || project.category === filter);
+  const visibleProjects = projects
+    .filter((project) => filter === "all" || project.category === filter)
+    .sort((a, b) => Number(Boolean(b.caseStudy)) - Number(Boolean(a.caseStudy)));
 
   return (
     <>
@@ -102,14 +103,15 @@ export function ProjectArchive() {
       </div>
 
       <div className={`portfolio-grid portfolio-grid--${view}`} id="project-archive-results">
-        {visibleProjects.map((project) => (
-          <article className="portfolio-item" id={project.id} data-category={project.category} key={project.id}>
+        {visibleProjects.map((project, index) => (
+          <article className={`portfolio-item${project.caseStudy ? " portfolio-item--case-study" : ""}`} id={project.id} data-category={project.category} key={project.id}>
             <div className="portfolio-image-frame">
               <Image
                 src={project.image}
                 width={800}
                 height={500}
-                loading="lazy"
+                priority={index === 0}
+                loading={index === 0 ? undefined : "lazy"}
                 sizes={view === "list" ? "(max-width: 800px) 100vw, 34vw" : "(max-width: 800px) 100vw, 50vw"}
                 alt={project.imageAlt}
                 className="portfolio-image"
@@ -129,6 +131,23 @@ export function ProjectArchive() {
 
               {project.status ? <p className="project-status-note">{project.status.reason}</p> : null}
               <p className="portfolio-description">{project.description}</p>
+
+              {project.caseStudy ? (
+                <dl className="project-proof" aria-label={`${project.title} engineering decisions`}>
+                  <div>
+                    <dt>Problem</dt>
+                    <dd>{project.caseStudy.problem}</dd>
+                  </div>
+                  <div>
+                    <dt>Decision</dt>
+                    <dd>{project.caseStudy.decision}</dd>
+                  </div>
+                  <div>
+                    <dt>Outcome</dt>
+                    <dd>{project.caseStudy.outcome}</dd>
+                  </div>
+                </dl>
+              ) : null}
 
               <ul className="project-tech" aria-label="Technologies used">
                 {project.technologies.map((technology) => <li key={technology}>{technology}</li>)}
@@ -150,12 +169,6 @@ export function ProjectArchive() {
         ))}
       </div>
 
-      <SectionDock
-        label="Filter projects"
-        items={projectFilters.map(([id, label]) => ({ id, label }))}
-        activeId={filter}
-        onItemSelect={(id) => setFilter(id as ProjectFilter)}
-      />
     </>
   );
 }

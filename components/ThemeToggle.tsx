@@ -25,7 +25,7 @@ type ViewTransitionDocument = Document & {
   startViewTransition?: (update: () => void) => ViewTransition;
 };
 
-export function ThemeToggle() {
+export function ThemeToggle({ className = "" }: { className?: string }) {
   const [theme, setTheme] = useState<Theme | null>(null);
   const switchingRef = useRef(false);
 
@@ -89,7 +89,7 @@ export function ThemeToggle() {
 
   return (
     <button
-      className="site-theme-toggle"
+      className={`site-theme-toggle${className ? ` ${className}` : ""}`}
       type="button"
       aria-label={theme === null ? "Toggle color theme" : theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
       aria-pressed={theme === null ? undefined : theme === "dark"}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { NextStep } from "@/components/NextStep";
 import { SectionDock } from "@/components/SectionDock";
 import { pageMetadata, siteConfig } from "@/lib/site";
 import "@/css/section/experience.css";
@@ -163,7 +164,7 @@ export default function ExperiencePage() {
           </p>
         </div>
         <div className="timeline-ledger">
-          {featuredCompetitions.map((comp) => (
+          {featuredCompetitions.map((comp, index) => (
             <article className="timeline-ledger__item" key={comp.title}>
               <div className="timeline-ledger__col-meta">
                 <time className="timeline-ledger__date" dateTime={comp.datetime}>
@@ -180,7 +181,8 @@ export default function ExperiencePage() {
                     src={comp.image}
                     width={1080}
                     height={608}
-                    loading="lazy"
+                    priority={index === 0}
+                    loading={index === 0 ? undefined : "lazy"}
                     alt={comp.imageAlt}
                     className="timeline-ledger__media"
                   />
@@ -272,6 +274,15 @@ export default function ExperiencePage() {
           ))}
         </div>
       </section>
+
+      <NextStep
+        title="See how this experience becomes working software."
+        description="The project archive connects these competition and training environments to systems I have designed and shipped."
+        links={[
+          { href: "/projects", label: "Explore projects" },
+          { href: "/contact", label: "Start a conversation" },
+        ]}
+      />
 
       <SectionDock
         items={[

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { NextStep } from "@/components/NextStep";
 import { ProjectArchive } from "@/components/ProjectArchive";
 import { projects } from "@/lib/projects";
-import { getSiteUrl, pageMetadata } from "@/lib/site";
+import { getSiteUrl, pageMetadata, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata(
   "Projects & Case Studies",
@@ -48,6 +49,14 @@ export default function ProjectsPage() {
         </header>
         <ProjectArchive />
       </section>
+      <NextStep
+        title="Want the full technical picture?"
+        description="Open my résumé for the complete record, or start a conversation about the system you need to build."
+        links={[
+          { href: "/contact", label: "Discuss a role or project" },
+          { href: siteConfig.resume, label: "Open résumé", external: true },
+        ]}
+      />
     </>
   );
 }

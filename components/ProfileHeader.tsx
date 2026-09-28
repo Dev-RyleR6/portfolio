@@ -1,16 +1,37 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { siteConfig } from "@/lib/site";
 import VectorWordmark from "@/components/originkit/ui/vector-wordmark";
 import { AvatarLabelGroup } from "@/components/base/avatar/avatar-label-group";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function ProfileHeader() {
   const home = usePathname() === "/";
 
+  if (!home) {
+    return (
+      <header className="profile-header profile-header--compact">
+        <Link className="profile-compact-home" href="/" aria-label="Ryle Anthony Gabotero, profile home">
+          <AvatarLabelGroup
+            size="sm"
+            src="/assets/images/profile2.webp"
+            alt=""
+            title={siteConfig.name}
+            subtitle="Software engineer"
+            priority
+          />
+        </Link>
+        <ThemeToggle className="profile-mobile-theme-toggle" />
+      </header>
+    );
+  }
+
   return (
-    <header className="profile-header shared-profile-header" id={home ? "intro" : undefined}>
+    <header className="profile-header shared-profile-header" id="intro">
+      <ThemeToggle className="profile-mobile-theme-toggle" />
       <div className="profile-cover-container">
         <div className="profile-cover-wordmark-stage">
           <VectorWordmark
@@ -43,7 +64,7 @@ export function ProfileHeader() {
             alt={siteConfig.name}
             title={siteConfig.name}
             subtitle="Software engineer"
-            titleAs={home ? "h1" : "p"}
+            titleAs="h1"
             priority
           />
         </div>

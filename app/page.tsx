@@ -45,7 +45,7 @@ export default function HomePage() {
         <section className="content-section" id="focus" aria-labelledby="focus-title">
           <div className="section-heading--split profile-section-heading">
             <h2 id="focus-title">A little about me and what I do</h2>
-            <p>Hi, I’m Ryle. I’m an aspiring software engineer who enjoys turning complex technical problems into reliable, useful products. My work usually sits across backend systems, cybersecurity, and applied AI. I now use AI in my workflow to speed up research, implementation, refactoring, and testing, while I stay responsible for the architecture, security decisions, and final review.</p>
+            <p>Hi, I’m Ryle. I’m a software engineer who enjoys turning complex technical problems into reliable, useful products. My work usually sits across backend systems, cybersecurity, and applied AI. I use AI to accelerate research, implementation, refactoring, and testing while staying responsible for architecture, security decisions, and final review.</p>
           </div>
           <div className="focus-ledger">
             {focusAreas.map((item) => (
@@ -64,18 +64,33 @@ export default function HomePage() {
             <p>These are the tools I’ve used throughout my development across backend systems, responsive interfaces, cybersecurity, networking, applied AI, containers, and CI/CD. Each group shows where the tools fit in my workflow.</p>
           </div>
           <div className="toolkit-matrix">
-            {toolGroups.map((group) => (
-              <article className="toolkit-row" key={group.title}>
-                <p className="toolkit-row__label">{group.tier}</p>
-                <div className="toolkit-row__copy">
-                  <h3>{group.title}</h3>
-                  <p>{group.description}</p>
-                </div>
-                <ul className="toolkit-row__tools" aria-label={`${group.title} technologies`}>
-                  {group.tools.map((tool) => <li key={tool}>{tool}</li>)}
-                </ul>
-              </article>
-            ))}
+            {toolGroups.map((group) => {
+              const primaryTools = group.tools.slice(0, 4);
+              const additionalTools = group.tools.slice(4);
+
+              return (
+                <article className="toolkit-row" key={group.title}>
+                  <p className="toolkit-row__label">{group.tier}</p>
+                  <div className="toolkit-row__copy">
+                    <h3>{group.title}</h3>
+                    <p>{group.description}</p>
+                  </div>
+                  <div className="toolkit-row__inventory">
+                    <ul className="toolkit-row__tools" aria-label={`${group.title} primary technologies`}>
+                      {primaryTools.map((tool) => <li key={tool}>{tool}</li>)}
+                    </ul>
+                    {additionalTools.length ? (
+                      <details className="toolkit-row__more">
+                        <summary>Show {additionalTools.length} more</summary>
+                        <ul className="toolkit-row__tools toolkit-row__tools--more" aria-label={`${group.title} additional technologies`}>
+                          {additionalTools.map((tool) => <li key={tool}>{tool}</li>)}
+                        </ul>
+                      </details>
+                    ) : null}
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </section>
 

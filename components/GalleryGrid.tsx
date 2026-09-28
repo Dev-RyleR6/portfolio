@@ -36,7 +36,15 @@ function ChevronIcon({ direction }: { direction: "left" | "right" }) {
   );
 }
 
-export function GalleryGrid({ images, columns = "default" }: { images: GalleryImage[]; columns?: "default" | "three" | "evidence" }) {
+export function GalleryGrid({
+  images,
+  columns = "default",
+  priorityFirst = false,
+}: {
+  images: GalleryImage[];
+  columns?: "default" | "three" | "evidence";
+  priorityFirst?: boolean;
+}) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [active, setActive] = useState(0);
   const current = images[active];
@@ -79,7 +87,8 @@ export function GalleryGrid({ images, columns = "default" }: { images: GalleryIm
                   src={image.src}
                   width={image.width}
                   height={image.height}
-                  loading="lazy"
+                  priority={priorityFirst && index === 0}
+                  loading={priorityFirst && index === 0 ? undefined : "lazy"}
                   sizes={columns === "three" ? "(max-width: 800px) 100vw, 33vw" : image.variant === "gallery-item--wide" ? "(max-width: 800px) 100vw, 64rem" : "(max-width: 800px) 100vw, 50vw"}
                   alt={image.alt}
                 />

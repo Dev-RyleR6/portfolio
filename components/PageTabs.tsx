@@ -154,7 +154,7 @@ export function PageTabs() {
             </Link>
           ))}
         </div>
-        <ThemeToggle />
+        <ThemeToggle className="tabs-theme-toggle" />
       </div>
     </nav>
   );

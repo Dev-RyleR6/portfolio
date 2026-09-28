@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { GalleryGrid, type GalleryImage } from "@/components/GalleryGrid";
+import { NextStep } from "@/components/NextStep";
 import { SectionDock } from "@/components/SectionDock";
 import { pageMetadata } from "@/lib/site";
 
@@ -62,7 +63,7 @@ export default function GalleryPage() {
 
       <section className="gallery-section" id="worldskills-national">
         <GalleryHeading meta="September 7–11, 2026 · Clark, Pampanga" title="WorldSkills Philippines Clark 2026" description="Representing the Negros Island Region in the Cybersecurity skill area at the national competition." />
-        <GalleryGrid images={national} />
+        <GalleryGrid images={national} priorityFirst />
       </section>
       <section className="gallery-section" id="worldskills-regional">
         <GalleryHeading meta="June 8–10, 2026 · Dumaguete City" title="NIR Regional Skills Olympics" description="Cybersecurity gold medal and qualification for the WorldSkills Philippines national competition." />
@@ -99,6 +100,14 @@ export default function GalleryPage() {
         <GalleryHeading meta="June 25–26, 2024 · Dumaguete City" title="DICT AI.deas for Impact" description="AI for Innovation and Social Impact workshop activities and completion recognition." />
         <GalleryGrid images={aideas} />
       </section>
+      <NextStep
+        title="The evidence is only part of the story."
+        description="See the responsibilities, results, and technical work behind these records, or reach out directly."
+        links={[
+          { href: "/experience", label: "Review experience" },
+          { href: "/contact", label: "Contact me" },
+        ]}
+      />
       <SectionDock label="Gallery sections" items={[{ id: "overview", label: "Overview" }, { id: "worldskills-national", label: "National" }, { id: "worldskills-regional", label: "Regional" }, { id: "koica", label: "KOICA" }, { id: "huawei", label: "Huawei" }, { id: "hackit", label: "HackIT" }, { id: "aideas", label: "AI.deas" }]} />
     </>
   );

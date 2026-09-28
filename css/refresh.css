@@ -833,6 +833,7 @@ body {
 
 .archive-filters .filter-btn {
   position: relative;
+  min-width: 44px;
   border-radius: 6px;
 }
 

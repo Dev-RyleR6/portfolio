@@ -7,6 +7,11 @@ export type Project = {
   image: string;
   imageAlt: string;
   description: string;
+  caseStudy?: {
+    problem: string;
+    decision: string;
+    outcome: string;
+  };
   status?: { label: "Discontinued"; reason: string };
   technologies: string[];
   links: { label: string; href: string; external?: boolean }[];
@@ -30,12 +35,22 @@ export const projects: Project[] = [
   {
     id: "safeview", title: "SafeView", subtitle: "Real-Time Visual Phishing Detection", category: "security-ai", categoryLabel: "Security Software", image: "/assets/images/projects/safeview.png", imageAlt: "SafeView OCR and transformer detection architecture",
     description: "A Windows security agent that scans active screen buffers using Tesseract OCR and semantic embeddings to detect visual phishing with local, sub-50ms inference and no cloud data transmission.",
+    caseStudy: {
+      problem: "Visual phishing can appear inside a rendered interface before URL-focused controls provide enough context.",
+      decision: "Keep capture, OCR, and semantic comparison on-device using active screen buffers, Tesseract, and sentence embeddings.",
+      outcome: "Sub-50ms local inference without transmitting screen data to a cloud service.",
+    },
     technologies: ["Python", "Sentence-Transformers", "Tesseract OCR", "Tkinter", "Windows API"],
     links: [{ label: "View live project", href: "https://safe-view.vercel.app/", external: true }, { label: "View documentation", href: "https://github.com/Dev-RyleR6/SafeView/blob/main/README.md", external: true }, { label: "Explore repository", href: "https://github.com/Dev-RyleR6/SafeView", external: true }],
   },
   {
     id: "ovalens", title: "OvaLens Ecosystem", subtitle: "YOLOv8 Computer Vision & IoT", category: "security-ai", categoryLabel: "Computer Vision & IoT", image: "/assets/images/projects/ovalens.png", imageAlt: "OvaLens computer vision and conveyor architecture",
     description: "Automated duck egg candling and fertility sorting powered by a custom YOLOv8 model, camera exposure controls, a Python edge client, and ESP32 conveyor actuation.",
+    caseStudy: {
+      problem: "Duck-egg candling needs consistent visual classification and coordination with the physical sorting mechanism.",
+      decision: "Pair a custom YOLOv8 model and controlled camera exposure with a Python edge client and ESP32 conveyor actuation.",
+      outcome: "One edge pipeline connects image classification directly to the conveyor sorting response.",
+    },
     technologies: ["Python", "YOLOv8", "OpenCV", "ESP32", "Hardware IoT"],
     links: [{ label: "Model repository", href: "https://github.com/Dev-RyleR6/OvaLens-Ecosystem", external: true }, { label: "Edge client", href: "https://github.com/Dev-RyleR6/OvaLens---Edge-App", external: true }],
   },
@@ -48,6 +63,11 @@ export const projects: Project[] = [
   {
     id: "pickleworld", title: "Pickle World", subtitle: "Real-Time Venue Booking Engine", category: "backend", categoryLabel: "Full-Stack System", image: "/assets/images/projects/pickleworld.png", imageAlt: "Pickle World project preview",
     description: "A multi-court reservation engine with WebSocket slot locks, webhook-driven payment reconciliation, and strict MySQL transaction isolation to prevent double-booking under concurrency.",
+    caseStudy: {
+      problem: "Concurrent customers can attempt to reserve and pay for the same court slot at nearly the same time.",
+      decision: "Coordinate WebSocket slot locks with payment webhooks and strict MySQL transaction isolation.",
+      outcome: "The booking flow was designed to prevent double-booking while reconciling payment state.",
+    },
     status: { label: "Discontinued", reason: "The hosted deployment was retired after its domain and hosting were not renewed." },
     technologies: ["React", "TypeScript", "Node.js", "MySQL", "WebSockets"],
     links: [{ label: "GitHub repo", href: "https://github.com/Dev-RyleR6/pickleball_reservation_system", external: true }],

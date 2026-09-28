@@ -7,12 +7,14 @@ const scriptSources = [
   ...(isDevelopment ? ["'unsafe-eval'"] : []),
   "https://web3forms.com",
   "https://*.hcaptcha.com",
+  "https://va.vercel-scripts.com",
 ].join(" ");
 const connectSources = [
   "'self'",
   ...(isDevelopment ? ["ws:"] : []),
   "https://api.web3forms.com",
   "https://*.hcaptcha.com",
+  "https://vitals.vercel-insights.com",
 ].join(" ");
 
 const contentSecurityPolicy = [
