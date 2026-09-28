@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "icons:pwa": "node scripts/generate-pwa-icons.mjs",
     "audit:layout": "node scripts/audit-layout.mjs",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
