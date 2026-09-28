@@ -45,7 +45,7 @@ export default function HomePage() {
         <section className="content-section" id="focus" aria-labelledby="focus-title">
           <div className="section-heading--split profile-section-heading">
             <h2 id="focus-title">A little about me and what I do</h2>
-            <p>Hi, I’m Ryle. I’m a software engineer who enjoys turning complex technical problems into reliable, useful products. My work usually sits across backend systems, cybersecurity, and applied AI. I use AI to accelerate research, implementation, refactoring, and testing while staying responsible for architecture, security decisions, and final review.</p>
+            <p>Hi, I’m Ryle. I’m an aspiring software engineer who enjoys turning complex technical problems into reliable, useful products. My work usually sits across backend systems, cybersecurity, and applied AI. I use AI to accelerate research, implementation, refactoring, and testing while staying responsible for architecture, security decisions, and final review.</p>
           </div>
           <div className="focus-ledger">
             {focusAreas.map((item) => (
