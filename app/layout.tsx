@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/next";
 import { SiteShell } from "@/components/SiteShell";
 import { getSiteUrl, siteConfig } from "@/lib/site";
 import "@/css/reset.css";
@@ -145,6 +146,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       </head>
       <body className="has-section-dock">
         <SiteShell>{children}</SiteShell>
+        <Analytics />
       </body>
     </html>
   );
