@@ -112,17 +112,22 @@ export function VisitorStatus() {
   if (info?.ip) items.push(info.ip);
 
   return (
-    <p
-      className={`visitor-status${items.length ? " visitor-status--ready" : ""}`}
-      aria-label={items.length ? `Visitor information: ${items.join(", ")}` : "Visitor information loading"}
+    <div
+      className={`visitor-footprint${items.length ? " visitor-footprint--ready" : ""}`}
       aria-hidden={items.length ? undefined : true}
     >
-      {items.map((item, index) => (
-        <Fragment key={item}>
-          <span className="visitor-status__item">{item}</span>
-          {index < items.length - 1 ? <span className="visitor-status__separator" aria-hidden="true">·</span> : null}
-        </Fragment>
-      ))}
-    </p>
+      <p className="visitor-footprint__title">Your footprint</p>
+      <p
+        className="visitor-status"
+        aria-label={items.length ? `Visitor information: ${items.join(", ")}` : undefined}
+      >
+        {items.map((item, index) => (
+          <Fragment key={item}>
+            <span className="visitor-status__item">{item}</span>
+            {index < items.length - 1 ? <span className="visitor-status__separator" aria-hidden="true">·</span> : null}
+          </Fragment>
+        ))}
+      </p>
+    </div>
   );
 }
