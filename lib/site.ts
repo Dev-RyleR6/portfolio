@@ -27,7 +27,7 @@ export function pageMetadata(title: string, description: string, path: string): 
     alternates: { canonical: path },
     openGraph: {
       type: "website",
-      siteName: `${siteConfig.name} Portfolio`,
+      siteName: siteConfig.name,
       title,
       description,
       url: path,

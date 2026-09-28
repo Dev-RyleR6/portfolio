@@ -21,13 +21,13 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: { default: siteConfig.title, template: `%s | ${siteConfig.name}` },
   description: siteConfig.description,
-  applicationName: `${siteConfig.name} Portfolio`,
+  applicationName: siteConfig.name,
   authors: [{ name: siteConfig.name, url: siteUrl }],
   creator: siteConfig.name,
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    siteName: `${siteConfig.name} Portfolio`,
+    siteName: siteConfig.name,
     title: siteConfig.title,
     description: siteConfig.description,
     url: "/",
@@ -37,7 +37,6 @@ export const metadata: Metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
   },
-  icons: { icon: "/assets/icons/tech.svg" },
   verification: {
     google: "DR8xHqXTLS90oHcFRZT82RH2lhiHGUl8_XEgBiWjGlw",
   },
@@ -63,57 +62,74 @@ const themeScript = `
 `;
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
-  const profileSchema = {
+  const rootSchema = {
     "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    mainEntity: {
-      "@type": "Person",
-      name: siteConfig.name,
-      alternateName: "devR6",
-      jobTitle: "Software Engineer",
-      url: siteUrl,
-      image: `${siteUrl}/assets/images/profile2.webp`,
-      description: siteConfig.description,
-      email: `mailto:${siteConfig.email}`,
-      alumniOf: {
-        "@type": "CollegeOrUniversity",
-        name: "Foundation University",
-        url: "https://www.foundationu.edu.ph",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: siteUrl,
+        name: siteConfig.name,
+        alternateName: ["devR6", "Ryle Gabotero"],
+        inLanguage: "en-US",
       },
-      address: {
-        "@type": "PostalAddress",
-        addressRegion: "Negros Island Region",
-        addressCountry: "PH",
+      {
+        "@type": "ProfilePage",
+        "@id": `${siteUrl}/#profilepage`,
+        url: siteUrl,
+        name: siteConfig.title,
+        isPartOf: { "@id": `${siteUrl}/#website` },
+        mainEntity: {
+          "@type": "Person",
+          "@id": `${siteUrl}/#person`,
+          name: siteConfig.name,
+          alternateName: "devR6",
+          jobTitle: "Software Engineer",
+          url: siteUrl,
+          image: `${siteUrl}/assets/images/profile2.webp`,
+          description: siteConfig.description,
+          email: `mailto:${siteConfig.email}`,
+          alumniOf: {
+            "@type": "CollegeOrUniversity",
+            name: "Foundation University",
+            url: "https://www.foundationu.edu.ph",
+          },
+          address: {
+            "@type": "PostalAddress",
+            addressRegion: "Negros Island Region",
+            addressCountry: "PH",
+          },
+          knowsAbout: [
+            "Backend Architecture",
+            "Cybersecurity",
+            "Network Packet Analysis",
+            "Computer Vision",
+            "YOLOv8",
+            "TypeScript",
+            "Next.js",
+            "Node.js",
+            "PostgreSQL",
+            "Redis",
+            "Linux Hardening",
+          ],
+          award: [
+            "National Competitor - WorldSkills Philippines Clark 2026 (Cybersecurity)",
+            "Gold Medalist - NIR Regional Skills Olympics 2026 (Cybersecurity)",
+            "Finalist - Huawei Developer Competition APAC 2025 (Cloud & AI)",
+            "4th Place - Can You HackIT: The IBPAP Challenge 2025",
+            "TOPCIT ICT Competency Assessment - Level 2 (Score: 365/1000)",
+          ],
+          sameAs: [
+            siteConfig.github,
+            siteConfig.gitlab,
+            siteConfig.linkedin,
+            siteConfig.telegram,
+            "https://tesda.gov.ph/Media/NewsDetail/20489",
+            "https://www.foundationu.edu.ph/post/foundation-university-bags-gold-medals-at-the-nir-regional-skills-olympics",
+          ],
+        },
       },
-      knowsAbout: [
-        "Backend Architecture",
-        "Cybersecurity",
-        "Network Packet Analysis",
-        "Computer Vision",
-        "YOLOv8",
-        "TypeScript",
-        "Next.js",
-        "Node.js",
-        "PostgreSQL",
-        "Redis",
-        "Linux Hardening",
-      ],
-      award: [
-        "National Competitor - WorldSkills Philippines Clark 2026 (Cybersecurity)",
-        "Gold Medalist - NIR Regional Skills Olympics 2026 (Cybersecurity)",
-        "Finalist - Huawei Developer Competition APAC 2025 (Cloud & AI)",
-        "4th Place - Can You HackIT: The IBPAP Challenge 2025",
-        "TOPCIT ICT Competency Assessment - Level 2 (Score: 365/1000)",
-      ],
-      sameAs: [
-        siteConfig.github,
-        siteConfig.gitlab,
-        siteConfig.linkedin,
-        siteConfig.telegram,
-        "https://tesda.gov.ph/Media/NewsDetail/20489",
-        "https://www.foundationu.edu.ph/post/foundation-university-bags-gold-medals-at-the-nir-regional-skills-olympics",
-      ],
-    },
+    ],
   };
 
   return (
@@ -123,7 +139,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(profileSchema).replace(/</g, "\\u003c"),
+            __html: JSON.stringify(rootSchema).replace(/</g, "\\u003c"),
           }}
         />
       </head>
