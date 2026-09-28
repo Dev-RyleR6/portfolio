@@ -104,15 +104,21 @@ export function ProjectArchive() {
 
       <div className={`portfolio-grid portfolio-grid--${view}`} id="project-archive-results">
         {visibleProjects.map((project, index) => (
-          <article className={`portfolio-item${project.caseStudy ? " portfolio-item--case-study" : ""}`} id={project.id} data-category={project.category} key={project.id}>
-            <div className="portfolio-image-frame">
+          <article className={`portfolio-item${project.caseStudy ? " portfolio-item--case-study" : ""}${project.mediaOrientation === "portrait" ? " portfolio-item--portrait" : ""}`} id={project.id} data-category={project.category} key={project.id}>
+            <div className={`portfolio-image-frame portfolio-image-frame--${project.mediaTone ?? "dark"}${project.mediaOrientation === "portrait" ? " portfolio-image-frame--portrait" : ""}`}>
               <Image
                 src={project.image}
                 width={800}
                 height={500}
                 priority={index === 0}
                 loading={index === 0 ? undefined : "lazy"}
-                sizes={view === "list" ? "(max-width: 800px) 100vw, 34vw" : "(max-width: 800px) 100vw, 50vw"}
+                sizes={view === "list"
+                  ? "(max-width: 800px) 34vw, 18rem"
+                  : project.caseStudy && project.mediaOrientation !== "portrait"
+                    ? "(max-width: 800px) calc(100vw - 2rem), 52rem"
+                    : project.mediaOrientation === "portrait"
+                      ? "(max-width: 720px) calc(100vw - 2rem), 18rem"
+                      : "(max-width: 800px) calc(100vw - 2rem), 25rem"}
                 alt={project.imageAlt}
                 className="portfolio-image"
               />

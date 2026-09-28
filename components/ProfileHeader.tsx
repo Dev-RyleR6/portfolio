@@ -51,7 +51,7 @@ export function ProfileHeader() {
             speed={20}
             reach={150}
             damping={60}
-            handles={{ size: 10, spread: 15, labels: false }}
+            handles={{ size: 10, spread: 15, labels: true }}
             style={{ minWidth: "100%", minHeight: "100%" }}
           />
         </div>

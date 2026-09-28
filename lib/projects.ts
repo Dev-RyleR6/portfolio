@@ -6,6 +6,8 @@ export type Project = {
   categoryLabel: string;
   image: string;
   imageAlt: string;
+  mediaOrientation?: "landscape" | "portrait";
+  mediaTone?: "dark" | "light";
   description: string;
   caseStudy?: {
     problem: string;
@@ -44,7 +46,7 @@ export const projects: Project[] = [
     links: [{ label: "View live project", href: "https://safe-view.vercel.app/", external: true }, { label: "View documentation", href: "https://github.com/Dev-RyleR6/SafeView/blob/main/README.md", external: true }, { label: "Explore repository", href: "https://github.com/Dev-RyleR6/SafeView", external: true }],
   },
   {
-    id: "ovalens", title: "OvaLens Ecosystem", subtitle: "YOLOv8 Computer Vision & IoT", category: "security-ai", categoryLabel: "Computer Vision & IoT", image: "/assets/images/projects/ovalens.png", imageAlt: "OvaLens computer vision and conveyor architecture",
+    id: "ovalens", title: "OvaLens Ecosystem", subtitle: "YOLOv8 Computer Vision & IoT", category: "security-ai", categoryLabel: "Computer Vision & IoT", image: "/assets/images/projects/ovalens.png", imageAlt: "OvaLens computer vision and conveyor architecture", mediaOrientation: "portrait",
     description: "Automated duck egg candling and fertility sorting powered by a custom YOLOv8 model, camera exposure controls, a Python edge client, and ESP32 conveyor actuation.",
     caseStudy: {
       problem: "Duck-egg candling needs consistent visual classification and coordination with the physical sorting mechanism.",
@@ -61,7 +63,7 @@ export const projects: Project[] = [
     links: [{ label: "GitHub repo", href: "https://github.com/Dev-RyleR6/ARChroniclesmainAPP", external: true }, { label: "Watch project demo", href: "https://www.facebook.com/share/v/1BcHgnFtZG/", external: true }],
   },
   {
-    id: "pickleworld", title: "Pickle World", subtitle: "Real-Time Venue Booking Engine", category: "backend", categoryLabel: "Full-Stack System", image: "/assets/images/projects/pickleworld.png", imageAlt: "Pickle World project preview",
+    id: "pickleworld", title: "Pickle World", subtitle: "Real-Time Venue Booking Engine", category: "backend", categoryLabel: "Full-Stack System", image: "/assets/images/projects/pickleworld.png", imageAlt: "Pickle World project preview", mediaTone: "light",
     description: "A multi-court reservation engine with WebSocket slot locks, webhook-driven payment reconciliation, and strict MySQL transaction isolation to prevent double-booking under concurrency.",
     caseStudy: {
       problem: "Concurrent customers can attempt to reserve and pay for the same court slot at nearly the same time.",

@@ -510,20 +510,56 @@ html {
 
 .portfolio-grid--grid .portfolio-item--case-study {
   grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: minmax(16rem, 0.8fr) minmax(0, 1.2fr);
-  gap: clamp(1rem, 3vw, 2rem);
+  display: flex;
+  flex-direction: column;
   padding: 0.75rem;
 }
 
 .portfolio-grid--grid .portfolio-item--case-study .portfolio-image-frame {
-  height: 100%;
-  min-height: 22rem;
-  aspect-ratio: auto;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 21 / 9;
 }
 
 .portfolio-grid--grid .portfolio-item--case-study .portfolio-card-content {
-  padding: 1rem 0.75rem 0.75rem 0;
+  padding: 1.1rem 0.55rem 0.55rem;
+}
+
+.portfolio-grid--list .portfolio-item--portrait .portfolio-image-frame {
+  aspect-ratio: 3 / 4;
+}
+
+@media (min-width: 721px) {
+  .portfolio-grid--grid .portfolio-item--case-study.portfolio-item--portrait {
+    display: grid;
+    grid-template-columns: minmax(14rem, 0.72fr) minmax(0, 1.28fr);
+    gap: clamp(1rem, 3vw, 2rem);
+    align-items: start;
+  }
+
+  .portfolio-grid--grid .portfolio-item--portrait .portfolio-image-frame {
+    height: 100%;
+    aspect-ratio: auto;
+  }
+
+  .portfolio-grid--grid .portfolio-item--portrait .portfolio-image {
+    object-fit: cover;
+  }
+
+  .portfolio-grid--grid .portfolio-item--portrait .portfolio-card-content {
+    padding: 1rem 0.75rem 0.75rem 0;
+  }
+}
+
+@media (min-width: 801px) {
+  .portfolio-grid--list .portfolio-item--portrait .portfolio-image-frame {
+    height: 100%;
+    aspect-ratio: auto;
+  }
+
+  .portfolio-grid--list .portfolio-item--portrait .portfolio-image {
+    object-fit: cover;
+  }
 }
 
 .timeline-ledger__link,
@@ -1090,14 +1126,16 @@ body.has-section-dock .page {
   }
 
   .portfolio-grid--grid .portfolio-item--case-study {
-    grid-template-columns: 1fr;
-    gap: 0;
     padding: 0.5rem;
   }
 
   .portfolio-grid--grid .portfolio-item--case-study .portfolio-image-frame {
     min-height: 0;
     aspect-ratio: 16 / 9;
+  }
+
+  .portfolio-grid--grid .portfolio-item--portrait .portfolio-image-frame {
+    aspect-ratio: 3 / 4;
   }
 
   .portfolio-grid--grid .portfolio-item--case-study .portfolio-card-content {
