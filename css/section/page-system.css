@@ -791,6 +791,10 @@ body.has-section-dock .page {
     row-gap: 0.15rem;
   }
 
+  .profile-social-link {
+    min-height: 2.75rem;
+  }
+
   .profile-identity {
     margin-bottom: 0.75rem;
   }
@@ -856,6 +860,33 @@ body.has-section-dock .page {
     gap: 0.9rem;
   }
 
+  .profile-section-heading {
+    gap: 0.7rem;
+    margin-bottom: 1.35rem;
+  }
+
+  .profile-section-heading h2 {
+    max-width: 18ch;
+    font-size: 1.3rem;
+    line-height: 1.2;
+  }
+
+  .focus-ledger__row,
+  .toolkit-row {
+    padding-block: 1.2rem;
+  }
+
+  .focus-ledger__row > p:last-child,
+  .toolkit-row__copy p,
+  .proof-ledger__description {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .toolkit-row__tools {
+    gap: 0.5rem 0.9rem;
+  }
+
   .page-intro__lede,
   .archive-header > .section-text,
   .section-heading--split > p:last-child,
@@ -888,6 +919,42 @@ body.has-section-dock .page {
 }
 
 @media (max-width: 480px) {
+  .profile-header {
+    margin-bottom: 1rem;
+  }
+
+  .profile-cover-container {
+    height: clamp(7.25rem, 32vw, 8rem);
+    border-radius: 12px;
+  }
+
+  .profile-avatar-row {
+    padding-inline: 0.25rem;
+  }
+
+  .avatar-label-group--md {
+    --avatar-label-size: 88px;
+  }
+
+  .avatar-label-group__content {
+    padding-top: 2.7rem;
+  }
+
+  .avatar-label-group__title {
+    font-size: 1.3rem;
+    line-height: 1.06;
+  }
+
+  .profile-headline {
+    margin-bottom: 0.65rem;
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .profile-meta {
+    font-size: 0.8rem;
+  }
+
   .site-tabs__links {
     margin-left: -0.5rem;
   }
@@ -895,6 +962,14 @@ body.has-section-dock .page {
   .site-theme-toggle {
     width: 2.75rem;
     height: 2.75rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .profile-social-links {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: 0 1rem;
   }
 }
 
