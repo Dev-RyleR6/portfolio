@@ -6,7 +6,6 @@ import {
   maskIpAddress,
   parseUserAgent,
 } from "@/lib/server/visitor-request";
-import { getVisitCount } from "@/lib/server/vercel-visits";
 
 const VISITOR_ID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
@@ -38,14 +37,10 @@ export async function POST(request: NextRequest) {
   }
 
   const { browser, os } = parseUserAgent(request.headers.get("user-agent"));
-  const [online, visits] = await Promise.all([
-    refreshPresence(visitorId),
-    getVisitCount(),
-  ]);
+  const online = await refreshPresence(visitorId);
 
   return NextResponse.json(
     {
-      visits,
       online,
       country: getCountryCode(request.headers),
       browser,

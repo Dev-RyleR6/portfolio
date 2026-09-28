@@ -4,10 +4,8 @@ import { Fragment, useEffect, useState } from "react";
 
 const HEARTBEAT_INTERVAL_MS = 25_000;
 const SESSION_STORAGE_KEY = "portfolio-visitor-session";
-const visitFormatter = new Intl.NumberFormat("en-US");
 
 type VisitorInfo = {
-  visits?: number;
   online?: number;
   country: string;
   browser: string;
@@ -99,9 +97,6 @@ export function VisitorStatus() {
   }, []);
 
   const items: string[] = [];
-  if (typeof info?.visits === "number") {
-    items.push(`${visitFormatter.format(info.visits)} ${info.visits === 1 ? "visit" : "visits"}`);
-  }
   if (typeof info?.online === "number") items.push(`${info.online} active now`);
   if (info?.country) items.push(info.country);
   if (info) {
