@@ -276,6 +276,24 @@ html {
   line-height: 1.75;
 }
 
+/* Justify reading copy without affecting labels, metadata, or controls. */
+.page-intro__lede,
+.archive-header > .section-text,
+.section-heading--split > p:last-child,
+.focus-ledger__row > p:last-child,
+.proof-ledger__description,
+.portfolio-description,
+.timeline-ledger__summary,
+.credentials-register__summary,
+.gallery-header .section-text,
+.contact-text,
+.contact-meta-note > p {
+  text-align: justify;
+  text-align-last: start;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
 .summary-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -382,8 +400,24 @@ html {
   filter: brightness(0) invert(1);
 }
 
+.route-transition {
+  animation: route-content-enter 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes route-content-enter {
+  from {
+    opacity: 0.35;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .site-tabs + .content-section,
-.site-tabs + .section {
+.site-tabs + .section,
+.site-tabs + .route-transition > .content-section,
+.site-tabs + .route-transition > .section {
   padding-top: clamp(1.5rem, 3vw, 2rem);
   border-top: 0;
 }
@@ -431,18 +465,17 @@ html {
   left: 50%;
   bottom: 0;
   z-index: 100;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
+  display: grid;
+  align-items: end;
+  justify-items: center;
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
   transform: translate(-50%, calc(100% + 2rem));
   transition:
-    transform 380ms cubic-bezier(0.16, 1, 0.3, 1),
-    opacity 240ms ease,
-    visibility 0s linear 380ms;
+    transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 110ms ease,
+    visibility 0s linear 180ms;
 }
 
 .section-dock.is-visible {
@@ -454,6 +487,7 @@ html {
 
 /* Compact section navigation */
 .section-dock__panel {
+  grid-area: 1 / 1;
   display: flex;
   align-items: center;
   gap: 0.35rem;
@@ -465,6 +499,27 @@ html {
   box-shadow: 0 10px 28px rgba(18, 22, 20, 0.12);
   max-width: min(calc(100vw - 1.5rem), 52rem);
   pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  transform-origin: bottom center;
+  transition:
+    opacity 110ms ease,
+    transform 140ms cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0s linear;
+}
+
+.section-dock.is-expanded .section-dock__panel {
+  transition-delay: 10ms, 10ms, 0s;
+}
+
+.section-dock.is-collapsed .section-dock__panel {
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px) scale(0.992);
+  transition-duration: 80ms, 110ms, 0s;
+  transition-delay: 0s, 0s, 110ms;
 }
 
 .section-dock__items {
@@ -582,7 +637,9 @@ html {
 
 .section-dock__restore {
   position: relative;
-  pointer-events: auto;
+  grid-area: 1 / 1;
+  align-self: end;
+  pointer-events: none;
   display: grid;
   align-items: center;
   justify-content: center;
@@ -599,10 +656,30 @@ html {
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px) scale(0.98);
+  transform-origin: bottom center;
   transition:
+    opacity 110ms ease,
+    transform 140ms cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0s linear,
     color 160ms ease,
     background-color 160ms ease,
     border-color 160ms ease;
+}
+
+.section-dock.is-expanded .section-dock__restore {
+  transition-duration: 80ms, 110ms, 0s, 160ms, 160ms, 160ms;
+  transition-delay: 0s, 0s, 110ms, 0s, 0s, 0s;
+}
+
+.section-dock.is-collapsed .section-dock__restore {
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  transition-delay: 10ms, 10ms, 0s, 0s, 0s, 0s;
 }
 
 .section-dock__restore::before {
@@ -760,7 +837,9 @@ body.has-section-dock .page {
   }
 
   .site-tabs + .content-section,
-  .site-tabs + .section {
+  .site-tabs + .section,
+  .site-tabs + .route-transition > .content-section,
+  .site-tabs + .route-transition > .section {
     padding-top: 1.5rem;
   }
 
@@ -775,6 +854,24 @@ body.has-section-dock .page {
 
   .section-heading--split {
     gap: 0.9rem;
+  }
+
+  .page-intro__lede,
+  .archive-header > .section-text,
+  .section-heading--split > p:last-child,
+  .focus-ledger__row > p:last-child,
+  .proof-ledger__description,
+  .portfolio-description,
+  .timeline-ledger__summary,
+  .credentials-register__summary,
+  .gallery-header .section-text,
+  .contact-text,
+  .contact-meta-note > p {
+    text-align: start;
+    text-align-last: auto;
+    text-justify: auto;
+    text-wrap: pretty;
+    hyphens: none;
   }
 
   .section-dock {
@@ -804,6 +901,17 @@ body.has-section-dock .page {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .route-transition {
+    animation: none;
+  }
+
+  .section-dock,
+  .section-dock__panel,
+  .section-dock__restore {
+    transition-duration: 0.01ms;
+    transition-delay: 0s;
   }
 }
 

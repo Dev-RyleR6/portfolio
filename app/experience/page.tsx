@@ -54,7 +54,7 @@ const hackathons = [
   {
     date: "November 2025",
     datetime: "2025-11",
-    standing: "APAC finalist",
+    standing: "APAC Participant",
     title: "Huawei Developer Competition",
     role: "Cloud & AI",
     summary:

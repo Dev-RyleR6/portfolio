@@ -14,7 +14,7 @@ const toolGroups = [
   { tier: "Core", title: "Backend & data", description: "Services, relational storage, caching, and live communication.", tools: ["Node.js", "TypeScript", "Express", "Laravel", "CodeIgniter", "PostgreSQL", "MySQL", "Redis", "WebSockets"] },
   { tier: "Defense", title: "Security & networking", description: "Offensive and defensive workflows, network visibility, protocol analysis, and system hardening.", tools: ["Wireshark", "Scapy", "TCP/IP & TLS", "Networking", "Offensive Security", "Defensive Security", "Linux Security", "Threat Modeling", "Firewall Configuration", "System Administration"] },
   { tier: "Models", title: "Applied AI", description: "Data preparation, computer vision, model training, and inference.", tools: ["Python", "TensorFlow", "YOLOv8", "Pandas", "NumPy", "Scikit-learn"] },
-  { tier: "Delivery", title: "Frontend, delivery & infrastructure", description: "Responsive interfaces, component styling, containerized development, automated delivery, and shipping.", tools: ["React", "Next.js", "Tailwind CSS", "Bootstrap", "Kotlin", "Unity", "ARCore", "Docker", "GitHub Actions", "CI/CD"] },
+  { tier: "Delivery", title: "Frontend, delivery & infrastructure", description: "Responsive interfaces, component styling, containerized development, automated delivery, and shipping.", tools: ["React", "Next.js", "Tailwind CSS", "Bootstrap", "Kotlin", "Unity", "ARCore", "Vercel", "Git", "Docker", "GitHub Actions", "CI/CD"] },
   { tier: "Workflow", title: "AI development harnesses", description: "AI-assisted research, implementation, refactoring, testing, and review.", tools: ["Codex", "Cursor", "Antigravity", "GitHub Copilot", "OpenCode"] },
 ];
 
