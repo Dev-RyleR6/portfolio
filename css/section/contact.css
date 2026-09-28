@@ -216,8 +216,6 @@
 .contact-form .form-group input:focus-visible,
 .contact-form .form-group textarea:focus-visible {
   border-color: var(--color-accent);
-  outline: 2px solid color-mix(in srgb, var(--color-accent) 75%, transparent);
-  outline-offset: 4px;
   box-shadow: none;
 }
 

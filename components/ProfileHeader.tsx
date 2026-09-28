@@ -22,13 +22,15 @@ export function ProfileHeader() {
             font={{
               fontFamily: "Inter",
               fontWeight: 800,
-              fontSize: "90px",
+              fontSize: "100px",
               lineHeight: "1em",
               letterSpacing: "-0.02em",
               textAlign: "left",
             }}
-            speed={25}
-            handles={{ size: 45, spread: 15, labels: true }}
+            speed={20}
+            reach={150}
+            damping={12}
+            handles={{ size: 5 , spread: 15, labels: true }}
             style={{ minWidth: "100%", minHeight: "100%" }}
           />
         </div>
