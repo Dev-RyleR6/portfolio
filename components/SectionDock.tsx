@@ -63,6 +63,10 @@ export function SectionDock({
     items.find(({ id }) => id === active)?.label ?? items[0]?.label ?? "Overview";
 
   const handleCollapse = useCallback(() => {
+    const restoreBtn = dockRef.current?.querySelector<HTMLButtonElement>(".section-dock__restore");
+    if (dockRef.current?.contains(document.activeElement)) {
+      restoreBtn ? restoreBtn.focus() : (document.activeElement as HTMLElement)?.blur();
+    }
     setCollapsedOverride(true);
     try {
       localStorage.setItem(STORAGE_KEY, "true");
@@ -76,6 +80,13 @@ export function SectionDock({
       localStorage.setItem(STORAGE_KEY, "false");
       window.dispatchEvent(new Event("storage"));
     } catch {}
+    requestAnimationFrame(() => {
+      dockRef.current
+        ?.querySelector<HTMLElement>(
+          ".section-dock__btn.is-active, .section-dock__btn, .section-dock__collapse-action"
+        )
+        ?.focus();
+    });
   }, []);
 
   // Section observer for scroll-spy
@@ -189,7 +200,8 @@ export function SectionDock({
       <div
         className="section-dock__panel"
         id={panelId}
-        aria-hidden={isCollapsed}
+        aria-hidden={isCollapsed ? "true" : undefined}
+        inert={isCollapsed || undefined}
       >
         <div className="section-dock__items">
           {items.map(({ id, label: itemLabel }) =>
@@ -264,7 +276,8 @@ export function SectionDock({
         onClick={handleExpand}
         aria-expanded={!isCollapsed}
         aria-controls={panelId}
-        aria-hidden={!isCollapsed}
+        aria-hidden={!isCollapsed ? "true" : undefined}
+        inert={!isCollapsed || undefined}
         aria-label={`Open ${onItemSelect ? "filter options" : "navigation dock"}. Active: ${activeLabel}`}
         title={`Open ${onItemSelect ? "filters" : "sections"}`}
         tabIndex={isVisible && isCollapsed ? undefined : -1}
