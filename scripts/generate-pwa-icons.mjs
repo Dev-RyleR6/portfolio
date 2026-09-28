@@ -1,8 +1,9 @@
 import fs from "node:fs/promises";
 import { chromium } from "playwright-core";
 
-const sourcePath = "public/assets/icons/tech.svg";
-const sourceSvg = await fs.readFile(sourcePath, "utf8");
+const sourcePath = "public/assets/icons/appicon.png";
+const sourceImage = await fs.readFile(sourcePath);
+const sourceDataUrl = `data:image/png;base64,${sourceImage.toString("base64")}`;
 const browser = await chromium.launch({ channel: "msedge", headless: true });
 const page = await browser.newPage();
 
@@ -26,21 +27,22 @@ for (const output of outputs) {
           html, body { width: 100%; height: 100%; margin: 0; }
           body { background: #000000; }
           #icon {
-            display: grid;
             width: 100%;
             height: 100%;
-            place-items: center;
             background: #000000;
+            overflow: hidden;
           }
-          #icon svg {
-            width: 54%;
-            height: 54%;
+          #icon img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 65% 100%;
           }
-          #icon path { fill: #54c99b; }
         </style>
       </head>
       <body>
-        <div id="icon">${sourceSvg}</div>
+        <div id="icon"><img src="${sourceDataUrl}" alt="" /></div>
       </body>
     </html>
   `);

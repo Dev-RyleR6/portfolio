@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { NextStep } from "@/components/NextStep";
 import { SectionDock } from "@/components/SectionDock";
-import { pageMetadata, siteConfig } from "@/lib/site";
+import { getSiteUrl, pageMetadata, siteConfig } from "@/lib/site";
 import "@/css/section/experience.css";
 
 export const metadata: Metadata = pageMetadata(
@@ -113,6 +113,44 @@ const credentials = [
 ];
 
 export default function ExperiencePage() {
+  const siteUrl = getSiteUrl();
+  const experienceSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "Experience & Credentials | Ryle Anthony Gabotero",
+    url: `${siteUrl}/experience`,
+    description: "National and regional cybersecurity competitions, technical training, and formal assessments earned by Ryle Anthony Gabotero.",
+    mainEntity: {
+      "@type": "Person",
+      name: siteConfig.name,
+      award: [
+        "National Competitor - WorldSkills Philippines Clark 2026 (Cybersecurity)",
+        "Gold Medalist - NIR Regional Skills Olympics 2026 (Cybersecurity)",
+        "Finalist - Huawei Developer Competition APAC 2025 (Cloud & AI)",
+        "4th Place - Can You HackIT: The IBPAP Challenge 2025",
+      ],
+      hasCredential: [
+        {
+          "@type": "EducationalOccupationalCredential",
+          name: "Advanced Big Data Analytics & Artificial Intelligence",
+          credentialCategory: "certificate",
+          recognizedBy: {
+            "@type": "Organization",
+            name: "KOICA DX Center, Hannam University, Silliman University",
+          },
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          name: "TOPCIT ICT Competency Assessment - Level 2",
+          credentialCategory: "assessment",
+          recognizedBy: {
+            "@type": "Organization",
+            name: "IITP & TOPCIT Philippines",
+          },
+        },
+      ],
+    },
+  };
   return (
     <>
       <header className="page-intro page-intro--experience" id="overview">

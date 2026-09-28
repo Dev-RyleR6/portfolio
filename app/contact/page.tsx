@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { ContactForm } from "@/components/ContactForm";
-import { pageMetadata, siteConfig } from "@/lib/site";
+import { getSiteUrl, pageMetadata, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata(
   "Contact",
@@ -10,8 +10,30 @@ export const metadata: Metadata = pageMetadata(
 );
 
 export default function ContactPage() {
+  const siteUrl = getSiteUrl();
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: "Contact Ryle Anthony Gabotero",
+    url: `${siteUrl}/contact`,
+    description:
+      "Contact Ryle Anthony Gabotero about software engineering roles, cybersecurity projects, applied AI, and technical collaborations.",
+    mainEntity: {
+      "@type": "Person",
+      name: siteConfig.name,
+      email: `mailto:${siteConfig.email}`,
+      sameAs: [siteConfig.github, siteConfig.linkedin, siteConfig.telegram],
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(contactSchema).replace(/</g, "\\u003c"),
+        }}
+      />
       <header className="page-intro page-intro--contact" id="contact">
         <h1 id="contact-title">Let’s talk about what’s next.</h1>
         <p className="page-intro__lede">

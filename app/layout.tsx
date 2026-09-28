@@ -130,6 +130,17 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
           ],
         },
       },
+      {
+        "@type": "SiteNavigationElement",
+        "@id": `${siteUrl}/#navigation`,
+        name: ["Projects", "Experience", "Gallery", "Contact"],
+        url: [
+          `${siteUrl}/projects`,
+          `${siteUrl}/experience`,
+          `${siteUrl}/gallery`,
+          `${siteUrl}/contact`,
+        ],
+      },
     ],
   };
 
