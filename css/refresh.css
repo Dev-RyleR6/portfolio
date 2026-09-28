@@ -2318,10 +2318,11 @@ body.page-archive .page {
 }
 
 .portfolio .archive-title {
-  max-width: 16ch;
-  font-size: clamp(2.25rem, 5vw, 3.3rem);
+  max-width: 18ch;
+  font-size: clamp(1.9rem, 3.6vw, 2.55rem);
   font-weight: 760;
-  line-height: 1.03;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
   text-wrap: balance;
 }
 
@@ -2908,7 +2909,7 @@ html.modal-open {
   }
 
   .portfolio .archive-title {
-    font-size: clamp(2.15rem, 10vw, 2.75rem);
+    font-size: clamp(1.8rem, 8vw, 2rem);
   }
 
   .portfolio-grid--grid .portfolio-item {

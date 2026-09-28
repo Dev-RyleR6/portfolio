@@ -138,10 +138,10 @@ html {
 .page-intro h1 {
   max-width: 16ch;
   margin: 0;
-  font-size: clamp(2.25rem, 6vw, 3.75rem);
+  font-size: clamp(1.9rem, 3.6vw, 2.55rem);
   font-weight: 760;
-  line-height: 1.03;
-  letter-spacing: -0.055em;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
 }
 
 .page-intro__lede {
@@ -174,9 +174,7 @@ html {
 }
 
 .page-intro--experience h1 {
-  max-width: 12ch;
-  font-size: clamp(2.75rem, 5vw, 3.3rem);
-  letter-spacing: -0.04em;
+  max-width: 14ch;
 }
 
 .resume-entry {
@@ -266,9 +264,9 @@ html {
 
 .section-heading--split h2 {
   margin: 0.35rem 0 0;
-  font-size: clamp(1.55rem, 3.5vw, 2.2rem);
-  line-height: 1.16;
-  letter-spacing: -0.035em;
+  font-size: clamp(1.25rem, 2.25vw, 1.55rem);
+  line-height: 1.22;
+  letter-spacing: -0.02em;
 }
 
 .section-heading--split p:last-child {
@@ -824,7 +822,7 @@ body.has-section-dock .page {
   }
 
   .page-intro h1 {
-    font-size: clamp(2.15rem, 10vw, 2.75rem);
+    font-size: clamp(1.8rem, 8vw, 2rem);
   }
 
   .page-intro--experience {
