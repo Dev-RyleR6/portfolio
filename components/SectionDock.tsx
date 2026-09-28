@@ -8,6 +8,7 @@ import {
   useState,
   useSyncExternalStore,
 } from "react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export type DockItem = { id: string; label: string };
 
@@ -16,6 +17,7 @@ type SectionDockProps = {
   label?: string;
   activeId?: string;
   onItemSelect?: (id: string) => void;
+  showThemeToggle?: boolean;
 };
 
 const STORAGE_KEY = "portfolio-dock-collapsed";
@@ -42,6 +44,7 @@ export function SectionDock({
   label = "Sections on this page",
   activeId,
   onItemSelect,
+  showThemeToggle = false,
 }: SectionDockProps) {
   const [observedActive, setObservedActive] = useState(items[0]?.id ?? "");
   const [isVisible, setIsVisible] = useState(false);
@@ -176,7 +179,7 @@ export function SectionDock({
 
   return (
     <nav
-      className={`section-dock${isVisible ? " is-visible" : ""}${
+      className={`section-dock${showThemeToggle ? " section-dock--with-theme" : ""}${isVisible ? " is-visible" : ""}${
         isCollapsed ? " is-collapsed" : " is-expanded"
       }`}
       aria-label={label}
@@ -228,6 +231,10 @@ export function SectionDock({
             ),
           )}
         </div>
+
+        {showThemeToggle ? (
+          <ThemeToggle className="section-dock__theme-toggle" />
+        ) : null}
 
         <button
           type="button"

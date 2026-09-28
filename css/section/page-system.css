@@ -447,6 +447,10 @@ html {
   display: none;
 }
 
+.section-dock__theme-toggle {
+  display: none;
+}
+
 .toolkit-row__inventory {
   min-width: 0;
 }
@@ -1324,6 +1328,47 @@ body.has-section-dock .page {
     right: 0.75rem;
     z-index: 3;
     display: grid;
+  }
+
+  .shared-profile-header .profile-mobile-theme-toggle {
+    position: fixed;
+    top: auto;
+    right: max(1rem, env(safe-area-inset-right, 0px));
+    bottom: max(1rem, calc(env(safe-area-inset-bottom, 0px) + 0.75rem));
+    z-index: 90;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    transition:
+      opacity 100ms ease,
+      transform 160ms cubic-bezier(0.16, 1, 0.3, 1),
+      visibility 0s linear;
+  }
+
+  body:has(.section-dock--with-theme.is-visible) .shared-profile-header .profile-mobile-theme-toggle {
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(0.5rem) scale(0.92);
+    transition-delay: 0s, 0s, 120ms;
+  }
+
+  .section-dock--with-theme .section-dock__theme-toggle {
+    display: grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    min-width: 2.75rem;
+    border: 0;
+    border-left: 1px solid var(--color-border);
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  [data-theme="dark"] .section-dock--with-theme .section-dock__theme-toggle {
+    border-color: var(--color-border);
+    background: transparent;
+    box-shadow: none;
   }
 
   .profile-header--compact .profile-mobile-theme-toggle {

@@ -110,7 +110,7 @@ export default function HomePage() {
             ))}
           </div>
         </section>
-      <SectionDock items={[{ id: "intro", label: "Profile" }, { id: "focus", label: "Focus" }, { id: "stack", label: "Toolkit" }, { id: "proof", label: "Proof" }]} />
+      <SectionDock showThemeToggle items={[{ id: "intro", label: "Profile" }, { id: "focus", label: "Focus" }, { id: "stack", label: "Toolkit" }, { id: "proof", label: "Proof" }]} />
     </>
   );
 }
