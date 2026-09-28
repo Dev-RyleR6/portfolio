@@ -102,7 +102,7 @@ export function VisitorStatus() {
   if (typeof info?.visits === "number") {
     items.push(`${visitFormatter.format(info.visits)} ${info.visits === 1 ? "visit" : "visits"}`);
   }
-  if (typeof info?.online === "number") items.push(`${info.online} online`);
+  if (typeof info?.online === "number") items.push(`${info.online} active now`);
   if (info?.country) items.push(info.country);
   if (info) {
     items.push(info.browser === "Unknown" && info.os === "Unknown"
