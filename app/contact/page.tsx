@@ -20,6 +20,7 @@ export default function ContactPage() {
       "Contact Ryle Anthony Gabotero about software engineering roles, cybersecurity projects, applied AI, and technical collaborations.",
     mainEntity: {
       "@type": "Person",
+      "@id": `${siteUrl}/#person`,
       name: siteConfig.name,
       email: `mailto:${siteConfig.email}`,
       sameAs: [siteConfig.github, siteConfig.linkedin, siteConfig.telegram],

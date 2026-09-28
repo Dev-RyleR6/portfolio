@@ -22,6 +22,9 @@ type IndicatorSnapshot = {
 
 export function PageTabs() {
   const pathname = usePathname();
+  const activeHref = pages.find(([href]) => (
+    href === "/" ? pathname === href : pathname === href || pathname.startsWith(`${href}/`)
+  ))?.[0];
   const linksRef = useRef<HTMLDivElement>(null);
   const indicatorRef = useRef<HTMLSpanElement>(null);
   const previousIndicatorRef = useRef<IndicatorSnapshot | null>(null);
@@ -131,19 +134,22 @@ export function PageTabs() {
     <nav className="site-tabs" aria-label="Portfolio pages">
       <div className="site-tabs__inner">
         <div className="site-tabs__links" ref={linksRef}>
-          {pages.map(([href, label]) => (
-            <Link
-              className="site-tab"
-              href={href}
-              scroll={false}
-              onClick={(event) => selectTab(event, href)}
-              aria-current={pathname === href ? "page" : undefined}
-              key={href}
-            >
-              {label}
-              {pathname === href ? <span className="site-tab__indicator" ref={indicatorRef} aria-hidden="true" /> : null}
-            </Link>
-          ))}
+          {pages.map(([href, label]) => {
+            const isActive = activeHref === href;
+            return (
+              <Link
+                className="site-tab"
+                href={href}
+                scroll={false}
+                onClick={(event) => selectTab(event, href)}
+                aria-current={isActive ? "page" : undefined}
+                key={href}
+              >
+                {label}
+                {isActive ? <span className="site-tab__indicator" ref={indicatorRef} aria-hidden="true" /> : null}
+              </Link>
+            );
+          })}
         </div>
         <ThemeToggle className="tabs-theme-toggle" />
       </div>

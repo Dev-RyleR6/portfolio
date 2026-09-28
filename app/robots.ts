@@ -3,7 +3,11 @@ import { getSiteUrl } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: { userAgent: "*", allow: "/", disallow: "/api/" },
+    rules: [
+      { userAgent: "OAI-SearchBot", allow: "/", disallow: "/api/" },
+      { userAgent: "GPTBot", allow: "/", disallow: "/api/" },
+      { userAgent: "*", allow: "/", disallow: "/api/" },
+    ],
     sitemap: `${getSiteUrl()}/sitemap.xml`,
   };
 }

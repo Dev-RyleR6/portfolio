@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SectionDock } from "@/components/SectionDock";
 
-import { siteConfig } from "@/lib/site";
+import { getSiteUrl, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: siteConfig.title,
@@ -40,8 +40,29 @@ function ArrowIcon() {
 }
 
 export default function HomePage() {
+  const siteUrl = getSiteUrl();
+  const profileSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": `${siteUrl}/#profilepage`,
+    url: siteUrl,
+    name: siteConfig.title,
+    isPartOf: { "@id": `${siteUrl}/#website` },
+    mainEntity: {
+      "@type": "Person",
+      "@id": `${siteUrl}/#person`,
+      name: siteConfig.name,
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(profileSchema).replace(/</g, "\\u003c"),
+        }}
+      />
         <section className="content-section" id="focus" aria-labelledby="focus-title">
           <div className="section-heading--split profile-section-heading">
             <h2 id="focus-title">A little about me and what I do</h2>

@@ -73,62 +73,66 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         name: siteConfig.name,
         alternateName: ["devR6", "Ryle Gabotero"],
         inLanguage: "en-US",
+        creator: { "@id": `${siteUrl}/#person` },
       },
       {
-        "@type": "ProfilePage",
-        "@id": `${siteUrl}/#profilepage`,
+        "@type": "Person",
+        "@id": `${siteUrl}/#person`,
         url: siteUrl,
-        name: siteConfig.title,
-        isPartOf: { "@id": `${siteUrl}/#website` },
-        mainEntity: {
-          "@type": "Person",
-          "@id": `${siteUrl}/#person`,
-          name: siteConfig.name,
-          alternateName: "devR6",
-          jobTitle: "Software Engineer",
-          url: siteUrl,
-          image: `${siteUrl}/assets/images/profile2.webp`,
-          description: siteConfig.description,
-          email: `mailto:${siteConfig.email}`,
-          alumniOf: {
-            "@type": "CollegeOrUniversity",
-            name: "Foundation University",
-            url: "https://www.foundationu.edu.ph",
-          },
-          address: {
-            "@type": "PostalAddress",
-            addressRegion: "Negros Island Region",
-            addressCountry: "PH",
-          },
-          knowsAbout: [
-            "Backend Architecture",
-            "Cybersecurity",
-            "Network Packet Analysis",
-            "Computer Vision",
-            "YOLOv8",
-            "TypeScript",
-            "Next.js",
-            "Node.js",
-            "PostgreSQL",
-            "Redis",
-            "Linux Hardening",
-          ],
-          award: [
-            "National Competitor - WorldSkills Philippines Clark 2026 (Cybersecurity)",
-            "Gold Medalist - NIR Regional Skills Olympics 2026 (Cybersecurity)",
-            "Finalist - Huawei Developer Competition APAC 2025 (Cloud & AI)",
-            "4th Place - Can You HackIT: The IBPAP Challenge 2025",
-            "TOPCIT ICT Competency Assessment - Level 2 (Score: 365/1000)",
-          ],
-          sameAs: [
-            siteConfig.github,
-            siteConfig.gitlab,
-            siteConfig.linkedin,
-            siteConfig.telegram,
-            "https://tesda.gov.ph/Media/NewsDetail/20489",
-            "https://www.foundationu.edu.ph/post/foundation-university-bags-gold-medals-at-the-nir-regional-skills-olympics",
-          ],
+        name: siteConfig.name,
+        alternateName: "devR6",
+        jobTitle: "Software Engineer",
+        image: `${siteUrl}/assets/images/profile2.webp`,
+        description: siteConfig.description,
+        email: `mailto:${siteConfig.email}`,
+        alumniOf: {
+          "@type": "CollegeOrUniversity",
+          name: "Foundation University",
+          url: "https://www.foundationu.edu.ph",
         },
+        address: {
+          "@type": "PostalAddress",
+          addressRegion: "Negros Island Region",
+          addressCountry: "PH",
+        },
+        knowsAbout: [
+          "Backend Architecture",
+          "Cybersecurity",
+          "Network Packet Analysis",
+          "Computer Vision",
+          "YOLOv8",
+          "TypeScript",
+          "Next.js",
+          "Node.js",
+          "PostgreSQL",
+          "Redis",
+          "Linux Hardening",
+        ],
+        award: [
+          "National Competitor - WorldSkills Philippines Clark 2026 (Cybersecurity)",
+          "Gold Medalist - NIR Regional Skills Olympics 2026 (Cybersecurity)",
+          "Participant - Huawei Developer Competition APAC 2025 (Cloud & AI)",
+          "4th Place - Can You HackIT: The IBPAP Challenge 2025",
+          "TOPCIT ICT Competency Assessment - Level 2 (Score: 365/1000)",
+        ],
+        sameAs: [
+          siteConfig.github,
+          siteConfig.gitlab,
+          siteConfig.linkedin,
+          siteConfig.telegram,
+        ],
+        subjectOf: [
+          {
+            "@type": "Article",
+            name: "WorldSkills Philippines Clark 2026 official record",
+            url: "https://tesda.gov.ph/Media/NewsDetail/20489",
+          },
+          {
+            "@type": "Article",
+            name: "Foundation University Bags Gold Medals at the NIR Regional Skills Olympics",
+            url: "https://www.foundationu.edu.ph/post/foundation-university-bags-gold-medals-at-the-nir-regional-skills-olympics",
+          },
+        ],
       },
       {
         "@type": "SiteNavigationElement",
@@ -147,6 +151,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="describedby" href="/llms.txt" type="text/markdown" />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script
           type="application/ld+json"

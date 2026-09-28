@@ -126,7 +126,7 @@ export default function ExperiencePage() {
       award: [
         "National Competitor - WorldSkills Philippines Clark 2026 (Cybersecurity)",
         "Gold Medalist - NIR Regional Skills Olympics 2026 (Cybersecurity)",
-        "Finalist - Huawei Developer Competition APAC 2025 (Cloud & AI)",
+        "Participant - Huawei Developer Competition APAC 2025 (Cloud & AI)",
         "4th Place - Can You HackIT: The IBPAP Challenge 2025",
       ],
       hasCredential: [

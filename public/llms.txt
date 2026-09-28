@@ -1,58 +1,37 @@
 # Ryle Anthony Gabotero
 
-> Software engineer based in Negros Island Region, Philippines, specializing in backend systems, cybersecurity, and applied AI.
+> Evidence-backed portfolio of a software engineer in the Negros Island Region, Philippines, working across backend systems, cybersecurity, applied AI, and data engineering.
 
-## Summary
-Ryle Anthony Gabotero is a software engineer and national cybersecurity competitor. He represents the Negros Island Region in competitive cybersecurity skills (WorldSkills Philippines) and builds full-stack systems, computer vision edge pipelines, and low-latency network applications.
+Ryle Anthony Gabotero builds full-stack systems, security tooling, computer-vision pipelines, and real-time applications. The portfolio connects technical claims to source repositories, demonstrations, competition records, credentials, and visual evidence.
 
-- **Location**: Negros Island Region, Philippines (UTC+8)
-- **Education**: Foundation University
-- **Status**: Available for software engineering roles, technical collaboration, and remote work.
+## Portfolio
 
-## Core Technical Competencies
-- **Backend Architecture & APIs**: Node.js, TypeScript, Express, Laravel, CodeIgniter, PostgreSQL, MySQL, Redis caching, WebSockets, streaming reverse proxies, transactional data integrity.
-- **Cybersecurity & Networking**: Network packet analysis, Wireshark, Scapy, Linux and Windows Server hardening, threat modeling, defensive security, incident response.
-- **Applied AI & Computer Vision**: Python, YOLOv8, OpenCV, TensorFlow, Scikit-learn, Pandas, NumPy, Tesseract OCR, edge inference (ESP32 IoT integration).
-- **Frontend & Mobile**: React, Next.js, Tailwind CSS, Kotlin, Unity, ARCore (geospatial SLAM).
+- [Profile](https://www.ryleanthony-gabotero.tech/): Professional overview, engineering focus, technical toolkit, and supporting evidence.
+- [Projects](https://www.ryleanthony-gabotero.tech/projects): Software engineering case studies with architecture, technology choices, repositories, and project status.
+- [Experience and credentials](https://www.ryleanthony-gabotero.tech/experience): Cybersecurity competitions, technical programs, assessments, and documented results.
+- [Activity gallery](https://www.ryleanthony-gabotero.tech/gallery): Photographs, certificates, and supporting records for competitions and training.
+- [Contact](https://www.ryleanthony-gabotero.tech/contact): Professional contact channels, availability, location, and résumé.
 
-## Notable Competitions & Achievements
-- **WorldSkills Philippines Clark 2026**: National Competitor in Cybersecurity representing Team NIR (Negros Island Region). Defended network infrastructure and performed timed packet forensics.
-  - Official Government Verification: https://tesda.gov.ph/Media/NewsDetail/20489
-- **NIR Regional Skills Olympics 2026**: Gold Medalist in Cybersecurity skill area. Qualified for national competition.
-  - University Verification: https://www.foundationu.edu.ph/post/foundation-university-bags-gold-medals-at-the-nir-regional-skills-olympics
-- **Huawei Developer Competition 2025**: Asia-Pacific (APAC) Finalist in Cloud & AI track.
-- **Can You HackIT: The IBPAP Challenge 2025**: 4th Place / Top 5 (Team SHIFT) at Cebu Institute of Technology–University.
-- **DICT AI.deas for Impact 2024**: Innovation participant developing AI concepts for regional social impact.
+## Selected project case studies
 
-## Certifications & Formal Assessments
-- **Advanced Big Data Analytics & Artificial Intelligence**: 120-hour intensive program by KOICA DX Center, Hannam University, and Silliman University. Scored 10/10 in Deep Learning Architecture domain across 7 assessed areas.
-- **TOPCIT ICT Competency Assessment**: Level 2 certified (Score: 365 / 1000) covering software development, systems architecture, data management, and cybersecurity.
+- [SafeView](https://www.ryleanthony-gabotero.tech/projects/safeview): Local visual-phishing detection using OCR and semantic embeddings.
+- [OvaLens Ecosystem](https://www.ryleanthony-gabotero.tech/projects/ovalens): YOLOv8 duck-egg classification connected to an ESP32 conveyor workflow.
+- [HLS Proxy Server](https://www.ryleanthony-gabotero.tech/projects/proxy-server): Node.js streaming relay with manifest rewriting, range requests, backpressure, caching, and private-network safeguards.
+- [myAnime](https://www.ryleanthony-gabotero.tech/projects/myanime): Retired streaming application architecture built around a reverse proxy, Redis, and PostgreSQL.
+- [AR Chronicle](https://www.ryleanthony-gabotero.tech/projects/archronicle): Android and Unity AR exploration using ARCore SLAM and OpenStreetMap geofencing.
+- [Pickle World](https://www.ryleanthony-gabotero.tech/projects/pickleworld): Retired real-time venue booking system with WebSocket locks and transactional payment reconciliation.
 
-## Selected Projects & Code Repositories
-- **SafeView**: Windows security agent for real-time visual phishing detection using Tesseract OCR and semantic sentence embeddings for sub-50ms local inference with zero cloud dependency.
-  - Repository: https://github.com/Dev-RyleR6/SafeView
-  - Live Demo: https://safe-view.vercel.app/
-- **OvaLens Ecosystem**: Automated duck egg candling and fertility sorting via a custom YOLOv8 computer vision model, camera exposure controls, Python edge client, and ESP32 conveyor actuation.
-  - Model Repository: https://github.com/Dev-RyleR6/OvaLens-Ecosystem
-  - Edge App Repository: https://github.com/Dev-RyleR6/OvaLens---Edge-App
-- **myAnime & HLS Proxy Server**: Custom Node.js streaming architecture with an Express HLS relay, byte-range video streaming, LRU disk/memory caching, Redis, and PostgreSQL relational schema.
-  - Project Repository: https://github.com/Dev-RyleR6/myAnime
-  - Proxy Relay Repository: https://github.com/Dev-RyleR6/proxy-server
-- **AR Chronicle**: Native Android augmented reality exploration app integrating ARCore SLAM plane detection, Unity, and OpenStreetMap geofencing for landmark discovery.
-  - Repository: https://github.com/Dev-RyleR6/ARChroniclesmainAPP
-- **Pickle World**: Multi-court reservation engine featuring WebSocket concurrency slot locks, webhook payment reconciliation, and strict transaction isolation in MySQL.
-  - Repository: https://github.com/Dev-RyleR6/pickleball_reservation_system
+## Verified experience
 
-## Portfolio Navigation & Canonical URLs
-- Profile / Overview: /
-- Case Studies & Projects: /projects
-- Competitions & Credentials: /experience
-- Visual Evidence Gallery: /gallery
-- Direct Contact: /contact
+- [Foundation University regional competition record](https://www.foundationu.edu.ph/post/foundation-university-bags-gold-medals-at-the-nir-regional-skills-olympics): Records the Cybersecurity gold medal earned by Ryle Anthony Gabotero and Earl John Estandarte at the 2026 NIR Regional Skills Olympics.
+- [TESDA WorldSkills Philippines record](https://tesda.gov.ph/Media/NewsDetail/20489): Official record related to WorldSkills Philippines Clark 2026.
+- [Huawei Developer Competition certificate](https://www.ryleanthony-gabotero.tech/assets/docs/HDC2511200D53A1DE.pdf): Participation evidence for the 2025 Asia-Pacific Cloud and AI competition program.
+- [TOPCIT score and certificate](https://www.ryleanthony-gabotero.tech/assets/docs/My%20Page%20_%20Score%20%26%20Certificate%20_Overall%20achievement%20_%20TOPCIT.pdf): Level 2 assessment record with a score of 365 out of 1000.
+- [Résumé](https://www.ryleanthony-gabotero.tech/assets/docs/RyleGaboteroCV.pdf): Experience, skills, projects, and credentials.
 
-## Direct Communication Channels
-- Direct Email: ryleanthony.gabotero@gmail.com
-- GitHub Profile: https://github.com/Dev-RyleR6
-- GitLab Profile: https://gitlab.com/ryleanthony.gabotero
-- LinkedIn: https://www.linkedin.com/in/rylegabotero/
-- Telegram: https://t.me/ryleanthony
+## Professional profiles
+
+- [GitHub](https://github.com/Dev-RyleR6): Source repositories and project work.
+- [GitLab](https://gitlab.com/ryleanthony.gabotero): Additional development profile.
+- [LinkedIn](https://www.linkedin.com/in/rylegabotero/): Professional profile.
+- [Telegram](https://t.me/ryleanthony): Direct communication channel.

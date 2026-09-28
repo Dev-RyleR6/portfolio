@@ -15,7 +15,10 @@ export default function ProjectsPage() {
   const projectsSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
+    "@id": `${siteUrl}/projects#project-list`,
     name: "Software Projects by Ryle Anthony Gabotero",
+    url: `${siteUrl}/projects`,
+    author: { "@id": `${siteUrl}/#person` },
     itemListElement: projects.map((p, index) => ({
       "@type": "ListItem",
       position: index + 1,
@@ -25,7 +28,10 @@ export default function ProjectsPage() {
         description: p.description,
         programmingLanguage: p.technologies,
         codeRepository: p.links.find((l) => l.href.includes("github.com"))?.href,
-        url: `${siteUrl}/projects#${p.id}`,
+        image: `${siteUrl}${p.image}`,
+        author: { "@id": `${siteUrl}/#person` },
+        url: `${siteUrl}/projects/${p.id}`,
+        mainEntityOfPage: `${siteUrl}/projects/${p.id}`,
       },
     })),
   };

@@ -10,7 +10,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
         <ProfileHeader />
         <PageTabs />
         {children}
-        <footer className="site-footer"><p>© 2026 Ryle Anthony Gabotero. All rights reserved.</p></footer>
+        <footer className="site-footer"><p>© 2025 Ryle Anthony Gabotero. All rights reserved.</p></footer>
       </main>
     </>
   );

@@ -131,7 +131,11 @@ export function ProjectArchive() {
               </div>
 
               <div className="project-heading-row">
-                <h2 className="portfolio-title">{project.title}</h2>
+                <h2 className="portfolio-title">
+                  <Link className="portfolio-title-link" href={`/projects/${project.id}`}>
+                    {project.title}
+                  </Link>
+                </h2>
                 <p className="project-subtitle">{project.subtitle}</p>
               </div>
 

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { GalleryGrid, type GalleryImage } from "@/components/GalleryGrid";
 import { NextStep } from "@/components/NextStep";
 import { SectionDock } from "@/components/SectionDock";
-import { pageMetadata } from "@/lib/site";
+import { getSiteUrl, pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata("Activity Gallery", "Competition, training, and workshop evidence from WorldSkills, KOICA, Huawei, Can You HackIT, and DICT AI.deas.", "/gallery");
 
@@ -54,8 +54,33 @@ function GalleryHeading({ meta, title, description }: { meta: string; title: str
 }
 
 export default function GalleryPage() {
+  const siteUrl = getSiteUrl();
+  const galleryImages = [...national, ...regional, ...koica, ...hackit, ...aideas];
+  const gallerySchema = {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "@id": `${siteUrl}/gallery#image-gallery`,
+    name: "Technical work and activity gallery | Ryle Anthony Gabotero",
+    url: `${siteUrl}/gallery`,
+    description: "Competition, training, workshop, certificate, and technical activity evidence from Ryle Anthony Gabotero.",
+    author: { "@id": `${siteUrl}/#person` },
+    associatedMedia: galleryImages.map((image, index) => ({
+      "@type": "ImageObject",
+      contentUrl: `${siteUrl}${image.src}`,
+      description: image.alt,
+      caption: image.caption,
+      representativeOfPage: index === 0,
+    })),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(gallerySchema).replace(/</g, "\\u003c"),
+        }}
+      />
       <header className="archive-header gallery-header" id="overview">
         <h1 className="archive-title">The work behind the results</h1>
         <p className="section-text">A visual record of competitions, training, workshops, and the evidence behind the experience. Open any image for a closer look.</p>
