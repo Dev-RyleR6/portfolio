@@ -151,7 +151,7 @@ export function buildInquiryHtml({
           <tr>
             <td style="padding-bottom: 6px;">
               <span style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #059669;">
-                From your portfolio contact form
+                Portfolio Contact
               </span>
             </td>
           </tr>

@@ -51,7 +51,7 @@ export default function ProjectsPage() {
       </section>
       <NextStep
         title="Want the full technical picture?"
-        description="Open my résumé for the complete record, or start a conversation about the system you need to build."
+        description="Start a conversation about a role or project, or open my résumé for the complete record."
         links={[
           { href: "/contact", label: "Discuss a role or project" },
           { href: siteConfig.resume, label: "Open résumé", external: true },
