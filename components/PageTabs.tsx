@@ -17,6 +17,7 @@ type IndicatorSnapshot = {
   pathname: string;
   left: number;
   width: number;
+  top: number;
 };
 
 export function PageTabs() {
@@ -37,17 +38,13 @@ export function PageTabs() {
       pathname,
       left: current.left,
       width: current.width,
+      top: current.top,
     };
   }
 
   const scrollToRouteStart = useCallback((href: string, instant = false) => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const behavior = instant || reducedMotion ? "instant" : "smooth";
-
-    if (href === "/") {
-      window.scrollTo({ top: 0, behavior });
-      return;
-    }
 
     const tabs = linksRef.current?.closest<HTMLElement>(".site-tabs");
 
@@ -99,18 +96,15 @@ export function PageTabs() {
 
     animationRef.current?.cancel();
 
-    // Do not animate horizontal pill if the nav bar itself moved vertically (to/from Profile)
-    const isVerticalTransition =
-      from &&
-      from.pathname !== pathname &&
-      (from.pathname === "/" || pathname === "/");
+    // Do not animate horizontal pill if the nav bar itself shifted vertically
+    const isVerticalJump = Boolean(from && Math.abs(from.top - target.top) > 24);
 
     if (
       from &&
       from.pathname !== pathname &&
       from.width > 0 &&
       target.width > 0 &&
-      !isVerticalTransition &&
+      !isVerticalJump &&
       !window.matchMedia("(prefers-reduced-motion: reduce)").matches
     ) {
       animationRef.current = indicator.animate(
@@ -129,6 +123,7 @@ export function PageTabs() {
       pathname,
       left: target.left,
       width: target.width,
+      top: target.top,
     };
   }, [pathname, scrollToRouteStart]);
 
@@ -140,7 +135,7 @@ export function PageTabs() {
             <Link
               className="site-tab"
               href={href}
-              scroll={href === "/"}
+              scroll={false}
               onClick={(event) => selectTab(event, href)}
               aria-current={pathname === href ? "page" : undefined}
               key={href}
