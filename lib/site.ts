@@ -31,8 +31,11 @@ export function pageMetadata(title: string, description: string, path: string): 
       title,
       description,
       url: path,
-      images: [{ url: "/assets/images/profile.jpg", width: 400, height: 400, alt: siteConfig.name }],
     },
-    twitter: { card: "summary_large_image", title, description, images: ["/assets/images/profile.jpg"] },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
   };
 }

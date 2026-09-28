@@ -400,6 +400,45 @@ html {
   filter: brightness(0) invert(1);
 }
 
+@media (pointer: coarse) {
+  .profile-social-link {
+    min-height: 2.75rem;
+  }
+
+  .profile-social-link:active {
+    color: var(--color-text);
+    border-color: var(--color-accent);
+  }
+}
+
+@media (min-width: 721px) and (max-width: 1024px) {
+  .profile-header {
+    margin-bottom: 1.25rem;
+  }
+
+  .profile-cover-container {
+    border-radius: 14px;
+  }
+
+  .profile-avatar-row {
+    margin-top: -3.25rem;
+    margin-bottom: 0.85rem;
+    padding-inline: 0.75rem;
+  }
+
+  .avatar-label-group--md {
+    --avatar-label-size: clamp(108px, 14vw, 120px);
+  }
+
+  .profile-social-links {
+    gap: 1.25rem;
+  }
+
+  .profile-social-link {
+    font-size: 0.84rem;
+  }
+}
+
 .route-transition {
   animation: route-content-enter 220ms cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -966,6 +1005,25 @@ body.has-section-dock .page {
 }
 
 @media (max-width: 360px) {
+  .page {
+    width: 100%;
+    margin: 0;
+    padding-inline: 0.75rem;
+    border-radius: 0;
+  }
+
+  .profile-avatar-row {
+    padding-inline: 0;
+  }
+
+  .avatar-label-group--md {
+    --avatar-label-size: 80px;
+  }
+
+  .avatar-label-group__title {
+    font-size: 1rem;
+  }
+
   .profile-social-links {
     display: grid;
     grid-template-columns: repeat(2, max-content);

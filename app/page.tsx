@@ -2,7 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SectionDock } from "@/components/SectionDock";
 
-export const metadata: Metadata = { alternates: { canonical: "/" } };
+import { siteConfig } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: siteConfig.title,
+  description:
+    "Software engineer based in Negros Island Region, Philippines, specializing in backend systems, cybersecurity, applied AI, and real-time architectures.",
+  alternates: { canonical: "/" },
+};
 
 const focusAreas = [
   { area: "Systems", title: "Backend systems & real-time workflows", description: "APIs, streaming proxies, transactional data models, WebSocket flows, and caching designed around clear system boundaries." },

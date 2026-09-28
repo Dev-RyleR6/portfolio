@@ -1,0 +1,58 @@
+# Ryle Anthony Gabotero
+
+> Software engineer based in Negros Island Region, Philippines, specializing in backend systems, cybersecurity, and applied AI.
+
+## Summary
+Ryle Anthony Gabotero is a software engineer and national cybersecurity competitor. He represents the Negros Island Region in competitive cybersecurity skills (WorldSkills Philippines) and builds full-stack systems, computer vision edge pipelines, and low-latency network applications.
+
+- **Location**: Negros Island Region, Philippines (UTC+8)
+- **Education**: Foundation University
+- **Status**: Available for software engineering roles, technical collaboration, and remote work.
+
+## Core Technical Competencies
+- **Backend Architecture & APIs**: Node.js, TypeScript, Express, Laravel, CodeIgniter, PostgreSQL, MySQL, Redis caching, WebSockets, streaming reverse proxies, transactional data integrity.
+- **Cybersecurity & Networking**: Network packet analysis, Wireshark, Scapy, Linux and Windows Server hardening, threat modeling, defensive security, incident response.
+- **Applied AI & Computer Vision**: Python, YOLOv8, OpenCV, TensorFlow, Scikit-learn, Pandas, NumPy, Tesseract OCR, edge inference (ESP32 IoT integration).
+- **Frontend & Mobile**: React, Next.js, Tailwind CSS, Kotlin, Unity, ARCore (geospatial SLAM).
+
+## Notable Competitions & Achievements
+- **WorldSkills Philippines Clark 2026**: National Competitor in Cybersecurity representing Team NIR (Negros Island Region). Defended network infrastructure and performed timed packet forensics.
+  - Official Government Verification: https://tesda.gov.ph/Media/NewsDetail/20489
+- **NIR Regional Skills Olympics 2026**: Gold Medalist in Cybersecurity skill area. Qualified for national competition.
+  - University Verification: https://www.foundationu.edu.ph/post/foundation-university-bags-gold-medals-at-the-nir-regional-skills-olympics
+- **Huawei Developer Competition 2025**: Asia-Pacific (APAC) Finalist in Cloud & AI track.
+- **Can You HackIT: The IBPAP Challenge 2025**: 4th Place / Top 5 (Team SHIFT) at Cebu Institute of Technology–University.
+- **DICT AI.deas for Impact 2024**: Innovation participant developing AI concepts for regional social impact.
+
+## Certifications & Formal Assessments
+- **Advanced Big Data Analytics & Artificial Intelligence**: 120-hour intensive program by KOICA DX Center, Hannam University, and Silliman University. Scored 10/10 in Deep Learning Architecture domain across 7 assessed areas.
+- **TOPCIT ICT Competency Assessment**: Level 2 certified (Score: 365 / 1000) covering software development, systems architecture, data management, and cybersecurity.
+
+## Selected Projects & Code Repositories
+- **SafeView**: Windows security agent for real-time visual phishing detection using Tesseract OCR and semantic sentence embeddings for sub-50ms local inference with zero cloud dependency.
+  - Repository: https://github.com/Dev-RyleR6/SafeView
+  - Live Demo: https://safe-view.vercel.app/
+- **OvaLens Ecosystem**: Automated duck egg candling and fertility sorting via a custom YOLOv8 computer vision model, camera exposure controls, Python edge client, and ESP32 conveyor actuation.
+  - Model Repository: https://github.com/Dev-RyleR6/OvaLens-Ecosystem
+  - Edge App Repository: https://github.com/Dev-RyleR6/OvaLens---Edge-App
+- **myAnime & HLS Proxy Server**: Custom Node.js streaming architecture with an Express HLS relay, byte-range video streaming, LRU disk/memory caching, Redis, and PostgreSQL relational schema.
+  - Project Repository: https://github.com/Dev-RyleR6/myAnime
+  - Proxy Relay Repository: https://github.com/Dev-RyleR6/proxy-server
+- **AR Chronicle**: Native Android augmented reality exploration app integrating ARCore SLAM plane detection, Unity, and OpenStreetMap geofencing for landmark discovery.
+  - Repository: https://github.com/Dev-RyleR6/ARChroniclesmainAPP
+- **Pickle World**: Multi-court reservation engine featuring WebSocket concurrency slot locks, webhook payment reconciliation, and strict transaction isolation in MySQL.
+  - Repository: https://github.com/Dev-RyleR6/pickleball_reservation_system
+
+## Portfolio Navigation & Canonical URLs
+- Profile / Overview: /
+- Case Studies & Projects: /projects
+- Competitions & Credentials: /experience
+- Visual Evidence Gallery: /gallery
+- Direct Contact: /contact
+
+## Direct Communication Channels
+- Direct Email: ryleanthony.gabotero@gmail.com
+- GitHub Profile: https://github.com/Dev-RyleR6
+- GitLab Profile: https://gitlab.com/ryleanthony.gabotero
+- LinkedIn: https://www.linkedin.com/in/rylegabotero/
+- Telegram: https://t.me/ryleanthony
