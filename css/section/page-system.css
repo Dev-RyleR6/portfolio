@@ -1086,6 +1086,61 @@ body.has-section-dock .page {
   padding-bottom: 0.5rem;
 }
 
+.site-footer > p {
+  margin: 0;
+}
+
+.site-footer > .visitor-status {
+  margin-bottom: 0.4rem;
+}
+
+.visitor-status {
+  display: flex;
+  min-height: 1.15rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0 0.42rem;
+  color: var(--color-text-muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 160ms ease-out;
+}
+
+.visitor-status--ready {
+  opacity: 1;
+  visibility: visible;
+}
+
+.visitor-status__item {
+  white-space: nowrap;
+}
+
+.visitor-status__separator {
+  color: color-mix(in srgb, var(--color-text-muted) 58%, transparent);
+  user-select: none;
+}
+
+@media (max-width: 480px) {
+  .visitor-status {
+    max-width: 20rem;
+    min-height: 2.3rem;
+    margin-inline: auto;
+    row-gap: 0.05rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visitor-status {
+    transition: none;
+  }
+}
+
 .portfolio-item[id] {
   scroll-margin-top: 4.75rem;
 }
