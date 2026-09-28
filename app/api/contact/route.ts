@@ -1,6 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { siteConfig } from "@/lib/site";
+import {
+  buildInquiryFrom,
+  buildInquiryHtml,
+  buildInquirySubject,
+  buildInquiryText,
+} from "@/lib/email-template";
 
 export async function POST(request: NextRequest) {
   if (request.headers.get("sec-fetch-site") === "cross-site") {
@@ -57,25 +63,19 @@ export async function POST(request: NextRequest) {
   try {
     const resend = new Resend(apiKey);
     const toEmail = process.env.CONTACT_EMAIL || siteConfig.email;
-    // Resend free tier sends from onboarding@resend.dev; custom domains can be set via RESEND_FROM_EMAIL
-    const fromEmail = process.env.RESEND_FROM_EMAIL || "Portfolio Contact <onboarding@resend.dev>";
+    const fromAddress = process.env.RESEND_FROM_EMAIL || "contact@ryleanthony-gabotero.tech";
+    const from = buildInquiryFrom(name, fromAddress);
+    const subject = buildInquirySubject(name, message);
+    const html = buildInquiryHtml({ name, email, message });
+    const text = buildInquiryText({ name, email, message });
 
     const { data, error } = await resend.emails.send({
-      from: fromEmail,
+      from,
       to: toEmail,
       replyTo: `${name} <${email}>`,
-      subject: `Portfolio inquiry from ${name}`,
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
-      html: `
-        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #111; max-width: 600px; padding: 24px; border: 1px solid #e5e7eb; border-radius: 8px;">
-          <h2 style="margin-top: 0; font-size: 1.25rem; border-bottom: 1px solid #e5e7eb; padding-bottom: 12px; color: #111;">New Portfolio Inquiry</h2>
-          <p style="margin: 8px 0;"><strong>From:</strong> ${name} &lt;<a href="mailto:${email}">${email}</a>&gt;</p>
-          <div style="margin-top: 16px; padding: 16px; background-color: #f9fafb; border-radius: 6px; white-space: pre-wrap; font-size: 0.95rem; border: 1px solid #e5e7eb;">
-${message}
-          </div>
-          <p style="margin-top: 20px; font-size: 0.85rem; color: #6b7280;">Hit "Reply" in your email client to respond directly to ${email}.</p>
-        </div>
-      `,
+      subject,
+      text,
+      html,
     });
 
     if (error) {
