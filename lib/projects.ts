@@ -31,7 +31,7 @@ export const projects: Project[] = [
     id: "safeview", title: "SafeView", subtitle: "Real-Time Visual Phishing Detection", category: "security-ai", categoryLabel: "Security Software", image: "/assets/images/projects/safeview.png", imageAlt: "SafeView OCR and transformer detection architecture",
     description: "A Windows security agent that scans active screen buffers using Tesseract OCR and semantic embeddings to detect visual phishing with local, sub-50ms inference and no cloud data transmission.",
     technologies: ["Python", "Sentence-Transformers", "Tesseract OCR", "Tkinter", "Windows API"],
-    links: [{ label: "View live project", href: "https://safe-view.vercel.app/", external: true }, { label: "View documentation", href: "https://github.com/Dev-RyleR6/SafeView/blob/main/README.md", external: true }, { label: "Explore repository", href: "https://github.com/Dev-RyleR6/SafeView", external: true }, { label: "Competition context", href: "/gallery#worldskills-national" }],
+    links: [{ label: "View live project", href: "https://safe-view.vercel.app/", external: true }, { label: "View documentation", href: "https://github.com/Dev-RyleR6/SafeView/blob/main/README.md", external: true }, { label: "Explore repository", href: "https://github.com/Dev-RyleR6/SafeView", external: true }],
   },
   {
     id: "ovalens", title: "OvaLens Ecosystem", subtitle: "YOLOv8 Computer Vision & IoT", category: "security-ai", categoryLabel: "Computer Vision & IoT", image: "/assets/images/projects/ovalens.png", imageAlt: "OvaLens computer vision and conveyor architecture",
