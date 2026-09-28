@@ -44,7 +44,20 @@ export function PageTabs() {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (href === "/") {
-      window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
+      const profile = document.getElementById("focus");
+
+      if (profile) {
+        const tabs = linksRef.current?.closest<HTMLElement>(".site-tabs");
+        const tabsHeight = tabs?.getBoundingClientRect().height ?? 0;
+        const top = profile.getBoundingClientRect().top + window.scrollY - tabsHeight;
+
+        window.scrollTo({
+          top: Math.max(0, top),
+          behavior: reducedMotion ? "auto" : "smooth",
+        });
+      } else {
+        window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
+      }
       return;
     }
 
