@@ -142,7 +142,7 @@ export function SectionDock({
     };
   }, []);
 
-  // Escape key collapses the dock and focuses the half-box button
+  // Escape key collapses the dock and focuses the restore button
   useEffect(() => {
     if (isCollapsed || !isVisible) return;
 
@@ -151,7 +151,7 @@ export function SectionDock({
         handleCollapse();
         requestAnimationFrame(() => {
           dockRef.current
-            ?.querySelector<HTMLButtonElement>(".section-dock__halfbox")
+            ?.querySelector<HTMLButtonElement>(".section-dock__restore")
             ?.focus();
         });
       }
@@ -171,10 +171,9 @@ export function SectionDock({
       ref={dockRef}
     >
       {isCollapsed ? (
-        /* Shorter & wider sticky small half-box button at the viewport bottom */
         <button
           type="button"
-          className="section-dock__halfbox"
+          className="section-dock__restore"
           onClick={handleExpand}
           aria-expanded={false}
           aria-controls={panelId}
@@ -182,7 +181,7 @@ export function SectionDock({
           title={`Open ${onItemSelect ? "filters" : "sections"}`}
           tabIndex={isVisible ? undefined : -1}
         >
-          <span className="section-dock__halfbox-icon" aria-hidden="true">
+          <span className="section-dock__restore-icon" aria-hidden="true">
             <svg
               viewBox="0 0 20 10"
               fill="none"
@@ -196,45 +195,10 @@ export function SectionDock({
           </span>
         </button>
       ) : (
-        /* Floating Glass Dock with collapse button inside */
         <div
-          className="section-dock__glass"
+          className="section-dock__panel"
           id={panelId}
         >
-          <div className="section-dock__brand" aria-hidden="true">
-            <span className="section-dock__brand-icon">
-              {onItemSelect ? (
-                <svg
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.7"
-                  strokeLinecap="round"
-                >
-                  <path d="M2.5 4h11M4.5 8h7M6.5 12h3" />
-                </svg>
-              ) : (
-                <svg
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M2 5L8 2L14 5L8 8L2 5Z" />
-                  <path d="M2 8L8 11L14 8" />
-                  <path d="M2 11L8 14L14 11" />
-                </svg>
-              )}
-            </span>
-            <span className="section-dock__brand-label">
-              {onItemSelect ? "Filters" : "Sections"}
-            </span>
-          </div>
-
-          <div className="section-dock__divider" aria-hidden="true" />
-
           <div className="section-dock__items">
             {items.map(({ id, label: itemLabel }) =>
               onItemSelect ? (
@@ -275,8 +239,6 @@ export function SectionDock({
               ),
             )}
           </div>
-
-          <div className="section-dock__divider" aria-hidden="true" />
 
           <button
             type="button"

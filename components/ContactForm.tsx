@@ -120,7 +120,7 @@ export function ContactForm() {
           name="message"
           rows={6}
           required
-          placeholder="What's on your mind?"
+          placeholder="Tell me about the role, project, or technical challenge."
           disabled={status === "sending"}
         />
       </div>

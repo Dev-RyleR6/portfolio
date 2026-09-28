@@ -5,7 +5,7 @@ import { pageMetadata, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata(
   "Contact",
-  "Contact Ryle Anthony Gabotero about software engineering opportunities and collaborations.",
+  "Contact Ryle Anthony Gabotero about software engineering roles, cybersecurity projects, applied AI, and technical collaborations.",
   "/contact"
 );
 
@@ -15,8 +15,9 @@ export default function ContactPage() {
       <header className="page-intro page-intro--contact" id="contact">
         <h1 id="contact-title">Let’s talk about what’s next.</h1>
         <p className="page-intro__lede">
-          Share the role, project, or technical problem you have in mind. I usually
-          reply within 24 to 48 hours.
+          Reach out about software engineering roles, cybersecurity projects,
+          applied AI work, or technical collaborations. I usually reply within
+          24 to 48 hours.
         </p>
       </header>
 
