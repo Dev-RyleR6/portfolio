@@ -153,6 +153,12 @@ export default function ExperiencePage() {
   };
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(experienceSchema).replace(/</g, "\\u003c"),
+        }}
+      />
       <header className="page-intro page-intro--experience" id="overview">
         <div className="experience-intro__heading">
           <h1>Experience &amp; Competitions</h1>

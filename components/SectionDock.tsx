@@ -65,7 +65,11 @@ export function SectionDock({
   const handleCollapse = useCallback(() => {
     const restoreBtn = dockRef.current?.querySelector<HTMLButtonElement>(".section-dock__restore");
     if (dockRef.current?.contains(document.activeElement)) {
-      restoreBtn ? restoreBtn.focus() : (document.activeElement as HTMLElement)?.blur();
+      if (restoreBtn) {
+        restoreBtn.focus();
+      } else {
+        (document.activeElement as HTMLElement)?.blur();
+      }
     }
     setCollapsedOverride(true);
     try {
