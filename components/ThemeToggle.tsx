@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useSyncExternalStore } from "react";
 
 type Theme = "light" | "dark";
 type ThemeTransitionDirection = "diag-down-right" | "diag-up-left";
@@ -25,16 +25,54 @@ type ViewTransitionDocument = Document & {
   startViewTransition?: (update: () => void) => ViewTransition;
 };
 
+const THEME_CHANGE_EVENT = "portfolio-theme-change";
+
+function getCurrentTheme(root: HTMLElement): Theme {
+  if (root.dataset.theme === "light" || root.dataset.theme === "dark") {
+    return root.dataset.theme;
+  }
+
+  try {
+    const saved = localStorage.getItem("portfolio-theme");
+    if (saved === "light" || saved === "dark") return saved;
+  } catch {}
+
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
+function subscribeTheme(callback: () => void) {
+  window.addEventListener(THEME_CHANGE_EVENT, callback);
+  return () => window.removeEventListener(THEME_CHANGE_EVENT, callback);
+}
+
+function getThemeSnapshot(): Theme | null {
+  return getCurrentTheme(document.documentElement);
+}
+
+function getServerThemeSnapshot(): Theme | null {
+  return null;
+}
+
 export function ThemeToggle({ className = "" }: { className?: string }) {
-  const [theme, setTheme] = useState<Theme | null>(null);
+  const theme = useSyncExternalStore(subscribeTheme, getThemeSnapshot, getServerThemeSnapshot);
   const switchingRef = useRef(false);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const initialTheme = getCurrentTheme(root);
+
+    root.dataset.theme = initialTheme;
+    root.style.colorScheme = initialTheme;
+  }, []);
 
   function applyTheme(next: Theme) {
     const root = document.documentElement;
     root.dataset.theme = next;
     root.style.colorScheme = next;
-    localStorage.setItem("portfolio-theme", next);
-    setTheme(next);
+    try {
+      localStorage.setItem("portfolio-theme", next);
+    } catch {}
+    window.dispatchEvent(new Event(THEME_CHANGE_EVENT));
     document.querySelectorAll<HTMLMetaElement>('meta[name="theme-color"]').forEach((meta) => {
       meta.content = next === "dark" ? "#000000" : "#f7f7f5";
     });
@@ -44,7 +82,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
     if (switchingRef.current) return;
 
     const root = document.documentElement;
-    const isDark = root.dataset.theme === "dark";
+    const isDark = getCurrentTheme(root) === "dark";
     const goingDark = !isDark;
     const next: Theme = goingDark ? "dark" : "light";
     const direction: ThemeTransitionDirection = goingDark

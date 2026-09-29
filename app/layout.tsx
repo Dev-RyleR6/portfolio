@@ -54,9 +54,12 @@ export const viewport: Viewport = {
 
 const themeScript = `
   try {
-    const saved = localStorage.getItem("portfolio-theme");
+    let saved = null;
+    try {
+      saved = localStorage.getItem("portfolio-theme");
+    } catch {}
     const dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const theme = saved || (dark ? "dark" : "light");
+    const theme = saved === "dark" || saved === "light" ? saved : (dark ? "dark" : "light");
     document.documentElement.dataset.theme = theme;
     document.documentElement.style.colorScheme = theme;
   } catch {}

@@ -402,6 +402,12 @@ html {
   filter: brightness(0) invert(1);
 }
 
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .profile-social-link img {
+    filter: brightness(0) invert(1);
+  }
+}
+
 .profile-header--compact {
   display: flex;
   align-items: center;
