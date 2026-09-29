@@ -1,22 +1,10 @@
 import "server-only";
 
-import { Redis } from "@upstash/redis";
+import { getRedisClient } from "./redis";
 
 const PRESENCE_KEY = "portfolio:visitor-presence:v1";
 const PRESENCE_TTL_MS = 60_000;
 const KEY_EXPIRY_SECONDS = 180;
-
-let redisClient: Redis | null | undefined;
-
-function getRedisClient(): Redis | null {
-  if (redisClient !== undefined) return redisClient;
-
-  const url = process.env.UPSTASH_REDIS_REST_URL ?? process.env.KV_REST_API_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN ?? process.env.KV_REST_API_TOKEN;
-
-  redisClient = url && token ? new Redis({ url, token }) : null;
-  return redisClient;
-}
 
 export async function refreshPresence(visitorId: string): Promise<number | undefined> {
   const redis = getRedisClient();

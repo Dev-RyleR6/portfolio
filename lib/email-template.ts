@@ -60,8 +60,9 @@ export function buildInquiryHtml({
     hour12: true,
   });
 
+  const cleanSubjectName = name.replace(/[\r\n"<>]/g, " ").trim();
   const replyMailto = `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(
-    `Re: Portfolio message - ${name}`
+    `Re: Portfolio message - ${cleanSubjectName}`
   )}`;
 
   return `<!DOCTYPE html>
@@ -180,7 +181,7 @@ export function buildInquiryHtml({
           <!-- Action button -->
           <tr>
             <td style="padding-bottom: 24px;">
-              <a href="${replyMailto}" class="reply-button" style="display: inline-block; padding: 11px 22px; background-color: #18181b; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 500; border-radius: 6px; line-height: 1.2;">
+              <a href="${escapeHtml(replyMailto)}" class="reply-button" style="display: inline-block; padding: 11px 22px; background-color: #18181b; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 500; border-radius: 6px; line-height: 1.2;">
                 Reply to ${safeName} &rarr;
               </a>
             </td>
