@@ -143,7 +143,7 @@ async function requestGitHubContributions(username: string): Promise<GitHubContr
 const getCachedGitHubContributions = unstable_cache(
   requestGitHubContributions,
   ["github-contribution-calendar-v1"],
-  { revalidate: 21_600 },
+  { revalidate: 3_600 },
 );
 
 export function getGitHubContributions(username: string) {
