@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SiteShell } from "@/components/SiteShell";
 import { getSiteUrl, siteConfig } from "@/lib/site";
 import "@/css/reset.css";
@@ -223,6 +224,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       <body className="has-section-dock">
         <SiteShell>{children}</SiteShell>
         {process.env.NODE_ENV === "production" ? <Analytics /> : null}
+        {process.env.NODE_ENV === "production" ? <SpeedInsights /> : null}
       </body>
     </html>
   );
