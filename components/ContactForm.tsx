@@ -56,15 +56,20 @@ export function ContactForm() {
   if (status === "success") {
     return (
       <div className="contact-status contact-status--success" role="status">
-        <h3>Message sent!</h3>
-        <p>Thanks for reaching out. I’ll get back to you as soon as possible.</p>
-        <button
-          type="button"
-          onClick={() => setStatus("idle")}
-          className="contact-btn-secondary"
-        >
-          Send another message
-        </button>
+        <svg className="contact-success__icon" aria-hidden="true" viewBox="0 0 20 20" fill="none">
+          <path d="m4.75 10.25 3.25 3.25 7.25-7.25" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+        <div className="contact-success__copy">
+          <h3>Message sent</h3>
+          <p>Thanks for reaching out. I’ll reply within 24 to 48 hours.</p>
+          <button
+            type="button"
+            onClick={() => setStatus("idle")}
+            className="contact-btn-secondary"
+          >
+            Send another
+          </button>
+        </div>
       </div>
     );
   }
