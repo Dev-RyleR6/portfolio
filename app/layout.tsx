@@ -26,20 +26,53 @@ export const metadata: Metadata = {
   authors: [{ name: siteConfig.name, url: siteUrl }],
   creator: siteConfig.name,
   alternates: { canonical: "/" },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon.png", sizes: "96x96", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
   openGraph: {
     type: "website",
     siteName: siteConfig.name,
     title: siteConfig.title,
     description: siteConfig.description,
     url: "/",
+    images: [
+      {
+        url: "/assets/images/profile2.webp",
+        width: 709,
+        height: 945,
+        alt: `${siteConfig.name} | Software Engineer`,
+      },
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: siteConfig.title,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
+    images: ["/opengraph-image"],
   },
   verification: {
     google: "DR8xHqXTLS90oHcFRZT82RH2lhiHGUl8_XEgBiWjGlw",
+  },
+  other: {
+    thumbnail: `${siteUrl}/assets/images/profile2.webp`,
+    "geo.region": "PH-NIR",
+    "geo.placename": "Dumaguete City, Negros Island Region, Philippines",
+    "geo.position": "9.3068;123.3054",
+    ICBM: "9.3068, 123.3054",
   },
 };
 
@@ -74,18 +107,22 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         "@id": `${siteUrl}/#website`,
         url: siteUrl,
         name: siteConfig.name,
-        alternateName: ["devR6", "Ryle Gabotero"],
+        alternateName: ["Ryle Gabotero", "devR6", "ryleanthony-gabotero.tech"],
         inLanguage: "en-US",
-        creator: { "@id": `${siteUrl}/#person` },
+        publisher: { "@id": `${siteUrl}/#person` },
       },
       {
         "@type": "Person",
         "@id": `${siteUrl}/#person`,
         url: siteUrl,
         name: siteConfig.name,
-        alternateName: "devR6",
+        alternateName: ["devR6", "Ryle Anthony Gabotero"],
         jobTitle: "Software Engineer",
-        image: `${siteUrl}/assets/images/profile2.webp`,
+        image: {
+          "@type": "ImageObject",
+          url: `${siteUrl}/assets/images/profile2.webp`,
+          caption: siteConfig.name,
+        },
         description: siteConfig.description,
         email: `mailto:${siteConfig.email}`,
         alumniOf: {
@@ -95,8 +132,19 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         },
         address: {
           "@type": "PostalAddress",
+          addressLocality: "Dumaguete City",
           addressRegion: "Negros Island Region",
           addressCountry: "PH",
+          postalCode: "6200",
+        },
+        homeLocation: {
+          "@type": "Place",
+          name: "Dumaguete City, Negros Island Region, Philippines",
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: 9.3068,
+            longitude: 123.3054,
+          },
         },
         knowsAbout: [
           "Backend Architecture",
@@ -155,6 +203,15 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="describedby" href="/llms.txt" type="text/markdown" />
+        <link rel="icon" href="/favicon.ico" sizes="48x48" />
+        <link rel="icon" href="/favicon-48x48.png" type="image/png" sizes="48x48" />
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/apple-icon.png" sizes="180x180" />
+        <meta name="thumbnail" content={`${siteUrl}/assets/images/profile2.webp`} />
+        <meta name="geo.region" content="PH-NIR" />
+        <meta name="geo.placename" content="Dumaguete City, Negros Island Region, Philippines" />
+        <meta name="geo.position" content="9.3068;123.3054" />
+        <meta name="ICBM" content="9.3068, 123.3054" />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script
           type="application/ld+json"
