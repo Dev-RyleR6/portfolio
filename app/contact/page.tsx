@@ -23,7 +23,7 @@ export default function ContactPage() {
       "@id": `${siteUrl}/#person`,
       name: siteConfig.name,
       email: `mailto:${siteConfig.email}`,
-      sameAs: [siteConfig.github, siteConfig.linkedin, siteConfig.telegram],
+      sameAs: [siteConfig.github, siteConfig.linkedin, siteConfig.gitlab],
     },
   };
 

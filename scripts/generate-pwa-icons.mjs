@@ -1,101 +1,40 @@
 import fs from "node:fs/promises";
-import { chromium } from "playwright-core";
 import sharp from "sharp";
 
-const sourcePath = "scripts/appicon.png";
-const sourceImage = await fs.readFile(sourcePath);
-const sourceDataUrl = `data:image/png;base64,${sourceImage.toString("base64")}`;
-const browser = await chromium.launch({ channel: "msedge", headless: true });
-const page = await browser.newPage();
-
+// One portrait source; App Router owns the favicon, icon, and Apple icon routes.
+const portrait = await fs.readFile("public/assets/images/profile2.webp");
+// Use the same square portrait crop for every icon.
+const source = await sharp(portrait).resize(512, 512, { fit: "cover", position: "centre" }).ensureAlpha().png().toBuffer();
 const outputs = [
-  { path: "app/apple-icon.png", size: 180, rounded: true },
-  { path: "public/icon.png", size: 192, rounded: true },
-  { path: "public/assets/icons/pwa-192.png", size: 192, rounded: true },
-  { path: "public/assets/icons/pwa-512.png", size: 512, rounded: true },
-  { path: "public/assets/icons/pwa-maskable-512.png", size: 512, rounded: false },
+  ["app/apple-icon.png", 180], ["app/icon.png", 96],
+  ["public/favicon-16x16.png", 16], ["public/favicon-32x32.png", 32],
+  ["public/favicon-48x48.png", 48], ["public/assets/icons/pwa-192.png", 192],
+  ["public/assets/icons/pwa-512.png", 512],
 ];
-
-for (const output of outputs) {
-  await page.setViewportSize({ width: output.size, height: output.size });
-  await page.setContent(`
-    <!doctype html>
-    <html>
-      <head>
-        <style>
-          * { box-sizing: border-box; }
-          html, body { width: 100%; height: 100%; margin: 0; }
-          body { background: transparent; }
-          #icon {
-            width: 100%;
-            height: 100%;
-            border-radius: ${output.rounded ? "22%" : "0"};
-            background: #000000;
-            overflow: hidden;
-          }
-          #icon img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: 65% 100%;
-          }
-        </style>
-      </head>
-      <body>
-        <div id="icon"><img src="${sourceDataUrl}" alt="" /></div>
-      </body>
-    </html>
-  `);
-  await page.locator("#icon").screenshot({ path: output.path, omitBackground: true });
+for (const [file, size] of outputs) {
+  await sharp(source).resize(size, size).png().toFile(file);
 }
+// Leave a safe area around the portrait for launcher masks.
+await sharp(source).resize(320, 320).extend({
+  top: 96, bottom: 96, left: 96, right: 96, background: "#090a0d",
+}).png().toFile("public/assets/icons/pwa-maskable-512.png");
 
-await browser.close();
-
-// Generate multi-resolution favicons and optimized app/icon.png
-const pwa192Path = "public/assets/icons/pwa-192.png";
-const [img16, img32, img48, img96] = await Promise.all([
-  sharp(pwa192Path).resize(16, 16, { kernel: "lanczos3" }).png({ compressionLevel: 9 }).toBuffer(),
-  sharp(pwa192Path).resize(32, 32, { kernel: "lanczos3" }).png({ compressionLevel: 9 }).toBuffer(),
-  sharp(pwa192Path).resize(48, 48, { kernel: "lanczos3" }).png({ compressionLevel: 9 }).toBuffer(),
-  sharp(pwa192Path).resize(96, 96, { kernel: "lanczos3" }).png({ compressionLevel: 9 }).toBuffer(),
-]);
-
-await fs.writeFile("public/favicon-16x16.png", img16);
-await fs.writeFile("public/favicon-32x32.png", img32);
-await fs.writeFile("public/favicon-48x48.png", img48);
-await fs.writeFile("app/icon.png", img96);
-
-const count = 3;
+const sizes = [16, 32, 48, 96];
+const images = await Promise.all(sizes.map(size => sharp(source).resize(size, size).png().toBuffer()));
 const header = Buffer.alloc(6);
-header.writeUInt16LE(0, 0);
 header.writeUInt16LE(1, 2);
-header.writeUInt16LE(count, 4);
-
-const images = [
-  { w: 16, h: 16, b: img16 },
-  { w: 32, h: 32, b: img32 },
-  { w: 48, h: 48, b: img48 },
-];
-
-let offset = 6 + count * 16;
-const entries = [];
-for (const img of images) {
+header.writeUInt16LE(images.length, 4);
+let offset = 6 + images.length * 16;
+const entries = images.map((image, index) => {
   const entry = Buffer.alloc(16);
-  entry.writeUInt8(img.w, 0);
-  entry.writeUInt8(img.h, 1);
-  entry.writeUInt8(0, 2);
-  entry.writeUInt8(0, 3);
+  entry.writeUInt8(sizes[index], 0);
+  entry.writeUInt8(sizes[index], 1);
   entry.writeUInt16LE(1, 4);
   entry.writeUInt16LE(32, 6);
-  entry.writeUInt32LE(img.b.length, 8);
+  entry.writeUInt32LE(image.length, 8);
   entry.writeUInt32LE(offset, 12);
-  entries.push(entry);
-  offset += img.b.length;
-}
-
-const ico = Buffer.concat([header, ...entries, ...images.map((i) => i.b)]);
-await fs.writeFile("public/favicon.ico", ico);
-await fs.writeFile("app/favicon.ico", ico);
-
-console.log("Successfully generated all PWA icons and Google-compliant multi-resolution favicons!");
+  offset += image.length;
+  return entry;
+});
+await fs.writeFile("app/favicon.ico", Buffer.concat([header, ...entries, ...images]));
+console.log("Generated profile-photo favicon (16/32/48/96), Apple and PWA icons.");

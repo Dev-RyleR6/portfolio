@@ -1,37 +1,29 @@
 # Ryle Anthony Gabotero
 
-> Evidence-backed portfolio of a software engineer in the Negros Island Region, Philippines, working across backend systems, cybersecurity, applied AI, and data engineering.
+> Software engineer in Dumaguete City, Negros Island Region, Philippines, working across backend development, cybersecurity, systems administration, and applied AI.
 
-Ryle Anthony Gabotero builds full-stack systems, security tooling, computer-vision pipelines, and real-time applications. The portfolio connects technical claims to source repositories, demonstrations, competition records, credentials, and visual evidence.
+Canonical website: https://www.ryleanthony-gabotero.tech/
 
-## Portfolio
+## Portfolio pages
 
-- [Profile](https://www.ryleanthony-gabotero.tech/): Professional overview, engineering focus, technical toolkit, and supporting evidence.
-- [Projects](https://www.ryleanthony-gabotero.tech/projects): Software engineering case studies with architecture, technology choices, repositories, and project status.
-- [Experience and credentials](https://www.ryleanthony-gabotero.tech/experience): Cybersecurity competitions, technical programs, assessments, and documented results.
-- [Activity gallery](https://www.ryleanthony-gabotero.tech/gallery): Photographs, certificates, and supporting records for competitions and training.
-- [Contact](https://www.ryleanthony-gabotero.tech/contact): Professional contact channels, availability, location, and résumé.
+- [Profile](https://www.ryleanthony-gabotero.tech/): Professional overview and technical focus.
+- [Projects](https://www.ryleanthony-gabotero.tech/projects): Architecture, technologies, repositories, outcomes, and project status.
+- [Experience](https://www.ryleanthony-gabotero.tech/experience): Competition results, training, and assessments with supporting records.
+- [Gallery](https://www.ryleanthony-gabotero.tech/gallery): Competition and training photographs and certificates.
+- [Contact](https://www.ryleanthony-gabotero.tech/contact): Professional contact channels and resume.
 
-## Selected project case studies
+## Selected projects
 
-- [SafeView](https://www.ryleanthony-gabotero.tech/projects/safeview): Local visual-phishing detection using OCR and semantic embeddings.
-- [OvaLens Ecosystem](https://www.ryleanthony-gabotero.tech/projects/ovalens): YOLOv8 duck-egg classification connected to an ESP32 conveyor workflow.
-- [HLS Proxy Server](https://www.ryleanthony-gabotero.tech/projects/proxy-server): Node.js streaming relay with manifest rewriting, range requests, backpressure, caching, and private-network safeguards.
-- [myAnime](https://www.ryleanthony-gabotero.tech/projects/myanime): Retired streaming application architecture built around a reverse proxy, Redis, and PostgreSQL.
-- [AR Chronicle](https://www.ryleanthony-gabotero.tech/projects/archronicle): Android and Unity AR exploration using ARCore SLAM and OpenStreetMap geofencing.
-- [Pickle World](https://www.ryleanthony-gabotero.tech/projects/pickleworld): Retired real-time venue booking system with WebSocket locks and transactional payment reconciliation.
+- [SafeView](https://www.ryleanthony-gabotero.tech/projects/safeview): On-device visual phishing detection with OCR and semantic embeddings.
+- [OvaLens Ecosystem](https://www.ryleanthony-gabotero.tech/projects/ovalens): Computer vision for duck-egg candling with ESP32 conveyor actuation.
+- [Pickle World](https://www.ryleanthony-gabotero.tech/projects/pickleworld): Retired venue booking system using WebSocket locks and payment reconciliation.
 
-## Verified experience
+## Public professional profiles
 
-- [Foundation University regional competition record](https://www.foundationu.edu.ph/post/foundation-university-bags-gold-medals-at-the-nir-regional-skills-olympics): Records the Cybersecurity gold medal earned by Ryle Anthony Gabotero and Earl John Estandarte at the 2026 NIR Regional Skills Olympics.
-- [TESDA WorldSkills Philippines record](https://tesda.gov.ph/Media/NewsDetail/20489): Official record related to WorldSkills Philippines Clark 2026.
-- [Huawei Developer Competition certificate](https://www.ryleanthony-gabotero.tech/assets/docs/HDC2511200D53A1DE.pdf): Participation evidence for the 2025 Asia-Pacific Cloud and AI competition program.
-- [TOPCIT score and certificate](https://www.ryleanthony-gabotero.tech/assets/docs/My%20Page%20_%20Score%20%26%20Certificate%20_Overall%20achievement%20_%20TOPCIT.pdf): Level 2 assessment record with a score of 365 out of 1000.
-- [Résumé](https://www.ryleanthony-gabotero.tech/assets/docs/RyleGaboteroCV.pdf): Experience, skills, projects, and credentials.
+- [GitHub: Dev-RyleR6](https://github.com/Dev-RyleR6)
+- [LinkedIn](https://www.linkedin.com/in/rylegabotero/)
+- [GitLab](https://gitlab.com/ryleanthony.gabotero)
 
-## Professional profiles
+## External reference
 
-- [GitHub](https://github.com/Dev-RyleR6): Source repositories and project work.
-- [GitLab](https://gitlab.com/ryleanthony.gabotero): Additional development profile.
-- [LinkedIn](https://www.linkedin.com/in/rylegabotero/): Professional profile.
-- [Telegram](https://t.me/ryleanthony): Direct communication channel.
+- [Foundation University regional competition record](https://www.foundationu.edu.ph/post/foundation-university-bags-gold-medals-at-the-nir-regional-skills-olympics): Names Ryle Anthony Gabotero and Earl John Estandarte as Cybersecurity gold medalists.

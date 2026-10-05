@@ -21,7 +21,7 @@ CONTACT_EMAIL=you@example.com
 RESEND_FROM_EMAIL=contact@your-domain.com
 ```
 
-Set `NEXT_PUBLIC_SITE_URL` in production if the deployment platform does not expose a Vercel production URL. It is used for canonical URLs, the sitemap, and structured metadata.
+Canonical URLs, the sitemap, and structured data use `siteConfig.url` in `lib/site.ts`. Set `NEXT_PUBLIC_SITE_URL` to the same production domain for contact origin checks. Configure hosting to permanently redirect HTTP to HTTPS.
 
 The GitHub activity section reads the contribution calendar through GitHub's GraphQL API. Add a server-only token with read access to the profile data:
 
@@ -47,3 +47,5 @@ npm run typecheck
 npm run lint
 npm run build
 ```
+
+SEO validation and deployment/Search Console steps are recorded in [SEO-AUDIT.md](SEO-AUDIT.md). With a production server on port 3100, run `npm.cmd run audit:seo`; pass the deployed origin to audit the live release.

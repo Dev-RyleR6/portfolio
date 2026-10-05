@@ -3,13 +3,13 @@ import Link from "next/link";
 import { GitHubActivity } from "@/components/GitHubActivity";
 import { SectionDock } from "@/components/SectionDock";
 
-import { getSiteUrl, siteConfig } from "@/lib/site";
+import { pageMetadata, siteConfig } from "@/lib/site";
+
+import { profileStructuredData } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
-  title: siteConfig.title,
-  description:
-    "Software engineer based in Negros Island Region, Philippines, specializing in backend systems, cybersecurity, applied AI, and real-time architectures.",
-  alternates: { canonical: "/" },
+  ...pageMetadata(siteConfig.title, siteConfig.description, "/"),
+  other: { thumbnail: `${siteConfig.url}${siteConfig.profileImage}` },
 };
 
 const focusAreas = [
@@ -41,20 +41,7 @@ function ArrowIcon() {
 }
 
 export default function HomePage() {
-  const siteUrl = getSiteUrl();
-  const profileSchema = {
-    "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    "@id": `${siteUrl}/#profilepage`,
-    url: siteUrl,
-    name: siteConfig.title,
-    isPartOf: { "@id": `${siteUrl}/#website` },
-    mainEntity: {
-      "@type": "Person",
-      "@id": `${siteUrl}/#person`,
-      name: siteConfig.name,
-    },
-  };
+  const profileSchema = profileStructuredData();
 
   return (
     <>
@@ -67,7 +54,7 @@ export default function HomePage() {
         <section className="content-section" id="focus" aria-labelledby="focus-title">
           <div className="section-heading--split profile-section-heading">
             <h2 id="focus-title">A little about me and what I do</h2>
-            <p>Hi, I’m Ryle. I’m a software engineer who likes building things that solve real problems. Most of my work involves backend development, cybersecurity, and applied AI. I now integrate AI as part of my workflow to speed up research, implementation, debugging, refactoring, and testing, while still making the architecture, security, and final implementation decisions myself. I enjoy figuring out how things work, solving technical problems, and turning ideas into software that’s actually useful.</p>
+            <p>Hi, I’m Ryle. I’m a software engineer who likes building things that solve real problems. Most of my work involves backend development, cybersecurity, systems administration, and applied AI. I now integrate AI as part of my workflow to speed up research, implementation, debugging, refactoring, and testing, while still making the architecture, security, and final implementation decisions myself. I enjoy figuring out how things work, solving technical problems, and turning ideas into software that’s actually useful.</p>
           </div>
           <div className="focus-ledger">
             {focusAreas.map((item) => (

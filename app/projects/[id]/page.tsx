@@ -61,8 +61,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     description: project.description,
     url: pageUrl,
     image: `${siteUrl}${project.image}`,
-    applicationCategory: project.categoryLabel,
-    programmingLanguage: project.technologies,
+    about: project.technologies,
+    programmingLanguage: project.technologies.filter((technology) =>
+      ["TypeScript", "Python", "Kotlin"].includes(technology),
+    ),
     codeRepository: repositories,
     author: { "@id": `${siteUrl}/#person` },
     mainEntityOfPage: pageUrl,

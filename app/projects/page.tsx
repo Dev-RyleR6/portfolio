@@ -18,7 +18,6 @@ export default function ProjectsPage() {
     "@id": `${siteUrl}/projects#project-list`,
     name: "Software Projects by Ryle Anthony Gabotero",
     url: `${siteUrl}/projects`,
-    author: { "@id": `${siteUrl}/#person` },
     itemListElement: projects.map((p, index) => ({
       "@type": "ListItem",
       position: index + 1,
@@ -26,7 +25,10 @@ export default function ProjectsPage() {
         "@type": "SoftwareSourceCode",
         name: p.title,
         description: p.description,
-        programmingLanguage: p.technologies,
+        about: p.technologies,
+        programmingLanguage: p.technologies.filter((technology) =>
+          ["TypeScript", "Python", "Kotlin"].includes(technology),
+        ),
         codeRepository: p.links.find((l) => l.href.includes("github.com"))?.href,
         image: `${siteUrl}${p.image}`,
         author: { "@id": `${siteUrl}/#person` },

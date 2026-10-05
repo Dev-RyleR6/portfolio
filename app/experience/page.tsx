@@ -122,11 +122,10 @@ export default function ExperiencePage() {
     description: "National and regional cybersecurity competitions, technical training, and formal assessments earned by Ryle Anthony Gabotero.",
     mainEntity: {
       "@type": "Person",
+      "@id": `${siteUrl}/#person`,
       name: siteConfig.name,
       award: [
-        "National Competitor - WorldSkills Philippines Clark 2026 (Cybersecurity)",
         "Gold Medalist - NIR Regional Skills Olympics 2026 (Cybersecurity)",
-        "Participant - Huawei Developer Competition APAC 2025 (Cloud & AI)",
         "4th Place - Can You HackIT: The IBPAP Challenge 2025",
       ],
       hasCredential: [
