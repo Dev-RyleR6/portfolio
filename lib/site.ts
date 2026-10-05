@@ -6,7 +6,7 @@ export const siteConfig = {
   profileImage: "/assets/images/profile2.webp",
   title: "Ryle Anthony Gabotero | Software Engineer",
   description:
-    "Ryle Anthony Gabotero is a software engineer in Dumaguete City, Philippines, working across backend development, cybersecurity, systems administration, and applied AI.",
+    "Ryle Anthony Gabotero is a software engineer based in Negros Island Region, Philippines, specializing in backend development, cybersecurity, systems administration, and applied AI.",
   email: "ryleanthony.gabotero@gmail.com",
   github: "https://github.com/Dev-RyleR6",
   gitlab: "https://gitlab.com/ryleanthony.gabotero",
