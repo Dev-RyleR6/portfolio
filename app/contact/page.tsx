@@ -5,7 +5,7 @@ import { getSiteUrl, pageMetadata, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata(
   "Contact",
-  "Contact Ryle Anthony Gabotero about software engineering roles, cybersecurity projects, applied AI, and technical collaborations.",
+  "Contact Ryle Anthony Gabotero about software engineering roles, freelance client projects, cybersecurity projects, applied AI, and technical collaborations.",
   "/contact"
 );
 
@@ -17,7 +17,7 @@ export default function ContactPage() {
     name: "Contact Ryle Anthony Gabotero",
     url: `${siteUrl}/contact`,
     description:
-      "Contact Ryle Anthony Gabotero about software engineering roles, cybersecurity projects, applied AI, and technical collaborations.",
+      "Contact Ryle Anthony Gabotero about software engineering roles, freelance client projects, cybersecurity projects, applied AI, and technical collaborations.",
     mainEntity: {
       "@type": "Person",
       "@id": `${siteUrl}/#person`,
@@ -38,9 +38,9 @@ export default function ContactPage() {
       <header className="page-intro page-intro--contact" id="contact">
         <h1 id="contact-title">Let’s talk about what’s next.</h1>
         <p className="page-intro__lede">
-          Reach out about software engineering roles, cybersecurity projects,
-          applied AI work, or technical collaborations. I usually reply within
-          24 to 48 hours.
+          Reach out about software engineering roles, freelance client projects,
+          cybersecurity work, applied AI pipelines, or technical collaborations.
+          I usually reply within 24 to 48 hours.
         </p>
       </header>
 
@@ -97,7 +97,7 @@ export default function ContactPage() {
               <p>
                 Based in <strong>Negros Island Region, Philippines</strong> (UTC+8).
                 <br />
-                Available for local and remote opportunities.
+                Available for freelance projects, contract work, and full-time engineering roles (remote or on-site).
               </p>
               <a
                 className="contact-resume-link"

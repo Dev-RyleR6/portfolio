@@ -8,15 +8,15 @@ web
 
 ## Users
 
-The primary users are recruiters and hiring managers evaluating Ryle Anthony Gabotero for software-engineering roles. Secondary users are potential collaborators and technical peers reviewing his work, capabilities, and professional record.
+The primary users are recruiters and hiring managers evaluating Ryle Anthony Gabotero for software-engineering roles. Secondary users are potential collaborators, clients, and technical peers reviewing his work, capabilities, and professional record.
 
 ## Product Purpose
 
-This portfolio helps visitors assess Ryle's engineering capabilities and supporting evidence, then reach him through an appropriate professional channel. Success means generating qualified software-engineering opportunities or credible collaboration inquiries.
+This portfolio helps visitors assess Ryle's engineering capabilities and supporting evidence, then reach him through an appropriate professional channel. Success means generating qualified software-engineering opportunities, client inquiries, or credible collaboration opportunities.
 
 ## Positioning
 
-An evidence-backed engineering portfolio connecting backend systems, cybersecurity, and applied AI. Claims are supported through working projects, source repositories, competition records, credentials, demonstrations, and activity evidence rather than an unsupported skills list.
+An evidence-backed engineering portfolio connecting backend systems, cybersecurity, freelance client systems, and applied AI. Claims are supported through working projects, source repositories, competition records, credentials, demonstrations, and activity evidence rather than an unsupported skills list.
 
 ## Operating Context
 
@@ -25,7 +25,7 @@ Visitors move between a profile overview, filterable project case studies, exper
 ## Capabilities and Constraints
 
 - Presents six categorized engineering projects with technical descriptions, technology lists, live previews, repositories, demonstrations, and related evidence where available.
-- Documents competition experience, training, assessments, credentials, and supporting gallery material.
+- Documents freelance engineering, competition experience, training, assessments, credentials, and supporting gallery material.
 - Provides professional profile links and a contact workflow backed by Web3Forms.
 - Uses Next.js App Router, React, and TypeScript, with canonical metadata, sitemap, robots metadata, and structured person data.
 - Must remain responsive, theme-aware, keyboard-accessible, and respectful of reduced-motion preferences.
@@ -36,7 +36,7 @@ Visitors move between a profile overview, filterable project case studies, exper
 - Preserve the personal identity `Ryle Anthony Gabotero` and the `devR6` wordmark.
 - Preserve the established professional profile and contact links unless Ryle explicitly updates them.
 - Keep the voice direct, technically specific, credible, and evidence-led.
-- Present Ryle as a software engineer spanning backend systems, cybersecurity, applied AI, and data engineering without overstating expertise or outcomes.
+- Present Ryle as a software engineer spanning backend systems, full-stack client development, cybersecurity, applied AI, and data engineering without overstating expertise or outcomes.
 
 ## Evidence on Hand
 
@@ -47,8 +47,8 @@ Visitors move between a profile overview, filterable project case studies, exper
 - KOICA training photography under `public/assets/images/koica/`.
 - TOPCIT score and certificate PDF at `public/assets/docs/My Page _ Score & Certificate _Overall achievement _ TOPCIT.pdf`.
 - Huawei Developer Competition certificate at `public/assets/docs/HDC2511200D53A1DE.pdf`.
-- Competition, credential, and activity copy in `app/experience/page.tsx` and `app/gallery/page.tsx`.
-- No testimonials, client roster, commercial performance data, or employment outcome metrics are currently established; future work must not fabricate them.
+- Work experience, competition, credential, and activity copy in `app/experience/page.tsx` and `app/gallery/page.tsx`.
+- Freelance client deliverables encompass real-time booking engines (Pickle World), an event photobooth platform, and responsive web properties across medical/clinic practices, construction, and aesthetic products. Future work must not fabricate unverified clients or metrics.
 
 ## Product Principles
 

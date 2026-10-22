@@ -8,9 +8,48 @@ import "@/css/section/experience.css";
 
 export const metadata: Metadata = pageMetadata(
   "Experience & Credentials",
-  "National and regional cybersecurity competitions, technical training, and formal assessments earned by Ryle Anthony Gabotero.",
+  "Freelance software engineering, national and regional cybersecurity competitions, technical training, and formal assessments earned by Ryle Anthony Gabotero.",
   "/experience"
 );
+
+const freelanceExperience = [
+  {
+    date: "2024 – Present",
+    datetime: "2024/2026",
+    standing: "Client Systems & Platforms",
+    title: "Freelance Full-Stack Developer",
+    role: "Contract & Client Software Engineering",
+    summary:
+      "Architected, built, and deployed full-stack web applications, real-time booking engines, event systems, and commercial web platforms for independent clients and businesses across diverse industries.",
+    deliverables: [
+      {
+        label: "Real-Time Venue Reservation System (Pickle World)",
+        details:
+          "Engineered a multi-court booking engine with real-time WebSocket slot locking, payment webhook reconciliation, and strict MySQL transaction isolation to prevent double bookings under concurrency.",
+      },
+      {
+        label: "Interactive Event Photobooth Platform",
+        details:
+          "Developed an event platform featuring dynamic media uploads, live photo gallery display, QR check-in flows, POS-queue extensions, and low-latency WebSocket updates.",
+      },
+      {
+        label: "Industry & Commercial Web Platforms",
+        details:
+          "Designed, developed, and deployed modern, responsive websites and web applications across medical/clinic practices, construction firms, and aesthetic product brands—prioritizing mobile performance, clear information architecture, and lead generation.",
+      },
+    ],
+    technologies: [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "MySQL",
+      "WebSockets",
+      "Tailwind CSS",
+      "REST APIs",
+    ],
+  },
+];
 
 const featuredCompetitions = [
   {
@@ -119,11 +158,17 @@ export default function ExperiencePage() {
     "@type": "AboutPage",
     name: "Experience & Credentials | Ryle Anthony Gabotero",
     url: `${siteUrl}/experience`,
-    description: "National and regional cybersecurity competitions, technical training, and formal assessments earned by Ryle Anthony Gabotero.",
+    description: "Freelance software engineering, national and regional cybersecurity competitions, technical training, and formal assessments earned by Ryle Anthony Gabotero.",
     mainEntity: {
       "@type": "Person",
       "@id": `${siteUrl}/#person`,
       name: siteConfig.name,
+      jobTitle: "Software Engineer",
+      hasOccupation: {
+        "@type": "Occupation",
+        name: "Freelance Full-Stack Developer",
+        occupationalCategory: "Software Developers",
+      },
       award: [
         "Gold Medalist - NIR Regional Skills Olympics 2026 (Cybersecurity)",
         "4th Place - Can You HackIT: The IBPAP Challenge 2025",
@@ -150,6 +195,7 @@ export default function ExperiencePage() {
       ],
     },
   };
+
   return (
     <>
       <script
@@ -164,7 +210,7 @@ export default function ExperiencePage() {
         </div>
         <div className="experience-intro__details">
           <p className="page-intro__lede">
-            Skills competitions, hackathons, and technical training programs.
+            Freelance engineering, national skills competitions, hackathons, and technical training programs.
           </p>
           <a className="resume-entry" href={siteConfig.resume} target="_blank" rel="noopener noreferrer">
             <svg className="resume-entry__document" width={24} height={24} aria-hidden="true" viewBox="0 0 24 24" fill="none">
@@ -196,6 +242,59 @@ export default function ExperiencePage() {
           </a>
         </div>
       </header>
+
+      <section className="content-section" id="work" aria-labelledby="work-title">
+        <div className="section-heading--split">
+          <div>
+            <h2 id="work-title">Work &amp; Freelance Experience</h2>
+          </div>
+          <p>
+            Client engineering, production web systems, and interactive platforms delivered for businesses and independent clients.
+          </p>
+        </div>
+        <div className="timeline-ledger">
+          {freelanceExperience.map((item) => (
+            <article className="timeline-ledger__item" key={item.title}>
+              <div className="timeline-ledger__col-meta">
+                <time className="timeline-ledger__date" dateTime={item.datetime}>
+                  {item.date}
+                </time>
+                <span className="timeline-ledger__standing">{item.standing}</span>
+              </div>
+              <div className="timeline-ledger__col-main">
+                <h3 className="timeline-ledger__title">{item.title}</h3>
+                <p className="timeline-ledger__role">{item.role}</p>
+                <p className="timeline-ledger__summary">{item.summary}</p>
+
+                <ul className="timeline-ledger__deliverables" aria-label="Key freelance deliverables">
+                  {item.deliverables.map((deliv) => (
+                    <li className="timeline-ledger__deliverable-item" key={deliv.label}>
+                      <strong>{deliv.label}:</strong> {deliv.details}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="timeline-ledger__tags" aria-label="Technologies used">
+                  {item.technologies.map((tech) => (
+                    <span className="timeline-ledger__tag" key={tech}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="timeline-ledger__actions">
+                  <Link className="timeline-ledger__link" href="/projects">
+                    Explore project case studies →
+                  </Link>
+                  <Link className="timeline-ledger__link timeline-ledger__link--secondary" href="/contact">
+                    Discuss a project ↗
+                  </Link>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
 
       <section className="content-section" id="competitions" aria-labelledby="competitions-title">
         <div className="section-heading--split">
@@ -320,7 +419,7 @@ export default function ExperiencePage() {
 
       <NextStep
         title="See how this experience becomes working software."
-        description="The project archive connects these competition and training environments to systems I have designed and shipped."
+        description="The project archive connects these client systems, competitions, and training environments to software I have designed and shipped."
         links={[
           { href: "/projects", label: "Explore projects" },
           { href: "/contact", label: "Start a conversation" },
@@ -330,6 +429,7 @@ export default function ExperiencePage() {
       <SectionDock
         items={[
           { id: "overview", label: "Overview" },
+          { id: "work", label: "Work & Freelance" },
           { id: "competitions", label: "Competitions" },
           { id: "credentials", label: "Certifications" },
         ]}
