@@ -224,7 +224,7 @@
 }
 
 .timeline-ledger__summary {
-  max-width: 66ch;
+  max-width: 68ch;
   margin: 0;
   color: var(--color-text-light);
   font-size: 0.94rem;
@@ -425,10 +425,10 @@
 .timeline-ledger__deliverables {
   list-style: none;
   padding: 0;
-  margin: 0.35rem 0 0.5rem;
+  margin: 0.4rem 0 0.65rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.85rem;
   max-width: 68ch;
 }
 
@@ -436,7 +436,7 @@
   position: relative;
   padding-left: 1.15rem;
   font-size: 0.92rem;
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--color-text-light);
 }
 
@@ -456,22 +456,67 @@
   font-weight: 650;
 }
 
-.timeline-ledger__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  margin: 0.35rem 0 0.5rem;
+@media (min-width: 769px) {
+  .timeline-ledger__deliverable-item {
+    text-align: justify;
+    text-align-last: start;
+    text-justify: inter-word;
+    -webkit-hyphens: none;
+    hyphens: none;
+  }
 }
 
-.timeline-ledger__tag {
+@media (max-width: 768px) {
+  .timeline-ledger__deliverable-item {
+    text-align: start;
+    text-align-last: auto;
+    text-justify: auto;
+    text-wrap: pretty;
+  }
+}
+
+.timeline-ledger__tech {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.65rem;
+  margin: 0.5rem 0 0.35rem;
+  max-width: 68ch;
+}
+
+.timeline-ledger__tech-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.timeline-ledger__tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.65rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.timeline-ledger__tech-list li {
   display: inline-flex;
   align-items: center;
-  padding: 0.18rem 0.55rem;
-  border-radius: 6px;
-  background: var(--color-hover);
-  border: 1px solid var(--color-border);
-  color: var(--color-text-light);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.74rem;
+  font-size: 0.84rem;
   font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.45;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.timeline-ledger__tech-list li:not(:last-child)::after {
+  content: "·";
+  margin-left: 0.65rem;
+  color: var(--color-text-muted);
+  font-weight: 700;
 }

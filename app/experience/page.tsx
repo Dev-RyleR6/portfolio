@@ -274,12 +274,13 @@ export default function ExperiencePage() {
                   ))}
                 </ul>
 
-                <div className="timeline-ledger__tags" aria-label="Technologies used">
-                  {item.technologies.map((tech) => (
-                    <span className="timeline-ledger__tag" key={tech}>
-                      {tech}
-                    </span>
-                  ))}
+                <div className="timeline-ledger__tech">
+                  <span className="timeline-ledger__tech-label">Stack</span>
+                  <ul className="timeline-ledger__tech-list" aria-label="Technologies used">
+                    {item.technologies.map((tech) => (
+                      <li key={tech}>{tech}</li>
+                    ))}
+                  </ul>
                 </div>
 
                 <div className="timeline-ledger__actions">
