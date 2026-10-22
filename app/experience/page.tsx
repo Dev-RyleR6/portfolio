@@ -41,6 +41,10 @@ const freelanceExperience = [
     technologies: [
       "React",
       "TypeScript",
+      "Next.js",
+      "WordPress",
+      "Laravel",
+      "CodeIgniter",
       "Node.js",
       "Express",
       "MySQL",
@@ -274,14 +278,34 @@ export default function ExperiencePage() {
                   ))}
                 </ul>
 
-                <div className="timeline-ledger__tech">
-                  <span className="timeline-ledger__tech-label">Stack</span>
+                <details className="timeline-ledger__tech-details">
+                  <summary className="timeline-ledger__tech-summary">
+                    <span className="timeline-ledger__tech-label">Stack</span>
+                    <span className="timeline-ledger__tech-dot" aria-hidden="true">·</span>
+                    <span className="timeline-ledger__tech-count">{item.technologies.length} technologies</span>
+                    <svg
+                      className="timeline-ledger__tech-chevron"
+                      width={14}
+                      height={14}
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M4 6l4 4 4-4"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </summary>
                   <ul className="timeline-ledger__tech-list" aria-label="Technologies used">
                     {item.technologies.map((tech) => (
                       <li key={tech}>{tech}</li>
                     ))}
                   </ul>
-                </div>
+                </details>
 
                 <div className="timeline-ledger__actions">
                   <Link className="timeline-ledger__link" href="/projects">

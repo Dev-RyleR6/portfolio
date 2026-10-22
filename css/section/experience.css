@@ -484,6 +484,68 @@
   max-width: 68ch;
 }
 
+.timeline-ledger__tech-details {
+  margin: 0.5rem 0 0.25rem;
+  max-width: 68ch;
+}
+
+.timeline-ledger__tech-summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.2rem 0;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  width: fit-content;
+  color: var(--color-text-muted);
+  transition: color 0.18s ease;
+}
+
+.timeline-ledger__tech-summary::-webkit-details-marker,
+.timeline-ledger__tech-summary::marker {
+  display: none;
+}
+
+.timeline-ledger__tech-summary:hover,
+.timeline-ledger__tech-summary:focus-visible {
+  color: var(--color-accent);
+}
+
+.timeline-ledger__tech-summary:hover .timeline-ledger__tech-label,
+.timeline-ledger__tech-summary:focus-visible .timeline-ledger__tech-label {
+  color: var(--color-text);
+}
+
+.timeline-ledger__tech-dot {
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.timeline-ledger__tech-count {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  transition: color 0.18s ease;
+}
+
+.timeline-ledger__tech-summary:hover .timeline-ledger__tech-count,
+.timeline-ledger__tech-summary:focus-visible .timeline-ledger__tech-count {
+  color: var(--color-text-light);
+}
+
+.timeline-ledger__tech-chevron {
+  width: 13px;
+  height: 13px;
+  color: var(--color-text-muted);
+  transition: transform 0.2s ease, color 0.18s ease;
+  flex-shrink: 0;
+}
+
+.timeline-ledger__tech-details[open] .timeline-ledger__tech-chevron {
+  transform: rotate(180deg);
+}
+
 .timeline-ledger__tech-label {
   font-size: 0.78rem;
   font-weight: 700;
