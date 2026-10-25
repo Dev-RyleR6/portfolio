@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { FloatingRobotChat } from "@/components/FloatingRobotChat";
 import { PageTabs } from "@/components/PageTabs";
 import { ProfileHeader } from "@/components/ProfileHeader";
 import { VisitorStatus } from "@/components/VisitorStatus";
@@ -16,6 +17,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
           <p>© 2025 Ryle Anthony Gabotero. All rights reserved.</p>
         </footer>
       </main>
+      <FloatingRobotChat />
     </>
   );
 }
