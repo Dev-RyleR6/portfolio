@@ -28,7 +28,7 @@ const workExperience: WorkExperienceItem[] = [
   {
     date: "2024 – Present",
     datetime: "2024/2026",
-    standing: "Client & Production Work",
+    standing: "Client Work",
     title: "Full-Stack Web Developer",
     role: "Web Development & Systems",
     summary:
@@ -66,9 +66,9 @@ const workExperience: WorkExperienceItem[] = [
   {
     date: "2024 – Present",
     datetime: "2024/2026",
-    standing: "Student Tech Team & Leadership",
+    standing: "Student Tech Team",
     title: "Co-Founder & Technical Lead",
-    role: "Team SHIFT (Students Harnessing Interest for Technology)",
+    role: "Team SHIFT",
     summary:
       "Co-founded SHIFT (Students Harnessing Interest for Technology), a student-led engineering team dedicated to building real projects, shipping university internal systems, and competing across software development, systems administration, networking, AI & data science, and cybersecurity.",
     deliverables: [
@@ -106,11 +106,11 @@ const workExperience: WorkExperienceItem[] = [
     ],
   },
   {
-    date: "2024 – 2025",
-    datetime: "2024/2025",
-    standing: "Undergraduate Capstone Engineering",
-    title: "Lead Computer Vision & Embedded IoT Engineer",
-    role: "OvaLens Ecosystem (Automated Duck Egg Candling & Sorting)",
+    date: "2026 – 2027",
+    datetime: "2026/2027",
+    standing: "Undergraduate Capstone",
+    title: "Lead AI Systems Architecture & Embedded Hardware Engineer",
+    role: "OvaLens Ecosystem · Automated Candling & Sorting",
     summary:
       "Architected and built an end-to-end autonomous duck-egg candling and fertility sorting machine for my undergraduate capstone—spanning custom computer vision model optimization, low-compute edge deployment, multi-microcontroller hardware orchestration, and offline-first synchronization.",
     deliverables: [
