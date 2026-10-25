@@ -8,11 +8,180 @@ import "@/css/section/experience.css";
 
 export const metadata: Metadata = pageMetadata(
   "Experience & Credentials",
-  "National and regional cybersecurity competitions, technical training, and formal assessments earned by Ryle Anthony Gabotero.",
+  "Client software engineering, student technical leadership at Team SHIFT, applied AI capstone research, national cybersecurity competitions, and technical credentials earned by Ryle Anthony Gabotero.",
   "/experience"
 );
 
+type WorkExperienceItem = {
+  date: string;
+  datetime: string;
+  standing: string;
+  title: string;
+  role: string;
+  summary: string;
+  deliverables: { label: string; details: string }[];
+  technologies: string[];
+  links: { label: string; href: string; external?: boolean; secondary?: boolean }[];
+};
+
+const workExperience: WorkExperienceItem[] = [
+  {
+    date: "2024 – Present",
+    datetime: "2024/2026",
+    standing: "Client Work",
+    title: "Full-Stack Web Developer",
+    role: "Web Development & Systems",
+    summary:
+      "I design, build, and ship custom websites and web systems for clients, tailoring the design, user flows, and backend functionality to their specific requirements.",
+    deliverables: [
+      {
+        label: "Clinic & Healthcare Website",
+        details:
+          "Designed, built, and shipped a modern, responsive clinic website featuring clean navigation, clear medical service information, and appointment/inquiry flows optimized for patients across all devices.",
+      },
+      {
+        label: "Custom Client Websites",
+        details:
+          "Developed and deployed bespoke websites and business landing pages, focusing on speed, accessible design, SEO performance, and reliable production hosting.",
+      },
+    ],
+    technologies: [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "WordPress",
+      "Laravel",
+      "CodeIgniter",
+      "Node.js",
+      "Express",
+      "MySQL",
+      "WebSockets",
+      "Tailwind CSS",
+      "REST APIs",
+    ],
+    links: [
+      { label: "Start a project →", href: "/contact", external: false },
+    ],
+  },
+  {
+    date: "2024 – Present",
+    datetime: "2024/2026",
+    standing: "Student Tech Team",
+    title: "Co-Founder & Technical Lead",
+    role: "Team SHIFT",
+    summary:
+      "Co-founded SHIFT (Students Harnessing Interest for Technology), a student-led engineering team dedicated to building real projects, shipping university internal systems, and competing across software development, systems administration, networking, AI & data science, and cybersecurity.",
+    deliverables: [
+      {
+        label: "University Internal Tools & Campus Systems",
+        details:
+          "Architected and built internal tools, administrative systems, and responsive websites for university departments and student organizations to modernize manual campus workflows.",
+      },
+      {
+        label: "Facial Recognition Attendance Checker (FRACS)",
+        details:
+          "Engineered an automated attendance tracking platform combining computer-vision face recognition with backend logging to replace manual sign-in queues with low-latency biometric verification.",
+      },
+      {
+        label: "Technical Competition & Hackathon Squads",
+        details:
+          "Led multidisciplinary student teams for hackathons, CTFs, and tech challenges, including achieving Top 5 honors at the Can You HackIT: IBPAP Challenge.",
+      },
+    ],
+    technologies: [
+      "Code Igniter",
+      "Laravel",
+      "PHP",
+      "MySQL",
+      "JavaScript",
+      "Tailwind CSS",
+      "Rest APIs",
+      "WebSockets",
+      "Web Hooks",
+      "Python",
+      "OpenCV",
+      "Face Recognition",
+      "Node.js",
+      "Express",
+      "TypeScript",
+      "React",
+      "Linux",
+      "Systems Administration",
+      "Networking",
+      "Git",
+    ],
+    links: [
+      { label: "View Team SHIFT in gallery →", href: "/gallery#hackit", external: false },
+    ],
+  },
+  {
+    date: "2026 – 2027",
+    datetime: "2026/2027",
+    standing: "Undergraduate Capstone",
+    title: "Lead AI Systems Architect & Embedded Hardware Engineer",
+    role: "OvaLens Ecosystem · Automated Candling & Sorting",
+    summary:
+      "Architected and built an end-to-end autonomous duck-egg candling and fertility sorting machine for my undergraduate capstone—spanning custom computer vision model optimization, low-compute edge deployment, multi-microcontroller hardware orchestration, and offline-first synchronization.",
+    deliverables: [
+      {
+        label: "Custom YOLOv8 Training, Hyperparameter Tuning & ONNX Quantization",
+        details:
+          "Trained and fine-tuned a custom YOLOv8 computer vision model on our curated candling dataset, iteratively tuned hyperparameters for detection accuracy, and quantized the model via ONNX for efficient, low-latency inference on a resource-constrained Raspberry Pi.",
+      },
+      {
+        label: "Electromechanical Hardware Orchestration & Microcontroller Actuation",
+        details:
+          "Engineered the entire IoT and hardware architecture, interfacing ESP32 microcontrollers, NEMA stepper motor drivers for precise conveyor movement, camera modules under controlled exposure, and servo diversion gates to physically sort eggs based on real-time classification.",
+      },
+      {
+        label: "Edge Control Application, Backend & Offline Synchronization",
+        details:
+          "Developed a native application that manages hardware states, conveyor timing, and classification pipelines in real time, backed by a companion web system and offline-sync engine that caches records locally during network dropouts and automatically syncs upon reconnection.",
+      },
+    ],
+    technologies: [
+      "Python",
+      "YOLOv8",
+      "ONNX",
+      "PyTorch",
+      "Raspberry Pi",
+      "ESP32",
+      "C/C++",
+      "OpenCV",
+      "NEMA Stepper Drivers",
+      "Hardware IoT",
+      "WebSockets",
+      "Offline Sync",
+    ],
+    links: [
+      { label: "Explore OvaLens case study →", href: "/projects/ovalens", external: false },
+      { label: "Model repository ↗", href: "https://github.com/Dev-RyleR6/OvaLens-Ecosystem", external: true, secondary: true },
+    ],
+  },
+];
+
 const featuredCompetitions = [
+  {
+    date: "October 2026",
+    datetime: "2026-10",
+    standing: "6th place · Regional CTF",
+    title: "HackForGov 5 – Negros Island Region",
+    role: "CTF Player",
+    summary:
+      "Competed as the dedicated cryptography specialist for Team SHIFT in the regional Capture-the-Flag (CTF) cybersecurity competition organized by DICT and CERT-PH at Roys Hotel and Convention Center in Bacolod City. Held the #1 spot on the live scoreboard for several hours during the challenge rounds, ultimately securing a 6th place finish across cryptanalysis, network forensics, OSINT, reverse engineering, and web security.",
+    image: "/assets/images/hackforgov/hck4govshift.webp",
+    imageAlt: "Team SHIFT on stage at HackForGov 5 Negros Island Region in Bacolod City",
+    caption: "Team SHIFT on stage at HackForGov 5 NIR in Bacolod City",
+    links: [
+      { label: "View event gallery →", href: "/gallery#hackforgov", external: false },
+      {
+        label: "DICT official record ↗",
+        href: "https://web.facebook.com/DICTNegrosOccidental/posts/%F0%9D%97%94%F0%9D%97%A5%F0%9D%97%9C%F0%9D%97%95%F0%9D%97%94-%F0%9D%97%A1%F0%9D%97%98%F0%9D%97%9A%F0%9D%97%A5%F0%9D%97%98%F0%9D%97%A1%F0%9D%97%A6%F0%9D%97%98the-department-of-information-and-communications-technology-dict-t/122255575184055743/?_rdc=1&_rdr#",
+        external: true,
+      },
+    ],
+  },
+
   {
     date: "September 2026",
     datetime: "2026-09",
@@ -119,13 +288,33 @@ export default function ExperiencePage() {
     "@type": "AboutPage",
     name: "Experience & Credentials | Ryle Anthony Gabotero",
     url: `${siteUrl}/experience`,
-    description: "National and regional cybersecurity competitions, technical training, and formal assessments earned by Ryle Anthony Gabotero.",
+    description: "Work experience, national and regional cybersecurity competitions, technical training, and formal assessments earned by Ryle Anthony Gabotero.",
     mainEntity: {
       "@type": "Person",
       "@id": `${siteUrl}/#person`,
       name: siteConfig.name,
+      jobTitle: "Software Engineer",
+      hasOccupation: [
+        {
+          "@type": "Occupation",
+          name: "Full-Stack Web Developer",
+          occupationalCategory: "Software Developers",
+        },
+        {
+          "@type": "Occupation",
+          name: "Co-Founder & Technical Lead",
+          occupationalCategory: "Technical Leadership & Software Engineering",
+        },
+      ],
+      memberOf: [
+        {
+          "@type": "Organization",
+          name: "Team SHIFT (Students Harnessing Interest for Technology)",
+        },
+      ],
       award: [
         "Gold Medalist - NIR Regional Skills Olympics 2026 (Cybersecurity)",
+        "6th Place - HackForGov 5 Negros Island Region 2026 (Cybersecurity CTF)",
         "4th Place - Can You HackIT: The IBPAP Challenge 2025",
       ],
       hasCredential: [
@@ -150,6 +339,7 @@ export default function ExperiencePage() {
       ],
     },
   };
+
   return (
     <>
       <script
@@ -164,7 +354,7 @@ export default function ExperiencePage() {
         </div>
         <div className="experience-intro__details">
           <p className="page-intro__lede">
-            Skills competitions, hackathons, and technical training programs.
+            Client work, student engineering leadership at Team SHIFT, applied AI capstone research, and national skills competitions.
           </p>
           <a className="resume-entry" href={siteConfig.resume} target="_blank" rel="noopener noreferrer">
             <svg className="resume-entry__document" width={24} height={24} aria-hidden="true" viewBox="0 0 24 24" fill="none">
@@ -196,6 +386,95 @@ export default function ExperiencePage() {
           </a>
         </div>
       </header>
+
+      <section className="content-section" id="work" aria-labelledby="work-title">
+        <div className="section-heading--split">
+          <div>
+            <h2 id="work-title">Work &amp; Engineering Experience</h2>
+          </div>
+          <p>
+            Client production systems, student engineering leadership, and applied AI capstone research.
+          </p>
+        </div>
+        <div className="timeline-ledger">
+          {workExperience.map((item) => (
+            <article className="timeline-ledger__item" key={item.title}>
+              <div className="timeline-ledger__col-meta">
+                <time className="timeline-ledger__date" dateTime={item.datetime}>
+                  {item.date}
+                </time>
+                <span className="timeline-ledger__standing">{item.standing}</span>
+              </div>
+              <div className="timeline-ledger__col-main">
+                <h3 className="timeline-ledger__title">{item.title}</h3>
+                <p className="timeline-ledger__role">{item.role}</p>
+                <p className="timeline-ledger__summary">{item.summary}</p>
+
+                <ul className="timeline-ledger__deliverables" aria-label="Key shipped work">
+                  {item.deliverables.map((deliv) => (
+                    <li className="timeline-ledger__deliverable-item" key={deliv.label}>
+                      <strong>{deliv.label}:</strong> {deliv.details}
+                    </li>
+                  ))}
+                </ul>
+
+                <details className="timeline-ledger__tech-details">
+                  <summary className="timeline-ledger__tech-summary">
+                    <span className="timeline-ledger__tech-label">Stack</span>
+                    <span className="timeline-ledger__tech-dot" aria-hidden="true">·</span>
+                    <span className="timeline-ledger__tech-count">{item.technologies.length} technologies</span>
+                    <svg
+                      className="timeline-ledger__tech-chevron"
+                      width={14}
+                      height={14}
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M4 6l4 4 4-4"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </summary>
+                  <ul className="timeline-ledger__tech-list" aria-label="Technologies used">
+                    {item.technologies.map((tech) => (
+                      <li key={tech}>{tech}</li>
+                    ))}
+                  </ul>
+                </details>
+
+                <div className="timeline-ledger__actions">
+                  {item.links.map((link) =>
+                    link.external ? (
+                      <a
+                        key={link.label}
+                        className={`timeline-ledger__link${link.secondary ? " timeline-ledger__link--secondary" : ""}`}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        key={link.label}
+                        className={`timeline-ledger__link${link.secondary ? " timeline-ledger__link--secondary" : ""}`}
+                        href={link.href}
+                      >
+                        {link.label}
+                      </Link>
+                    )
+                  )}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
 
       <section className="content-section" id="competitions" aria-labelledby="competitions-title">
         <div className="section-heading--split">
@@ -320,7 +599,7 @@ export default function ExperiencePage() {
 
       <NextStep
         title="See how this experience becomes working software."
-        description="The project archive connects these competition and training environments to systems I have designed and shipped."
+        description="The project archive connects these client systems, student engineering projects, competitions, and training environments to software I have designed and shipped."
         links={[
           { href: "/projects", label: "Explore projects" },
           { href: "/contact", label: "Start a conversation" },
@@ -330,6 +609,7 @@ export default function ExperiencePage() {
       <SectionDock
         items={[
           { id: "overview", label: "Overview" },
+          { id: "work", label: "Experience" },
           { id: "competitions", label: "Competitions" },
           { id: "credentials", label: "Certifications" },
         ]}

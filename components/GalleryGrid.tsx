@@ -92,7 +92,7 @@ export function GalleryGrid({
                   height={image.height}
                   priority={priorityFirst && index === 0}
                   loading={priorityFirst && index === 0 ? undefined : "lazy"}
-                  sizes={columns === "three" ? "(max-width: 800px) 100vw, 33vw" : image.variant === "gallery-item--wide" ? "(max-width: 800px) 100vw, 64rem" : "(max-width: 800px) 100vw, 50vw"}
+                  sizes={image.variant === "gallery-item--wide" ? "(max-width: 800px) 100vw, 64rem" : columns === "three" ? "(max-width: 800px) 100vw, 33vw" : "(max-width: 800px) 100vw, 50vw"}
                   alt={image.alt}
                 />
                 <span className="gallery-item__expand"><ExpandIcon /></span>

@@ -2500,6 +2500,12 @@ body.page-archive .page {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+@media (min-width: 641px) {
+  .activity-gallery--three .gallery-item:not(.gallery-item--wide):not(.gallery-item--portrait) img {
+    height: 280px;
+  }
+}
+
 .gallery-item {
   min-width: 0;
   padding: 0;
@@ -2800,19 +2806,27 @@ html.modal-open {
   grid-template-rows: minmax(0, 1fr) auto;
   min-width: 0;
   min-height: 0;
+  height: 100%;
   margin: 0;
 }
 
 .gallery-lightbox__image-wrap {
-  display: grid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
   min-height: 0;
-  place-items: center;
+  box-sizing: border-box;
   padding: 2.75rem clamp(2.25rem, 6vw, 4.75rem) 0.75rem;
   overflow: hidden;
 }
 
 .gallery-lightbox__image-wrap img {
   display: block;
+  width: auto;
+  height: auto;
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;

@@ -47,13 +47,13 @@ export const projects: Project[] = [
   },
   {
     id: "ovalens", title: "OvaLens Ecosystem", subtitle: "YOLOv8 Computer Vision & IoT", category: "security-ai", categoryLabel: "Computer Vision & IoT", image: "/assets/images/projects/ovalens.webp", imageAlt: "OvaLens computer vision and conveyor architecture", mediaOrientation: "portrait",
-    description: "Automated duck egg candling and fertility sorting powered by a custom YOLOv8 model, camera exposure controls, a Python edge client, and ESP32 conveyor actuation.",
+    description: "Automated duck egg candling and fertility sorting powered by a fine-tuned, ONNX-quantized YOLOv8 model on Raspberry Pi, NEMA stepper motor conveyor orchestration, ESP32 microcontrollers, and an offline-sync control architecture.",
     caseStudy: {
-      problem: "Duck-egg candling needs consistent visual classification and coordination with the physical sorting mechanism.",
-      decision: "Pair a custom YOLOv8 model and controlled camera exposure with a Python edge client and ESP32 conveyor actuation.",
-      outcome: "One edge pipeline connects image classification directly to the conveyor sorting response.",
+      problem: "Duck-egg candling required reliable computer vision classification under controlled camera exposure, synchronized conveyor sorting on low-power edge hardware, and uninterrupted operation despite intermittent connectivity.",
+      decision: "Fine-tune YOLOv8 on a custom dataset with hyperparameter optimization, quantize via ONNX for Raspberry Pi execution, orchestrate NEMA stepper drivers and ESP32 actuators, and engineer a native edge app with offline synchronization.",
+      outcome: "Sub-50ms inference on low-power edge compute, synchronized mechanical sorting via stepper and servo actuation, and local data persistence that syncs automatically when reconnected.",
     },
-    technologies: ["Python", "YOLOv8", "OpenCV", "ESP32", "Hardware IoT"],
+    technologies: ["Python", "YOLOv8", "ONNX", "PyTorch", "Raspberry Pi", "ESP32", "OpenCV", "NEMA Stepper Drivers", "Hardware IoT", "WebSockets", "Offline Sync"],
     links: [{ label: "Model repository", href: "https://github.com/Dev-RyleR6/OvaLens-Ecosystem", external: true }, { label: "Edge client", href: "https://github.com/Dev-RyleR6/OvaLens---Edge-App", external: true }],
   },
   {
@@ -64,7 +64,7 @@ export const projects: Project[] = [
   },
   {
     id: "pickleworld", title: "Pickle World", subtitle: "Real-Time Venue Booking Engine", category: "backend", categoryLabel: "Full-Stack System", image: "/assets/images/projects/pickleworld.webp", imageAlt: "Pickle World project preview", mediaTone: "light",
-    description: "A multi-court reservation engine with WebSocket slot locks, webhook-driven payment reconciliation, and strict MySQL transaction isolation to prevent double-booking under concurrency.",
+    description: "A multi-court reservation engine featuring WebSocket slot locks, webhook-driven payment reconciliation, and strict MySQL transaction isolation to prevent double-booking under concurrency.",
     caseStudy: {
       problem: "Concurrent customers can attempt to reserve and pay for the same court slot at nearly the same time.",
       decision: "Coordinate WebSocket slot locks with payment webhooks and strict MySQL transaction isolation.",
