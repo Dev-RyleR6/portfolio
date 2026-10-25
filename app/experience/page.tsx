@@ -109,7 +109,7 @@ const workExperience: WorkExperienceItem[] = [
     date: "2026 – 2027",
     datetime: "2026/2027",
     standing: "Undergraduate Capstone",
-    title: "Lead AI Systems Architecture & Embedded Hardware Engineer",
+    title: "Lead AI Systems Architect & Embedded Hardware Engineer",
     role: "OvaLens Ecosystem · Automated Candling & Sorting",
     summary:
       "Architected and built an end-to-end autonomous duck-egg candling and fertility sorting machine for my undergraduate capstone—spanning custom computer vision model optimization, low-compute edge deployment, multi-microcontroller hardware orchestration, and offline-first synchronization.",
