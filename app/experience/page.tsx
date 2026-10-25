@@ -303,11 +303,8 @@ export default function ExperiencePage() {
                 </details>
 
                 <div className="timeline-ledger__actions">
-                  <Link className="timeline-ledger__link" href="/projects">
-                    Explore project case studies →
-                  </Link>
-                  <Link className="timeline-ledger__link timeline-ledger__link--secondary" href="/contact">
-                    Get in touch ↗
+                  <Link className="timeline-ledger__link" href="/contact">
+                    Start a project →
                   </Link>
                 </div>
               </div>
