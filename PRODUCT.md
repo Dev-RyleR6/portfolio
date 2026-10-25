@@ -49,6 +49,8 @@ Visitors move between a profile overview, filterable project case studies, exper
 - Huawei Developer Competition certificate at `public/assets/docs/HDC2511200D53A1DE.pdf`.
 - Work experience, competition, credential, and activity copy in `app/experience/page.tsx` and `app/gallery/page.tsx`.
 - Client and web deliverables include a responsive clinic website and custom business websites. Future work must not fabricate unverified client names or metrics.
+- Team SHIFT student engineering team leadership, campus internal tools, and the FRACS facial recognition attendance platform.
+- Undergraduate capstone engineering for OvaLens (custom YOLOv8 fine-tuning, hyperparameter optimization, ONNX quantization, Raspberry Pi edge deployment, ESP32 and NEMA stepper hardware orchestration, and offline synchronization).
 
 ## Product Principles
 

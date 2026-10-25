@@ -35,6 +35,12 @@ export function profileStructuredData() {
           name: "Foundation University",
           url: "https://www.foundationu.edu.ph",
         },
+        memberOf: [
+          {
+            "@type": "Organization",
+            name: "Team SHIFT (Students Harnessing Interest for Technology)",
+          },
+        ],
         address: {
           "@type": "PostalAddress",
           addressLocality: "Dumaguete City",
@@ -51,6 +57,9 @@ export function profileStructuredData() {
           "Network Security",
           "Computer Vision",
           "Applied Artificial Intelligence",
+          "Edge AI",
+          "IoT & Embedded Systems",
+          "YOLOv8",
           "Linux",
           "TypeScript",
           "Next.js",

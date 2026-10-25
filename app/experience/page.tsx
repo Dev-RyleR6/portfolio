@@ -8,11 +8,23 @@ import "@/css/section/experience.css";
 
 export const metadata: Metadata = pageMetadata(
   "Experience & Credentials",
-  "Work experience, national and regional cybersecurity competitions, technical training, and formal assessments earned by Ryle Anthony Gabotero.",
+  "Client software engineering, student technical leadership at Team SHIFT, applied AI capstone research, national cybersecurity competitions, and technical credentials earned by Ryle Anthony Gabotero.",
   "/experience"
 );
 
-const workExperience = [
+type WorkExperienceItem = {
+  date: string;
+  datetime: string;
+  standing: string;
+  title: string;
+  role: string;
+  summary: string;
+  deliverables: { label: string; details: string }[];
+  technologies: string[];
+  links: { label: string; href: string; external?: boolean; secondary?: boolean }[];
+};
+
+const workExperience: WorkExperienceItem[] = [
   {
     date: "2024 – Present",
     datetime: "2024/2026",
@@ -46,6 +58,95 @@ const workExperience = [
       "WebSockets",
       "Tailwind CSS",
       "REST APIs",
+    ],
+    links: [
+      { label: "Start a project →", href: "/contact", external: false },
+    ],
+  },
+  {
+    date: "2024 – Present",
+    datetime: "2024/2026",
+    standing: "Student Tech Team & Leadership",
+    title: "Co-Founder & Technical Lead",
+    role: "Team SHIFT (Students Harnessing Interest for Technology)",
+    summary:
+      "Co-founded SHIFT (Students Harnessing Interest for Technology), a student-led engineering team dedicated to building real projects, shipping university internal systems, and competing across software development, systems administration, networking, AI & data science, and cybersecurity.",
+    deliverables: [
+      {
+        label: "University Internal Tools & Campus Systems",
+        details:
+          "Architected and built internal tools, administrative systems, and responsive websites for university departments and student organizations to modernize manual campus workflows.",
+      },
+      {
+        label: "Facial Recognition Attendance Checker (FRACS)",
+        details:
+          "Engineered an automated attendance tracking platform combining computer-vision face recognition with backend logging to replace manual sign-in queues with low-latency biometric verification.",
+      },
+      {
+        label: "Technical Competition & Hackathon Squads",
+        details:
+          "Led multidisciplinary student teams for hackathons, CTFs, and tech challenges, including achieving Top 5 honors at the Can You HackIT: IBPAP Challenge.",
+      },
+    ],
+    technologies: [
+      "Python",
+      "OpenCV",
+      "Face Recognition",
+      "Node.js",
+      "Express",
+      "TypeScript",
+      "React",
+      "Linux",
+      "Systems Administration",
+      "Networking",
+      "Git",
+    ],
+    links: [
+      { label: "View Team SHIFT in gallery →", href: "/gallery#hackit", external: false },
+    ],
+  },
+  {
+    date: "2024 – 2025",
+    datetime: "2024/2025",
+    standing: "Undergraduate Capstone Engineering",
+    title: "Lead Computer Vision & Embedded IoT Engineer",
+    role: "OvaLens Ecosystem (Automated Duck Egg Candling & Sorting)",
+    summary:
+      "Architected and built an end-to-end autonomous duck-egg candling and fertility sorting machine for my undergraduate capstone—spanning custom computer vision model optimization, low-compute edge deployment, multi-microcontroller hardware orchestration, and offline-first synchronization.",
+    deliverables: [
+      {
+        label: "Custom YOLOv8 Training, Hyperparameter Tuning & ONNX Quantization",
+        details:
+          "Trained and fine-tuned a custom YOLOv8 computer vision model on our curated candling dataset, iteratively tuned hyperparameters for detection accuracy, and quantized the model via ONNX for efficient, low-latency inference on a resource-constrained Raspberry Pi.",
+      },
+      {
+        label: "Electromechanical Hardware Orchestration & Microcontroller Actuation",
+        details:
+          "Engineered the entire IoT and hardware architecture, interfacing ESP32 microcontrollers, NEMA stepper motor drivers for precise conveyor movement, camera modules under controlled exposure, and servo diversion gates to physically sort eggs based on real-time classification.",
+      },
+      {
+        label: "Edge Control Application, Backend & Offline Synchronization",
+        details:
+          "Developed a native application that manages hardware states, conveyor timing, and classification pipelines in real time, backed by a companion web system and offline-sync engine that caches records locally during network dropouts and automatically syncs upon reconnection.",
+      },
+    ],
+    technologies: [
+      "Python",
+      "YOLOv8",
+      "ONNX",
+      "PyTorch",
+      "Raspberry Pi",
+      "ESP32",
+      "C/C++",
+      "OpenCV",
+      "NEMA Stepper Drivers",
+      "Hardware IoT",
+      "WebSockets",
+      "Offline Sync",
+    ],
+    links: [
+      { label: "Explore OvaLens case study →", href: "/projects/ovalens", external: false },
+      { label: "Model repository ↗", href: "https://github.com/Dev-RyleR6/OvaLens-Ecosystem", external: true, secondary: true },
     ],
   },
 ];
@@ -163,11 +264,24 @@ export default function ExperiencePage() {
       "@id": `${siteUrl}/#person`,
       name: siteConfig.name,
       jobTitle: "Software Engineer",
-      hasOccupation: {
-        "@type": "Occupation",
-        name: "Full-Stack Web Developer",
-        occupationalCategory: "Software Developers",
-      },
+      hasOccupation: [
+        {
+          "@type": "Occupation",
+          name: "Full-Stack Web Developer",
+          occupationalCategory: "Software Developers",
+        },
+        {
+          "@type": "Occupation",
+          name: "Co-Founder & Technical Lead",
+          occupationalCategory: "Technical Leadership & Software Engineering",
+        },
+      ],
+      memberOf: [
+        {
+          "@type": "Organization",
+          name: "Team SHIFT (Students Harnessing Interest for Technology)",
+        },
+      ],
       award: [
         "Gold Medalist - NIR Regional Skills Olympics 2026 (Cybersecurity)",
         "4th Place - Can You HackIT: The IBPAP Challenge 2025",
@@ -209,7 +323,7 @@ export default function ExperiencePage() {
         </div>
         <div className="experience-intro__details">
           <p className="page-intro__lede">
-            Client work, national skills competitions, hackathons, and technical training programs.
+            Client work, student engineering leadership at Team SHIFT, applied AI capstone research, and national skills competitions.
           </p>
           <a className="resume-entry" href={siteConfig.resume} target="_blank" rel="noopener noreferrer">
             <svg className="resume-entry__document" width={24} height={24} aria-hidden="true" viewBox="0 0 24 24" fill="none">
@@ -245,10 +359,10 @@ export default function ExperiencePage() {
       <section className="content-section" id="work" aria-labelledby="work-title">
         <div className="section-heading--split">
           <div>
-            <h2 id="work-title">Work Experience</h2>
+            <h2 id="work-title">Work &amp; Engineering Experience</h2>
           </div>
           <p>
-            Websites and software systems I’ve built and shipped for clients.
+            Client production systems, student engineering leadership, and applied AI capstone research.
           </p>
         </div>
         <div className="timeline-ledger">
@@ -303,9 +417,27 @@ export default function ExperiencePage() {
                 </details>
 
                 <div className="timeline-ledger__actions">
-                  <Link className="timeline-ledger__link" href="/contact">
-                    Start a project →
-                  </Link>
+                  {item.links.map((link) =>
+                    link.external ? (
+                      <a
+                        key={link.label}
+                        className={`timeline-ledger__link${link.secondary ? " timeline-ledger__link--secondary" : ""}`}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        key={link.label}
+                        className={`timeline-ledger__link${link.secondary ? " timeline-ledger__link--secondary" : ""}`}
+                        href={link.href}
+                      >
+                        {link.label}
+                      </Link>
+                    )
+                  )}
                 </div>
               </div>
             </article>
@@ -436,7 +568,7 @@ export default function ExperiencePage() {
 
       <NextStep
         title="See how this experience becomes working software."
-        description="The project archive connects these client systems, competitions, and training environments to software I have designed and shipped."
+        description="The project archive connects these client systems, student engineering projects, competitions, and training environments to software I have designed and shipped."
         links={[
           { href: "/projects", label: "Explore projects" },
           { href: "/contact", label: "Start a conversation" },
@@ -446,7 +578,7 @@ export default function ExperiencePage() {
       <SectionDock
         items={[
           { id: "overview", label: "Overview" },
-          { id: "work", label: "Work" },
+          { id: "work", label: "Experience" },
           { id: "competitions", label: "Competitions" },
           { id: "credentials", label: "Certifications" },
         ]}
