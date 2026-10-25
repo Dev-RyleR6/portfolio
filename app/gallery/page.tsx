@@ -4,7 +4,15 @@ import { NextStep } from "@/components/NextStep";
 import { SectionDock } from "@/components/SectionDock";
 import { getSiteUrl, pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata("Activity Gallery", "Competition, training, and workshop evidence from WorldSkills, KOICA, Huawei, Can You HackIT, and DICT AI.deas.", "/gallery");
+export const metadata: Metadata = pageMetadata("Activity Gallery", "Competition, training, and workshop evidence from HackForGov 5, WorldSkills, KOICA, Huawei, Can You HackIT, and DICT AI.deas.", "/gallery");
+
+const hackforgov: GalleryImage[] = [
+  { src: "/assets/images/hackforgov/hck4govshift.webp", width: 1215, height: 911, alt: "Team SHIFT on stage at HackForGov 5 Negros Island Region in Bacolod City", caption: "Team SHIFT on stage at HackForGov 5 NIR", variant: "gallery-item--wide" },
+  { src: "/assets/images/hackforgov/certificate.webp", width: 2048, height: 1449, alt: "HackForGov 5 Certificate of Participation from DICT and CERT-PH", caption: "Official DICT CERT-PH certificate of participation", variant: "gallery-item--document" },
+  { src: "/assets/images/hackforgov/certph.webp", width: 683, height: 911, alt: "CERT-PH HackForGov 5 event banner and competition credentials", caption: "CERT-PH HackForGov 5 roll-up banner and participant kit", variant: "gallery-item--portrait" },
+  { src: "/assets/images/hackforgov/teamshift.webp", width: 728, height: 911, alt: "Team SHIFT members at the HackForGov 5 regional venue", caption: "Team SHIFT squad delegation", variant: "gallery-item--portrait" },
+  { src: "/assets/images/hackforgov/shift.webp", width: 512, height: 911, alt: "Team SHIFT studio portrait for HackForGov", caption: "Team SHIFT studio portrait", variant: "gallery-item--portrait" },
+];
 
 const national: GalleryImage[] = [
   { src: "/assets/images/worldskills/nationals/8d9c0df7-8dbb-4809-a3c0-072189056fb9.jpg", width: 2048, height: 1536, alt: "Opening program stage at WorldSkills Philippines Clark 2026", caption: "WorldSkills Philippines opening program", variant: "gallery-item--wide" },
@@ -55,7 +63,7 @@ function GalleryHeading({ meta, title, description }: { meta: string; title: str
 
 export default function GalleryPage() {
   const siteUrl = getSiteUrl();
-  const galleryImages = [...national, ...regional, ...koica, ...hackit, ...aideas];
+  const galleryImages = [...hackforgov, ...national, ...regional, ...koica, ...hackit, ...aideas];
   const gallerySchema = {
     "@context": "https://schema.org",
     "@type": "ImageGallery",
@@ -86,6 +94,10 @@ export default function GalleryPage() {
         <p className="section-text">A visual record of competitions, training, workshops, and the evidence behind the experience. Open any image for a closer look.</p>
       </header>
 
+      <section className="gallery-section" id="hackforgov">
+        <GalleryHeading meta="October 12, 2026 · Bacolod City" title="HackForGov 5 – Negros Island Region" description="Capture-the-Flag (CTF) cybersecurity competition organized by DICT Cybersecurity Bureau and CERT-PH at Roys Hotel and Convention Center." />
+        <GalleryGrid images={hackforgov} columns="three" priorityFirst />
+      </section>
       <section className="gallery-section" id="worldskills-national">
         <GalleryHeading meta="September 7–11, 2026 · Clark, Pampanga" title="WorldSkills Philippines Clark 2026" description="Representing the Negros Island Region in the Cybersecurity skill area at the national competition." />
         <GalleryGrid images={national} priorityFirst />
@@ -133,7 +145,7 @@ export default function GalleryPage() {
           { href: "/contact", label: "Contact me" },
         ]}
       />
-      <SectionDock label="Gallery sections" items={[{ id: "overview", label: "Overview" }, { id: "worldskills-national", label: "National" }, { id: "worldskills-regional", label: "Regional" }, { id: "koica", label: "KOICA" }, { id: "huawei", label: "Huawei" }, { id: "hackit", label: "HackIT" }, { id: "aideas", label: "AI.deas" }]} />
+      <SectionDock label="Gallery sections" items={[{ id: "overview", label: "Overview" }, { id: "hackforgov", label: "HackForGov" }, { id: "worldskills-national", label: "National" }, { id: "worldskills-regional", label: "Regional" }, { id: "koica", label: "KOICA" }, { id: "huawei", label: "Huawei" }, { id: "hackit", label: "HackIT" }, { id: "aideas", label: "AI.deas" }]} />
     </>
   );
 }

@@ -83,6 +83,7 @@ export function profileStructuredData() {
         ],
         award: [
           "Gold Medalist - NIR Regional Skills Olympics 2026 (Cybersecurity)",
+          "6th Place - HackForGov 5 Negros Island Region 2026 (Cybersecurity CTF)",
           "4th Place - Can You HackIT: The IBPAP Challenge 2025",
         ],
         sameAs: [
