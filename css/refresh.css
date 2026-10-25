@@ -2500,6 +2500,12 @@ body.page-archive .page {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+@media (min-width: 641px) {
+  .activity-gallery--three .gallery-item:not(.gallery-item--wide):not(.gallery-item--portrait) img {
+    height: 280px;
+  }
+}
+
 .gallery-item {
   min-width: 0;
   padding: 0;

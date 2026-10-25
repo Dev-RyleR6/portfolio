@@ -8,10 +8,9 @@ export const metadata: Metadata = pageMetadata("Activity Gallery", "Competition,
 
 const hackforgov: GalleryImage[] = [
   { src: "/assets/images/hackforgov/hck4govshift.webp", width: 1215, height: 911, alt: "Team SHIFT on stage at HackForGov 5 Negros Island Region in Bacolod City", caption: "Team SHIFT on stage at HackForGov 5 NIR", variant: "gallery-item--wide" },
-  { src: "/assets/images/hackforgov/certificate.webp", width: 2048, height: 1449, alt: "HackForGov 5 Certificate of Participation from DICT and CERT-PH", caption: "Official DICT CERT-PH certificate of participation", variant: "gallery-item--document" },
-  { src: "/assets/images/hackforgov/certph.webp", width: 683, height: 911, alt: "CERT-PH HackForGov 5 event banner and competition credentials", caption: "CERT-PH HackForGov 5 roll-up banner and participant kit", variant: "gallery-item--portrait" },
-  { src: "/assets/images/hackforgov/teamshift.webp", width: 728, height: 911, alt: "Team SHIFT members at the HackForGov 5 regional venue", caption: "Team SHIFT squad delegation", variant: "gallery-item--portrait" },
-  { src: "/assets/images/hackforgov/shift.webp", width: 512, height: 911, alt: "Team SHIFT studio portrait for HackForGov", caption: "Team SHIFT studio portrait", variant: "gallery-item--portrait" },
+  { src: "/assets/images/hackforgov/certificate.webp", width: 2048, height: 1449, alt: "HackForGov 5 Certificate of Participation from DICT and CERT-PH", caption: "Official DICT & CERT-PH certificate of participation", variant: "gallery-item--document" },
+  { src: "/assets/images/hackforgov/certph.webp", width: 683, height: 911, alt: "CERT-PH HackForGov 5 event banner and competition credentials", caption: "CERT-PH event banner and competition kit" },
+  { src: "/assets/images/hackforgov/shift.webp", width: 512, height: 911, alt: "Team SHIFT studio portrait for HackForGov", caption: "Team SHIFT competition squad portrait" },
 ];
 
 const national: GalleryImage[] = [

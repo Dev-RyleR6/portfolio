@@ -157,9 +157,9 @@ const featuredCompetitions = [
     datetime: "2026-10",
     standing: "6th place · Regional CTF",
     title: "HackForGov 5 – Negros Island Region",
-    role: "CTF Player · Team SHIFT · Cryptography",
+    role: "CTF Player",
     summary:
-      "Competed as the dedicated cryptography specialist for Team SHIFT in the regional Capture-the-Flag (CTF) cybersecurity competition organized by DICT and CERT-PH at Roys Hotel and Convention Center in Bacolod City. Held the #1 spot on the live scoreboard for several hours during the challenge rounds, ultimately securing a 6th place finish across cryptanalysis, reverse engineering, and web security.",
+      "Competed as the dedicated cryptography specialist for Team SHIFT in the regional Capture-the-Flag (CTF) cybersecurity competition organized by DICT and CERT-PH at Roys Hotel and Convention Center in Bacolod City. Held the #1 spot on the live scoreboard for several hours during the challenge rounds, ultimately securing a 6th place finish across cryptanalysis, network forensics, OSINT, reverse engineering, and web security.",
     image: "/assets/images/hackforgov/hck4govshift.webp",
     imageAlt: "Team SHIFT on stage at HackForGov 5 Negros Island Region in Bacolod City",
     caption: "Team SHIFT on stage at HackForGov 5 NIR in Bacolod City",
