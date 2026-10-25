@@ -14,6 +14,7 @@ import "@/css/section/portfolio.css";
 import "@/css/section/tech-stack.css";
 import "@/css/section/navigation.css";
 import "@/css/section/contact.css";
+import "@/css/section/robot.css";
 import "@/css/refresh.css";
 import "@/css/section/page-system.css";
 
