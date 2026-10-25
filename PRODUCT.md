@@ -16,7 +16,7 @@ This portfolio helps visitors assess Ryle's engineering capabilities and support
 
 ## Positioning
 
-An evidence-backed engineering portfolio connecting backend systems, cybersecurity, freelance client systems, and applied AI. Claims are supported through working projects, source repositories, competition records, credentials, demonstrations, and activity evidence rather than an unsupported skills list.
+An evidence-backed engineering portfolio connecting backend systems, cybersecurity, client software development, and applied AI. Claims are supported through working projects, source repositories, competition records, credentials, demonstrations, and activity evidence rather than an unsupported skills list.
 
 ## Operating Context
 
@@ -25,7 +25,7 @@ Visitors move between a profile overview, filterable project case studies, exper
 ## Capabilities and Constraints
 
 - Presents six categorized engineering projects with technical descriptions, technology lists, live previews, repositories, demonstrations, and related evidence where available.
-- Documents freelance engineering, competition experience, training, assessments, credentials, and supporting gallery material.
+- Documents shipped client work, competition experience, training, assessments, credentials, and supporting gallery material.
 - Provides professional profile links and a contact workflow backed by Web3Forms.
 - Uses Next.js App Router, React, and TypeScript, with canonical metadata, sitemap, robots metadata, and structured person data.
 - Must remain responsive, theme-aware, keyboard-accessible, and respectful of reduced-motion preferences.
@@ -48,7 +48,7 @@ Visitors move between a profile overview, filterable project case studies, exper
 - TOPCIT score and certificate PDF at `public/assets/docs/My Page _ Score & Certificate _Overall achievement _ TOPCIT.pdf`.
 - Huawei Developer Competition certificate at `public/assets/docs/HDC2511200D53A1DE.pdf`.
 - Work experience, competition, credential, and activity copy in `app/experience/page.tsx` and `app/gallery/page.tsx`.
-- Freelance client deliverables encompass real-time booking engines (Pickle World), an event photobooth platform, and responsive web properties across medical/clinic practices, construction, and aesthetic products. Future work must not fabricate unverified clients or metrics.
+- Client and web deliverables include a responsive clinic website and custom business websites. Future work must not fabricate unverified client names or metrics.
 
 ## Product Principles
 

@@ -64,7 +64,7 @@ export const projects: Project[] = [
   },
   {
     id: "pickleworld", title: "Pickle World", subtitle: "Real-Time Venue Booking Engine", category: "backend", categoryLabel: "Full-Stack System", image: "/assets/images/projects/pickleworld.webp", imageAlt: "Pickle World project preview", mediaTone: "light",
-    description: "A multi-court reservation engine engineered as a freelance client system, featuring WebSocket slot locks, webhook-driven payment reconciliation, and strict MySQL transaction isolation to prevent double-booking under concurrency.",
+    description: "A multi-court reservation engine featuring WebSocket slot locks, webhook-driven payment reconciliation, and strict MySQL transaction isolation to prevent double-booking under concurrency.",
     caseStudy: {
       problem: "Concurrent customers can attempt to reserve and pay for the same court slot at nearly the same time.",
       decision: "Coordinate WebSocket slot locks with payment webhooks and strict MySQL transaction isolation.",

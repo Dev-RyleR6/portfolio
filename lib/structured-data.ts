@@ -24,7 +24,7 @@ export function profileStructuredData() {
         jobTitle: "Software Engineer",
         hasOccupation: {
           "@type": "Occupation",
-          name: "Freelance Full-Stack Developer",
+          name: "Full-Stack Web Developer",
           occupationalCategory: "Software Developers",
         },
         image: { "@id": `${siteUrl}/#profile-image` },
@@ -44,7 +44,7 @@ export function profileStructuredData() {
         knowsAbout: [
           "Software Engineering",
           "Full-Stack Development",
-          "Freelance Web Development",
+          "Web Development",
           "Backend Development",
           "Cybersecurity",
           "Systems Administration",

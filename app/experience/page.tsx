@@ -8,34 +8,29 @@ import "@/css/section/experience.css";
 
 export const metadata: Metadata = pageMetadata(
   "Experience & Credentials",
-  "Freelance software engineering, national and regional cybersecurity competitions, technical training, and formal assessments earned by Ryle Anthony Gabotero.",
+  "Work experience, national and regional cybersecurity competitions, technical training, and formal assessments earned by Ryle Anthony Gabotero.",
   "/experience"
 );
 
-const freelanceExperience = [
+const workExperience = [
   {
     date: "2024 – Present",
     datetime: "2024/2026",
-    standing: "Client Systems & Platforms",
-    title: "Freelance Full-Stack Developer",
-    role: "Contract & Client Software Engineering",
+    standing: "Client & Production Work",
+    title: "Full-Stack Web Developer",
+    role: "Web Development & Systems",
     summary:
-      "Architected, built, and deployed full-stack web applications, real-time booking engines, event systems, and commercial web platforms for independent clients and businesses across diverse industries.",
+      "I design, build, and ship custom websites and web systems for clients, tailoring the design, user flows, and backend functionality to their specific requirements.",
     deliverables: [
       {
-        label: "Real-Time Venue Reservation System (Pickle World)",
+        label: "Clinic & Healthcare Website",
         details:
-          "Engineered a multi-court booking engine with real-time WebSocket slot locking, payment webhook reconciliation, and strict MySQL transaction isolation to prevent double bookings under concurrency.",
+          "Designed, built, and shipped a modern, responsive clinic website featuring clean navigation, clear medical service information, and appointment/inquiry flows optimized for patients across all devices.",
       },
       {
-        label: "Interactive Event Photobooth Platform",
+        label: "Custom Client Websites",
         details:
-          "Developed an event platform featuring dynamic media uploads, live photo gallery display, QR check-in flows, POS-queue extensions, and low-latency WebSocket updates.",
-      },
-      {
-        label: "Industry & Commercial Web Platforms",
-        details:
-          "Designed, developed, and deployed modern, responsive websites and web applications across medical/clinic practices, construction firms, and aesthetic product brands—prioritizing mobile performance, clear information architecture, and lead generation.",
+          "Developed and deployed bespoke websites and business landing pages, focusing on speed, accessible design, SEO performance, and reliable production hosting.",
       },
     ],
     technologies: [
@@ -162,7 +157,7 @@ export default function ExperiencePage() {
     "@type": "AboutPage",
     name: "Experience & Credentials | Ryle Anthony Gabotero",
     url: `${siteUrl}/experience`,
-    description: "Freelance software engineering, national and regional cybersecurity competitions, technical training, and formal assessments earned by Ryle Anthony Gabotero.",
+    description: "Work experience, national and regional cybersecurity competitions, technical training, and formal assessments earned by Ryle Anthony Gabotero.",
     mainEntity: {
       "@type": "Person",
       "@id": `${siteUrl}/#person`,
@@ -170,7 +165,7 @@ export default function ExperiencePage() {
       jobTitle: "Software Engineer",
       hasOccupation: {
         "@type": "Occupation",
-        name: "Freelance Full-Stack Developer",
+        name: "Full-Stack Web Developer",
         occupationalCategory: "Software Developers",
       },
       award: [
@@ -214,7 +209,7 @@ export default function ExperiencePage() {
         </div>
         <div className="experience-intro__details">
           <p className="page-intro__lede">
-            Freelance engineering, national skills competitions, hackathons, and technical training programs.
+            Client work, national skills competitions, hackathons, and technical training programs.
           </p>
           <a className="resume-entry" href={siteConfig.resume} target="_blank" rel="noopener noreferrer">
             <svg className="resume-entry__document" width={24} height={24} aria-hidden="true" viewBox="0 0 24 24" fill="none">
@@ -250,14 +245,14 @@ export default function ExperiencePage() {
       <section className="content-section" id="work" aria-labelledby="work-title">
         <div className="section-heading--split">
           <div>
-            <h2 id="work-title">Work &amp; Freelance Experience</h2>
+            <h2 id="work-title">Work Experience</h2>
           </div>
           <p>
-            Client engineering, production web systems, and interactive platforms delivered for businesses and independent clients.
+            Websites and software systems I’ve built and shipped for clients.
           </p>
         </div>
         <div className="timeline-ledger">
-          {freelanceExperience.map((item) => (
+          {workExperience.map((item) => (
             <article className="timeline-ledger__item" key={item.title}>
               <div className="timeline-ledger__col-meta">
                 <time className="timeline-ledger__date" dateTime={item.datetime}>
@@ -270,7 +265,7 @@ export default function ExperiencePage() {
                 <p className="timeline-ledger__role">{item.role}</p>
                 <p className="timeline-ledger__summary">{item.summary}</p>
 
-                <ul className="timeline-ledger__deliverables" aria-label="Key freelance deliverables">
+                <ul className="timeline-ledger__deliverables" aria-label="Key shipped work">
                   {item.deliverables.map((deliv) => (
                     <li className="timeline-ledger__deliverable-item" key={deliv.label}>
                       <strong>{deliv.label}:</strong> {deliv.details}
@@ -312,7 +307,7 @@ export default function ExperiencePage() {
                     Explore project case studies →
                   </Link>
                   <Link className="timeline-ledger__link timeline-ledger__link--secondary" href="/contact">
-                    Discuss a project ↗
+                    Get in touch ↗
                   </Link>
                 </div>
               </div>
@@ -454,7 +449,7 @@ export default function ExperiencePage() {
       <SectionDock
         items={[
           { id: "overview", label: "Overview" },
-          { id: "work", label: "Work & Freelance" },
+          { id: "work", label: "Work" },
           { id: "competitions", label: "Competitions" },
           { id: "credentials", label: "Certifications" },
         ]}

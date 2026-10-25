@@ -28,7 +28,7 @@ const toolGroups = [
 
 const proofLinks = [
   { label: "Case studies", title: "Architecture, constraints, and tradeoffs", description: "Explore selected products with implementation detail, technology choices, source links, and demos where available.", href: "/projects" },
-  { label: "Experience", title: "Work, competitions, and credentials", description: "Review freelance client systems, WorldSkills participation, technical programs, and formal assessments.", href: "/experience" },
+  { label: "Experience", title: "Work, competitions, and credentials", description: "Review shipped client systems, WorldSkills participation, technical programs, and formal assessments.", href: "/experience" },
   { label: "Evidence", title: "Certificates and activity records", description: "Browse the supporting material behind credentials, events, and technical activities.", href: "/gallery" },
 ] as const;
 
@@ -54,7 +54,7 @@ export default function HomePage() {
         <section className="content-section" id="focus" aria-labelledby="focus-title">
           <div className="section-heading--split profile-section-heading">
             <h2 id="focus-title">A little about me and what I do</h2>
-            <p>Hi, I’m Ryle. I’m a software engineer who likes building things that solve real problems. Alongside freelance development for client platforms and business websites, most of my work involves backend development, cybersecurity, systems administration, and applied AI. I now integrate AI as part of my workflow to speed up research, implementation, debugging, refactoring, and testing, while still making the architecture, security, and final implementation decisions myself. I enjoy figuring out how things work, solving technical problems, and turning ideas into software that’s actually useful.</p>
+            <p>Hi, I’m Ryle. I’m a software engineer who likes building things that solve real problems. Alongside building and shipping websites and web systems for clients, most of my work involves backend development, cybersecurity, systems administration, and applied AI. I now integrate AI as part of my workflow to speed up research, implementation, debugging, refactoring, and testing, while still making the architecture, security, and final implementation decisions myself. I enjoy figuring out how things work, solving technical problems, and turning ideas into software that’s actually useful.</p>
           </div>
           <div className="focus-ledger">
             {focusAreas.map((item) => (
