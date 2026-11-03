@@ -274,8 +274,9 @@ const hackathons = [
     role: "Cloud & AI",
     summary:
       "Built and presented a cloud-native intelligent solution through Huawei’s Asia-Pacific developer competition program.",
-    href: "/gallery#huawei",
-    linkText: "View certificate →",
+    links: [
+      { label: "View certificate →", href: "/gallery#huawei", external: false },
+    ],
   },
   {
     date: "July 2025",
@@ -286,8 +287,19 @@ const hackathons = [
     role: "Developer · Team SHIFT",
     summary:
       "Architected and presented a working solution within 24 hours at Cebu Institute of Technology–University.",
-    href: "/gallery#hackit",
-    linkText: "View event gallery →",
+    links: [
+      { label: "View event gallery →", href: "/gallery#hackit", external: false },
+      {
+        label: "IBPAP official photo ↗",
+        href: "https://www.facebook.com/share/1DdVpUSuUw/",
+        external: true,
+      },
+      {
+        label: "Team SHIFT HackIT post ↗",
+        href: "https://www.facebook.com/share/p/1KdQQ9QoQ5/",
+        external: true,
+      },
+    ],
   },
   {
     date: "June 2024",
@@ -298,8 +310,9 @@ const hackathons = [
     role: "AI for social impact",
     summary:
       "Developed and pitched AI concepts addressing regional challenges during the DICT innovation workshop.",
-    href: "/gallery#aideas",
-    linkText: "View workshop gallery →",
+    links: [
+      { label: "View workshop gallery →", href: "/gallery#aideas", external: false },
+    ],
   },
 ];
 
@@ -312,7 +325,14 @@ const credentials = [
     scoreBadge: "10/10 · Deep Learning Architecture",
     summary:
       "Seven assessed domains spanning machine learning, neural networks, TensorFlow, reinforcement learning, and autonomous AI agents.",
-    link: { label: "View training evidence →", href: "/gallery#koica", external: false },
+    links: [
+      { label: "View training evidence →", href: "/gallery#koica", external: false },
+      {
+        label: "FoundationU CCS completion post ↗",
+        href: "https://www.facebook.com/share/p/19YjD6Wvbb/",
+        external: true,
+      },
+    ],
   },
   {
     issuer: "IITP · TOPCIT Philippines",
@@ -322,11 +342,13 @@ const credentials = [
     scoreBadge: "Score: 365 / 1000 · Level 2",
     summary:
       "Standardized national assessment covering software development, data management, systems architecture, cybersecurity, and IT project management.",
-    link: {
-      label: "Open score report ↗",
-      href: "/assets/docs/My Page _ Score & Certificate _Overall achievement _ TOPCIT.pdf",
-      external: true,
-    },
+    links: [
+      {
+        label: "Open score report ↗",
+        href: "/assets/docs/My Page _ Score & Certificate _Overall achievement _ TOPCIT.pdf",
+        external: true,
+      },
+    ],
   },
 ];
 
@@ -390,6 +412,11 @@ export default function ExperiencePage() {
             recognizedBy: {
               "@type": "EducationalOrganization",
               name: "KOICA DX Center, Hannam University, Silliman University",
+            },
+            subjectOf: {
+              "@type": "SocialMediaPosting",
+              name: "FoundationU CCS Official Announcement: KOICA Advanced Big Data Analytics Program Completion",
+              url: "https://www.facebook.com/share/p/19YjD6Wvbb/",
             },
           },
           {
@@ -542,6 +569,18 @@ export default function ExperiencePage() {
         },
         award: "Top 5 Finalist (4th Place)",
         url: `${siteUrl}/gallery#hackit`,
+        subjectOf: [
+          {
+            "@type": "SocialMediaPosting",
+            name: "IBPAP Official Can You HackIT Challenge Coverage",
+            url: "https://www.facebook.com/share/1DdVpUSuUw/",
+          },
+          {
+            "@type": "SocialMediaPosting",
+            name: "Team SHIFT at Can You HackIT IBPAP Challenge",
+            url: "https://www.facebook.com/share/p/1KdQQ9QoQ5/",
+          },
+        ],
       },
       {
         "@type": "Event",
@@ -787,9 +826,23 @@ export default function ExperiencePage() {
                 <p className="timeline-ledger__role">{hack.role}</p>
                 <p className="timeline-ledger__summary">{hack.summary}</p>
                 <div className="timeline-ledger__actions">
-                  <Link className="timeline-ledger__link" href={hack.href}>
-                    {hack.linkText}
-                  </Link>
+                  {hack.links.map((link) =>
+                    link.external ? (
+                      <a
+                        key={link.label}
+                        className="timeline-ledger__link timeline-ledger__link--secondary"
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link key={link.label} className="timeline-ledger__link" href={link.href}>
+                        {link.label}
+                      </Link>
+                    )
+                  )}
                 </div>
               </div>
             </article>
@@ -822,19 +875,22 @@ export default function ExperiencePage() {
                 <span className="credentials-register__scoreBadge">{cred.scoreBadge}</span>
                 <p className="credentials-register__summary">{cred.summary}</p>
                 <div className="credentials-register__actions">
-                  {cred.link.external ? (
-                    <a
-                      className="timeline-ledger__link"
-                      href={cred.link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {cred.link.label}
-                    </a>
-                  ) : (
-                    <Link className="timeline-ledger__link" href={cred.link.href}>
-                      {cred.link.label}
-                    </Link>
+                  {cred.links.map((link) =>
+                    link.external ? (
+                      <a
+                        key={link.label}
+                        className="timeline-ledger__link timeline-ledger__link--secondary"
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link key={link.label} className="timeline-ledger__link" href={link.href}>
+                        {link.label}
+                      </Link>
+                    )
                   )}
                 </div>
               </div>

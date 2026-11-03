@@ -170,6 +170,21 @@ export default function GalleryPage() {
         name: "TESDA WorldSkills Philippines National Skills Competition",
         url: "https://tesda.gov.ph/Media/NewsDetail/20489",
       },
+      {
+        "@type": "SocialMediaPosting",
+        name: "FoundationU CCS Official Announcement: KOICA Advanced Big Data Analytics Program Completion",
+        url: "https://www.facebook.com/share/p/19YjD6Wvbb/",
+      },
+      {
+        "@type": "SocialMediaPosting",
+        name: "IBPAP Official Can You HackIT Challenge Coverage",
+        url: "https://www.facebook.com/share/1DdVpUSuUw/",
+      },
+      {
+        "@type": "SocialMediaPosting",
+        name: "Team SHIFT at Can You HackIT IBPAP Challenge",
+        url: "https://www.facebook.com/share/p/1KdQQ9QoQ5/",
+      },
     ],
     associatedMedia: galleryImages.map((image, index) => ({
       "@type": "ImageObject",
@@ -244,7 +259,17 @@ export default function GalleryPage() {
         <GalleryGrid images={regional} columns="evidence" />
       </section>
       <section className="gallery-section" id="koica">
-        <GalleryHeading meta="June 22–July 31, 2026 · Silliman University" title="KOICA Advanced AI & Data Analytics" description="Highlights from the 120-hour program delivered through the KOICA Digital Transformation Center." />
+        <GalleryHeading
+          meta="June 22–July 31, 2026 · Silliman University"
+          title="KOICA Advanced AI & Data Analytics"
+          description="Highlights from the 120-hour program delivered through the KOICA Digital Transformation Center."
+          links={[
+            {
+              label: "FoundationU CCS Completion Post (Facebook)",
+              href: "https://www.facebook.com/share/p/19YjD6Wvbb/",
+            },
+          ]}
+        />
         <GalleryGrid images={koica} />
       </section>
       <section className="gallery-section" id="huawei">
@@ -267,7 +292,21 @@ export default function GalleryPage() {
         </a>
       </section>
       <section className="gallery-section" id="hackit">
-        <GalleryHeading meta="July 2025 · Cebu City" title="Can You HackIT: The IBPAP Challenge" description="Team SHIFT’s build session and Top 5 recognition at Cebu Institute of Technology–University." />
+        <GalleryHeading
+          meta="July 2025 · Cebu City"
+          title="Can You HackIT: The IBPAP Challenge"
+          description="Team SHIFT’s build session and Top 5 recognition at Cebu Institute of Technology–University."
+          links={[
+            {
+              label: "IBPAP Official Photo (Facebook)",
+              href: "https://www.facebook.com/share/1DdVpUSuUw/",
+            },
+            {
+              label: "Team SHIFT HackIT Post (Facebook)",
+              href: "https://www.facebook.com/share/p/1KdQQ9QoQ5/",
+            },
+          ]}
+        />
         <GalleryGrid images={hackit} columns="three" />
       </section>
       <section className="gallery-section" id="aideas">

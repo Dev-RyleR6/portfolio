@@ -209,6 +209,29 @@ export function profileStructuredData() {
               name: "Technical Education and Skills Development Authority (TESDA)",
             },
           },
+          {
+            "@type": "SocialMediaPosting",
+            name: "FoundationU CCS Official Announcement: KOICA Advanced Big Data Analytics Program Completion",
+            url: "https://www.facebook.com/share/p/19YjD6Wvbb/",
+            publisher: {
+              "@type": "EducationalOrganization",
+              name: "Foundation University CCS Executive Council of Student Leaders",
+            },
+          },
+          {
+            "@type": "SocialMediaPosting",
+            name: "IBPAP Official Can You HackIT Challenge Coverage",
+            url: "https://www.facebook.com/share/1DdVpUSuUw/",
+            publisher: {
+              "@type": "Organization",
+              name: "IT and Business Process Association of the Philippines (IBPAP)",
+            },
+          },
+          {
+            "@type": "SocialMediaPosting",
+            name: "Team SHIFT at Can You HackIT IBPAP Challenge",
+            url: "https://www.facebook.com/share/p/1KdQQ9QoQ5/",
+          },
         ],
       },
       {

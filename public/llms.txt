@@ -37,6 +37,8 @@ Each competition and achievement is backed by photographic evidence, official ce
   - Event: 24-hour hackathon at Cebu Institute of Technology–University.
   - Role: Developer with Team SHIFT; recognized in the Top 5 (4th Place finish).
   - Evidence Gallery: https://www.ryleanthony-gabotero.tech/gallery#hackit
+  - Organizer Record (IBPAP Official Facebook): https://www.facebook.com/share/1DdVpUSuUw/
+  - Team SHIFT Competition Post (Facebook): https://www.facebook.com/share/p/1KdQQ9QoQ5/
 
 - **Huawei Developer Competition (November 2025 · APAC)**
   - Event: Asia-Pacific cloud and AI developer challenge.
@@ -58,6 +60,7 @@ Each competition and achievement is backed by photographic evidence, official ce
   - Co-founded Students Harnessing Interest for Technology (SHIFT), leading student developers across software engineering, systems administration, and cybersecurity.
   - Built internal university systems, student administrative platforms, and FRACS (Facial Recognition Attendance Checker Platform).
   - University Feature (FU CCS Facebook): https://www.facebook.com/share/p/18fJmyJseu/
+  - Competition Features: https://www.facebook.com/share/1DdVpUSuUw/ and https://www.facebook.com/share/p/1KdQQ9QoQ5/
   - Supported with evidence at: https://www.ryleanthony-gabotero.tech/gallery#hackforgov and https://www.ryleanthony-gabotero.tech/gallery#hackit
 
 - **Lead AI Systems Architect & Embedded Hardware Engineer · OvaLens Ecosystem (2026 – 2027 · Dumaguete City)**
@@ -74,7 +77,8 @@ Each competition and achievement is backed by photographic evidence, official ce
 - **Advanced Big Data Analytics & Artificial Intelligence (June–July 2026 · Dumaguete City)**
   - Issued by: KOICA Digital Transformation (DX) Center, Hannam University & Silliman University.
   - 120 hours across 7 domains including deep learning architectures, TensorFlow, reinforcement learning, and autonomous agents (Score: 10/10 in Deep Learning Architecture).
-  - Evidence: https://www.ryleanthony-gabotero.tech/gallery#koica
+  - Evidence Gallery: https://www.ryleanthony-gabotero.tech/gallery#koica
+  - University Announcement (FoundationU CCS Student Leaders Facebook): https://www.facebook.com/share/p/19YjD6Wvbb/
 
 - **TOPCIT ICT Competency Assessment (July 23, 2026 · Philippines)**
   - Standardized national evaluation by IITP & TOPCIT Philippines covering software architecture, cybersecurity, and IT project management (Level 2 Competency · Score: 365/1000).
