@@ -48,14 +48,56 @@ const aideas: GalleryImage[] = [
   { src: "/assets/images/aideas3.jpg", width: 1293, height: 1084, alt: "AI.deas certificate recipients", caption: "Completion recognition" },
 ];
 
-function GalleryHeading({ meta, title, description }: { meta: string; title: string; description: string }) {
+function GalleryHeading({
+  meta,
+  title,
+  description,
+  links,
+}: {
+  meta: string;
+  title: string;
+  description: string;
+  links?: { label: string; href: string }[];
+}) {
   return (
     <div className="gallery-section-heading">
       <div>
         <p className="gallery-section-meta">{meta}</p>
         <h2>{title}</h2>
       </div>
-      <p>{description}</p>
+      <div className="gallery-section-heading__content">
+        <p>{description}</p>
+        {links && links.length > 0 && (
+          <div className="gallery-section-links">
+            {links.map((link) => (
+              <a
+                key={link.label}
+                className="gallery-section-link"
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>{link.label}</span>
+                <svg
+                  width={13}
+                  height={13}
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4 14 14 4M7 4h7v7"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -71,6 +113,84 @@ export default function GalleryPage() {
     url: `${siteUrl}/gallery`,
     description: "Competition, training, workshop, certificate, and technical activity evidence from Ryle Anthony Gabotero.",
     author: { "@id": `${siteUrl}/#person` },
+    contentLocation: [
+      {
+        "@type": "Place",
+        name: "Bacolod City, Negros Island Region, Philippines",
+        geo: { "@type": "GeoCoordinates", latitude: 10.6766, longitude: 122.9509 },
+      },
+      {
+        "@type": "Place",
+        name: "Clark, Pampanga, Philippines",
+        geo: { "@type": "GeoCoordinates", latitude: 15.1855, longitude: 120.5592 },
+      },
+      {
+        "@type": "Place",
+        name: "Dumaguete City, Negros Island Region, Philippines",
+        geo: { "@type": "GeoCoordinates", latitude: 9.3068, longitude: 123.3054 },
+      },
+      {
+        "@type": "Place",
+        name: "Cebu City, Central Visayas, Philippines",
+        geo: { "@type": "GeoCoordinates", latitude: 10.3157, longitude: 123.8854 },
+      },
+    ],
+    about: [
+      { "@type": "Event", name: "HackForGov 5 – Negros Island Region", url: `${siteUrl}/experience#hackforgov` },
+      { "@type": "Event", name: "WorldSkills Philippines Clark 2026", url: `${siteUrl}/experience#worldskills-national` },
+      { "@type": "Event", name: "NIR Regional Skills Olympics 2026", url: `${siteUrl}/experience#worldskills-regional` },
+      { "@type": "EducationalOccupationalCredential", name: "KOICA Advanced Big Data Analytics & Artificial Intelligence", url: `${siteUrl}/gallery#koica` },
+      { "@type": "Event", name: "Can You HackIT: The IBPAP Challenge", url: `${siteUrl}/experience#hackit` },
+      { "@type": "EducationalOccupationalCredential", name: "Huawei Developer Competition", url: `${siteUrl}/gallery#huawei` },
+      { "@type": "Event", name: "DICT AI.deas for Impact", url: `${siteUrl}/experience#aideas` },
+    ],
+    subjectOf: [
+      {
+        "@type": "SocialMediaPosting",
+        name: "Foundation University CCS Official Announcement: Team SHIFT at HackForGov 5 NIR",
+        url: "https://www.facebook.com/share/p/18fJmyJseu/",
+      },
+      {
+        "@type": "SocialMediaPosting",
+        name: "DICT Negros Occidental Official HackForGov Record",
+        url: "https://web.facebook.com/DICTNegrosOccidental/posts/%F0%9D%97%94%F0%9D%97%A5%F0%9D%97%9C%F0%9D%97%95%F0%9D%97%94-%F0%9D%97%A1%F0%9D%97%98%F0%9D%97%9A%F0%9D%97%A5%F0%9D%97%98%F0%9D%97%A1%F0%9D%97%A6%F0%9D%97%98the-department-of-information-and-communications-technology-dict-t/122255575184055743/?_rdc=1&_rdr#",
+      },
+      {
+        "@type": "SocialMediaPosting",
+        name: "Foundation University CCS Official Announcement: Delegation at WorldSkills Philippines National Competition",
+        url: "https://www.facebook.com/share/p/1F9F1QvPm2/",
+      },
+      {
+        "@type": "Article",
+        name: "Foundation University Bags Gold Medals at the NIR Regional Skills Olympics",
+        url: "https://www.foundationu.edu.ph/post/foundation-university-bags-gold-medals-at-the-nir-regional-skills-olympics",
+      },
+      {
+        "@type": "NewsArticle",
+        name: "TESDA WorldSkills Philippines National Skills Competition",
+        url: "https://tesda.gov.ph/Media/NewsDetail/20489",
+      },
+      {
+        "@type": "SocialMediaPosting",
+        name: "FoundationU CCS Official Announcement: KOICA Advanced Big Data Analytics Program Completion",
+        url: "https://www.facebook.com/share/p/19YjD6Wvbb/",
+      },
+      {
+        "@type": "SocialMediaPosting",
+        name: "IBPAP Official Can You HackIT Challenge Coverage",
+        url: "https://www.facebook.com/share/1DdVpUSuUw/",
+      },
+      {
+        "@type": "SocialMediaPosting",
+        name: "Team SHIFT at Can You HackIT IBPAP Challenge",
+        url: "https://www.facebook.com/share/p/1KdQQ9QoQ5/",
+      },
+      {
+        "@type": "SocialMediaPosting",
+        name: "DICT IIDB Region 7 AI.deas for Impact Official Coverage",
+        url: "https://www.facebook.com/share/p/18oYbEbkf5/",
+      },
+    ],
     associatedMedia: galleryImages.map((image, index) => ({
       "@type": "ImageObject",
       contentUrl: `${siteUrl}${image.src}`,
@@ -94,19 +214,67 @@ export default function GalleryPage() {
       </header>
 
       <section className="gallery-section" id="hackforgov">
-        <GalleryHeading meta="October 12, 2026 · Bacolod City" title="HackForGov 5 – Negros Island Region" description="Capture-the-Flag (CTF) cybersecurity competition organized by DICT Cybersecurity Bureau and CERT-PH at Roys Hotel and Convention Center." />
+        <GalleryHeading
+          meta="October 12, 2026 · Bacolod City"
+          title="HackForGov 5 – Negros Island Region"
+          description="Capture-the-Flag (CTF) cybersecurity competition organized by DICT Cybersecurity Bureau and CERT-PH at Roys Hotel and Convention Center."
+          links={[
+            {
+              label: "FU CCS Announcement (Facebook)",
+              href: "https://www.facebook.com/share/p/18fJmyJseu/",
+            },
+            {
+              label: "DICT Negros Occidental Coverage (Facebook)",
+              href: "https://web.facebook.com/DICTNegrosOccidental/posts/%F0%9D%97%94%F0%9D%97%A5%F0%9D%97%9C%F0%9D%97%95%F0%9D%97%94-%F0%9D%97%A1%F0%9D%97%98%F0%9D%97%9A%F0%9D%97%A5%F0%9D%97%98%F0%9D%97%A1%F0%9D%97%A6%F0%9D%97%98the-department-of-information-and-communications-technology-dict-t/122255575184055743/?_rdc=1&_rdr#",
+            },
+          ]}
+        />
         <GalleryGrid images={hackforgov} columns="three" priorityFirst />
       </section>
       <section className="gallery-section" id="worldskills-national">
-        <GalleryHeading meta="September 7–11, 2026 · Clark, Pampanga" title="WorldSkills Philippines Clark 2026" description="Representing the Negros Island Region in the Cybersecurity skill area at the national competition." />
+        <GalleryHeading
+          meta="September 7–11, 2026 · Clark, Pampanga"
+          title="WorldSkills Philippines Clark 2026"
+          description="Representing the Negros Island Region in the Cybersecurity skill area at the national competition."
+          links={[
+            {
+              label: "FU CCS Delegation Post (Facebook)",
+              href: "https://www.facebook.com/share/p/1F9F1QvPm2/",
+            },
+            {
+              label: "TESDA Official Record",
+              href: "https://tesda.gov.ph/Media/NewsDetail/20489",
+            },
+          ]}
+        />
         <GalleryGrid images={national} priorityFirst />
       </section>
       <section className="gallery-section" id="worldskills-regional">
-        <GalleryHeading meta="June 8–10, 2026 · Dumaguete City" title="NIR Regional Skills Olympics" description="Cybersecurity gold medal and qualification for the WorldSkills Philippines national competition." />
+        <GalleryHeading
+          meta="June 8–10, 2026 · Dumaguete City"
+          title="NIR Regional Skills Olympics"
+          description="Cybersecurity gold medal and qualification for the WorldSkills Philippines national competition."
+          links={[
+            {
+              label: "University Record (Foundation University)",
+              href: "https://www.foundationu.edu.ph/post/foundation-university-bags-gold-medals-at-the-nir-regional-skills-olympics",
+            },
+          ]}
+        />
         <GalleryGrid images={regional} columns="evidence" />
       </section>
       <section className="gallery-section" id="koica">
-        <GalleryHeading meta="June 22–July 31, 2026 · Silliman University" title="KOICA Advanced AI & Data Analytics" description="Highlights from the 120-hour program delivered through the KOICA Digital Transformation Center." />
+        <GalleryHeading
+          meta="June 22–July 31, 2026 · Silliman University"
+          title="KOICA Advanced AI & Data Analytics"
+          description="Highlights from the 120-hour program delivered through the KOICA Digital Transformation Center."
+          links={[
+            {
+              label: "FoundationU CCS Completion Post (Facebook)",
+              href: "https://www.facebook.com/share/p/19YjD6Wvbb/",
+            },
+          ]}
+        />
         <GalleryGrid images={koica} />
       </section>
       <section className="gallery-section" id="huawei">
@@ -129,11 +297,35 @@ export default function GalleryPage() {
         </a>
       </section>
       <section className="gallery-section" id="hackit">
-        <GalleryHeading meta="July 2025 · Cebu City" title="Can You HackIT: The IBPAP Challenge" description="Team SHIFT’s build session and Top 5 recognition at Cebu Institute of Technology–University." />
+        <GalleryHeading
+          meta="July 2025 · Cebu City"
+          title="Can You HackIT: The IBPAP Challenge"
+          description="Team SHIFT’s build session and Top 5 recognition at Cebu Institute of Technology–University."
+          links={[
+            {
+              label: "IBPAP Official Photo (Facebook)",
+              href: "https://www.facebook.com/share/1DdVpUSuUw/",
+            },
+            {
+              label: "Team SHIFT HackIT Post (Facebook)",
+              href: "https://www.facebook.com/share/p/1KdQQ9QoQ5/",
+            },
+          ]}
+        />
         <GalleryGrid images={hackit} columns="three" />
       </section>
       <section className="gallery-section" id="aideas">
-        <GalleryHeading meta="June 25–26, 2024 · Dumaguete City" title="DICT AI.deas for Impact" description="AI for Innovation and Social Impact workshop activities and completion recognition." />
+        <GalleryHeading
+          meta="June 25–26, 2024 · Dumaguete City"
+          title="DICT AI.deas for Impact"
+          description="AI for Innovation and Social Impact workshop activities and completion recognition."
+          links={[
+            {
+              label: "DICT IIDB Official Coverage (Facebook)",
+              href: "https://www.facebook.com/share/p/18oYbEbkf5/",
+            },
+          ]}
+        />
         <GalleryGrid images={aideas} />
       </section>
       <NextStep

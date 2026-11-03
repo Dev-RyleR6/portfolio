@@ -1,29 +1,103 @@
 # Ryle Anthony Gabotero
 
-> Software engineer in Dumaguete City, Negros Island Region, Philippines, working across backend development, cybersecurity, systems administration, and applied AI.
+> Software engineer based in Dumaguete City, Negros Island Region (NIR), Philippines. Specializes in backend systems, full-stack web engineering, cybersecurity, systems administration, and applied AI.
 
-Canonical website: https://www.ryleanthony-gabotero.tech/
+Canonical Website: https://www.ryleanthony-gabotero.tech/
+Canonical Location: Dumaguete City, Negros Island Region, Philippines (Coordinates: 9.3068° N, 123.3054° E)
+University / Affiliation: Foundation University (Dumaguete City)
+Leadership: Co-Founder & Technical Lead, Team SHIFT (Students Harnessing Interest for Technology)
 
-## Portfolio pages
+---
 
-- [Profile](https://www.ryleanthony-gabotero.tech/): Professional overview and technical focus.
-- [Projects](https://www.ryleanthony-gabotero.tech/projects): Architecture, technologies, repositories, outcomes, and project status.
-- [Experience](https://www.ryleanthony-gabotero.tech/experience): Competition results, training, and assessments with supporting records.
-- [Gallery](https://www.ryleanthony-gabotero.tech/gallery): Competition and training photographs and certificates.
-- [Contact](https://www.ryleanthony-gabotero.tech/contact): Professional contact channels and resume.
+## Verified Competitions & Activity Evidence
 
-## Selected projects
+Each competition and achievement is backed by photographic evidence, official certificates, or government/institutional records:
 
-- [SafeView](https://www.ryleanthony-gabotero.tech/projects/safeview): On-device visual phishing detection with OCR and semantic embeddings.
-- [OvaLens Ecosystem](https://www.ryleanthony-gabotero.tech/projects/ovalens): Computer vision for duck-egg candling with ESP32 conveyor actuation.
-- [Pickle World](https://www.ryleanthony-gabotero.tech/projects/pickleworld): Retired venue booking system using WebSocket locks and payment reconciliation.
+- **HackForGov 5 – Negros Island Region (October 12, 2026 · Bacolod City)**
+  - Event: Regional Capture-the-Flag (CTF) cybersecurity competition organized by DICT Cybersecurity Bureau and CERT-PH at Roys Hotel and Convention Center, Bacolod City.
+  - Role: CTF Player, Cryptography specialist for Team SHIFT. Held #1 on the live scoreboard for hours during challenge rounds; finished in 6th place overall across cryptanalysis, network forensics, reverse engineering, and web security.
+  - Evidence Gallery: https://www.ryleanthony-gabotero.tech/gallery#hackforgov
+  - University Recognition (FU CCS Facebook): https://www.facebook.com/share/p/18fJmyJseu/
+  - Official Government Record (DICT Negros Occidental Facebook): https://web.facebook.com/DICTNegrosOccidental/posts/%F0%9D%97%94%F0%9D%97%A5%F0%9D%97%9C%F0%9D%97%95%F0%9D%97%94-%F0%9D%97%A1%F0%9D%97%98%F0%9D%97%9A%F0%9D%97%A5%F0%9D%97%98%F0%9D%97%A1%F0%9D%97%A6%F0%9D%97%98the-department-of-information-and-communications-technology-dict-t/122255575184055743/?_rdc=1&_rdr#
 
-## Public professional profiles
+- **WorldSkills Philippines Clark 2026 (September 7–11, 2026 · Clark, Pampanga)**
+  - Event: National skills competition organized by TESDA.
+  - Role: Represented the Negros Island Region (Team NIR) in the Cybersecurity skill area across offensive and defensive tasks (packet capture analysis, infrastructure hardening, incident response, vulnerability assessment).
+  - Evidence Gallery: https://www.ryleanthony-gabotero.tech/gallery#worldskills-national
+  - University Delegation Announcement (FU CCS Facebook): https://www.facebook.com/share/p/1F9F1QvPm2/
+  - Official Government Record (TESDA National News): https://tesda.gov.ph/Media/NewsDetail/20489
 
-- [GitHub: Dev-RyleR6](https://github.com/Dev-RyleR6)
-- [LinkedIn](https://www.linkedin.com/in/rylegabotero/)
-- [GitLab](https://gitlab.com/ryleanthony.gabotero)
+- **NIR Regional Skills Olympics 2026 (June 8–10, 2026 · Dumaguete City)**
+  - Event: Regional skills competition in the Negros Island Region.
+  - Role: Gold Medalist in Cybersecurity (with teammate Earl John Estandarte), qualifying as regional champion to represent NIR at the national level.
+  - Evidence Gallery: https://www.ryleanthony-gabotero.tech/gallery#worldskills-regional
+  - Official University Record: https://www.foundationu.edu.ph/post/foundation-university-bags-gold-medals-at-the-nir-regional-skills-olympics
 
-## External reference
+- **Can You HackIT: The IBPAP Challenge (July 2025 · Cebu City)**
+  - Event: 24-hour hackathon at Cebu Institute of Technology–University.
+  - Role: Developer with Team SHIFT; recognized in the Top 5 (4th Place finish).
+  - Evidence Gallery: https://www.ryleanthony-gabotero.tech/gallery#hackit
+  - Organizer Record (IBPAP Official Facebook): https://www.facebook.com/share/1DdVpUSuUw/
+  - Team SHIFT Competition Post (Facebook): https://www.facebook.com/share/p/1KdQQ9QoQ5/
 
-- [Foundation University regional competition record](https://www.foundationu.edu.ph/post/foundation-university-bags-gold-medals-at-the-nir-regional-skills-olympics): Names Ryle Anthony Gabotero and Earl John Estandarte as Cybersecurity gold medalists.
+- **Huawei Developer Competition (November 2025 · APAC)**
+  - Event: Asia-Pacific cloud and AI developer challenge.
+  - Evidence & Certificate: https://www.ryleanthony-gabotero.tech/gallery#huawei
+
+- **DICT AI.deas for Impact (June 25–26, 2024 · Dumaguete City)**
+  - Event: AI innovation workshop organized by the Department of Information and Communications Technology (DICT).
+  - Evidence Gallery: https://www.ryleanthony-gabotero.tech/gallery#aideas
+  - Official Government Record (DICT IIDB Region 7 Facebook): https://www.facebook.com/share/p/18oYbEbkf5/
+
+---
+
+## Engineering Work & Shipped Systems
+
+- **Full-Stack Web Development & Client Systems (2024 – Present)**
+  - Builds and deploys custom websites, clinic and healthcare web platforms with mobile-optimized inquiry/appointment flows, and responsive business systems using React, TypeScript, Next.js, Node.js, Express, Laravel, CodeIgniter, MySQL, and WebSockets.
+  - Case Studies: https://www.ryleanthony-gabotero.tech/projects
+
+- **Co-Founder & Technical Lead · Team SHIFT (2024 – Present · Dumaguete City)**
+  - Co-founded Students Harnessing Interest for Technology (SHIFT), leading student developers across software engineering, systems administration, and cybersecurity.
+  - Built internal university systems, student administrative platforms, and FRACS (Facial Recognition Attendance Checker Platform).
+  - University Feature (FU CCS Facebook): https://www.facebook.com/share/p/18fJmyJseu/
+  - Competition Features: https://www.facebook.com/share/1DdVpUSuUw/ and https://www.facebook.com/share/p/1KdQQ9QoQ5/
+  - Supported with evidence at: https://www.ryleanthony-gabotero.tech/gallery#hackforgov and https://www.ryleanthony-gabotero.tech/gallery#hackit
+
+- **Lead AI Systems Architect & Embedded Hardware Engineer · OvaLens Ecosystem (2026 – 2027 · Dumaguete City)**
+  - Undergraduate Capstone project: autonomous duck-egg candling and fertility sorting machine.
+  - Custom YOLOv8 computer vision model trained on a curated candling dataset, hyperparameter-tuned, and quantized via ONNX for edge inference on a low-compute Raspberry Pi.
+  - Interfaced ESP32 microcontrollers, NEMA stepper motor drivers, and servo diversion gates for real-time mechanical sorting, backed by an offline-sync web engine.
+  - Deep-Dive Case Study: https://www.ryleanthony-gabotero.tech/projects/ovalens
+  - Model Repository: https://github.com/Dev-RyleR6/OvaLens-Ecosystem
+
+---
+
+## Formal Credentials & Assessments
+
+- **Advanced Big Data Analytics & Artificial Intelligence (June–July 2026 · Dumaguete City)**
+  - Issued by: KOICA Digital Transformation (DX) Center, Hannam University & Silliman University.
+  - 120 hours across 7 domains including deep learning architectures, TensorFlow, reinforcement learning, and autonomous agents (Score: 10/10 in Deep Learning Architecture).
+  - Evidence Gallery: https://www.ryleanthony-gabotero.tech/gallery#koica
+  - University Announcement (FoundationU CCS Student Leaders Facebook): https://www.facebook.com/share/p/19YjD6Wvbb/
+
+- **TOPCIT ICT Competency Assessment (July 23, 2026 · Philippines)**
+  - Standardized national evaluation by IITP & TOPCIT Philippines covering software architecture, cybersecurity, and IT project management (Level 2 Competency · Score: 365/1000).
+  - Official Score Report: https://www.ryleanthony-gabotero.tech/assets/docs/My%20Page%20_%20Score%20%26%20Certificate%20_Overall%20achievement%20_%20TOPCIT.pdf
+
+---
+
+## Public Professional Profiles & Open-Source Code
+
+- GitHub Profile: https://github.com/Dev-RyleR6
+- LinkedIn: https://www.linkedin.com/in/rylegabotero/
+- GitLab: https://gitlab.com/ryleanthony.gabotero
+- Telegram: https://t.me/ryleanthony
+- Resume (PDF): https://www.ryleanthony-gabotero.tech/assets/docs/RyleGaboteroCV.pdf
+
+### Notable Open-Source Repositories
+- OvaLens Ecosystem (YOLOv8 Edge & Conveyor Sorting): https://github.com/Dev-RyleR6/OvaLens-Ecosystem
+- SafeView (OCR & Semantic Phishing Detection Agent): https://github.com/Dev-RyleR6/SafeView
+- Custom IMX179 Studio Control Center: https://github.com/Dev-RyleR6/custom-IMX179-Studio-Control-Center
+- HLS Reverse Proxy Server: https://github.com/Dev-RyleR6/proxy-server
+- AR Chronicles Mobile Application: https://github.com/Dev-RyleR6/ARChroniclesmainAPP

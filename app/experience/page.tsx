@@ -12,10 +12,31 @@ export const metadata: Metadata = pageMetadata(
   "/experience"
 );
 
+function LocationPinIcon() {
+  return (
+    <svg
+      width={12}
+      height={12}
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden="true"
+      className="timeline-ledger__location-icon"
+    >
+      <path
+        d="M8 1.5C5.515 1.5 3.5 3.515 3.5 6c0 3.375 4.5 8.5 4.5 8.5s4.5-5.125 4.5-8.5c0-2.485-2.015-4.5-4.5-4.5z"
+        stroke="currentColor"
+        strokeWidth="1.3"
+      />
+      <circle cx="8" cy="6" r="1.5" fill="currentColor" />
+    </svg>
+  );
+}
+
 type WorkExperienceItem = {
   date: string;
   datetime: string;
   standing: string;
+  location: string;
   title: string;
   role: string;
   summary: string;
@@ -29,6 +50,7 @@ const workExperience: WorkExperienceItem[] = [
     date: "2024 – Present",
     datetime: "2024/2026",
     standing: "Client Work",
+    location: "Dumaguete City & Remote · Philippines",
     title: "Full-Stack Web Developer",
     role: "Web Development & Systems",
     summary:
@@ -67,6 +89,7 @@ const workExperience: WorkExperienceItem[] = [
     date: "2024 – Present",
     datetime: "2024/2026",
     standing: "Student Tech Team",
+    location: "Dumaguete City · NIR",
     title: "Co-Founder & Technical Lead",
     role: "Team SHIFT",
     summary:
@@ -111,13 +134,21 @@ const workExperience: WorkExperienceItem[] = [
       "Git",
     ],
     links: [
-      { label: "View Team SHIFT in gallery →", href: "/gallery#hackit", external: false },
+      { label: "View Team SHIFT at HackForGov →", href: "/gallery#hackforgov", external: false },
+      { label: "View HackIT build gallery →", href: "/gallery#hackit", external: false, secondary: true },
+      {
+        label: "Team SHIFT feature (FU CCS) ↗",
+        href: "https://www.facebook.com/share/p/18fJmyJseu/",
+        external: true,
+        secondary: true,
+      },
     ],
   },
   {
     date: "2026 – 2027",
     datetime: "2026/2027",
     standing: "Undergraduate Capstone",
+    location: "Dumaguete City · NIR",
     title: "Lead AI Systems Architect & Embedded Hardware Engineer",
     role: "OvaLens Ecosystem · Automated Candling & Sorting",
     summary:
@@ -165,6 +196,7 @@ const featuredCompetitions = [
     date: "October 2026",
     datetime: "2026-10",
     standing: "6th place · Regional CTF",
+    location: "Bacolod City · NIR",
     title: "HackForGov 5 – Negros Island Region",
     role: "CTF Player",
     summary:
@@ -174,6 +206,11 @@ const featuredCompetitions = [
     caption: "Team SHIFT on stage at HackForGov 5 NIR in Bacolod City",
     links: [
       { label: "View event gallery →", href: "/gallery#hackforgov", external: false },
+      {
+        label: "FU CCS announcement ↗",
+        href: "https://www.facebook.com/share/p/18fJmyJseu/",
+        external: true,
+      },
       {
         label: "DICT official record ↗",
         href: "https://web.facebook.com/DICTNegrosOccidental/posts/%F0%9D%97%94%F0%9D%97%A5%F0%9D%97%9C%F0%9D%97%95%F0%9D%97%94-%F0%9D%97%A1%F0%9D%97%98%F0%9D%97%9A%F0%9D%97%A5%F0%9D%97%98%F0%9D%97%A1%F0%9D%97%A6%F0%9D%97%98the-department-of-information-and-communications-technology-dict-t/122255575184055743/?_rdc=1&_rdr#",
@@ -186,6 +223,7 @@ const featuredCompetitions = [
     date: "September 2026",
     datetime: "2026-09",
     standing: "National competitor",
+    location: "Clark, Pampanga",
     title: "WorldSkills Philippines Clark 2026",
     role: "Cybersecurity · Team NIR",
     summary:
@@ -195,6 +233,11 @@ const featuredCompetitions = [
     caption: "WorldSkills Philippines national competition ceremony",
     links: [
       { label: "View event gallery →", href: "/gallery#worldskills-national", external: false },
+      {
+        label: "FU CCS delegation record ↗",
+        href: "https://www.facebook.com/share/p/1F9F1QvPm2/",
+        external: true,
+      },
       { label: "TESDA official record ↗", href: "https://tesda.gov.ph/Media/NewsDetail/20489", external: true },
     ],
   },
@@ -202,6 +245,7 @@ const featuredCompetitions = [
     date: "June 2026",
     datetime: "2026-06",
     standing: "Regional champion",
+    location: "Dumaguete City · NIR",
     title: "NIR Regional Skills Olympics",
     role: "Gold medal · Cybersecurity",
     summary:
@@ -225,34 +269,55 @@ const hackathons = [
     date: "November 2025",
     datetime: "2025-11",
     standing: "APAC Participant",
+    location: "APAC (Online)",
     title: "Huawei Developer Competition",
     role: "Cloud & AI",
     summary:
       "Built and presented a cloud-native intelligent solution through Huawei’s Asia-Pacific developer competition program.",
-    href: "/gallery#huawei",
-    linkText: "View certificate →",
+    links: [
+      { label: "View certificate →", href: "/gallery#huawei", external: false },
+    ],
   },
   {
     date: "July 2025",
     datetime: "2025-07",
     standing: "4th place · Top 5",
+    location: "Cebu City",
     title: "Can You HackIT: The IBPAP Challenge",
     role: "Developer · Team SHIFT",
     summary:
       "Architected and presented a working solution within 24 hours at Cebu Institute of Technology–University.",
-    href: "/gallery#hackit",
-    linkText: "View event gallery →",
+    links: [
+      { label: "View event gallery →", href: "/gallery#hackit", external: false },
+      {
+        label: "IBPAP official photo ↗",
+        href: "https://www.facebook.com/share/1DdVpUSuUw/",
+        external: true,
+      },
+      {
+        label: "Team SHIFT HackIT post ↗",
+        href: "https://www.facebook.com/share/p/1KdQQ9QoQ5/",
+        external: true,
+      },
+    ],
   },
   {
     date: "June 2024",
     datetime: "2024-06",
     standing: "Innovation participant",
+    location: "Dumaguete City · NIR",
     title: "DICT AI.deas for Impact",
     role: "AI for social impact",
     summary:
       "Developed and pitched AI concepts addressing regional challenges during the DICT innovation workshop.",
-    href: "/gallery#aideas",
-    linkText: "View workshop gallery →",
+    links: [
+      { label: "View workshop gallery →", href: "/gallery#aideas", external: false },
+      {
+        label: "DICT IIDB official coverage ↗",
+        href: "https://www.facebook.com/share/p/18oYbEbkf5/",
+        external: true,
+      },
+    ],
   },
 ];
 
@@ -260,24 +325,35 @@ const credentials = [
   {
     issuer: "KOICA DX Center · Hannam University · Silliman University",
     duration: "120 hours · June–July 2026",
+    location: "Silliman University · Dumaguete City",
     title: "Advanced Big Data Analytics & Artificial Intelligence",
     scoreBadge: "10/10 · Deep Learning Architecture",
     summary:
       "Seven assessed domains spanning machine learning, neural networks, TensorFlow, reinforcement learning, and autonomous AI agents.",
-    link: { label: "View training evidence →", href: "/gallery#koica", external: false },
+    links: [
+      { label: "View training evidence →", href: "/gallery#koica", external: false },
+      {
+        label: "FoundationU CCS completion post ↗",
+        href: "https://www.facebook.com/share/p/19YjD6Wvbb/",
+        external: true,
+      },
+    ],
   },
   {
     issuer: "IITP · TOPCIT Philippines",
     duration: "Level 2 · July 23, 2026",
+    location: "National Assessment · Philippines",
     title: "TOPCIT ICT Competency Assessment",
     scoreBadge: "Score: 365 / 1000 · Level 2",
     summary:
       "Standardized national assessment covering software development, data management, systems architecture, cybersecurity, and IT project management.",
-    link: {
-      label: "Open score report ↗",
-      href: "/assets/docs/My Page _ Score & Certificate _Overall achievement _ TOPCIT.pdf",
-      external: true,
-    },
+    links: [
+      {
+        label: "Open score report ↗",
+        href: "/assets/docs/My Page _ Score & Certificate _Overall achievement _ TOPCIT.pdf",
+        external: true,
+      },
+    ],
   },
 ];
 
@@ -285,59 +361,262 @@ export default function ExperiencePage() {
   const siteUrl = getSiteUrl();
   const experienceSchema = {
     "@context": "https://schema.org",
-    "@type": "AboutPage",
-    name: "Experience & Credentials | Ryle Anthony Gabotero",
-    url: `${siteUrl}/experience`,
-    description: "Work experience, national and regional cybersecurity competitions, technical training, and formal assessments earned by Ryle Anthony Gabotero.",
-    mainEntity: {
-      "@type": "Person",
-      "@id": `${siteUrl}/#person`,
-      name: siteConfig.name,
-      jobTitle: "Software Engineer",
-      hasOccupation: [
-        {
-          "@type": "Occupation",
-          name: "Full-Stack Web Developer",
-          occupationalCategory: "Software Developers",
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        "@id": `${siteUrl}/experience#aboutpage`,
+        url: `${siteUrl}/experience`,
+        name: "Experience & Competitions | Ryle Anthony Gabotero",
+        description:
+          "Work experience, national and regional cybersecurity competitions, technical training, and formal assessments earned by Ryle Anthony Gabotero.",
+        isPartOf: { "@id": `${siteUrl}/#website` },
+        mainEntity: { "@id": `${siteUrl}/#person` },
+      },
+      {
+        "@type": "Person",
+        "@id": `${siteUrl}/#person`,
+        name: siteConfig.name,
+        url: `${siteUrl}/`,
+        jobTitle: "Software Engineer",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Dumaguete City",
+          addressRegion: "Negros Island Region",
+          addressCountry: "PH",
         },
-        {
-          "@type": "Occupation",
-          name: "Co-Founder & Technical Lead",
-          occupationalCategory: "Technical Leadership & Software Engineering",
-        },
-      ],
-      memberOf: [
-        {
-          "@type": "Organization",
-          name: "Team SHIFT (Students Harnessing Interest for Technology)",
-        },
-      ],
-      award: [
-        "Gold Medalist - NIR Regional Skills Olympics 2026 (Cybersecurity)",
-        "6th Place - HackForGov 5 Negros Island Region 2026 (Cybersecurity CTF)",
-        "4th Place - Can You HackIT: The IBPAP Challenge 2025",
-      ],
-      hasCredential: [
-        {
-          "@type": "EducationalOccupationalCredential",
-          name: "Advanced Big Data Analytics & Artificial Intelligence",
-          credentialCategory: "certificate",
-          recognizedBy: {
+        award: [
+          "Gold Medalist - NIR Regional Skills Olympics 2026 (Cybersecurity)",
+          "National Competitor - WorldSkills Philippines Clark 2026 (Cybersecurity)",
+          "6th Place - HackForGov 5 Negros Island Region 2026 (Cybersecurity CTF)",
+          "4th Place - Can You HackIT: The IBPAP Challenge 2025",
+        ],
+        hasOccupation: [
+          {
+            "@type": "Occupation",
+            name: "Full-Stack Web Developer",
+            occupationalCategory: "Software Developers",
+          },
+          {
+            "@type": "Occupation",
+            name: "Co-Founder & Technical Lead",
+            occupationalCategory: "Technical Leadership & Software Engineering",
+          },
+        ],
+        memberOf: [
+          {
             "@type": "Organization",
-            name: "KOICA DX Center, Hannam University, Silliman University",
+            name: "Team SHIFT (Students Harnessing Interest for Technology)",
+          },
+        ],
+        hasCredential: [
+          {
+            "@type": "EducationalOccupationalCredential",
+            name: "Advanced Big Data Analytics & Artificial Intelligence",
+            credentialCategory: "certificate",
+            url: `${siteUrl}/gallery#koica`,
+            recognizedBy: {
+              "@type": "EducationalOrganization",
+              name: "KOICA DX Center, Hannam University, Silliman University",
+            },
+            subjectOf: {
+              "@type": "SocialMediaPosting",
+              name: "FoundationU CCS Official Announcement: KOICA Advanced Big Data Analytics Program Completion",
+              url: "https://www.facebook.com/share/p/19YjD6Wvbb/",
+            },
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            name: "TOPCIT ICT Competency Assessment - Level 2",
+            credentialCategory: "assessment",
+            url: `${siteUrl}/assets/docs/My%20Page%20_%20Score%20%26%20Certificate%20_Overall%20achievement%20_%20TOPCIT.pdf`,
+            recognizedBy: {
+              "@type": "Organization",
+              name: "IITP & TOPCIT Philippines",
+            },
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            name: "Huawei Developer Competition APAC Certificate",
+            credentialCategory: "certificate",
+            url: `${siteUrl}/gallery#huawei`,
+            recognizedBy: {
+              "@type": "Organization",
+              name: "Huawei",
+            },
+          },
+        ],
+      },
+      {
+        "@type": "Event",
+        "@id": `${siteUrl}/experience#hackforgov`,
+        name: "HackForGov 5 – Negros Island Region Capture-the-Flag Competition",
+        startDate: "2026-10-12",
+        eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+        eventStatus: "https://schema.org/EventScheduled",
+        location: {
+          "@type": "Place",
+          name: "Roys Hotel and Convention Center",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Bacolod City",
+            addressRegion: "Negros Island Region",
+            addressCountry: "PH",
           },
         },
-        {
-          "@type": "EducationalOccupationalCredential",
-          name: "TOPCIT ICT Competency Assessment - Level 2",
-          credentialCategory: "assessment",
-          recognizedBy: {
-            "@type": "Organization",
-            name: "IITP & TOPCIT Philippines",
+        organizer: {
+          "@type": "GovernmentOrganization",
+          name: "DICT Cybersecurity Bureau & CERT-PH",
+        },
+        performer: { "@id": `${siteUrl}/#person` },
+        award: "6th Place - Regional CTF (Held #1 Rank during challenge rounds)",
+        url: `${siteUrl}/gallery#hackforgov`,
+        image: `${siteUrl}/assets/images/hackforgov/hck4govshift.webp`,
+        subjectOf: [
+          {
+            "@type": "SocialMediaPosting",
+            name: "Foundation University CCS Official Announcement: Team SHIFT at HackForGov 5 NIR",
+            url: "https://www.facebook.com/share/p/18fJmyJseu/",
+          },
+          {
+            "@type": "SocialMediaPosting",
+            name: "DICT Negros Occidental Official HackForGov Record",
+            url: "https://web.facebook.com/DICTNegrosOccidental/posts/%F0%9D%97%94%F0%9D%97%A5%F0%9D%97%9C%F0%9D%97%95%F0%9D%97%94-%F0%9D%97%A1%F0%9D%97%98%F0%9D%97%9A%F0%9D%97%A5%F0%9D%97%98%F0%9D%97%A1%F0%9D%97%A6%F0%9D%97%98the-department-of-information-and-communications-technology-dict-t/122255575184055743/?_rdc=1&_rdr#",
+          },
+        ],
+      },
+      {
+        "@type": "Event",
+        "@id": `${siteUrl}/experience#worldskills-national`,
+        name: "WorldSkills Philippines Clark 2026 National Competition",
+        startDate: "2026-09-07",
+        endDate: "2026-09-11",
+        eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+        eventStatus: "https://schema.org/EventScheduled",
+        location: {
+          "@type": "Place",
+          name: "Clark Freeport Zone",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Clark",
+            addressRegion: "Pampanga",
+            addressCountry: "PH",
           },
         },
-      ],
-    },
+        organizer: {
+          "@type": "GovernmentOrganization",
+          name: "Technical Education and Skills Development Authority (TESDA)",
+        },
+        performer: { "@id": `${siteUrl}/#person` },
+        award: "National Competitor - Cybersecurity (Team NIR)",
+        url: `${siteUrl}/gallery#worldskills-national`,
+        image: `${siteUrl}/assets/images/worldskills/nationals/8d9c0df7-8dbb-4809-a3c0-072189056fb9.jpg`,
+        subjectOf: [
+          {
+            "@type": "SocialMediaPosting",
+            name: "Foundation University CCS Delegation Announcement: WorldSkills Philippines National Competition",
+            url: "https://www.facebook.com/share/p/1F9F1QvPm2/",
+          },
+          {
+            "@type": "NewsArticle",
+            name: "TESDA WorldSkills Philippines National Skills Competition",
+            url: "https://tesda.gov.ph/Media/NewsDetail/20489",
+          },
+        ],
+      },
+      {
+        "@type": "Event",
+        "@id": `${siteUrl}/experience#worldskills-regional`,
+        name: "NIR Regional Skills Olympics 2026",
+        startDate: "2026-06-08",
+        endDate: "2026-06-10",
+        eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+        eventStatus: "https://schema.org/EventScheduled",
+        location: {
+          "@type": "Place",
+          name: "Dumaguete City",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Dumaguete City",
+            addressRegion: "Negros Island Region",
+            addressCountry: "PH",
+          },
+        },
+        organizer: {
+          "@type": "GovernmentOrganization",
+          name: "TESDA Negros Island Region",
+        },
+        performer: { "@id": `${siteUrl}/#person` },
+        award: "Gold Medalist - Cybersecurity",
+        url: `${siteUrl}/gallery#worldskills-regional`,
+        image: `${siteUrl}/assets/images/worldskills/regional/image.webp`,
+        subjectOf: {
+          "@type": "Article",
+          name: "Foundation University Bags Gold Medals at the NIR Regional Skills Olympics",
+          url: "https://www.foundationu.edu.ph/post/foundation-university-bags-gold-medals-at-the-nir-regional-skills-olympics",
+        },
+      },
+      {
+        "@type": "Event",
+        "@id": `${siteUrl}/experience#hackit`,
+        name: "Can You HackIT: The IBPAP Challenge 2025",
+        startDate: "2025-07",
+        eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+        eventStatus: "https://schema.org/EventScheduled",
+        location: {
+          "@type": "Place",
+          name: "Cebu Institute of Technology – University",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Cebu City",
+            addressRegion: "Central Visayas",
+            addressCountry: "PH",
+          },
+        },
+        award: "Top 5 Finalist (4th Place)",
+        url: `${siteUrl}/gallery#hackit`,
+        subjectOf: [
+          {
+            "@type": "SocialMediaPosting",
+            name: "IBPAP Official Can You HackIT Challenge Coverage",
+            url: "https://www.facebook.com/share/1DdVpUSuUw/",
+          },
+          {
+            "@type": "SocialMediaPosting",
+            name: "Team SHIFT at Can You HackIT IBPAP Challenge",
+            url: "https://www.facebook.com/share/p/1KdQQ9QoQ5/",
+          },
+        ],
+      },
+      {
+        "@type": "Event",
+        "@id": `${siteUrl}/experience#aideas`,
+        name: "DICT AI.deas for Impact Innovation Workshop",
+        startDate: "2024-06-25",
+        endDate: "2024-06-26",
+        eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+        eventStatus: "https://schema.org/EventScheduled",
+        location: {
+          "@type": "Place",
+          name: "Dumaguete City",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Dumaguete City",
+            addressRegion: "Negros Island Region",
+            addressCountry: "PH",
+          },
+        },
+        organizer: {
+          "@type": "GovernmentOrganization",
+          name: "Department of Information and Communications Technology (DICT)",
+        },
+        url: `${siteUrl}/gallery#aideas`,
+        subjectOf: {
+          "@type": "SocialMediaPosting",
+          name: "DICT IIDB Region 7 AI.deas for Impact Official Coverage",
+          url: "https://www.facebook.com/share/p/18oYbEbkf5/",
+        },
+      },
+    ],
   };
 
   return (
@@ -354,7 +633,7 @@ export default function ExperiencePage() {
         </div>
         <div className="experience-intro__details">
           <p className="page-intro__lede">
-            Client work, student engineering leadership at Team SHIFT, applied AI capstone research, and national skills competitions.
+            Freelance work, student engineering leadership at Team SHIFT, applied AI capstone research, and national skills competitions.
           </p>
           <a className="resume-entry" href={siteConfig.resume} target="_blank" rel="noopener noreferrer">
             <svg className="resume-entry__document" width={24} height={24} aria-hidden="true" viewBox="0 0 24 24" fill="none">
@@ -404,6 +683,10 @@ export default function ExperiencePage() {
                   {item.date}
                 </time>
                 <span className="timeline-ledger__standing">{item.standing}</span>
+                <span className="timeline-ledger__location" aria-label={`Location: ${item.location}`}>
+                  <LocationPinIcon />
+                  {item.location}
+                </span>
               </div>
               <div className="timeline-ledger__col-main">
                 <h3 className="timeline-ledger__title">{item.title}</h3>
@@ -493,6 +776,10 @@ export default function ExperiencePage() {
                   {comp.date}
                 </time>
                 <span className="timeline-ledger__standing">{comp.standing}</span>
+                <span className="timeline-ledger__location" aria-label={`Location: ${comp.location}`}>
+                  <LocationPinIcon />
+                  {comp.location}
+                </span>
               </div>
               <div className="timeline-ledger__col-main">
                 <h3 className="timeline-ledger__title">{comp.title}</h3>
@@ -539,15 +826,33 @@ export default function ExperiencePage() {
                   {hack.date}
                 </time>
                 <span className="timeline-ledger__standing">{hack.standing}</span>
+                <span className="timeline-ledger__location" aria-label={`Location: ${hack.location}`}>
+                  <LocationPinIcon />
+                  {hack.location}
+                </span>
               </div>
               <div className="timeline-ledger__col-main">
                 <h3 className="timeline-ledger__title">{hack.title}</h3>
                 <p className="timeline-ledger__role">{hack.role}</p>
                 <p className="timeline-ledger__summary">{hack.summary}</p>
                 <div className="timeline-ledger__actions">
-                  <Link className="timeline-ledger__link" href={hack.href}>
-                    {hack.linkText}
-                  </Link>
+                  {hack.links.map((link) =>
+                    link.external ? (
+                      <a
+                        key={link.label}
+                        className="timeline-ledger__link timeline-ledger__link--secondary"
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link key={link.label} className="timeline-ledger__link" href={link.href}>
+                        {link.label}
+                      </Link>
+                    )
+                  )}
                 </div>
               </div>
             </article>
@@ -570,25 +875,32 @@ export default function ExperiencePage() {
               <div className="credentials-register__col-meta">
                 <span className="credentials-register__issuer">{cred.issuer}</span>
                 <span className="credentials-register__duration">{cred.duration}</span>
+                <span className="credentials-register__location" aria-label={`Location: ${cred.location}`}>
+                  <LocationPinIcon />
+                  {cred.location}
+                </span>
               </div>
               <div className="credentials-register__col-main">
                 <h3 className="credentials-register__title">{cred.title}</h3>
                 <span className="credentials-register__scoreBadge">{cred.scoreBadge}</span>
                 <p className="credentials-register__summary">{cred.summary}</p>
                 <div className="credentials-register__actions">
-                  {cred.link.external ? (
-                    <a
-                      className="timeline-ledger__link"
-                      href={cred.link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {cred.link.label}
-                    </a>
-                  ) : (
-                    <Link className="timeline-ledger__link" href={cred.link.href}>
-                      {cred.link.label}
-                    </Link>
+                  {cred.links.map((link) =>
+                    link.external ? (
+                      <a
+                        key={link.label}
+                        className="timeline-ledger__link timeline-ledger__link--secondary"
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link key={link.label} className="timeline-ledger__link" href={link.href}>
+                        {link.label}
+                      </Link>
+                    )
                   )}
                 </div>
               </div>
