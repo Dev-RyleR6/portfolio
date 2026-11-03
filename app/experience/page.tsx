@@ -12,26 +12,6 @@ export const metadata: Metadata = pageMetadata(
   "/experience"
 );
 
-function LocationPinIcon() {
-  return (
-    <svg
-      width={12}
-      height={12}
-      viewBox="0 0 16 16"
-      fill="none"
-      aria-hidden="true"
-      className="timeline-ledger__location-icon"
-    >
-      <path
-        d="M8 1.5C5.515 1.5 3.5 3.515 3.5 6c0 3.375 4.5 8.5 4.5 8.5s4.5-5.125 4.5-8.5c0-2.485-2.015-4.5-4.5-4.5z"
-        stroke="currentColor"
-        strokeWidth="1.3"
-      />
-      <circle cx="8" cy="6" r="1.5" fill="currentColor" />
-    </svg>
-  );
-}
-
 type WorkExperienceItem = {
   date: string;
   datetime: string;
@@ -683,10 +663,6 @@ export default function ExperiencePage() {
                   {item.date}
                 </time>
                 <span className="timeline-ledger__standing">{item.standing}</span>
-                <span className="timeline-ledger__location" aria-label={`Location: ${item.location}`}>
-                  <LocationPinIcon />
-                  {item.location}
-                </span>
               </div>
               <div className="timeline-ledger__col-main">
                 <h3 className="timeline-ledger__title">{item.title}</h3>
@@ -776,10 +752,6 @@ export default function ExperiencePage() {
                   {comp.date}
                 </time>
                 <span className="timeline-ledger__standing">{comp.standing}</span>
-                <span className="timeline-ledger__location" aria-label={`Location: ${comp.location}`}>
-                  <LocationPinIcon />
-                  {comp.location}
-                </span>
               </div>
               <div className="timeline-ledger__col-main">
                 <h3 className="timeline-ledger__title">{comp.title}</h3>
@@ -826,10 +798,6 @@ export default function ExperiencePage() {
                   {hack.date}
                 </time>
                 <span className="timeline-ledger__standing">{hack.standing}</span>
-                <span className="timeline-ledger__location" aria-label={`Location: ${hack.location}`}>
-                  <LocationPinIcon />
-                  {hack.location}
-                </span>
               </div>
               <div className="timeline-ledger__col-main">
                 <h3 className="timeline-ledger__title">{hack.title}</h3>
@@ -875,10 +843,6 @@ export default function ExperiencePage() {
               <div className="credentials-register__col-meta">
                 <span className="credentials-register__issuer">{cred.issuer}</span>
                 <span className="credentials-register__duration">{cred.duration}</span>
-                <span className="credentials-register__location" aria-label={`Location: ${cred.location}`}>
-                  <LocationPinIcon />
-                  {cred.location}
-                </span>
               </div>
               <div className="credentials-register__col-main">
                 <h3 className="credentials-register__title">{cred.title}</h3>
