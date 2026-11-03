@@ -51,6 +51,12 @@ export const metadata: Metadata = {
   verification: {
     google: "DR8xHqXTLS90oHcFRZT82RH2lhiHGUl8_XEgBiWjGlw",
   },
+  other: {
+    "geo.region": "PH-NER",
+    "geo.placename": "Dumaguete City, Negros Island Region, Philippines",
+    "geo.position": "9.3068;123.3054",
+    "ICBM": "9.3068, 123.3054",
+  },
 };
 
 export const viewport: Viewport = {

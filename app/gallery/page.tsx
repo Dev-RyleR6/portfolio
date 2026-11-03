@@ -71,6 +71,37 @@ export default function GalleryPage() {
     url: `${siteUrl}/gallery`,
     description: "Competition, training, workshop, certificate, and technical activity evidence from Ryle Anthony Gabotero.",
     author: { "@id": `${siteUrl}/#person` },
+    contentLocation: [
+      {
+        "@type": "Place",
+        name: "Bacolod City, Negros Island Region, Philippines",
+        geo: { "@type": "GeoCoordinates", latitude: 10.6766, longitude: 122.9509 },
+      },
+      {
+        "@type": "Place",
+        name: "Clark, Pampanga, Philippines",
+        geo: { "@type": "GeoCoordinates", latitude: 15.1855, longitude: 120.5592 },
+      },
+      {
+        "@type": "Place",
+        name: "Dumaguete City, Negros Island Region, Philippines",
+        geo: { "@type": "GeoCoordinates", latitude: 9.3068, longitude: 123.3054 },
+      },
+      {
+        "@type": "Place",
+        name: "Cebu City, Central Visayas, Philippines",
+        geo: { "@type": "GeoCoordinates", latitude: 10.3157, longitude: 123.8854 },
+      },
+    ],
+    about: [
+      { "@type": "Event", name: "HackForGov 5 – Negros Island Region", url: `${siteUrl}/experience#hackforgov` },
+      { "@type": "Event", name: "WorldSkills Philippines Clark 2026", url: `${siteUrl}/experience#worldskills-national` },
+      { "@type": "Event", name: "NIR Regional Skills Olympics 2026", url: `${siteUrl}/experience#worldskills-regional` },
+      { "@type": "EducationalOccupationalCredential", name: "KOICA Advanced Big Data Analytics & Artificial Intelligence", url: `${siteUrl}/gallery#koica` },
+      { "@type": "Event", name: "Can You HackIT: The IBPAP Challenge", url: `${siteUrl}/experience#hackit` },
+      { "@type": "EducationalOccupationalCredential", name: "Huawei Developer Competition", url: `${siteUrl}/gallery#huawei` },
+      { "@type": "Event", name: "DICT AI.deas for Impact", url: `${siteUrl}/experience#aideas` },
+    ],
     associatedMedia: galleryImages.map((image, index) => ({
       "@type": "ImageObject",
       contentUrl: `${siteUrl}${image.src}`,

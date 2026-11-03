@@ -22,11 +22,18 @@ export function profileStructuredData() {
         name: siteConfig.name,
         alternateName: ["Ryle Gabotero", "Ryle Anthony M. Gabotero", "Dev-RyleR6", "dev_R6"],
         jobTitle: "Software Engineer",
-        hasOccupation: {
-          "@type": "Occupation",
-          name: "Full-Stack Web Developer",
-          occupationalCategory: "Software Developers",
-        },
+        hasOccupation: [
+          {
+            "@type": "Occupation",
+            name: "Full-Stack Web Developer",
+            occupationalCategory: "Software Developers",
+          },
+          {
+            "@type": "Occupation",
+            name: "Co-Founder & Technical Lead",
+            occupationalCategory: "Technical Leadership & Software Engineering",
+          },
+        ],
         image: { "@id": `${siteUrl}/#profile-image` },
         description: siteConfig.description,
         email: `mailto:${siteConfig.email}`,
@@ -34,6 +41,24 @@ export function profileStructuredData() {
           "@type": "CollegeOrUniversity",
           name: "Foundation University",
           url: "https://www.foundationu.edu.ph",
+        },
+        alumniOf: {
+          "@type": "CollegeOrUniversity",
+          name: "Foundation University",
+          url: "https://www.foundationu.edu.ph",
+        },
+        founder: {
+          "@type": "Organization",
+          name: "Team SHIFT (Students Harnessing Interest for Technology)",
+          location: {
+            "@type": "Place",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Dumaguete City",
+              addressRegion: "Negros Island Region",
+              addressCountry: "PH",
+            },
+          },
         },
         memberOf: [
           {
@@ -46,6 +71,24 @@ export function profileStructuredData() {
           addressLocality: "Dumaguete City",
           addressRegion: "Negros Island Region",
           addressCountry: "PH",
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: 9.3068,
+          longitude: 123.3054,
+        },
+        homeLocation: {
+          "@type": "Place",
+          name: "Dumaguete City, Negros Island Region, Philippines",
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: 9.3068,
+            longitude: 123.3054,
+          },
+        },
+        workLocation: {
+          "@type": "Place",
+          name: "Dumaguete City, Negros Island Region, Philippines",
         },
         knowsAbout: [
           "Software Engineering",
@@ -83,8 +126,41 @@ export function profileStructuredData() {
         ],
         award: [
           "Gold Medalist - NIR Regional Skills Olympics 2026 (Cybersecurity)",
+          "National Competitor - WorldSkills Philippines Clark 2026 (Cybersecurity)",
           "6th Place - HackForGov 5 Negros Island Region 2026 (Cybersecurity CTF)",
           "4th Place - Can You HackIT: The IBPAP Challenge 2025",
+        ],
+        hasCredential: [
+          {
+            "@type": "EducationalOccupationalCredential",
+            name: "Advanced Big Data Analytics & Artificial Intelligence",
+            credentialCategory: "certificate",
+            url: `${siteUrl}/gallery#koica`,
+            recognizedBy: {
+              "@type": "EducationalOrganization",
+              name: "KOICA DX Center, Hannam University & Silliman University",
+            },
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            name: "TOPCIT ICT Competency Assessment - Level 2",
+            credentialCategory: "assessment",
+            url: `${siteUrl}/assets/docs/My%20Page%20_%20Score%20%26%20Certificate%20_Overall%20achievement%20_%20TOPCIT.pdf`,
+            recognizedBy: {
+              "@type": "Organization",
+              name: "IITP & TOPCIT Philippines",
+            },
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            name: "Huawei Developer Competition APAC Certificate",
+            credentialCategory: "certificate",
+            url: `${siteUrl}/gallery#huawei`,
+            recognizedBy: {
+              "@type": "Organization",
+              name: "Huawei",
+            },
+          },
         ],
         sameAs: [
           siteConfig.github,
@@ -96,6 +172,24 @@ export function profileStructuredData() {
             "@type": "Article",
             name: "Foundation University Bags Gold Medals at the NIR Regional Skills Olympics",
             url: "https://www.foundationu.edu.ph/post/foundation-university-bags-gold-medals-at-the-nir-regional-skills-olympics",
+          },
+          {
+            "@type": "SocialMediaPosting",
+            name: "HackForGov 5 Negros Island Region Capture-the-Flag Competition Official DICT Announcement",
+            url: "https://web.facebook.com/DICTNegrosOccidental/posts/%F0%9D%97%94%F0%9D%97%A5%F0%9D%97%9C%F0%9D%97%95%F0%9D%97%94-%F0%9D%97%A1%F0%9D%97%98%F0%9D%97%9A%F0%9D%97%A5%F0%9D%97%98%F0%9D%97%A1%F0%9D%97%A6%F0%9D%97%98the-department-of-information-and-communications-technology-dict-t/122255575184055743/?_rdc=1&_rdr#",
+            publisher: {
+              "@type": "GovernmentOrganization",
+              name: "Department of Information and Communications Technology - Negros Occidental",
+            },
+          },
+          {
+            "@type": "NewsArticle",
+            name: "TESDA WorldSkills Philippines National Skills Competition",
+            url: "https://tesda.gov.ph/Media/NewsDetail/20489",
+            publisher: {
+              "@type": "GovernmentOrganization",
+              name: "Technical Education and Skills Development Authority (TESDA)",
+            },
           },
         ],
       },
