@@ -136,6 +136,12 @@ const workExperience: WorkExperienceItem[] = [
     links: [
       { label: "View Team SHIFT at HackForGov →", href: "/gallery#hackforgov", external: false },
       { label: "View HackIT build gallery →", href: "/gallery#hackit", external: false, secondary: true },
+      {
+        label: "Team SHIFT feature (FU CCS) ↗",
+        href: "https://www.facebook.com/share/p/18fJmyJseu/",
+        external: true,
+        secondary: true,
+      },
     ],
   },
   {
@@ -201,6 +207,11 @@ const featuredCompetitions = [
     links: [
       { label: "View event gallery →", href: "/gallery#hackforgov", external: false },
       {
+        label: "FU CCS announcement ↗",
+        href: "https://www.facebook.com/share/p/18fJmyJseu/",
+        external: true,
+      },
+      {
         label: "DICT official record ↗",
         href: "https://web.facebook.com/DICTNegrosOccidental/posts/%F0%9D%97%94%F0%9D%97%A5%F0%9D%97%9C%F0%9D%97%95%F0%9D%97%94-%F0%9D%97%A1%F0%9D%97%98%F0%9D%97%9A%F0%9D%97%A5%F0%9D%97%98%F0%9D%97%A1%F0%9D%97%A6%F0%9D%97%98the-department-of-information-and-communications-technology-dict-t/122255575184055743/?_rdc=1&_rdr#",
         external: true,
@@ -222,6 +233,11 @@ const featuredCompetitions = [
     caption: "WorldSkills Philippines national competition ceremony",
     links: [
       { label: "View event gallery →", href: "/gallery#worldskills-national", external: false },
+      {
+        label: "FU CCS delegation record ↗",
+        href: "https://www.facebook.com/share/p/1F9F1QvPm2/",
+        external: true,
+      },
       { label: "TESDA official record ↗", href: "https://tesda.gov.ph/Media/NewsDetail/20489", external: true },
     ],
   },
@@ -420,14 +436,21 @@ export default function ExperiencePage() {
           name: "DICT Cybersecurity Bureau & CERT-PH",
         },
         performer: { "@id": `${siteUrl}/#person` },
-        award: "6th Place - Regional CTF",
+        award: "6th Place - Regional CTF (Held #1 Rank during challenge rounds)",
         url: `${siteUrl}/gallery#hackforgov`,
         image: `${siteUrl}/assets/images/hackforgov/hck4govshift.webp`,
-        subjectOf: {
-          "@type": "SocialMediaPosting",
-          name: "DICT Negros Occidental Official HackForGov Record",
-          url: "https://web.facebook.com/DICTNegrosOccidental/posts/%F0%9D%97%94%F0%9D%97%A5%F0%9D%97%9C%F0%9D%97%95%F0%9D%97%94-%F0%9D%97%A1%F0%9D%97%98%F0%9D%97%9A%F0%9D%97%A5%F0%9D%97%98%F0%9D%97%A1%F0%9D%97%A6%F0%9D%97%98the-department-of-information-and-communications-technology-dict-t/122255575184055743/?_rdc=1&_rdr#",
-        },
+        subjectOf: [
+          {
+            "@type": "SocialMediaPosting",
+            name: "Foundation University CCS Official Announcement: Team SHIFT at HackForGov 5 NIR",
+            url: "https://www.facebook.com/share/p/18fJmyJseu/",
+          },
+          {
+            "@type": "SocialMediaPosting",
+            name: "DICT Negros Occidental Official HackForGov Record",
+            url: "https://web.facebook.com/DICTNegrosOccidental/posts/%F0%9D%97%94%F0%9D%97%A5%F0%9D%97%9C%F0%9D%97%95%F0%9D%97%94-%F0%9D%97%A1%F0%9D%97%98%F0%9D%97%9A%F0%9D%97%A5%F0%9D%97%98%F0%9D%97%A1%F0%9D%97%A6%F0%9D%97%98the-department-of-information-and-communications-technology-dict-t/122255575184055743/?_rdc=1&_rdr#",
+          },
+        ],
       },
       {
         "@type": "Event",
@@ -455,11 +478,18 @@ export default function ExperiencePage() {
         award: "National Competitor - Cybersecurity (Team NIR)",
         url: `${siteUrl}/gallery#worldskills-national`,
         image: `${siteUrl}/assets/images/worldskills/nationals/8d9c0df7-8dbb-4809-a3c0-072189056fb9.jpg`,
-        subjectOf: {
-          "@type": "NewsArticle",
-          name: "TESDA WorldSkills Philippines National Skills Competition",
-          url: "https://tesda.gov.ph/Media/NewsDetail/20489",
-        },
+        subjectOf: [
+          {
+            "@type": "SocialMediaPosting",
+            name: "Foundation University CCS Delegation Announcement: WorldSkills Philippines National Competition",
+            url: "https://www.facebook.com/share/p/1F9F1QvPm2/",
+          },
+          {
+            "@type": "NewsArticle",
+            name: "TESDA WorldSkills Philippines National Skills Competition",
+            url: "https://tesda.gov.ph/Media/NewsDetail/20489",
+          },
+        ],
       },
       {
         "@type": "Event",

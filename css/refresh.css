@@ -2480,12 +2480,53 @@ body.page-archive .page {
   letter-spacing: -0.02em;
 }
 
-.gallery-section-heading > p {
+.gallery-section-heading > p,
+.gallery-section-heading__content > p {
   max-width: 50ch;
   margin: 0;
   color: var(--color-text-light);
   font-size: 0.92rem;
   line-height: 1.65;
+}
+
+.gallery-section-heading__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.gallery-section-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.85rem;
+}
+
+.gallery-section-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--color-border);
+  padding-bottom: 1px;
+  transition: color 150ms ease, border-color 150ms ease;
+}
+
+.gallery-section-link:hover {
+  color: var(--color-text);
+  border-bottom-color: var(--color-text);
+}
+
+.gallery-section-link svg {
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity 150ms ease;
+}
+
+.gallery-section-link:hover svg {
+  opacity: 1;
 }
 
 .activity-gallery {

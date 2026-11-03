@@ -17,13 +17,15 @@ Each competition and achievement is backed by photographic evidence, official ce
   - Event: Regional Capture-the-Flag (CTF) cybersecurity competition organized by DICT Cybersecurity Bureau and CERT-PH at Roys Hotel and Convention Center, Bacolod City.
   - Role: CTF Player, Cryptography specialist for Team SHIFT. Held #1 on the live scoreboard for hours during challenge rounds; finished in 6th place overall across cryptanalysis, network forensics, reverse engineering, and web security.
   - Evidence Gallery: https://www.ryleanthony-gabotero.tech/gallery#hackforgov
-  - Official Government Record: https://web.facebook.com/DICTNegrosOccidental/posts/%F0%9D%97%94%F0%9D%97%A5%F0%9D%97%9C%F0%9D%97%95%F0%9D%97%94-%F0%9D%97%A1%F0%9D%97%98%F0%9D%97%9A%F0%9D%97%A5%F0%9D%97%98%F0%9D%97%A1%F0%9D%97%A6%F0%9D%97%98the-department-of-information-and-communications-technology-dict-t/122255575184055743/?_rdc=1&_rdr#
+  - University Recognition (FU CCS Facebook): https://www.facebook.com/share/p/18fJmyJseu/
+  - Official Government Record (DICT Negros Occidental Facebook): https://web.facebook.com/DICTNegrosOccidental/posts/%F0%9D%97%94%F0%9D%97%A5%F0%9D%97%9C%F0%9D%97%95%F0%9D%97%94-%F0%9D%97%A1%F0%9D%97%98%F0%9D%97%9A%F0%9D%97%A5%F0%9D%97%98%F0%9D%97%A1%F0%9D%97%A6%F0%9D%97%98the-department-of-information-and-communications-technology-dict-t/122255575184055743/?_rdc=1&_rdr#
 
 - **WorldSkills Philippines Clark 2026 (September 7–11, 2026 · Clark, Pampanga)**
   - Event: National skills competition organized by TESDA.
   - Role: Represented the Negros Island Region (Team NIR) in the Cybersecurity skill area across offensive and defensive tasks (packet capture analysis, infrastructure hardening, incident response, vulnerability assessment).
   - Evidence Gallery: https://www.ryleanthony-gabotero.tech/gallery#worldskills-national
-  - Official Government Record: https://tesda.gov.ph/Media/NewsDetail/20489
+  - University Delegation Announcement (FU CCS Facebook): https://www.facebook.com/share/p/1F9F1QvPm2/
+  - Official Government Record (TESDA National News): https://tesda.gov.ph/Media/NewsDetail/20489
 
 - **NIR Regional Skills Olympics 2026 (June 8–10, 2026 · Dumaguete City)**
   - Event: Regional skills competition in the Negros Island Region.
@@ -55,6 +57,7 @@ Each competition and achievement is backed by photographic evidence, official ce
 - **Co-Founder & Technical Lead · Team SHIFT (2024 – Present · Dumaguete City)**
   - Co-founded Students Harnessing Interest for Technology (SHIFT), leading student developers across software engineering, systems administration, and cybersecurity.
   - Built internal university systems, student administrative platforms, and FRACS (Facial Recognition Attendance Checker Platform).
+  - University Feature (FU CCS Facebook): https://www.facebook.com/share/p/18fJmyJseu/
   - Supported with evidence at: https://www.ryleanthony-gabotero.tech/gallery#hackforgov and https://www.ryleanthony-gabotero.tech/gallery#hackit
 
 - **Lead AI Systems Architect & Embedded Hardware Engineer · OvaLens Ecosystem (2026 – 2027 · Dumaguete City)**
@@ -79,10 +82,17 @@ Each competition and achievement is backed by photographic evidence, official ce
 
 ---
 
-## Public Professional Profiles
+## Public Professional Profiles & Open-Source Code
 
-- GitHub: https://github.com/Dev-RyleR6
+- GitHub Profile: https://github.com/Dev-RyleR6
 - LinkedIn: https://www.linkedin.com/in/rylegabotero/
 - GitLab: https://gitlab.com/ryleanthony.gabotero
 - Telegram: https://t.me/ryleanthony
 - Resume (PDF): https://www.ryleanthony-gabotero.tech/assets/docs/RyleGaboteroCV.pdf
+
+### Notable Open-Source Repositories
+- OvaLens Ecosystem (YOLOv8 Edge & Conveyor Sorting): https://github.com/Dev-RyleR6/OvaLens-Ecosystem
+- SafeView (OCR & Semantic Phishing Detection Agent): https://github.com/Dev-RyleR6/SafeView
+- Custom IMX179 Studio Control Center: https://github.com/Dev-RyleR6/custom-IMX179-Studio-Control-Center
+- HLS Reverse Proxy Server: https://github.com/Dev-RyleR6/proxy-server
+- AR Chronicles Mobile Application: https://github.com/Dev-RyleR6/ARChroniclesmainAPP

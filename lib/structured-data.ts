@@ -175,11 +175,29 @@ export function profileStructuredData() {
           },
           {
             "@type": "SocialMediaPosting",
+            name: "Foundation University CCS Official Announcement: Team SHIFT at HackForGov 5 NIR",
+            url: "https://www.facebook.com/share/p/18fJmyJseu/",
+            publisher: {
+              "@type": "EducationalOrganization",
+              name: "Foundation University College of Computer Studies",
+            },
+          },
+          {
+            "@type": "SocialMediaPosting",
             name: "HackForGov 5 Negros Island Region Capture-the-Flag Competition Official DICT Announcement",
             url: "https://web.facebook.com/DICTNegrosOccidental/posts/%F0%9D%97%94%F0%9D%97%A5%F0%9D%97%9C%F0%9D%97%95%F0%9D%97%94-%F0%9D%97%A1%F0%9D%97%98%F0%9D%97%9A%F0%9D%97%A5%F0%9D%97%98%F0%9D%97%A1%F0%9D%97%A6%F0%9D%97%98the-department-of-information-and-communications-technology-dict-t/122255575184055743/?_rdc=1&_rdr#",
             publisher: {
               "@type": "GovernmentOrganization",
               name: "Department of Information and Communications Technology - Negros Occidental",
+            },
+          },
+          {
+            "@type": "SocialMediaPosting",
+            name: "Foundation University CCS Official Announcement: Delegation at WorldSkills Philippines National Competition",
+            url: "https://www.facebook.com/share/p/1F9F1QvPm2/",
+            publisher: {
+              "@type": "EducationalOrganization",
+              name: "Foundation University College of Computer Studies",
             },
           },
           {
