@@ -232,6 +232,15 @@ export function profileStructuredData() {
             name: "Team SHIFT at Can You HackIT IBPAP Challenge",
             url: "https://www.facebook.com/share/p/1KdQQ9QoQ5/",
           },
+          {
+            "@type": "SocialMediaPosting",
+            name: "DICT IIDB Region 7 AI.deas for Impact Official Coverage",
+            url: "https://www.facebook.com/share/p/18oYbEbkf5/",
+            publisher: {
+              "@type": "GovernmentOrganization",
+              name: "DICT ICT Industry Development Bureau (IIDB) Region 7",
+            },
+          },
         ],
       },
       {

@@ -312,6 +312,11 @@ const hackathons = [
       "Developed and pitched AI concepts addressing regional challenges during the DICT innovation workshop.",
     links: [
       { label: "View workshop gallery →", href: "/gallery#aideas", external: false },
+      {
+        label: "DICT IIDB official coverage ↗",
+        href: "https://www.facebook.com/share/p/18oYbEbkf5/",
+        external: true,
+      },
     ],
   },
 ];
@@ -605,6 +610,11 @@ export default function ExperiencePage() {
           name: "Department of Information and Communications Technology (DICT)",
         },
         url: `${siteUrl}/gallery#aideas`,
+        subjectOf: {
+          "@type": "SocialMediaPosting",
+          name: "DICT IIDB Region 7 AI.deas for Impact Official Coverage",
+          url: "https://www.facebook.com/share/p/18oYbEbkf5/",
+        },
       },
     ],
   };

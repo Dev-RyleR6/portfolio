@@ -185,6 +185,11 @@ export default function GalleryPage() {
         name: "Team SHIFT at Can You HackIT IBPAP Challenge",
         url: "https://www.facebook.com/share/p/1KdQQ9QoQ5/",
       },
+      {
+        "@type": "SocialMediaPosting",
+        name: "DICT IIDB Region 7 AI.deas for Impact Official Coverage",
+        url: "https://www.facebook.com/share/p/18oYbEbkf5/",
+      },
     ],
     associatedMedia: galleryImages.map((image, index) => ({
       "@type": "ImageObject",
@@ -310,7 +315,17 @@ export default function GalleryPage() {
         <GalleryGrid images={hackit} columns="three" />
       </section>
       <section className="gallery-section" id="aideas">
-        <GalleryHeading meta="June 25–26, 2024 · Dumaguete City" title="DICT AI.deas for Impact" description="AI for Innovation and Social Impact workshop activities and completion recognition." />
+        <GalleryHeading
+          meta="June 25–26, 2024 · Dumaguete City"
+          title="DICT AI.deas for Impact"
+          description="AI for Innovation and Social Impact workshop activities and completion recognition."
+          links={[
+            {
+              label: "DICT IIDB Official Coverage (Facebook)",
+              href: "https://www.facebook.com/share/p/18oYbEbkf5/",
+            },
+          ]}
+        />
         <GalleryGrid images={aideas} />
       </section>
       <NextStep
