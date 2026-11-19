@@ -174,7 +174,7 @@ export function profileStructuredData() {
             url: "https://www.foundationu.edu.ph/post/foundation-university-bags-gold-medals-at-the-nir-regional-skills-olympics",
           },
           {
-            "@type": "SocialMediaPosting",
+            "@type": "WebPage",
             name: "Foundation University CCS Official Announcement: Team SHIFT at HackForGov 5 NIR",
             url: "https://www.facebook.com/share/p/18fJmyJseu/",
             publisher: {
@@ -183,7 +183,7 @@ export function profileStructuredData() {
             },
           },
           {
-            "@type": "SocialMediaPosting",
+            "@type": "WebPage",
             name: "HackForGov 5 Negros Island Region Capture-the-Flag Competition Official DICT Announcement",
             url: "https://web.facebook.com/DICTNegrosOccidental/posts/%F0%9D%97%94%F0%9D%97%A5%F0%9D%97%9C%F0%9D%97%95%F0%9D%97%94-%F0%9D%97%A1%F0%9D%97%98%F0%9D%97%9A%F0%9D%97%A5%F0%9D%97%98%F0%9D%97%A1%F0%9D%97%A6%F0%9D%97%98the-department-of-information-and-communications-technology-dict-t/122255575184055743/?_rdc=1&_rdr#",
             publisher: {
@@ -192,7 +192,7 @@ export function profileStructuredData() {
             },
           },
           {
-            "@type": "SocialMediaPosting",
+            "@type": "WebPage",
             name: "Foundation University CCS Official Announcement: Delegation at WorldSkills Philippines National Competition",
             url: "https://www.facebook.com/share/p/1F9F1QvPm2/",
             publisher: {
@@ -210,7 +210,7 @@ export function profileStructuredData() {
             },
           },
           {
-            "@type": "SocialMediaPosting",
+            "@type": "WebPage",
             name: "FoundationU CCS Official Announcement: KOICA Advanced Big Data Analytics Program Completion",
             url: "https://www.facebook.com/share/p/19YjD6Wvbb/",
             publisher: {
@@ -219,7 +219,7 @@ export function profileStructuredData() {
             },
           },
           {
-            "@type": "SocialMediaPosting",
+            "@type": "WebPage",
             name: "IBPAP Official Can You HackIT Challenge Coverage",
             url: "https://www.facebook.com/share/1DdVpUSuUw/",
             publisher: {
@@ -228,12 +228,12 @@ export function profileStructuredData() {
             },
           },
           {
-            "@type": "SocialMediaPosting",
+            "@type": "WebPage",
             name: "Team SHIFT at Can You HackIT IBPAP Challenge",
             url: "https://www.facebook.com/share/p/1KdQQ9QoQ5/",
           },
           {
-            "@type": "SocialMediaPosting",
+            "@type": "WebPage",
             name: "DICT IIDB Region 7 AI.deas for Impact Official Coverage",
             url: "https://www.facebook.com/share/p/18oYbEbkf5/",
             publisher: {
